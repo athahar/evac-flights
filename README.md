@@ -53,8 +53,11 @@ Optional but recommended for stability:
 Optional live FR24 API source:
 - `FR24_API_ENABLED=true`
 - `FR24_API_KEY=...` (aliases supported: `FLIGHT_RADAR_API_KEY`, `FLIGHTRADAR24_API_KEY`)
-- `FR24_API_URL_TEMPLATE=...` (must include `{AIRPORT}` and `{DATE}`)
-- `FR24_API_AUTH_HEADER=x-apikey` (override if your provider uses another header)
+- `FR24_API_URL_TEMPLATE=...` (optional if default template mode is enabled)
+- `FR24_API_USE_DEFAULT_TEMPLATE=true` (uses FR24 v1 `flight-summary/light` outbound day window)
+- `FR24_API_AUTH_HEADER=Authorization`
+- `FR24_API_AUTH_PREFIX=Bearer`
+- `FR24_API_ACCEPT_VERSION=v1`
 - `FR24_API_RESPONSE_PATH=data` (JSON path to flight array)
 - `FR24_API_MAX_ATTEMPTS=3` (retry attempts per request)
 - `FR24_API_BACKOFF_MS=1200` (base backoff between retries)
@@ -220,11 +223,14 @@ npm run check:duffel:priority -- --date 2026-03-05 --origin DXB --rpm 50 --delay
 Dashboard scans now support two FR24 sources:
 
 - File mode (default): parses `FR24_INPUT_FILE`
-- API mode: set `FR24_API_ENABLED=true` and provide `FR24_API_KEY` + `FR24_API_URL_TEMPLATE`
+- API mode: set `FR24_API_ENABLED=true` and provide `FR24_API_KEY` (URL template optional with default-template mode)
 
 The URL template is expanded per origin/date:
 - `{AIRPORT}` -> origin IATA (e.g. `DXB`)
 - `{DATE}` -> local date ISO (e.g. `2026-03-05`)
+
+Default FR24 v1 template (when `FR24_API_USE_DEFAULT_TEMPLATE=true` and `FR24_API_URL_TEMPLATE` is empty):
+- `https://fr24api.flightradar24.com/api/flight-summary/light?airports={AIRPORT}&type=outbound&flight_datetime_from={DATE}T00:00:00&flight_datetime_to={DATE}T23:59:59`
 
 If `FR24_API_FALLBACK_TO_FILE=true`, API errors or empty API results automatically fall back to file input.
 
