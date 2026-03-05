@@ -289,11 +289,7 @@ app.get("/", (_req, res) => {
 app.listen(config.port, () => {
   logInfo(`evac-flight-alert server listening on :${config.port}`);
   logInfo(`[config] storageBackend=${config.storageBackend} dashboard interval=${config.dashboardIntervalMinutes}m lookaheadDays=${config.dashboardLookaheadDays} timezone=${config.dashboardTimezone} origin=${config.originAirports[0]}`);
-  if (config.dashboardAutoStart) {
-    dashboardRunner.startScheduler();
-    logInfo(`[dashboard] scheduler auto-started interval=${config.dashboardIntervalMinutes}m`);
-  } else {
-    logInfo("[dashboard] scheduler auto-start disabled (manual Run Now mode)");
-  }
+  dashboardRunner.startScheduler();
+  logInfo(`[dashboard] scheduler auto-started interval=${config.dashboardIntervalMinutes}m (aligned slots)`);
   logInfo("[scan] scheduler auto-start disabled (manual mode)");
 });

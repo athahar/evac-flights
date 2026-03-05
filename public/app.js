@@ -349,12 +349,18 @@ function sortRowsForCurrent(rows) {
 }
 
 function renderMeta() {
-  els.nextRunAt.textContent = state.nextRunAt ? fmtDateTime(state.nextRunAt) : "-";
+  if (state.nextRunAt) {
+    els.nextRunAt.textContent = fmtDateTime(state.nextRunAt);
+  } else if (state.schedulerRunning) {
+    els.nextRunAt.textContent = "Waiting for scheduler";
+  } else {
+    els.nextRunAt.textContent = "Manual mode";
+  }
 
   const mostRecentRun = state.mostRecent?.run || null;
   els.latestRunAt.textContent = mostRecentRun?.completedAt ? fmtDateTime(mostRecentRun.completedAt) : "-";
   els.latestRunStats.textContent = mostRecentRun
-    ? `${state.mostRecent.rows.length} flights • ${mostRecentRun.completedTasks}/${mostRecentRun.totalTasks} checks`
+    ? `${state.mostRecent.rows.length} flights`
     : "No completed run yet";
 
   if (state.currentRun) {
@@ -518,7 +524,7 @@ function connectEvents() {
 function startCountdown() {
   setInterval(() => {
     if (!state.nextRunAt) {
-      els.countdown.textContent = "-";
+      els.countdown.textContent = state.schedulerRunning ? "Awaiting next tick" : "Runs when you click Run Now";
       return;
     }
     const diffMs = new Date(state.nextRunAt).getTime() - Date.now();
