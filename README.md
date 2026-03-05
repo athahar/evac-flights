@@ -56,9 +56,9 @@ Optional live FR24 API source:
 - `FR24_API_URL_TEMPLATE=...` (must include `{AIRPORT}` and `{DATE}`)
 - `FR24_API_AUTH_HEADER=x-apikey` (override if your provider uses another header)
 - `FR24_API_RESPONSE_PATH=data` (JSON path to flight array)
-- `FR24_API_MAX_ATTEMPTS=4` (retry attempts per request)
+- `FR24_API_MAX_ATTEMPTS=3` (retry attempts per request)
 - `FR24_API_BACKOFF_MS=1200` (base backoff between retries)
-- `FR24_API_RATE_LIMIT_PER_MINUTE=8` (request pacing, keep below plan limit)
+- `FR24_API_RATE_LIMIT_PER_MINUTE=10` (request pacing, keep below plan limit)
 - `FR24_API_INTER_REQUEST_DELAY_MS=0` (extra delay between sequential requests)
 - `FR24_API_MIN_STATUS_COVERAGE=0.8`
 - `FR24_API_MIN_FLIGHT_COVERAGE=0.7`
@@ -233,3 +233,7 @@ Hardening included:
 - per-minute request limiter for FR24 requests
 - post-normalization coverage validation to catch schema drift
 - source telemetry logs (`source=api|file`, rows, retries, failures)
+
+Rate budget guidance:
+- keep `FR24_API_RATE_LIMIT_PER_MINUTE` at or below your plan cap
+- tune retries with: `rateLimitPerMinute >= maxAttempts x endpointCallsPerRun`
