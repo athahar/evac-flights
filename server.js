@@ -2,10 +2,11 @@ import path from "node:path";
 import dotenv from "dotenv";
 import express from "express";
 import { assertRequiredConfig, loadConfig } from "./lib/config.js";
-import { clearAvailabilityData, createDb, getSetting, listRuns, listSeen } from "./lib/db.js";
+import { createDb, getSetting, listRuns, listSeen } from "./lib/db.js";
 import { scanOnce } from "./lib/scan.js";
 import { createDashboardRunner } from "./lib/dashboard-runner.js";
 import { loadAirlineDirectory } from "./lib/airlineLinks.js";
+import { createStorage } from "./lib/storage/index.js";
 
 dotenv.config();
 
@@ -14,6 +15,8 @@ assertRequiredConfig(config);
 loadAirlineDirectory(config.airlinesFile);
 
 const db = createDb(config.dbPath);
+const storage = await createStorage(config, db);
+
 const app = express();
 app.use(express.json({ limit: "1mb" }));
 app.use(express.static(path.resolve(process.cwd(), "./public")));
@@ -21,7 +24,8 @@ app.use(express.static(path.resolve(process.cwd(), "./public")));
 let scanInFlight = false;
 let scheduler = null;
 
-const dashboardRunner = createDashboardRunner({ db, config });
+const dashboardRunner = createDashboardRunner({ storage, config });
+await dashboardRunner.init();
 
 const sseClients = new Set();
 
@@ -134,19 +138,25 @@ function stopScheduler() {
   scheduler = null;
 }
 
-app.get("/health", (_req, res) => {
-  res.json({
-    ok: true,
-    inFlight: scanInFlight,
-    scheduler: schedulerRunning(),
-    lastRunAt: getSetting(db, "last_run_at"),
-    dashboard: {
-      schedulerRunning: dashboardRunner.getState().schedulerRunning,
-      nextRunAt: dashboardRunner.getState().nextRunAt,
-      hasCurrentRun: Boolean(dashboardRunner.getState().currentRun),
-      hasMostRecent: Boolean(dashboardRunner.getState().mostRecent)
-    }
-  });
+app.get("/health", async (_req, res) => {
+  try {
+    const dashState = await dashboardRunner.getState();
+    res.json({
+      ok: true,
+      inFlight: scanInFlight,
+      scheduler: schedulerRunning(),
+      lastRunAt: getSetting(db, "last_run_at"),
+      storageBackend: config.storageBackend,
+      dashboard: {
+        schedulerRunning: dashState.schedulerRunning,
+        nextRunAt: dashState.nextRunAt,
+        hasCurrentRun: Boolean(dashState.currentRun),
+        hasMostRecent: Boolean(dashState.mostRecent)
+      }
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 app.post("/scan", async (req, res) => {
@@ -186,8 +196,12 @@ app.post("/scheduler/stop", (_req, res) => {
   res.json({ ok: true, scheduler: false });
 });
 
-app.get("/api/dashboard/state", (_req, res) => {
-  res.json(dashboardRunner.getState());
+app.get("/api/dashboard/state", async (_req, res) => {
+  try {
+    res.json(await dashboardRunner.getState());
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 app.post("/api/dashboard/run-now", async (_req, res) => {
@@ -213,30 +227,35 @@ app.post("/api/dashboard/scheduler/stop", (_req, res) => {
   res.json({ ok: true });
 });
 
-app.post("/api/dashboard/clear-runs", (_req, res) => {
-  const currentRun = dashboardRunner.getState().currentRun;
-  if (currentRun) {
-    res.status(409).json({
-      ok: false,
-      error: "Cannot clear data while a run is in progress. Wait for completion or stop scheduler first."
+app.post("/api/dashboard/clear-runs", async (_req, res) => {
+  try {
+    const dashState = await dashboardRunner.getState();
+    if (dashState.currentRun) {
+      res.status(409).json({
+        ok: false,
+        error: "Cannot clear data while a run is in progress. Wait for completion or stop scheduler first."
+      });
+      return;
+    }
+
+    const deleted = await storage.clearAllData();
+    logInfo(
+      `[api] POST /api/dashboard/clear-runs deleted rows: dashboard_run_rows=${deleted.dashboardRunRows}, dashboard_runs=${deleted.dashboardRuns}, runs=${deleted.runs}, seen_alerts=${deleted.seenAlerts}`
+    );
+
+    broadcastSse("runs_cleared", {
+      at: new Date().toISOString(),
+      deleted
     });
-    return;
+
+    res.json({
+      ok: true,
+      deleted
+    });
+  } catch (err) {
+    logError("[api] /api/dashboard/clear-runs failed", err);
+    res.status(500).json({ error: err.message });
   }
-
-  const deleted = clearAvailabilityData(db);
-  logInfo(
-    `[api] POST /api/dashboard/clear-runs deleted rows: dashboard_run_rows=${deleted.dashboardRunRows}, dashboard_runs=${deleted.dashboardRuns}, runs=${deleted.runs}, seen_alerts=${deleted.seenAlerts}`
-  );
-
-  broadcastSse("runs_cleared", {
-    at: new Date().toISOString(),
-    deleted
-  });
-
-  res.json({
-    ok: true,
-    deleted
-  });
 });
 
 app.get("/api/dashboard/events", (req, res) => {
@@ -262,9 +281,12 @@ app.get("/", (_req, res) => {
 
 app.listen(config.port, () => {
   logInfo(`evac-flight-alert server listening on :${config.port}`);
-  logInfo(
-    `[config] dashboard interval=${config.dashboardIntervalMinutes}m lookaheadDays=${config.dashboardLookaheadDays} timezone=${config.dashboardTimezone} origin=${config.originAirports[0]}`
-  );
-  logInfo("[dashboard] scheduler auto-start disabled (manual Run Now mode)");
+  logInfo(`[config] storageBackend=${config.storageBackend} dashboard interval=${config.dashboardIntervalMinutes}m lookaheadDays=${config.dashboardLookaheadDays} timezone=${config.dashboardTimezone} origin=${config.originAirports[0]}`);
+  if (config.dashboardAutoStart) {
+    dashboardRunner.startScheduler();
+    logInfo(`[dashboard] scheduler auto-started interval=${config.dashboardIntervalMinutes}m`);
+  } else {
+    logInfo("[dashboard] scheduler auto-start disabled (manual Run Now mode)");
+  }
   logInfo("[scan] scheduler auto-start disabled (manual mode)");
 });
