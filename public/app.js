@@ -415,7 +415,18 @@ function attachActions() {
   els.runNowBtn.addEventListener("click", async () => {
     els.runNowBtn.disabled = true;
     try {
-      await fetch("/api/dashboard/run-now", { method: "POST" });
+      const res = await fetch("/api/dashboard/run-now", { method: "POST" });
+      const payload = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        window.alert(payload?.error || `Run Now failed (${res.status})`);
+        return;
+      }
+
+      if (payload?.status === "skipped" && payload?.reason === "run_in_progress") {
+        window.alert("A live scan is already in progress.");
+      }
+
+      await fetchState();
     } finally {
       setTimeout(() => {
         els.runNowBtn.disabled = false;
