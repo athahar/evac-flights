@@ -52,7 +52,7 @@ Optional but recommended for stability:
 
 Optional live FR24 API source:
 - `FR24_API_ENABLED=true`
-- `FR24_API_KEY=...`
+- `FR24_API_KEY=...` (aliases supported: `FLIGHT_RADAR_API_KEY`, `FLIGHTRADAR24_API_KEY`)
 - `FR24_API_URL_TEMPLATE=...` (must include `{AIRPORT}` and `{DATE}`)
 - `FR24_API_AUTH_HEADER=x-apikey` (override if your provider uses another header)
 - `FR24_API_RESPONSE_PATH=data` (JSON path to flight array)
