@@ -191,8 +191,10 @@ function formatToLocation(row) {
   const iata = String(row.destinationIata || "").trim().toUpperCase();
   const city = String(row.destinationCity || "").trim();
   const country = String(row.destinationCountry || "").trim();
+  const cityLooksLikeIata = city && iata && city.toUpperCase() === iata;
 
   if (city && country && iata) return `${city}, ${country} (${iata})`;
+  if (cityLooksLikeIata) return iata || "-";
   if (city && iata) return `${city} (${iata})`;
   if (city) return city;
   return iata || "-";
