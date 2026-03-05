@@ -7,6 +7,7 @@ import { scanOnce } from "./lib/scan.js";
 import { createDashboardRunner } from "./lib/dashboard-runner.js";
 import { loadAirlineDirectory } from "./lib/airlineLinks.js";
 import { createStorage } from "./lib/storage/index.js";
+import { checkFr24ApiHealth } from "./lib/fr24.js";
 
 dotenv.config();
 
@@ -72,6 +73,13 @@ dashboardRunner.events.on("task_progress", (payload) => {
     logInfo(base);
   }
   broadcastSse("task_progress", payload);
+});
+
+dashboardRunner.events.on("fr24_source_selected", (payload) => {
+  logInfo(
+    `[dashboard] fr24 source selected source=${payload?.source ?? "unknown"} rows=${payload?.rowCount ?? 0} latencyMs=${payload?.latencyMs ?? 0}${payload?.fallbackReason ? ` fallback=${payload.fallbackReason}` : ""}`
+  );
+  broadcastSse("fr24_source_selected", payload);
 });
 
 dashboardRunner.events.on("run_completed", (payload) => {
@@ -157,6 +165,17 @@ app.get("/health", async (_req, res) => {
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
+});
+
+app.get("/api/fr24/health", async (_req, res) => {
+  const result = await checkFr24ApiHealth(config);
+  if (!result.ok) {
+    logError(`[fr24] health failed status=${result.status} latencyMs=${result.latencyMs} error="${result.error}"`);
+    res.status(503).json(result);
+    return;
+  }
+  logInfo(`[fr24] health ok status=${result.status} latencyMs=${result.latencyMs}`);
+  res.json(result);
 });
 
 app.post("/scan", async (req, res) => {
@@ -289,7 +308,10 @@ app.get("/", (_req, res) => {
 app.listen(config.port, () => {
   logInfo(`evac-flight-alert server listening on :${config.port}`);
   logInfo(`[config] storageBackend=${config.storageBackend} dashboard interval=${config.dashboardIntervalMinutes}m lookaheadDays=${config.dashboardLookaheadDays} timezone=${config.dashboardTimezone} origin=${config.originAirports[0]}`);
-  dashboardRunner.startScheduler();
-  logInfo(`[dashboard] scheduler auto-started interval=${config.dashboardIntervalMinutes}m (aligned slots)`);
-  logInfo("[scan] scheduler auto-start disabled (manual mode)");
+  if (config.dashboardAutoStart) {
+    dashboardRunner.startScheduler();
+    logInfo(`[dashboard] scheduler auto-started interval=${config.dashboardIntervalMinutes}m (aligned slots)`);
+  } else {
+    logInfo("[dashboard] scheduler auto-start disabled (manual mode)");
+  }
 });
