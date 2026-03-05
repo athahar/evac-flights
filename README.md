@@ -62,8 +62,8 @@ Open: `http://localhost:3210`
 ## Dashboard UX (new)
 
 The web UI is now the default app view and has:
-- `Most Recent Run` tab: last completed run with timestamp and sorted results.
-- `Current / Next Run` tab: live in-progress data stream + next-run countdown.
+- `Last Live Scan` tab: last completed run with timestamp and sorted results.
+- `Live Scan Details` tab: live in-progress data stream + next-run countdown.
 - 30-minute scheduler by default (`DASHBOARD_INTERVAL_MINUTES=30`).
 
 Each row shows:
@@ -75,6 +75,25 @@ Each row shows:
 - tickets available (yes/no/checking)
 - price
 - airline website link (only where explicit mapping exists)
+
+### Admin controls feature flag
+
+The top-right controls are hidden for normal users:
+- `Run Now`
+- `Resume/Pause Scheduler`
+- `Clear Runs`
+
+To show them, open the dashboard with:
+
+```text
+?ff=addadxb
+```
+
+Example:
+
+```text
+http://localhost:3210/?ff=addadxb
+```
 
 ## Data folders
 
@@ -94,6 +113,7 @@ Each row shows:
 - `POST /api/dashboard/scheduler/start`
 - `POST /api/dashboard/scheduler/stop`
 - `POST /api/dashboard/clear-runs`
+- `GET /api/public-config`
 - `POST /scan`
 - `GET /runs?limit=20`
 - `GET /seen?limit=50`
@@ -114,7 +134,20 @@ curl -sS -X POST http://localhost:3210/scan \
 curl -sS -X POST http://localhost:3210/api/dashboard/scheduler/start
 ```
 
-It auto-starts on server launch.
+Scheduler auto-start is disabled on server launch (manual mode).
+
+## PostHog analytics
+
+Set in `.env`:
+- `POSTHOG_KEY` (required to enable tracking)
+- `POSTHOG_HOST` (optional, defaults to `https://us.i.posthog.com`)
+
+When enabled, the frontend tracks:
+- page visit (`page_view`)
+- tab clicks (`tab_clicked`) for:
+  - `Last Live Scan`
+  - `Live Scan Details`
+- website open clicks (`open_link_clicked`)
 
 ## Simple listing first (no email, no SQLite)
 

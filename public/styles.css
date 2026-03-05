@@ -16,6 +16,10 @@
   box-sizing: border-box;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 body {
   margin: 0;
   font-family: var(--sans);
@@ -58,6 +62,12 @@ h1 {
 .subline {
   margin: 8px 0 0;
   color: var(--muted);
+}
+
+.subline-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .actions {

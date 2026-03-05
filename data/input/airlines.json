@@ -43,9 +43,9 @@
       {
         "name": "Air Astana",
         "iata": "KC",
-        "website": "https://www.airastana.com",
-        "booking_url": "https://www.airastana.com/kaz/en/Book/Flights",
-        "deeplink_template": "https://www.airastana.com/kaz/en/Book/Flights?origin={FROM}&destination={TO}&departDate={DATE}&returnDate=&adults=1&children=0&infants=0&tripType=OW",
+        "website": "https://airastana.com/global-en",
+        "booking_url": "https://airastana.com/global-en/booking",
+        "deeplink_template": "https://airastana.com/global-en/booking?departureDate={DATE}&isResident=0&isRefundable=0&isFlexible=0&isBuyWithPoints=0&isDomestic=0&departurePort={FROM}&arrivalPort={TO}&adultCount=1&childCount=0&infantCount=0&flightType=one-way",
         "deeplink_confidence": "estimated"
       },
       {

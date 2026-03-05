@@ -5,7 +5,15 @@ const state = {
   currentRun: null
 };
 
+const analytics = {
+  enabled: false,
+  key: "",
+  host: "https://us.i.posthog.com",
+  distinctId: ""
+};
+
 const els = {
+  adminControls: document.querySelector("#adminControls"),
   nextRunAt: document.querySelector("#nextRunAt"),
   countdown: document.querySelector("#countdown"),
   latestRunAt: document.querySelector("#latestRunAt"),
@@ -23,6 +31,108 @@ const els = {
     current: document.querySelector("#panel-current")
   }
 };
+
+function escapeHtmlAttr(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+function hasFeatureFlag(name, value) {
+  const params = new URLSearchParams(window.location.search);
+  return params.getAll(name).some((v) => String(v).trim().toLowerCase() === String(value).trim().toLowerCase());
+}
+
+const featureFlags = {
+  adminControls: hasFeatureFlag("ff", "addadxb")
+};
+
+function applyFeatureFlags() {
+  if (els.adminControls) {
+    const enabled = featureFlags.adminControls;
+    els.adminControls.hidden = !enabled;
+    els.adminControls.style.display = enabled ? "flex" : "none";
+  }
+}
+
+function getOrCreateDistinctId() {
+  const storageKey = "evac_posthog_distinct_id";
+
+  try {
+    const existing = window.localStorage.getItem(storageKey);
+    if (existing) return existing;
+  } catch {}
+
+  const generated =
+    window.crypto && typeof window.crypto.randomUUID === "function"
+      ? window.crypto.randomUUID()
+      : `anon_${Date.now()}_${Math.random().toString(36).slice(2, 12)}`;
+
+  try {
+    window.localStorage.setItem(storageKey, generated);
+  } catch {}
+
+  return generated;
+}
+
+function trackEvent(event, properties = {}) {
+  if (!analytics.enabled || !analytics.key) return;
+
+  const payload = JSON.stringify({
+    api_key: analytics.key,
+    event,
+    properties: {
+      distinct_id: analytics.distinctId,
+      app: "dxb-flight-tracker",
+      path: window.location.pathname,
+      href: window.location.href,
+      ...properties
+    }
+  });
+
+  const endpoint = `${analytics.host.replace(/\/$/, "")}/capture/`;
+
+  try {
+    if (navigator.sendBeacon) {
+      const blob = new Blob([payload], { type: "application/json" });
+      navigator.sendBeacon(endpoint, blob);
+      return;
+    }
+  } catch {}
+
+  fetch(endpoint, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: payload,
+    keepalive: true
+  }).catch(() => {});
+}
+
+async function initAnalytics() {
+  try {
+    const res = await fetch("/api/public-config", { cache: "no-store" });
+    if (!res.ok) return;
+
+    const cfg = await res.json();
+    const key = String(cfg.posthogKey || "").trim();
+    if (!key) return;
+
+    analytics.key = key;
+    analytics.host = String(cfg.posthogHost || "https://us.i.posthog.com").trim() || "https://us.i.posthog.com";
+    analytics.distinctId = getOrCreateDistinctId();
+    analytics.enabled = true;
+
+    trackEvent("page_view", {
+      page: "flight_availability_board",
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "unknown",
+      ff: new URLSearchParams(window.location.search).getAll("ff").join(",")
+    });
+  } catch (err) {
+    console.warn("Analytics init failed", err);
+  }
+}
 
 function fmtDateTime(value) {
   if (!value) return "-";
@@ -127,9 +237,17 @@ function renderWebsiteCell(row) {
   const url = String(row.bookingUrl || "").trim();
   const showVerify = Boolean(row.bookingNeedsVerify);
   const warning = showVerify ? `<span class="warning-icon" title="Verify airline website before dispatch">⚠️</span>` : "";
+  const attrs = [
+    `data-track="open-link"`,
+    `data-airline="${escapeHtmlAttr(row.airline || "")}"`,
+    `data-flight="${escapeHtmlAttr(formatFlightCode(row))}"`,
+    `data-from="${escapeHtmlAttr(row.origin || "")}"`,
+    `data-to="${escapeHtmlAttr(row.destinationIata || "")}"`,
+    `data-date="${escapeHtmlAttr(row.flightDate || "")}"`
+  ].join(" ");
 
   if (mode === "link" && url) {
-    return `<a class="link" href="${url}" target="_blank" rel="noopener noreferrer">Open</a>${warning}`;
+    return `<a class="link" ${attrs} href="${url}" target="_blank" rel="noopener noreferrer">Open</a>${warning}`;
   }
 
   if (mode === "none") {
@@ -137,7 +255,7 @@ function renderWebsiteCell(row) {
   }
 
   if (url) {
-    return `<a class="link" href="${url}" target="_blank" rel="noopener noreferrer">Open</a>${warning}`;
+    return `<a class="link" ${attrs} href="${url}" target="_blank" rel="noopener noreferrer">Open</a>${warning}`;
   }
 
   return "-";
@@ -177,7 +295,7 @@ function renderTable(target, rows) {
   target.appendChild(fragment);
 }
 
-function sortRows(rows) {
+function sortRowsForRecent(rows) {
   const rank = {
     BOOKABLE_NOW: 1,
     NOT_BOOKABLE_NOW: 2,
@@ -199,6 +317,34 @@ function sortRows(rows) {
     const bSeats = Number.isInteger(b.seatsMin) ? b.seatsMin : 999;
     if (aSeats !== bSeats) return aSeats - bSeats;
     return String(a.departureLocalIso || "").localeCompare(String(b.departureLocalIso || ""));
+  });
+}
+
+function sortRowsForCurrent(rows) {
+  const statusRank = {
+    BOOKABLE_NOW: 1,
+    AVAILABLE_EXACT: 1,
+    AVAILABLE_ROUTE: 2,
+    NOT_BOOKABLE_NOW: 3,
+    NO_OFFER: 3,
+    ERROR: 4,
+    PENDING: 5
+  };
+
+  return [...rows].sort((a, b) => {
+    const aStatus = a.bookabilityStatus || a.availabilityStatus || "PENDING";
+    const bStatus = b.bookabilityStatus || b.availabilityStatus || "PENDING";
+    const statusDelta = (statusRank[aStatus] || 99) - (statusRank[bStatus] || 99);
+    if (statusDelta !== 0) return statusDelta;
+
+    const departureDelta = String(a.departureLocalIso || "").localeCompare(String(b.departureLocalIso || ""));
+    if (departureDelta !== 0) return departureDelta;
+
+    const aSeats = Number.isInteger(a.seatsMin) ? a.seatsMin : 999;
+    const bSeats = Number.isInteger(b.seatsMin) ? b.seatsMin : 999;
+    if (aSeats !== bSeats) return aSeats - bSeats;
+
+    return String(a.flight || "").localeCompare(String(b.flight || ""));
   });
 }
 
@@ -224,8 +370,8 @@ function renderMeta() {
 
 function renderAll() {
   renderMeta();
-  renderTable(els.recentTableBody, sortRows(state.mostRecent?.rows || []));
-  renderTable(els.currentTableBody, sortRows(state.currentRun?.rows || []));
+  renderTable(els.recentTableBody, sortRowsForRecent(state.mostRecent?.rows || []));
+  renderTable(els.currentTableBody, sortRowsForCurrent(state.currentRun?.rows || []));
 }
 
 async function fetchState() {
@@ -250,11 +396,16 @@ function attachTabs() {
       for (const [key, panel] of Object.entries(els.panels)) {
         panel.classList.toggle("active", key === target);
       }
+      trackEvent("tab_clicked", {
+        tab: target === "recent" ? "last_live_scan" : "live_scan_details"
+      });
     });
   }
 }
 
 function attachActions() {
+  if (!featureFlags.adminControls) return;
+
   els.runNowBtn.addEventListener("click", async () => {
     els.runNowBtn.disabled = true;
     try {
@@ -292,6 +443,22 @@ function attachActions() {
     } finally {
       els.clearRunsBtn.disabled = false;
     }
+  });
+}
+
+function attachWebsiteLinkTracking() {
+  document.addEventListener("click", (event) => {
+    const anchor = event.target?.closest?.('a[data-track="open-link"]');
+    if (!anchor) return;
+
+    trackEvent("open_link_clicked", {
+      airline: anchor.getAttribute("data-airline") || "",
+      flight: anchor.getAttribute("data-flight") || "",
+      from: anchor.getAttribute("data-from") || "",
+      to: anchor.getAttribute("data-to") || "",
+      date: anchor.getAttribute("data-date") || "",
+      url: anchor.getAttribute("href") || ""
+    });
   });
 }
 
@@ -367,10 +534,13 @@ function startCountdown() {
   }, 1000);
 }
 
+applyFeatureFlags();
 attachTabs();
 attachActions();
+attachWebsiteLinkTracking();
 startCountdown();
 fetchState().catch((err) => {
   console.error(err);
 });
 connectEvents();
+initAnalytics();
