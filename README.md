@@ -50,6 +50,22 @@ Optional but recommended for stability:
 - `DUFFEL_RATE_LIMIT_PER_MINUTE=50`
 - `DUFFEL_RATE_WINDOW_MS=60000`
 
+Optional live FR24 API source:
+- `FR24_API_ENABLED=true`
+- `FR24_API_KEY=...`
+- `FR24_API_URL_TEMPLATE=...` (must include `{AIRPORT}` and `{DATE}`)
+- `FR24_API_AUTH_HEADER=x-apikey` (override if your provider uses another header)
+- `FR24_API_RESPONSE_PATH=data` (JSON path to flight array)
+- `FR24_API_MAX_ATTEMPTS=4` (retry attempts per request)
+- `FR24_API_BACKOFF_MS=1200` (base backoff between retries)
+- `FR24_API_RATE_LIMIT_PER_MINUTE=8` (request pacing, keep below plan limit)
+- `FR24_API_INTER_REQUEST_DELAY_MS=0` (extra delay between sequential requests)
+- `FR24_API_MIN_STATUS_COVERAGE=0.8`
+- `FR24_API_MIN_FLIGHT_COVERAGE=0.7`
+- `FR24_API_MIN_DESTINATION_COVERAGE=0.95`
+- `FR24_API_MIN_DEPARTURE_COVERAGE=0.95`
+- `FR24_API_FALLBACK_TO_FILE=true` (recommended)
+
 3. Start server:
 
 ```bash
@@ -199,3 +215,21 @@ npm run check:duffel:priority -- --date 2026-03-05 --origin DXB --rpm 50 --delay
 - Duffel does not support a single "origin to anywhere" query. This service scans origin x destination pairs.
 - Expand destinations gradually to manage API cost and latency.
 - First origin airport is allowed to be in blocked region by design; only destination/transits are blocked.
+## FR24 source selection
+
+Dashboard scans now support two FR24 sources:
+
+- File mode (default): parses `FR24_INPUT_FILE`
+- API mode: set `FR24_API_ENABLED=true` and provide `FR24_API_KEY` + `FR24_API_URL_TEMPLATE`
+
+The URL template is expanded per origin/date:
+- `{AIRPORT}` -> origin IATA (e.g. `DXB`)
+- `{DATE}` -> local date ISO (e.g. `2026-03-05`)
+
+If `FR24_API_FALLBACK_TO_FILE=true`, API errors or empty API results automatically fall back to file input.
+
+Hardening included:
+- retries/backoff on FR24 API calls (including `429` and `5xx`)
+- per-minute request limiter for FR24 requests
+- post-normalization coverage validation to catch schema drift
+- source telemetry logs (`source=api|file`, rows, retries, failures)
