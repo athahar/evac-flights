@@ -1,0 +1,25 @@
+{
+  "name": "evac-flight-alert",
+  "version": "0.1.0",
+  "private": true,
+  "description": "v0 Node server for evacuation flight alerts using Duffel + Resend",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "list:flights": "node scripts/list-flights.js",
+    "check:fr24-priority": "node scripts/check-priority-fr24.js",
+    "filter:fr24:no-me": "node scripts/filter-fr24-no-me.js",
+    "filter:fr24:priority": "node scripts/filter-fr24-priority.js",
+    "check:duffel:priority": "node scripts/check-duffel-availability.js",
+    "check:duffel:all": "node scripts/check-duffel-availability.js --input ./data/output/fr24-march-05.no-me.scheduled-estimated.tsv --output ./data/output/fr24-march-05.no-me.all.duffel-availability.tsv"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.8.1",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}

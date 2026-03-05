@@ -1,0 +1,270 @@
+import path from "node:path";
+import dotenv from "dotenv";
+import express from "express";
+import { assertRequiredConfig, loadConfig } from "./lib/config.js";
+import { clearAvailabilityData, createDb, getSetting, listRuns, listSeen } from "./lib/db.js";
+import { scanOnce } from "./lib/scan.js";
+import { createDashboardRunner } from "./lib/dashboard-runner.js";
+import { loadAirlineDirectory } from "./lib/airlineLinks.js";
+
+dotenv.config();
+
+const config = loadConfig(process.env);
+assertRequiredConfig(config);
+loadAirlineDirectory(config.airlinesFile);
+
+const db = createDb(config.dbPath);
+const app = express();
+app.use(express.json({ limit: "1mb" }));
+app.use(express.static(path.resolve(process.cwd(), "./public")));
+
+let scanInFlight = false;
+let scheduler = null;
+
+const dashboardRunner = createDashboardRunner({ db, config });
+
+const sseClients = new Set();
+
+function ts() {
+  return new Date().toISOString();
+}
+
+function logInfo(message, extra = null) {
+  if (extra) {
+    console.log(`[${ts()}] ${message}`, extra);
+    return;
+  }
+  console.log(`[${ts()}] ${message}`);
+}
+
+function logError(message, err = null) {
+  if (err) {
+    console.error(`[${ts()}] ${message}`, err);
+    return;
+  }
+  console.error(`[${ts()}] ${message}`);
+}
+
+function broadcastSse(eventName, payload) {
+  const body = `event: ${eventName}\ndata: ${JSON.stringify(payload)}\n\n`;
+  for (const client of sseClients) {
+    client.write(body);
+  }
+}
+
+dashboardRunner.events.on("run_started", (payload) => {
+  const run = payload?.currentRun;
+  logInfo(
+    `[dashboard] run started id=${run?.id ?? "-"} reason=${run?.reason ?? "-"} origin=${run?.origin ?? "-"} tasks=${run?.totalTasks ?? 0}`
+  );
+  broadcastSse("run_started", payload);
+});
+
+dashboardRunner.events.on("task_progress", (payload) => {
+  const base = `[dashboard] run ${payload?.runId ?? "-"} progress ${payload?.completedTasks ?? 0}/${payload?.totalTasks ?? 0} ${payload?.destinationIata ?? "-"} ${payload?.flightDate ?? "-"}`;
+  if (payload?.error) {
+    logError(`${base} error="${payload.error}"`);
+  } else {
+    logInfo(base);
+  }
+  broadcastSse("task_progress", payload);
+});
+
+dashboardRunner.events.on("run_completed", (payload) => {
+  const rowCount = payload?.mostRecent?.rows?.length ?? 0;
+  logInfo(
+    `[dashboard] run completed id=${payload?.runId ?? "-"} rows=${rowCount} completedAt=${payload?.completedAt ?? "-"} nextRunAt=${payload?.nextRunAt ?? "-"}`
+  );
+  broadcastSse("run_completed", payload);
+});
+
+dashboardRunner.events.on("run_failed", (payload) => {
+  logError(
+    `[dashboard] run failed id=${payload?.runId ?? "-"} error="${payload?.error ?? "unknown"}" nextRunAt=${payload?.nextRunAt ?? "-"}`
+  );
+  broadcastSse("run_failed", payload);
+});
+
+dashboardRunner.events.on("scheduler_tick", (payload) => {
+  logInfo(`[dashboard] scheduler tick nextRunAt=${payload?.nextRunAt ?? "-"}`);
+  broadcastSse("scheduler_tick", payload);
+});
+
+dashboardRunner.events.on("scheduler_stopped", (payload) => {
+  logInfo("[dashboard] scheduler stopped");
+  broadcastSse("scheduler_stopped", payload);
+});
+
+async function runScan(options = {}) {
+  if (scanInFlight) {
+    return { status: "skipped", reason: "scan_in_progress" };
+  }
+
+  scanInFlight = true;
+  try {
+    const result = await scanOnce({ db, config, options });
+    return { status: "ok", result };
+  } finally {
+    scanInFlight = false;
+  }
+}
+
+function schedulerRunning() {
+  return Boolean(scheduler);
+}
+
+function startScheduler() {
+  if (scheduler) return;
+  const ms = config.scanIntervalMinutes * 60 * 1000;
+
+  scheduler = setInterval(() => {
+    runScan().catch((err) => {
+      console.error(`[scan] ${err.message}`);
+    });
+  }, ms);
+
+  runScan().catch((err) => {
+    console.error(`[scan] ${err.message}`);
+  });
+}
+
+function stopScheduler() {
+  if (!scheduler) return;
+  clearInterval(scheduler);
+  scheduler = null;
+}
+
+app.get("/health", (_req, res) => {
+  res.json({
+    ok: true,
+    inFlight: scanInFlight,
+    scheduler: schedulerRunning(),
+    lastRunAt: getSetting(db, "last_run_at"),
+    dashboard: {
+      schedulerRunning: dashboardRunner.getState().schedulerRunning,
+      nextRunAt: dashboardRunner.getState().nextRunAt,
+      hasCurrentRun: Boolean(dashboardRunner.getState().currentRun),
+      hasMostRecent: Boolean(dashboardRunner.getState().mostRecent)
+    }
+  });
+});
+
+app.post("/scan", async (req, res) => {
+  try {
+    const body = req.body || {};
+    const options = {
+      departureDate: body.departureDate,
+      maxConnections: Number.isInteger(body.maxConnections) ? body.maxConnections : undefined,
+      origins: Array.isArray(body.origins) ? body.origins.map((s) => String(s).toUpperCase()) : undefined,
+      destinations: Array.isArray(body.destinations) ? body.destinations.map((s) => String(s).toUpperCase()) : undefined
+    };
+
+    const result = await runScan(options);
+    res.json(result);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get("/runs", (req, res) => {
+  const limit = Number.parseInt(String(req.query.limit || 20), 10);
+  res.json({ data: listRuns(db, Number.isNaN(limit) ? 20 : limit) });
+});
+
+app.get("/seen", (req, res) => {
+  const limit = Number.parseInt(String(req.query.limit || 50), 10);
+  res.json({ data: listSeen(db, Number.isNaN(limit) ? 50 : limit) });
+});
+
+app.post("/scheduler/start", (_req, res) => {
+  startScheduler();
+  res.json({ ok: true, scheduler: true, intervalMinutes: config.scanIntervalMinutes });
+});
+
+app.post("/scheduler/stop", (_req, res) => {
+  stopScheduler();
+  res.json({ ok: true, scheduler: false });
+});
+
+app.get("/api/dashboard/state", (_req, res) => {
+  res.json(dashboardRunner.getState());
+});
+
+app.post("/api/dashboard/run-now", async (_req, res) => {
+  try {
+    logInfo("[api] POST /api/dashboard/run-now");
+    const result = await dashboardRunner.runNow("manual");
+    res.json(result);
+  } catch (err) {
+    logError("[api] /api/dashboard/run-now failed", err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.post("/api/dashboard/scheduler/start", (_req, res) => {
+  logInfo(`[api] POST /api/dashboard/scheduler/start intervalMinutes=${config.dashboardIntervalMinutes}`);
+  dashboardRunner.startScheduler();
+  res.json({ ok: true, intervalMinutes: config.dashboardIntervalMinutes });
+});
+
+app.post("/api/dashboard/scheduler/stop", (_req, res) => {
+  logInfo("[api] POST /api/dashboard/scheduler/stop");
+  dashboardRunner.stopScheduler();
+  res.json({ ok: true });
+});
+
+app.post("/api/dashboard/clear-runs", (_req, res) => {
+  const currentRun = dashboardRunner.getState().currentRun;
+  if (currentRun) {
+    res.status(409).json({
+      ok: false,
+      error: "Cannot clear data while a run is in progress. Wait for completion or stop scheduler first."
+    });
+    return;
+  }
+
+  const deleted = clearAvailabilityData(db);
+  logInfo(
+    `[api] POST /api/dashboard/clear-runs deleted rows: dashboard_run_rows=${deleted.dashboardRunRows}, dashboard_runs=${deleted.dashboardRuns}, runs=${deleted.runs}, seen_alerts=${deleted.seenAlerts}`
+  );
+
+  broadcastSse("runs_cleared", {
+    at: new Date().toISOString(),
+    deleted
+  });
+
+  res.json({
+    ok: true,
+    deleted
+  });
+});
+
+app.get("/api/dashboard/events", (req, res) => {
+  res.setHeader("Content-Type", "text/event-stream");
+  res.setHeader("Cache-Control", "no-cache");
+  res.setHeader("Connection", "keep-alive");
+  res.flushHeaders();
+
+  res.write(`event: hello\ndata: ${JSON.stringify({ connectedAt: new Date().toISOString() })}\n\n`);
+
+  sseClients.add(res);
+  logInfo(`[sse] client connected active=${sseClients.size}`);
+
+  req.on("close", () => {
+    sseClients.delete(res);
+    logInfo(`[sse] client disconnected active=${sseClients.size}`);
+  });
+});
+
+app.get("/", (_req, res) => {
+  res.sendFile(path.resolve(process.cwd(), "./public/index.html"));
+});
+
+app.listen(config.port, () => {
+  logInfo(`evac-flight-alert server listening on :${config.port}`);
+  logInfo(
+    `[config] dashboard interval=${config.dashboardIntervalMinutes}m lookaheadDays=${config.dashboardLookaheadDays} timezone=${config.dashboardTimezone} origin=${config.originAirports[0]}`
+  );
+  logInfo("[dashboard] scheduler auto-start disabled (manual Run Now mode)");
+  logInfo("[scan] scheduler auto-start disabled (manual mode)");
+});

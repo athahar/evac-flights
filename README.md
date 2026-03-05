@@ -1,0 +1,168 @@
+# Evac Flight Alert (Node.js v0)
+
+This project validates the core criteria before heavier infrastructure:
+
+1. Find bookable flights out of selected origin airports.
+2. Keep only itineraries that end outside the Middle East.
+3. Reject itineraries with Middle East transit stops.
+4. Send an alert email only when valid offers exist.
+5. Persist run state (`last_run_at`) and dedup to avoid spam.
+
+## Why this phase first
+
+This is the minimum proof that signal quality is real. It avoids spending time on Supabase, dashboards, and dispatcher UI before confirming that scanned offers produce useful and timely alerts.
+
+## Phase plan
+
+- Phase 0 (this repo now): Node server + Duffel scan + route filtering + Resend + SQLite state.
+- Phase 1: Expand destination and carrier coverage, tighten filtering and ranking.
+- Phase 2: Reliability (scheduler hardening, retries, observability, ops alerts).
+- Phase 3: Booking action page + human dispatcher queue + payment readiness flow.
+- Phase 4: Partial automation (API-first booking, browser fallback only where needed).
+
+## Tech
+
+- Node.js + Express
+- Duffel API (offers)
+- Resend API (email)
+- SQLite (`better-sqlite3`) for run log + dedup (`data/output/state.db`)
+
+## Setup
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Configure environment:
+
+```bash
+cp .env.example .env
+```
+
+Set at minimum:
+- `DUFFEL_TOKEN`
+- `FR24_INPUT_FILE`
+- `ORIGIN_AIRPORTS` (currently use `DXB`)
+
+Optional but recommended for stability:
+- `DUFFEL_RATE_LIMIT_PER_MINUTE=50`
+- `DUFFEL_RATE_WINDOW_MS=60000`
+
+3. Start server:
+
+```bash
+npm start
+```
+
+Default port is `3210`.
+Open: `http://localhost:3210`
+
+## Dashboard UX (new)
+
+The web UI is now the default app view and has:
+- `Most Recent Run` tab: last completed run with timestamp and sorted results.
+- `Current / Next Run` tab: live in-progress data stream + next-run countdown.
+- 30-minute scheduler by default (`DASHBOARD_INTERVAL_MINUTES=30`).
+
+Each row shows:
+- date
+- departure time
+- airline
+- flight number
+- from/to
+- tickets available (yes/no/checking)
+- price
+- airline website link (only where explicit mapping exists)
+
+## Data folders
+
+- `data/input/`
+  - FR24 source file (default: `fr24-march-05`)
+  - airline website mapping file (default: `airline-websites.json`)
+- `data/output/`
+  - dashboard/scan SQLite DB (`state.db`)
+  - generated availability TSV outputs
+
+## Endpoints
+
+- `GET /health`
+- `GET /api/dashboard/state`
+- `GET /api/dashboard/events` (SSE live stream)
+- `POST /api/dashboard/run-now`
+- `POST /api/dashboard/scheduler/start`
+- `POST /api/dashboard/scheduler/stop`
+- `POST /api/dashboard/clear-runs`
+- `POST /scan`
+- `GET /runs?limit=20`
+- `GET /seen?limit=50`
+- `POST /scheduler/start`
+- `POST /scheduler/stop`
+
+### Trigger a manual scan
+
+```bash
+curl -sS -X POST http://localhost:3210/scan \
+  -H 'Content-Type: application/json' \
+  -d '{"departureDate":"2026-03-06","maxConnections":1}'
+```
+
+### Start dashboard scheduler
+
+```bash
+curl -sS -X POST http://localhost:3210/api/dashboard/scheduler/start
+```
+
+It auto-starts on server launch.
+
+## Simple listing first (no email, no SQLite)
+
+If you only want to list matching flights first, use:
+
+```bash
+npm run list:flights -- \
+  --origins DXB \
+  --dates 2026-03-05,2026-03-06,2026-03-07 \
+  --maxConnections 1 \
+  --concurrency 4
+```
+
+This script:
+- scans Duffel offers
+- applies the same Middle East destination/transit filter
+- prints matching flights to console
+- does not send emails
+- does not use SQLite state
+
+## Rate limiting
+
+The Duffel client includes process-level request throttling. By default it caps at `50` requests per `60s` window, plus retry/backoff on `429`.
+You can override with env vars or (for availability checks) `--rpm`.
+
+## Config files
+
+- `config/blocked_middle_east.json` - blocked countries + airports
+- `config/destinations.txt` - candidate destination airport codes
+
+## FR24 -> Duffel scripts
+
+Build filtered FR24 files:
+
+```bash
+npm run filter:fr24:no-me
+npm run filter:fr24:priority
+```
+
+Check Duffel availability from filtered files:
+
+```bash
+npm run check:duffel:all -- --date 2026-03-05 --origin DXB --rpm 50 --delayMs 1500
+npm run check:duffel:priority -- --date 2026-03-05 --origin DXB --rpm 50 --delayMs 1500
+```
+
+## Notes
+
+- Duffel does not support a single "origin to anywhere" query. This service scans origin x destination pairs.
+- Expand destinations gradually to manage API cost and latency.
+- First origin airport is allowed to be in blocked region by design; only destination/transits are blocked.

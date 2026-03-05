@@ -1,0 +1,557 @@
+{
+    "_meta": {
+      "generated": "2026-03-05",
+      "purpose": "DXB Crisis Board \u2014 airline booking links with deep link templates",
+      "deeplink_template_vars": "{FROM} = origin IATA, {TO} = destination IATA, {DATE} = YYYY-MM-DD",
+      "deeplink_confidence_values": {
+        "estimated": "Inferred from site structure \u2014 test before relying on it",
+        "none": "No URL deep link supported; booking_url opens the search homepage only"
+      },
+      "notes": [
+        "Air India Express liveries are paint schemes only \u2014 same airline, same booking URL",
+        "Wizz Air Malta is a separate AOC but uses the same wizzair.com website",
+        "My Freighter is a cargo operator \u2014 no passenger booking URL",
+        "Iraqi Airways, Iran Air, Yemenia, Karun Airlines, Ariana Afghan Airlines, Kam Air have limited or unstable web presence"
+      ]
+    },
+    "airlines": [
+      {
+        "name": "Aegean Airlines",
+        "iata": "A3",
+        "website": "https://en.aegeanair.com",
+        "booking_url": "https://en.aegeanair.com/flight-tickets/find-flights/",
+        "deeplink_template": "https://en.aegeanair.com/flight-tickets/find-flights/?fromAirport={FROM}&toAirport={TO}&tripType=OW&outboundDate={DATE}&adults=1&children=0&infants=0",
+        "deeplink_confidence": "estimated"
+      },
+      {
+        "name": "Aeroflot",
+        "iata": "SU",
+        "website": "https://www.aeroflot.ru",
+        "booking_url": "https://www.aeroflot.ru/en-us/purchase",
+        "deeplink_template": null,
+        "deeplink_confidence": "none",
+        "notes": "SPA; sanctions may affect availability"
+      },
+      {
+        "name": "Air Algerie",
+        "iata": "AH",
+        "website": "https://www.airalgerie.dz",
+        "booking_url": "https://www.airalgerie.dz/en/booking/flight",
+        "deeplink_template": null,
+        "deeplink_confidence": "none"
+      },
+      {
+        "name": "Air Astana",
+        "iata": "KC",
+        "website": "https://www.airastana.com",
+        "booking_url": "https://www.airastana.com/kaz/en/Book/Flights",
+        "deeplink_template": "https://www.airastana.com/kaz/en/Book/Flights?origin={FROM}&destination={TO}&departDate={DATE}&returnDate=&adults=1&children=0&infants=0&tripType=OW",
+        "deeplink_confidence": "estimated"
+      },
+      {
+        "name": "Air Canada",
+        "iata": "AC",
+        "website": "https://www.aircanada.com",
+        "booking_url": "https://www.aircanada.com/us/en/aco/home.html",
+        "deeplink_template": "https://www.aircanada.com/us/en/aco/home.html#/search?tripType=O&org0={FROM}&dest0={TO}&departDate0={DATE}&ADT=1&INF=0&YTH=0&CHD=0",
+        "deeplink_confidence": "estimated"
+      },
+      {
+        "name": "Air China",
+        "iata": "CA",
+        "website": "https://www.airchina.com",
+        "booking_url": "https://www.airchina.com/en/booking/flight-search.shtml",
+        "deeplink_template": null,
+        "deeplink_confidence": "none",
+        "notes": "Chinese SPA"
+      },
+      {
+        "name": "Air France",
+        "iata": "AF",
+        "website": "https://www.airfrance.com",
+        "booking_url": "https://www.airfrance.com/en/flight",
+        "deeplink_template": "https://www.airfrance.com/en/common/home/flights/results-outbound-flights.do?origin={FROM}&destination={TO}&departureDate={DATE}&passengerCount=1&tripType=ONE_WAY&cabin=ECONOMY",
+        "deeplink_confidence": "estimated"
+      },
+      {
+        "name": "Air India",
+        "iata": "AI",
+        "website": "https://www.airindia.com",
+        "booking_url": "https://www.airindia.com/in/en/book/flight-search.html",
+        "deeplink_template": "https://www.airindia.com/in/en/book/flight-search.html#/search?from={FROM}&to={TO}&departure={DATE}&adult=1&tripType=O",
+        "deeplink_confidence": "estimated"
+      },
+      {
+        "name": "Air India Express",
+        "iata": "IX",
+        "website": "https://www.airindiaexpress.com",
+        "booking_url": "https://www.airindiaexpress.com/",
+        "deeplink_template": "https://www.airindiaexpress.com/flight-search?from={FROM}&to={TO}&departure={DATE}&adult=1&tripType=O",
+        "deeplink_confidence": "estimated",
+        "notes": "All livery variants (Garba-Bihu Dance, Hans Damayanti Music, Himalayan Peaks-Desert, Kathakali-Bharatanatyam, Kochi-Muziris Biennale, Ragini Todi-Solah Shringar, Samai-Diya, White Tiger/Spotted Deer) are paint schemes \u2014 same airline, same booking URL"
+      },
+      {
+        "name": "Air Tanzania",
+        "iata": "TC",
+        "website": "https://www.airtanzania.co.tz",
+        "booking_url": "https://www.airtanzania.co.tz/book-flights",
+        "deeplink_template": null,
+        "deeplink_confidence": "none",
+        "notes": "Limited web booking"
+      },
+      {
+        "name": "airBaltic",
+        "iata": "BT",
+        "website": "https://www.airbaltic.com",
+        "booking_url": "https://www.airbaltic.com/en/home",
+        "deeplink_template": "https://www.airbaltic.com/en/search-results?from={FROM}&to={TO}&depDate={DATE}&adults=1&children=0&infants=0&tripType=OW",
+        "deeplink_confidence": "estimated"
+      },
+      {
+        "name": "airblue",
+        "iata": "PA",
+        "website": "https://www.airblue.com",
+        "booking_url": "https://www.airblue.com/bookings/flights/",
+        "deeplink_template": null,
+        "deeplink_confidence": "none",
+        "notes": "Pakistani carrier; older booking engine"
+      },
+      {
+        "name": "AirSial",
+        "iata": "PF",
+        "website": "https://airsial.com.pk",
+        "booking_url": "https://airsial.com.pk/booking",
+        "deeplink_template": null,
+        "deeplink_confidence": "none",
+        "notes": "Pakistani LCC; basic website"
+      },
+      {
+        "name": "Ariana Afghan Airlines",
+        "iata": "FG",
+        "website": "https://www.flyariana.com",
+        "booking_url": "https://www.flyariana.com/",
+        "deeplink_template": null,
+        "deeplink_confidence": "none",
+        "notes": "Verify operations before showing link"
+      },
+      {
+        "name": "Austrian Airlines",
+        "iata": "OS",
+        "website": "https://www.austrian.com",
+        "booking_url": "https://www.austrian.com/us/en/book-flights",
+        "deeplink_template": "https://www.austrian.com/us/en/flight-search?origin={FROM}&destination={TO}&outboundDate={DATE}&adults=1&tripType=OW",
+        "deeplink_confidence": "estimated",
+        "notes": "Lufthansa Group"
+      },
+      {
+        "name": "Azerbaijan Airlines",
+        "iata": "J2",
+        "website": "https://www.azal.az",
+        "booking_url": "https://www.azal.az/en/buy-ticket/",
+        "deeplink_template": "https://www.azal.az/en/buy-ticket/?origin={FROM}&destination={TO}&outDate={DATE}&adt=1&tripType=OW",
+        "deeplink_confidence": "estimated"
+      },
+      {
+        "name": "Belavia",
+        "iata": "B2",
+        "website": "https://belavia.by",
+        "booking_url": "https://belavia.by/en/booking/",
+        "deeplink_template": null,
+        "deeplink_confidence": "none",
+        "notes": "Under EU sanctions; verify dispatcher access"
+      },
+      {
+        "name": "Berniq Airways",
+        "iata": "6B",
+        "website": "https://berniqairways.com",
+        "booking_url": "https://berniqairways.com/",
+        "deeplink_template": null,
+        "deeplink_confidence": "none",
+        "notes": "Libyan carrier; minimal web booking"
+      },
+      {
+        "name": "Biman Bangladesh Airlines",
+        "iata": "BG",
+        "website": "https://www.biman-airlines.com",
+        "booking_url": "https://www.biman-airlines.com/booking",
+        "deeplink_template": "https://www.biman-airlines.com/booking?origin={FROM}&destination={TO}&departDate={DATE}&adults=1&tripType=OW",
+        "deeplink_confidence": "estimated"
+      },
+      {
+        "name": "Cebu Pacific",
+        "iata": "5J",
+        "website": "https://www.cebupacificair.com",
+        "booking_url": "https://www.cebupacificair.com/",
+        "deeplink_template": "https://www.cebupacificair.com/#/search?o1={FROM}&d1={TO}&dd1={DATE}&p=1&sc=Y&tripType=O",
+        "deeplink_confidence": "estimated"
+      },
+      {
+        "name": "China Southern Airlines",
+        "iata": "CZ",
+        "website": "https://www.csair.com",
+        "booking_url": "https://www.csair.com/en/buy/air-ticket/search/",
+        "deeplink_template": null,
+        "deeplink_confidence": "none",
+        "notes": "Chinese SPA"
+      },
+      {
+        "name": "Condor",
+        "iata": "DE",
+        "website": "https://www.condor.com",
+        "booking_url": "https://www.condor.com/us/flight-search",
+        "deeplink_template": "https://www.condor.com/us/flight-search?from={FROM}&to={TO}&outboundDate={DATE}&adults=1&children=0&infants=0&cabinClass=economy&tripType=OW",
+        "deeplink_confidence": "estimated"
+      },
+      {
+        "name": "Croatia Airlines",
+        "iata": "OU",
+        "website": "https://www.croatiaairlines.com",
+        "booking_url": "https://www.croatiaairlines.com/Passengers/Book-and-Fly/Flights",
+        "deeplink_template": "https://www.croatiaairlines.com/Passengers/Book-and-Fly/Flights?from={FROM}&to={TO}&departure={DATE}&adults=1&tripType=OW",
+        "deeplink_confidence": "estimated"
+      },
+      {
+        "name": "Cyprus Airways",
+        "iata": "CY",
+        "website": "https://www.cyprusairways.com",
+        "booking_url": "https://www.cyprusairways.com/en/flight-offers",
+        "deeplink_template": "https://www.cyprusairways.com/en/flight-offers?origin={FROM}&destination={TO}&departureDate={DATE}&adults=1&tripType=OW",
+        "deeplink_confidence": "estimated"
+      },
+      {
+        "name": "Emirates",
+        "iata": "EK",
+        "website": "https://www.emirates.com",
+        "booking_url": "https://www.emirates.com/us/english/book/",
+        "deeplink_template": null,
+        "deeplink_confidence": "none",
+        "notes": "Full SPA \u2014 no URL deep link. Dispatcher fills search form manually."
+      },
+      {
+        "name": "Ethiopian Airlines",
+        "iata": "ET",
+        "website": "https://www.ethiopianairlines.com",
+        "booking_url": "https://www.ethiopianairlines.com/aa/book/booking",
+        "deeplink_template": "https://www.ethiopianairlines.com/aa/book/booking?from={FROM}&to={TO}&departDate={DATE}&returnDate=&adults=1&children=0&infants=0&tripType=OW",
+        "deeplink_confidence": "estimated"
+      },
+      {
+        "name": "Eurowings",
+        "iata": "EW",
+        "website": "https://www.eurowings.com",
+        "booking_url": "https://www.eurowings.com/en/booking/flights.html",
+        "deeplink_template": "https://www.eurowings.com/en/booking/flights.html?origin={FROM}&destination={TO}&departureDate={DATE}&adults=1&children=0&infants=0&tripType=OW",
+        "deeplink_confidence": "estimated",
+        "notes": "Lufthansa Group"
+      },
+      {
+        "name": "Finnair",
+        "iata": "AY",
+        "website": "https://www.finnair.com",
+        "booking_url": "https://www.finnair.com/en/book/flights",
+        "deeplink_template": "https://www.finnair.com/en/book/flights?from={FROM}&to={TO}&tripType=oneWay&departureDate={DATE}&adults=1",
+        "deeplink_confidence": "estimated"
+      },
+      {
+        "name": "FitsAir",
+        "iata": "8D",
+        "website": "https://www.fitsair.com",
+        "booking_url": "https://www.fitsair.com/book-flights",
+        "deeplink_template": null,
+        "deeplink_confidence": "none",
+        "notes": "Sri Lankan carrier; small website"
+      },
+      {
+        "name": "flydubai",
+        "iata": "FZ",
+        "website": "https://www.flydubai.com",
+        "booking_url": "https://www.flydubai.com/en/book-and-manage/book-a-flight",
+        "deeplink_template": "https://www.flydubai.com/en/book-and-manage/book-a-flight?from={FROM}&to={TO}&dep={DATE}&adt=1&chd=0&inf=0&tripType=O",
+        "deeplink_confidence": "estimated"
+      },
+      {
+        "name": "flynas",
+        "iata": "XY",
+        "website": "https://www.flynas.com",
+        "booking_url": "https://www.flynas.com/en/flight-search",
+        "deeplink_template": "https://www.flynas.com/en/flight-search?from={FROM}&to={TO}&departDate={DATE}&adults=1&tripType=OW",
+        "deeplink_confidence": "estimated",
+        "notes": "Saudi LCC"
+      },
+      {
+        "name": "FlyOne",
+        "iata": "F1",
+        "website": "https://flyone.eu",
+        "booking_url": "https://flyone.eu/en/flights",
+        "deeplink_template": "https://flyone.eu/en/flights?from={FROM}&to={TO}&departure={DATE}&adults=1&tripType=OW",
+        "deeplink_confidence": "estimated",
+        "notes": "Moldovan LCC"
+      },
+      {
+        "name": "Hainan Airlines",
+        "iata": "HU",
+        "website": "https://www.hainanairlines.com",
+        "booking_url": "https://www.hainanairlines.com/HUPortal/dyn/portal/DisplayPage?COUNTRY_SITE=US&SITE=CBCBCBCB&LANGUAGE=US&PAGE=FLIG",
+        "deeplink_template": null,
+        "deeplink_confidence": "none",
+        "notes": "Chinese SPA"
+      },
+      {
+        "name": "Himalaya Airlines",
+        "iata": "H9",
+        "website": "https://himalaya-airlines.com",
+        "booking_url": "https://himalaya-airlines.com/booking",
+        "deeplink_template": null,
+        "deeplink_confidence": "none",
+        "notes": "Nepal-China joint venture; basic booking engine"
+      },
+      {
+        "name": "IndiGo",
+        "iata": "6E",
+        "website": "https://www.goindigo.in",
+        "booking_url": "https://www.goindigo.in/flight-booking.html",
+        "deeplink_template": "https://www.goindigo.in/flight-booking.html#/search?from={FROM}&to={TO}&departure={DATE}&adult=1&child=0&infant=0&tripType=O",
+        "deeplink_confidence": "estimated"
+      },
+      {
+        "name": "Iran Air",
+        "iata": "IR",
+        "website": "https://www.iranair.com",
+        "booking_url": "https://www.iranair.com/en/booking",
+        "deeplink_template": null,
+        "deeplink_confidence": "none",
+        "notes": "Under international sanctions; site may be blocked"
+      },
+      {
+        "name": "Iraqi Airways",
+        "iata": "IA",
+        "website": "https://www.iraqiairways.com",
+        "booking_url": "https://www.iraqiairways.com/booking",
+        "deeplink_template": null,
+        "deeplink_confidence": "none",
+        "notes": "Unstable web presence \u2014 verify before use"
+      },
+      {
+        "name": "ITA Airways",
+        "iata": "AZ",
+        "website": "https://www.ita-airways.com",
+        "booking_url": "https://www.ita-airways.com/en_en/fly/search-flight.html",
+        "deeplink_template": "https://www.ita-airways.com/en_en/fly/search-flight.html?origin={FROM}&destination={TO}&outboundDate={DATE}&adults=1&tripType=OW",
+        "deeplink_confidence": "estimated"
+      },
+      {
+        "name": "Jeju Air",
+        "iata": "7C",
+        "website": "https://www.jejuair.net",
+        "booking_url": "https://www.jejuair.net/en/main.do",
+        "deeplink_template": null,
+        "deeplink_confidence": "none",
+        "notes": "Korean LCC; deep links unreliable for non-Korean routes"
+      },
+      {
+        "name": "Kam Air",
+        "iata": "RQ",
+        "website": "https://www.kamair.com",
+        "booking_url": "https://www.kamair.com/booking",
+        "deeplink_template": null,
+        "deeplink_confidence": "none",
+        "notes": "Afghan carrier; limited web presence"
+      },
+      {
+        "name": "Karun Airlines",
+        "iata": "NV",
+        "website": "https://karunairlines.ir",
+        "booking_url": "https://karunairlines.ir",
+        "deeplink_template": null,
+        "deeplink_confidence": "none",
+        "notes": "Small Iranian regional carrier; may be Farsi-only or inaccessible outside Iran"
+      },
+      {
+        "name": "Kenya Airways",
+        "iata": "KQ",
+        "website": "https://www.kenya-airways.com",
+        "booking_url": "https://www.kenya-airways.com/en/book-a-flight/",
+        "deeplink_template": "https://www.kenya-airways.com/en/book-a-flight/?origin={FROM}&destination={TO}&departDate={DATE}&adults=1&children=0&infants=0&tripType=ONE_WAY",
+        "deeplink_confidence": "estimated"
+      },
+      {
+        "name": "Korean Air",
+        "iata": "KE",
+        "website": "https://www.koreanair.com",
+        "booking_url": "https://www.koreanair.com/global/en/booking/booking-seat",
+        "deeplink_template": "https://www.koreanair.com/global/en/booking/booking-seat?from={FROM}&to={TO}&depDate={DATE}&adults=1&trip=OW",
+        "deeplink_confidence": "estimated"
+      },
+      {
+        "name": "LOT Polish Airlines",
+        "iata": "LO",
+        "website": "https://www.lot.com",
+        "booking_url": "https://www.lot.com/us/en",
+        "deeplink_template": "https://www.lot.com/us/en/search-result?from={FROM}&to={TO}&departDate={DATE}&returnDate=&adults=1&children=0&infants=0&cabinClass=ECONOMY&tripType=ONE_WAY",
+        "deeplink_confidence": "estimated"
+      },
+      {
+        "name": "Lufthansa",
+        "iata": "LH",
+        "website": "https://www.lufthansa.com",
+        "booking_url": "https://www.lufthansa.com/us/en/homepage",
+        "deeplink_template": "https://www.lufthansa.com/us/en/flight-search?origin={FROM}&destination={TO}&outboundDate={DATE}&adults=1&children=0&infants=0&tripType=OW&cabin=Y",
+        "deeplink_confidence": "estimated"
+      },
+      {
+        "name": "My Freighter",
+        "iata": null,
+        "website": null,
+        "booking_url": null,
+        "deeplink_template": null,
+        "deeplink_confidence": "none",
+        "notes": "CARGO OPERATOR \u2014 not a passenger airline. Filter out of dispatcher board."
+      },
+      {
+        "name": "Pakistan International Airlines",
+        "iata": "PK",
+        "website": "https://www.piac.com.pk",
+        "booking_url": "https://www.piac.com.pk/booking",
+        "deeplink_template": "https://www.piac.com.pk/booking?origin={FROM}&destination={TO}&departDate={DATE}&adults=1&tripType=OW",
+        "deeplink_confidence": "estimated"
+      },
+      {
+        "name": "Royal Air Maroc",
+        "iata": "AT",
+        "website": "https://www.royalairmaroc.com",
+        "booking_url": "https://www.royalairmaroc.com/en/flights",
+        "deeplink_template": "https://www.royalairmaroc.com/en/flights?origin={FROM}&destination={TO}&departDate={DATE}&adults=1&tripType=OW",
+        "deeplink_confidence": "estimated"
+      },
+      {
+        "name": "Royal Brunei Airlines",
+        "iata": "BI",
+        "website": "https://www.royalbrunei.com",
+        "booking_url": "https://www.royalbrunei.com/booking/",
+        "deeplink_template": "https://www.royalbrunei.com/booking/?origin={FROM}&destination={TO}&departDate={DATE}&adults=1&tripType=OW",
+        "deeplink_confidence": "estimated"
+      },
+      {
+        "name": "RwandAir",
+        "iata": "WB",
+        "website": "https://www.rwandair.com",
+        "booking_url": "https://www.rwandair.com/book/",
+        "deeplink_template": "https://www.rwandair.com/book/?from={FROM}&to={TO}&departure={DATE}&adults=1&tripType=OW",
+        "deeplink_confidence": "estimated"
+      },
+      {
+        "name": "S7 Airlines",
+        "iata": "S7",
+        "website": "https://www.s7.ru",
+        "booking_url": "https://www.s7.ru/en/",
+        "deeplink_template": "https://www.s7.ru/en/avia/?from={FROM}&to={TO}&date={DATE}&count=1&tripType=OW",
+        "deeplink_confidence": "estimated",
+        "notes": "Russian carrier; may have access restrictions from some countries"
+      },
+      {
+        "name": "Sichuan Airlines",
+        "iata": "3U",
+        "website": "https://www.sichuanair.com",
+        "booking_url": "https://www.sichuanair.com/en-us/",
+        "deeplink_template": null,
+        "deeplink_confidence": "none",
+        "notes": "Chinese SPA"
+      },
+      {
+        "name": "Singapore Airlines",
+        "iata": "SQ",
+        "website": "https://www.singaporeair.com",
+        "booking_url": "https://www.singaporeair.com/en_UK/us/plan-travel/book-a-flight/",
+        "deeplink_template": null,
+        "deeplink_confidence": "none",
+        "notes": "SPA \u2014 dispatcher fills search form manually"
+      },
+      {
+        "name": "Smartwings",
+        "iata": "QS",
+        "website": "https://www.smartwings.com",
+        "booking_url": "https://www.smartwings.com/en/flight-search",
+        "deeplink_template": "https://www.smartwings.com/en/flight-search?from={FROM}&to={TO}&departure={DATE}&adults=1&tripType=OW",
+        "deeplink_confidence": "estimated",
+        "notes": "Czech LCC"
+      },
+      {
+        "name": "SpiceJet",
+        "iata": "SG",
+        "website": "https://www.spicejet.com",
+        "booking_url": "https://www.spicejet.com/",
+        "deeplink_template": "https://www.spicejet.com/booking/flight-search?from={FROM}&to={TO}&date={DATE}&adults=1&tripType=O",
+        "deeplink_confidence": "estimated",
+        "notes": "Indian LCC"
+      },
+      {
+        "name": "SriLankan Airlines",
+        "iata": "UL",
+        "website": "https://www.srilankan.com",
+        "booking_url": "https://www.srilankan.com/en_uk/plan-and-book/our-flights",
+        "deeplink_template": "https://www.srilankan.com/en_uk/plan-and-book/our-flights?origin={FROM}&destination={TO}&departDate={DATE}&adults=1&tripType=OW",
+        "deeplink_confidence": "estimated"
+      },
+      {
+        "name": "Swiss International Air Lines",
+        "iata": "LX",
+        "website": "https://www.swiss.com",
+        "booking_url": "https://www.swiss.com/us/en/buy/flightselection",
+        "deeplink_template": "https://www.swiss.com/us/en/buy/flightselection?origin={FROM}&destination={TO}&outboundDate={DATE}&adults=1&tripType=OW",
+        "deeplink_confidence": "estimated",
+        "notes": "Lufthansa Group"
+      },
+      {
+        "name": "US-Bangla Airlines",
+        "iata": "BS",
+        "website": "https://usbair.com",
+        "booking_url": "https://usbair.com/booking",
+        "deeplink_template": null,
+        "deeplink_confidence": "none",
+        "notes": "Bangladeshi carrier; basic booking engine"
+      },
+      {
+        "name": "Uzbekistan Airways",
+        "iata": "HY",
+        "website": "https://www.uzairways.com",
+        "booking_url": "https://www.uzairways.com/en/buy-ticket",
+        "deeplink_template": "https://www.uzairways.com/en/buy-ticket?from={FROM}&to={TO}&date={DATE}&adults=1&tripType=OW",
+        "deeplink_confidence": "estimated"
+      },
+      {
+        "name": "Virgin Atlantic",
+        "iata": "VS",
+        "website": "https://www.virginatlantic.com",
+        "booking_url": "https://www.virginatlantic.com/flights",
+        "deeplink_template": "https://www.virginatlantic.com/flights/results?dep={FROM}&dest={TO}&departDate={DATE}&adults=1&type=OW",
+        "deeplink_confidence": "estimated"
+      },
+      {
+        "name": "Wizz Air",
+        "iata": "W6",
+        "website": "https://wizzair.com",
+        "booking_url": "https://wizzair.com/en-gb/flights",
+        "deeplink_template": "https://wizzair.com/en-gb/booking/select-flight/{FROM}/{TO}/{DATE}/1/0/0/any",
+        "deeplink_confidence": "estimated",
+        "notes": "Path-based deep link; date format YYYY-MM-DD"
+      },
+      {
+        "name": "Wizz Air Malta",
+        "iata": "23",
+        "website": "https://wizzair.com",
+        "booking_url": "https://wizzair.com/en-gb/flights",
+        "deeplink_template": "https://wizzair.com/en-gb/booking/select-flight/{FROM}/{TO}/{DATE}/1/0/0/any",
+        "deeplink_confidence": "estimated",
+        "notes": "Separate Maltese AOC; same wizzair.com website as W6"
+      },
+      {
+        "name": "Yemenia",
+        "iata": "IY",
+        "website": "https://www.yemenia.com",
+        "booking_url": "https://www.yemenia.com/",
+        "deeplink_template": null,
+        "deeplink_confidence": "none",
+        "notes": "Yemeni carrier; unstable web presence \u2014 verify before showing link"
+      }
+    ]
+  }

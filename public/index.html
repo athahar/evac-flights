@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DXB Flight Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">DXB Flight Tracker</p>
+          <h1>Flight Availability Board</h1>
+          <p class="subline">Scheduled/Estimated departures only (from FlightRadar), non-Middle-East destinations, Duffel verified (ticket availability).</p>
+        </div>
+        <div class="actions">
+          <button id="runNowBtn" class="btn primary">Run Now</button>
+          <button id="toggleSchedulerBtn" class="btn">Pause Scheduler</button>
+          <button id="clearRunsBtn" class="btn danger">Clear Runs</button>
+        </div>
+      </header>
+
+      <section class="meta-grid">
+        <article class="meta-card">
+          <p class="label">Next Scan</p>
+          <p id="nextRunAt" class="value">-</p>
+          <p id="countdown" class="muted">-</p>
+        </article>
+        <article class="meta-card">
+          <p class="label">Last Live Scan</p>
+          <p id="latestRunAt" class="value">-</p>
+          <p id="latestRunStats" class="muted">-</p>
+        </article>
+        <article class="meta-card">
+          <p class="label">Live Scan Status</p>
+          <p id="currentRunStatus" class="value">Idle</p>
+          <p id="currentRunProgress" class="muted">-</p>
+        </article>
+      </section>
+
+      <section class="tabs">
+        <button data-tab="recent" class="tab active">Last Live Scan</button>
+        <button data-tab="current" class="tab">Live Scan Details</button>
+      </section>
+
+      <section id="panel-recent" class="panel active">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Departure</th>
+                <th>Airline</th>
+                <th>Flight</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Tickets Available</th>
+                <th>Price</th>
+                <th>Website</th>
+              </tr>
+            </thead>
+            <tbody id="recentTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="panel-current" class="panel">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Departure</th>
+                <th>Airline</th>
+                <th>Flight</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Tickets Available</th>
+                <th>Price</th>
+                <th>Website</th>
+              </tr>
+            </thead>
+            <tbody id="currentTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

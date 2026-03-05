@@ -1,0 +1,11 @@
+{
+  "countries": [
+    "AE", "SA", "QA", "OM", "KW", "BH", "JO", "LB", "IQ", "IR", "SY", "YE", "IL", "PS", "EG", "TR"
+  ],
+  "airports": [
+    "DXB", "DWC", "AUH", "SHJ", "RKT", "FJR", "AAN",
+    "DOH", "RUH", "JED", "DMM", "MCT", "SLL", "KWI", "BAH",
+    "AMM", "AQJ", "BEY", "CAI", "IST", "SAW", "ESB", "ADB",
+    "IKA", "THR", "BGW", "BSR", "DAM", "SAA", "TLV"
+  ]
+}
