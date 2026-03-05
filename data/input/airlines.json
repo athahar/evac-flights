@@ -59,8 +59,8 @@
       {
         "name": "Air China",
         "iata": "CA",
-        "website": "https://www.airchina.com",
-        "booking_url": "https://www.airchina.com/en/booking/flight-search.shtml",
+        "website": "http://www.airchina.com/index.shtml",
+        "booking_url": "http://www.airchina.com/index.shtml",
         "deeplink_template": null,
         "deeplink_confidence": "none",
         "notes": "Chinese SPA"
