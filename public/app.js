@@ -564,7 +564,7 @@ function renderMeta() {
     const total = Number.isFinite(current.totalTasks) ? current.totalTasks : 0;
     const completed = Number.isFinite(current.completedTasks) ? current.completedTasks : 0;
     const percent = total > 0 ? Math.round((completed / total) * 100) : 0;
-    els.scanSecondary.textContent = `Currently running (${percent}%) · ${completed}/${total} checks · scans every ${intervalLabel}`;
+    els.scanSecondary.textContent = `Currently verifying (${percent}%) · ${completed}/${total} destinations · scans every ${intervalLabel}`;
   } else if (state.nextRunAt) {
     els.scanSecondary.textContent = `Next scan ${formatRelativeTime(state.nextRunAt)} · scans every ${intervalLabel}`;
   } else if (state.schedulerRunning) {

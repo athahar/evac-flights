@@ -416,6 +416,14 @@
         "deeplink_confidence": "estimated"
       },
       {
+        "name": "SalamAir",
+        "iata": "OV",
+        "website": "https://www.salamair.com/en/",
+        "booking_url": "https://www.salamair.com/en/",
+        "deeplink_template": null,
+        "deeplink_confidence": "none"
+      },
+      {
         "name": "Pakistan International Airlines",
         "iata": "PK",
         "website": "https://www.piac.com.pk",
