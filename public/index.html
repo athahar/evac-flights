@@ -36,19 +36,10 @@
         </div>
       </header>
 
-      <article class="scan-card">
-        <div class="scan-half">
-          <p class="label">Next Scan</p>
-          <p id="nextRunAt" class="scan-value">-</p>
-          <p id="countdown" class="muted">-</p>
-        </div>
-        <div class="scan-sep" aria-hidden="true"></div>
-        <div class="scan-half">
-          <p class="label">Last Check</p>
-          <p id="latestRunAt" class="scan-value">-</p>
-          <p id="latestRunStats" class="muted">-</p>
-        </div>
-      </article>
+      <div class="scan-status">
+        <p class="scan-primary" id="scanPrimary">-</p>
+        <p class="scan-secondary" id="scanSecondary">-</p>
+      </div>
 
       <section id="airportTabs" class="airport-tabs" aria-label="Airport tabs"></section>
 

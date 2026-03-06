@@ -18,10 +18,8 @@ const analytics = {
 const els = {
   adminControls: document.querySelector("#adminControls"),
   airportTabs: document.querySelector("#airportTabs"),
-  nextRunAt: document.querySelector("#nextRunAt"),
-  countdown: document.querySelector("#countdown"),
-  latestRunAt: document.querySelector("#latestRunAt"),
-  latestRunStats: document.querySelector("#latestRunStats"),
+  scanPrimary: document.querySelector("#scanPrimary"),
+  scanSecondary: document.querySelector("#scanSecondary"),
   recentTableBody: document.querySelector("#recentTableBody"),
   runNowBtn: document.querySelector("#runNowBtn"),
   toggleSchedulerBtn: document.querySelector("#toggleSchedulerBtn"),
@@ -478,30 +476,26 @@ function renderMeta() {
   const intervalLabel = `${state.dashboardIntervalMinutes} min`;
   const current = state.currentRun;
 
+  // Primary line: last check datetime + flight count
+  const mostRecentRun = state.mostRecent?.run || null;
+  if (mostRecentRun?.completedAt) {
+    els.scanPrimary.textContent = `Last check: ${fmtDateTime(mostRecentRun.completedAt)} · ${mostRecentRows.length} flights`;
+  } else {
+    els.scanPrimary.textContent = "No completed scan yet";
+  }
+
+  // Secondary line: next scan + interval
   if (current) {
     const total = Number.isFinite(current.totalTasks) ? current.totalTasks : 0;
     const completed = Number.isFinite(current.completedTasks) ? current.completedTasks : 0;
     const percent = total > 0 ? Math.round((completed / total) * 100) : 0;
-    els.nextRunAt.textContent = `Currently running (${percent}%)`;
-    els.countdown.textContent = `${completed}/${total} checks • ${selectedLabel} • scans every ${intervalLabel}`;
+    els.scanSecondary.textContent = `Currently running (${percent}%) · ${completed}/${total} checks · scans every ${intervalLabel}`;
   } else if (state.nextRunAt) {
-    els.nextRunAt.textContent = `Next scan ${formatRelativeTime(state.nextRunAt)}`;
-    els.countdown.textContent = `${selectedLabel} • scans every ${intervalLabel}`;
+    els.scanSecondary.textContent = `Next scan ${formatRelativeTime(state.nextRunAt)} · scans every ${intervalLabel}`;
   } else if (state.schedulerRunning) {
-    els.nextRunAt.textContent = "Waiting for next scan";
-    els.countdown.textContent = `${selectedLabel} • scans every ${intervalLabel}`;
+    els.scanSecondary.textContent = `Waiting for next scan · scans every ${intervalLabel}`;
   } else {
-    els.nextRunAt.textContent = "Manual mode";
-    els.countdown.textContent = `${selectedLabel} • run manually`;
-  }
-
-  const mostRecentRun = state.mostRecent?.run || null;
-  if (mostRecentRun?.completedAt) {
-    els.latestRunAt.textContent = formatRelativeTime(mostRecentRun.completedAt);
-    els.latestRunStats.textContent = `${fmtDateTime(mostRecentRun.completedAt)} • ${mostRecentRows.length} flights`;
-  } else {
-    els.latestRunAt.textContent = "No completed scan yet";
-    els.latestRunStats.textContent = `${selectedLabel}`;
+    els.scanSecondary.textContent = `Manual mode · ${selectedLabel}`;
   }
 
   els.toggleSchedulerBtn.textContent = state.schedulerRunning ? "Pause Scheduler" : "Resume Scheduler";
