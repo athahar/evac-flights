@@ -408,6 +408,14 @@
         "notes": "CARGO OPERATOR \u2014 not a passenger airline. Filter out of dispatcher board."
       },
       {
+        "name": "Oman Air",
+        "iata": "WY",
+        "website": "https://www.omanair.com",
+        "booking_url": "https://book.omanair.com/",
+        "deeplink_template": "https://book.omanair.com/deeplink/search?UserLanguage=en&Market=global&TripType=OneWay&classType=All&Origin1={FROM}&Destination1={TO}&DepartureDate1={DATE}&currencyType=Currency&PaxADT=1&PaxCHD=0&PaxINF=0",
+        "deeplink_confidence": "estimated"
+      },
+      {
         "name": "Pakistan International Airlines",
         "iata": "PK",
         "website": "https://www.piac.com.pk",
