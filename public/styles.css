@@ -182,10 +182,17 @@ h1 {
   margin-bottom: 10px;
 }
 
+.toolbar-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
 .airport-tabs {
   display: flex;
   gap: 8px;
-  margin-bottom: 6px;
+  margin-bottom: 0;
 }
 
 .airport-tab {
@@ -202,6 +209,32 @@ h1 {
   color: #fff;
   background: var(--accent);
   border-color: var(--accent);
+}
+
+.currency-toggle {
+  display: inline-flex;
+  gap: 4px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px;
+  background: #f7faff;
+}
+
+.currency-btn {
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.currency-btn.active {
+  color: #fff;
+  background: var(--accent);
 }
 
 .tab {
@@ -336,6 +369,15 @@ a.link {
     flex-direction: column;
   }
 
+  .toolbar-row {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .currency-toggle {
+    margin-top: 2px;
+  }
+
   .header-right {
     width: 100%;
     align-items: flex-start;
@@ -343,5 +385,18 @@ a.link {
 
   .site-footer {
     text-align: left;
+  }
+
+  table {
+    font-size: 12px;
+  }
+
+  th,
+  td {
+    padding: 8px 6px;
+  }
+
+  .truncate-airline {
+    max-width: 64px;
   }
 }

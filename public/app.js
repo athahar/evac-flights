@@ -5,7 +5,8 @@ const state = {
   currentRun: null,
   configOrigins: [],
   selectedOrigin: "",
-  dashboardIntervalMinutes: 30
+  dashboardIntervalMinutes: 30,
+  displayCurrency: "USD"
 };
 
 const analytics = {
@@ -18,6 +19,9 @@ const analytics = {
 const els = {
   adminControls: document.querySelector("#adminControls"),
   airportTabs: document.querySelector("#airportTabs"),
+  priceHeader: document.querySelector("#priceHeader"),
+  currencyUsdBtn: document.querySelector("#currencyUsdBtn"),
+  currencyAedBtn: document.querySelector("#currencyAedBtn"),
   scanPrimary: document.querySelector("#scanPrimary"),
   scanSecondary: document.querySelector("#scanSecondary"),
   recentTableBody: document.querySelector("#recentTableBody"),
@@ -34,10 +38,31 @@ const airportLabels = {
   DXB: "Dubai (DXB)",
   MCT: "Muscat (MCT)"
 };
+const CURRENCY_STORAGE_KEY = "evac_display_currency";
+const USD_TO_AED = 3.6725;
 
 function getAirportLabel(origin) {
   const code = String(origin || "").trim().toUpperCase();
   return airportLabels[code] || code;
+}
+
+function normalizeDisplayCurrency(value) {
+  const text = String(value || "").trim().toUpperCase();
+  return text === "AED" ? "AED" : "USD";
+}
+
+function loadDisplayCurrency() {
+  try {
+    return normalizeDisplayCurrency(window.localStorage.getItem(CURRENCY_STORAGE_KEY) || "USD");
+  } catch {
+    return "USD";
+  }
+}
+
+function saveDisplayCurrency(value) {
+  try {
+    window.localStorage.setItem(CURRENCY_STORAGE_KEY, normalizeDisplayCurrency(value));
+  } catch {}
 }
 
 function escapeHtmlAttr(value) {
@@ -185,19 +210,32 @@ function formatRelativeTime(value) {
   return future ? `in ${days} day${days === 1 ? "" : "s"}` : `${days} day${days === 1 ? "" : "s"} ago`;
 }
 
-function fmtPrice(amount, currency) {
+function fmtPrice(amount, currency, displayCurrency = "USD") {
   if (!amount) return "-";
-  const curr = String(currency || "USD").trim().toUpperCase();
+  const sourceCurrency = String(currency || "USD").trim().toUpperCase();
+  const targetCurrency = normalizeDisplayCurrency(displayCurrency);
   const parsed = Number.parseFloat(String(amount).replace(/,/g, ""));
   if (!Number.isFinite(parsed)) {
-    return `${curr} ${amount}`.trim();
+    return `${sourceCurrency} ${amount}`.trim();
   }
-  const roundedUp = Math.ceil(parsed);
+
+  let converted = parsed;
+  let outputCurrency = sourceCurrency;
+  if (sourceCurrency === targetCurrency) {
+    outputCurrency = targetCurrency;
+  } else if (sourceCurrency === "USD" && targetCurrency === "AED") {
+    converted = parsed * USD_TO_AED;
+    outputCurrency = "AED";
+  } else if (sourceCurrency === "AED" && targetCurrency === "USD") {
+    converted = parsed / USD_TO_AED;
+    outputCurrency = "USD";
+  }
+
   const formatted = new Intl.NumberFormat("en-US", {
     minimumFractionDigits: 0,
     maximumFractionDigits: 0
-  }).format(roundedUp);
-  return `${curr} ${formatted}`.trim();
+  }).format(Math.ceil(converted));
+  return `${outputCurrency} ${formatted}`.trim();
 }
 
 function formatFlightCode(row) {
@@ -207,6 +245,15 @@ function formatFlightCode(row) {
   if (row.flight) return row.flight;
   if (number) return number;
   return "-";
+}
+
+function getAirlineCode(row) {
+  const code = String(row.marketingCarrierCode || row.carrierCode || "").trim().toUpperCase();
+  return code || "-";
+}
+
+function isCompactView() {
+  return window.matchMedia("(max-width: 960px)").matches;
 }
 
 function formatAirlineName(airline) {
@@ -300,6 +347,7 @@ function renderWebsiteCell(row) {
 
 function renderTable(target, rows) {
   target.innerHTML = "";
+  const compactView = isCompactView();
 
   if (!rows || rows.length === 0) {
     target.innerHTML = `<tr><td colspan="9">No data yet.</td></tr>`;
@@ -311,19 +359,20 @@ function renderTable(target, rows) {
   for (const row of rows) {
     const tr = document.createElement("tr");
     const airlineFull = row.airline || "-";
-    const airlineShort = formatAirlineName(airlineFull);
+    const airlineShort = compactView ? getAirlineCode(row) : formatAirlineName(airlineFull);
     const flightCode = formatFlightCode(row);
     const bookabilityStatus = row.bookabilityStatus || row.availabilityStatus || "PENDING";
     const priceTooltip = offerSummaryTooltip(row);
+    const toLabel = compactView ? (String(row.destinationIata || "").trim().toUpperCase() || "-") : formatToLocation(row);
     tr.innerHTML = `
       <td>${row.flightDate || "-"}</td>
       <td>${row.departureTimeLocal || "-"}</td>
       <td><span class="truncate-airline" title="${airlineFull}">${airlineShort}</span></td>
       <td>${flightCode}</td>
       <td>${row.origin || "-"}</td>
-      <td title="${formatToLocation(row)}">${formatToLocation(row)}</td>
+      <td title="${toLabel}">${toLabel}</td>
       <td><span class="${chipClass(bookabilityStatus)}">${chipLabel(bookabilityStatus)}</span></td>
-      <td title="${priceTooltip}">${fmtPrice(row.priceAmount, row.priceCurrency)}</td>
+      <td title="${priceTooltip}">${fmtPrice(row.priceAmount, row.priceCurrency, state.displayCurrency)}</td>
       <td>${renderWebsiteCell(row)}</td>
     `;
     fragment.appendChild(tr);
@@ -426,6 +475,14 @@ function renderAirportTabs() {
   els.airportTabs.appendChild(fragment);
 }
 
+function renderCurrencyToggle() {
+  const current = normalizeDisplayCurrency(state.displayCurrency);
+  state.displayCurrency = current;
+  if (els.currencyUsdBtn) els.currencyUsdBtn.classList.toggle("active", current === "USD");
+  if (els.currencyAedBtn) els.currencyAedBtn.classList.toggle("active", current === "AED");
+  if (els.priceHeader) els.priceHeader.textContent = `Price (${current})`;
+}
+
 function sortRowsForRecent(rows) {
   const rank = {
     BOOKABLE_NOW: 1,
@@ -513,6 +570,7 @@ function renderMeta() {
 
 function renderAll() {
   renderAirportTabs();
+  renderCurrencyToggle();
   renderMeta();
   renderTable(els.recentTableBody, sortRowsForRecent(filterRowsByOrigin(state.mostRecent?.rows || [])));
 }
@@ -584,6 +642,20 @@ function attachActions() {
       els.clearRunsBtn.disabled = false;
     }
   });
+}
+
+function attachCurrencyToggle() {
+  const buttons = [els.currencyUsdBtn, els.currencyAedBtn].filter(Boolean);
+  for (const button of buttons) {
+    button.addEventListener("click", () => {
+      const nextCurrency = normalizeDisplayCurrency(button.getAttribute("data-currency"));
+      if (state.displayCurrency === nextCurrency) return;
+      state.displayCurrency = nextCurrency;
+      saveDisplayCurrency(nextCurrency);
+      trackEvent("price_currency_toggled", { currency: nextCurrency });
+      renderAll();
+    });
+  }
 }
 
 function attachWebsiteLinkTracking() {
@@ -662,7 +734,9 @@ function startCountdown() {
 }
 
 applyFeatureFlags();
+state.displayCurrency = loadDisplayCurrency();
 attachActions();
+attachCurrencyToggle();
 attachWebsiteLinkTracking();
 startCountdown();
 fetchState().catch((err) => {
@@ -670,3 +744,11 @@ fetchState().catch((err) => {
 });
 connectEvents();
 initAnalytics();
+
+let lastCompactView = isCompactView();
+window.addEventListener("resize", () => {
+  const nextCompactView = isCompactView();
+  if (nextCompactView === lastCompactView) return;
+  lastCompactView = nextCompactView;
+  renderAll();
+});

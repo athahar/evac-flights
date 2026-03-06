@@ -36,7 +36,13 @@
         </div>
       </header>
 
-      <section id="airportTabs" class="airport-tabs" aria-label="Airport tabs"></section>
+      <div class="toolbar-row">
+        <section id="airportTabs" class="airport-tabs" aria-label="Airport tabs"></section>
+        <div class="currency-toggle" role="group" aria-label="Price currency">
+          <button type="button" id="currencyUsdBtn" class="currency-btn active" data-currency="USD">USD</button>
+          <button type="button" id="currencyAedBtn" class="currency-btn" data-currency="AED">AED</button>
+        </div>
+      </div>
       <div class="scan-status">
         <p class="scan-primary" id="scanPrimary">-</p>
         <p class="scan-secondary" id="scanSecondary">-</p>
@@ -54,7 +60,7 @@
                 <th>From</th>
                 <th>To</th>
                 <th>Tickets Available</th>
-                <th>Price</th>
+                <th id="priceHeader">Price (USD)</th>
                 <th>Website</th>
               </tr>
             </thead>
