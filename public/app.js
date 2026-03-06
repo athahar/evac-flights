@@ -256,16 +256,11 @@ function isCompactView() {
   return window.matchMedia("(max-width: 960px)").matches;
 }
 
-function formatAirlineName(airline) {
+function formatAirlineName(airline, compact) {
   const text = String(airline || "").trim();
   if (!text) return "-";
 
-  // Keep this short in table rows; full value is shown via title tooltip.
-  if (text.startsWith("Air India Express")) {
-    return text.length > 18 ? "Air India Express…" : text;
-  }
-
-  const max = 24;
+  const max = compact ? 12 : 24;
   return text.length > max ? `${text.slice(0, max - 1)}…` : text;
 }
 
@@ -359,7 +354,7 @@ function renderTable(target, rows) {
   for (const row of rows) {
     const tr = document.createElement("tr");
     const airlineFull = row.airline || "-";
-    const airlineShort = compactView ? getAirlineCode(row) : formatAirlineName(airlineFull);
+    const airlineShort = formatAirlineName(airlineFull, compactView);
     const flightCode = formatFlightCode(row);
     const bookabilityStatus = row.bookabilityStatus || row.availabilityStatus || "PENDING";
     const priceTooltip = offerSummaryTooltip(row);
