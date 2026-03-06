@@ -48,6 +48,18 @@ body.modal-open {
   margin-bottom: 18px;
 }
 
+.header-main {
+  min-width: 0;
+  flex: 1;
+}
+
+.header-meta-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
 .eyebrow {
   margin: 0 0 6px;
   font-size: 11px;
@@ -423,7 +435,17 @@ h1 {
 .site-footer {
   margin-top: 12px;
   padding: 10px 2px 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
   text-align: right;
+}
+
+.site-footer-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
 }
 
 .site-footer-link {
@@ -521,6 +543,14 @@ a.link {
     flex-direction: column;
   }
 
+  .header-main {
+    width: 100%;
+  }
+
+  .header-meta-row {
+    align-items: center;
+  }
+
   .toolbar-row {
     flex-wrap: wrap;
     align-items: flex-start;
@@ -536,7 +566,7 @@ a.link {
   }
 
   .feedback-note {
-    white-space: normal;
+    white-space: nowrap;
   }
 
   .feedback-modal {
@@ -556,6 +586,7 @@ a.link {
 
   .site-footer {
     text-align: left;
+    align-items: flex-start;
   }
 
   table {
