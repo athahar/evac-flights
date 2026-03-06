@@ -43,7 +43,7 @@ cp .env.example .env
 
 Set at minimum:
 - `DUFFEL_TOKEN`
-- `FR24_INPUT_FILE`
+- `FR24_INPUT_FILE` (or `FR24_INPUT_FILES_BY_ORIGIN`)
 - `ORIGIN_AIRPORTS` (currently use `DXB`)
 
 Optional but recommended for stability:
@@ -223,6 +223,8 @@ npm run check:duffel:priority -- --date 2026-03-05 --origin DXB --rpm 50 --delay
 Dashboard scans now support two FR24 sources:
 
 - File mode (default): parses `FR24_INPUT_FILE`
+- Multi-file file mode: set `FR24_INPUT_FILES_BY_ORIGIN` as `ORIGIN=path` pairs, comma-separated.
+  - Example: `DXB=./data/input/fr24-march-06-07-dxb,AUH=./data/input/fr24-march-06-07-AUH,SHJ=./data/input/fr24-march-06-07-SHJ`
 - API mode: set `FR24_API_ENABLED=true` and provide `FR24_API_KEY` (URL template optional with default-template mode)
 
 The URL template is expanded per origin/date:

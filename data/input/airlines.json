@@ -84,10 +84,10 @@
       {
         "name": "Air India Express",
         "iata": "IX",
-        "website": "https://www.airindiaexpress.com",
-        "booking_url": "https://www.airindiaexpress.com/",
-        "deeplink_template": "https://www.airindiaexpress.com/flight-search?from={FROM}&to={TO}&departure={DATE}&adult=1&tripType=O",
-        "deeplink_confidence": "estimated",
+        "website": "https://www.airindiaexpress.com/home",
+        "booking_url": "https://www.airindiaexpress.com/home",
+        "deeplink_template": null,
+        "deeplink_confidence": "none",
         "notes": "All livery variants (Garba-Bihu Dance, Hans Damayanti Music, Himalayan Peaks-Desert, Kathakali-Bharatanatyam, Kochi-Muziris Biennale, Ragini Todi-Solah Shringar, Samai-Diya, White Tiger/Spotted Deer) are paint schemes \u2014 same airline, same booking URL"
       },
       {

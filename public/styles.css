@@ -86,6 +86,18 @@ h1 {
   margin: 0;
   color: var(--muted);
   font-size: 12px;
+  white-space: nowrap;
+}
+
+.feedback-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.x-link {
+  font-family: var(--mono);
+  font-weight: 600;
 }
 
 .btn {
