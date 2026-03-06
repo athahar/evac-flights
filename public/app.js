@@ -30,6 +30,16 @@ const preferredOriginFromUrl = String(new URLSearchParams(window.location.search
   .trim()
   .toUpperCase();
 
+const airportLabels = {
+  DXB: "Dubai (DXB)",
+  MCT: "Muscat (MCT)"
+};
+
+function getAirportLabel(origin) {
+  const code = String(origin || "").trim().toUpperCase();
+  return airportLabels[code] || code;
+}
+
 function escapeHtmlAttr(value) {
   return String(value ?? "")
     .replace(/&/g, "&amp;")
@@ -402,7 +412,7 @@ function renderAirportTabs() {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = `airport-tab${origin === state.selectedOrigin ? " active" : ""}`;
-    btn.textContent = origin;
+    btn.textContent = getAirportLabel(origin);
     btn.addEventListener("click", () => {
       state.selectedOrigin = origin;
       renderAll();
