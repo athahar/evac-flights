@@ -23,9 +23,8 @@
         </div>
         <div class="header-right">
           <p class="feedback-note">
-            Feedback:
-            <a class="feedback-link" href="mailto:athahar@gmail.com">athahar@gmail.com</a>
-            <span aria-hidden="true">|</span>
+            <button type="button" id="feedbackToggleBtn" class="feedback-toggle-btn">Feedback</button>
+            <span id="feedbackDivider" aria-hidden="true">|</span>
             <a class="feedback-link x-link" href="https://x.com/athahar" target="_blank" rel="noopener noreferrer" aria-label="X profile">𝕏</a>
           </p>
           <div id="adminControls" class="actions" hidden>
@@ -73,6 +72,25 @@
         <a class="site-footer-link" href="/disclaimer.html">Disclaimer & Terms of Use</a>
       </footer>
     </main>
+
+    <div id="feedbackModal" class="feedback-modal" hidden>
+      <button type="button" id="feedbackBackdrop" class="feedback-backdrop" aria-label="Close feedback dialog"></button>
+      <section class="feedback-dialog" role="dialog" aria-modal="true" aria-labelledby="feedbackDialogTitle">
+        <header class="feedback-dialog-head">
+          <h2 id="feedbackDialogTitle" class="feedback-dialog-title">Feedback</h2>
+          <button type="button" id="feedbackCloseBtn" class="feedback-close-btn">Close</button>
+        </header>
+        <form id="feedbackForm" class="feedback-form">
+          <label class="feedback-label" for="feedbackMessage">Share your feedback</label>
+          <textarea id="feedbackMessage" class="feedback-input" rows="4" maxlength="2000" placeholder="Share what’s useful or what should change"></textarea>
+          <div class="feedback-actions">
+            <button id="feedbackSubmitBtn" type="submit" class="btn feedback-submit-btn">Send</button>
+            <button id="feedbackCancelBtn" type="button" class="btn">Cancel</button>
+            <span id="feedbackStatus" class="feedback-status" role="status" aria-live="polite"></span>
+          </div>
+        </form>
+      </section>
+    </div>
 
     <script type="module" src="/app.js"></script>
   </body>

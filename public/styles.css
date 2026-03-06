@@ -30,6 +30,10 @@ body {
     var(--bg);
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 .app-shell {
   max-width: 1280px;
   margin: 0 auto;
@@ -94,6 +98,154 @@ h1 {
   color: inherit;
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+
+.feedback-toggle-btn {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 12px;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.feedback-toggle-btn:hover {
+  color: var(--text);
+}
+
+.feedback-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.feedback-backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgba(9, 20, 35, 0.36);
+  cursor: pointer;
+}
+
+.feedback-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(520px, calc(100vw - 24px));
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 12px 28px rgba(12, 32, 66, 0.18);
+  padding: 14px;
+}
+
+.feedback-dialog-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.feedback-dialog-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.feedback-close-btn {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #f7faff;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.feedback-label {
+  font-size: 11px;
+  color: var(--muted);
+  font-family: var(--mono);
+}
+
+.feedback-input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--text);
+  resize: vertical;
+  min-height: 78px;
+  background: #fff;
+}
+
+.feedback-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.feedback-status {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.feedback-submit-btn {
+  background: #111111;
+  border-color: #111111;
+  color: #fff;
+  min-width: 96px;
+  box-shadow: 0 6px 14px rgba(17, 17, 17, 0.22);
+  transition: background 120ms ease, border-color 120ms ease, transform 120ms ease, box-shadow 120ms ease;
+}
+
+.feedback-submit-btn:hover {
+  background: #050505;
+  border-color: #050505;
+  box-shadow: 0 8px 16px rgba(17, 17, 17, 0.28);
+  transform: translateY(-1px);
+}
+
+.feedback-submit-btn:active {
+  background: #000;
+  border-color: #000;
+  box-shadow: 0 4px 10px rgba(17, 17, 17, 0.24);
+  transform: translateY(0);
+}
+
+.feedback-submit-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.2);
+}
+
+.feedback-submit-btn:disabled {
+  opacity: 0.6;
+  box-shadow: none;
+  transform: none;
+  cursor: not-allowed;
+}
+
+.feedback-form.is-submitting .feedback-label,
+.feedback-form.is-submitting .feedback-input,
+.feedback-form.is-submitting .feedback-submit-btn {
+  display: none;
 }
 
 .x-link {
@@ -381,6 +533,25 @@ a.link {
   .header-right {
     width: 100%;
     align-items: flex-start;
+  }
+
+  .feedback-note {
+    white-space: normal;
+  }
+
+  .feedback-modal {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .feedback-dialog {
+    width: 100%;
+    max-width: 100%;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    border-radius: 14px 14px 0 0;
+    padding: 12px 12px 18px;
   }
 
   .site-footer {

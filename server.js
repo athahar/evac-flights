@@ -8,6 +8,7 @@ import { createDashboardRunner } from "./lib/dashboard-runner.js";
 import { loadAirlineDirectory } from "./lib/airlineLinks.js";
 import { createStorage } from "./lib/storage/index.js";
 import { checkFr24ApiHealth } from "./lib/fr24.js";
+import { sendFeedbackEmail } from "./lib/email.js";
 
 dotenv.config();
 
@@ -146,6 +147,10 @@ function stopScheduler() {
   scheduler = null;
 }
 
+function feedbackEnabled() {
+  return Boolean(config.resendApiKey && config.alertEmailFrom && config.alertEmailTo);
+}
+
 app.get("/health", async (_req, res) => {
   try {
     const dashState = await dashboardRunner.getState();
@@ -228,8 +233,50 @@ app.get("/api/public-config", (_req, res) => {
     posthogKey: config.posthogKey || "",
     posthogHost: config.posthogHost || "https://us.i.posthog.com",
     originAirports: config.originAirports || [],
-    dashboardIntervalMinutes: config.dashboardIntervalMinutes
+    dashboardIntervalMinutes: config.dashboardIntervalMinutes,
+    feedbackEnabled: feedbackEnabled()
   });
+});
+
+app.post("/api/feedback", async (req, res) => {
+  try {
+    if (!feedbackEnabled()) {
+      res.status(503).json({ ok: false, error: "Feedback is not configured" });
+      return;
+    }
+
+    const body = req.body || {};
+    const message = String(body.message || "").trim();
+    if (message.length < 4) {
+      res.status(400).json({ ok: false, error: "Feedback message is too short" });
+      return;
+    }
+    if (message.length > 2000) {
+      res.status(400).json({ ok: false, error: "Feedback message is too long" });
+      return;
+    }
+
+    const origin = String(body.origin || "").trim().toUpperCase();
+    const currency = String(body.currency || "").trim().toUpperCase();
+    const page = String(body.page || "").trim().slice(0, 800);
+    const userAgent = String(req.get("user-agent") || "").trim().slice(0, 500);
+    const submittedAt = new Date().toISOString();
+
+    await sendFeedbackEmail(config, {
+      message,
+      origin,
+      currency,
+      page,
+      userAgent,
+      submittedAt
+    });
+
+    logInfo(`[feedback] sent origin=${origin || "-"} chars=${message.length}`);
+    res.json({ ok: true });
+  } catch (err) {
+    logError("[feedback] failed", err);
+    res.status(502).json({ ok: false, error: "Failed to send feedback" });
+  }
 });
 
 app.post("/api/dashboard/run-now", async (req, res) => {

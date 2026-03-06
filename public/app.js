@@ -6,7 +6,8 @@ const state = {
   configOrigins: [],
   selectedOrigin: "",
   dashboardIntervalMinutes: 30,
-  displayCurrency: "USD"
+  displayCurrency: "USD",
+  feedbackEnabled: false
 };
 
 const analytics = {
@@ -22,6 +23,16 @@ const els = {
   priceHeader: document.querySelector("#priceHeader"),
   currencyUsdBtn: document.querySelector("#currencyUsdBtn"),
   currencyAedBtn: document.querySelector("#currencyAedBtn"),
+  feedbackToggleBtn: document.querySelector("#feedbackToggleBtn"),
+  feedbackDivider: document.querySelector("#feedbackDivider"),
+  feedbackModal: document.querySelector("#feedbackModal"),
+  feedbackBackdrop: document.querySelector("#feedbackBackdrop"),
+  feedbackCloseBtn: document.querySelector("#feedbackCloseBtn"),
+  feedbackCancelBtn: document.querySelector("#feedbackCancelBtn"),
+  feedbackForm: document.querySelector("#feedbackForm"),
+  feedbackMessage: document.querySelector("#feedbackMessage"),
+  feedbackSubmitBtn: document.querySelector("#feedbackSubmitBtn"),
+  feedbackStatus: document.querySelector("#feedbackStatus"),
   scanPrimary: document.querySelector("#scanPrimary"),
   scanSecondary: document.querySelector("#scanSecondary"),
   recentTableBody: document.querySelector("#recentTableBody"),
@@ -155,6 +166,8 @@ async function initAnalytics() {
     state.dashboardIntervalMinutes = Number.isInteger(cfg.dashboardIntervalMinutes)
       ? cfg.dashboardIntervalMinutes
       : 30;
+    state.feedbackEnabled = Boolean(cfg.feedbackEnabled);
+    renderFeedbackControls();
     renderAll();
 
     const key = String(cfg.posthogKey || "").trim();
@@ -563,6 +576,22 @@ function renderMeta() {
   els.toggleSchedulerBtn.textContent = state.schedulerRunning ? "Pause Scheduler" : "Resume Scheduler";
 }
 
+function renderFeedbackControls() {
+  const enabled = Boolean(state.feedbackEnabled);
+  if (els.feedbackToggleBtn) {
+    els.feedbackToggleBtn.hidden = !enabled;
+  }
+  if (els.feedbackDivider) {
+    els.feedbackDivider.hidden = !enabled;
+  }
+  if (!enabled) {
+    setFeedbackModalOpen(false);
+  }
+  if (els.feedbackStatus) {
+    els.feedbackStatus.textContent = "";
+  }
+}
+
 function renderAll() {
   renderAirportTabs();
   renderCurrencyToggle();
@@ -653,6 +682,105 @@ function attachCurrencyToggle() {
   }
 }
 
+function attachFeedbackForm() {
+  if (!els.feedbackToggleBtn || !els.feedbackModal || !els.feedbackForm || !els.feedbackMessage || !els.feedbackSubmitBtn || !els.feedbackStatus) {
+    return;
+  }
+
+  const closeFeedbackModal = () => {
+    setFeedbackModalOpen(false);
+  };
+
+  els.feedbackToggleBtn.addEventListener("click", () => {
+    if (!state.feedbackEnabled) return;
+    trackEvent("feedback_opened", {
+      origin: state.selectedOrigin || "",
+      currency: state.displayCurrency || "USD"
+    });
+    setFeedbackModalOpen(true);
+  });
+
+  if (els.feedbackBackdrop) {
+    els.feedbackBackdrop.addEventListener("click", closeFeedbackModal);
+  }
+  if (els.feedbackCloseBtn) {
+    els.feedbackCloseBtn.addEventListener("click", closeFeedbackModal);
+  }
+  if (els.feedbackCancelBtn) {
+    els.feedbackCancelBtn.addEventListener("click", closeFeedbackModal);
+  }
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    if (els.feedbackModal.hidden) return;
+    closeFeedbackModal();
+  });
+
+  els.feedbackForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (!state.feedbackEnabled) return;
+
+    const message = String(els.feedbackMessage.value || "").trim();
+    if (message.length < 4) {
+      els.feedbackStatus.textContent = "Please add a bit more detail.";
+      return;
+    }
+
+    els.feedbackSubmitBtn.disabled = true;
+    els.feedbackForm.classList.add("is-submitting");
+    els.feedbackStatus.textContent = "Sending...";
+    try {
+      const res = await fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          message,
+          origin: state.selectedOrigin || "",
+          currency: state.displayCurrency || "USD",
+          page: window.location.href
+        })
+      });
+      const payload = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        els.feedbackForm.classList.remove("is-submitting");
+        els.feedbackStatus.textContent = payload?.error || "Could not send.";
+        return;
+      }
+
+      els.feedbackMessage.value = "";
+      els.feedbackStatus.textContent = "Thanks. Feedback sent.";
+      trackEvent("feedback_sent", {
+        origin: state.selectedOrigin || "",
+        currency: state.displayCurrency || "USD"
+      });
+      setFeedbackModalOpen(false);
+    } catch {
+      els.feedbackForm.classList.remove("is-submitting");
+      els.feedbackStatus.textContent = "Could not send.";
+    } finally {
+      els.feedbackForm.classList.remove("is-submitting");
+      els.feedbackSubmitBtn.disabled = false;
+    }
+  });
+}
+
+function setFeedbackModalOpen(open) {
+  if (!els.feedbackModal) return;
+  const shouldOpen = Boolean(open);
+  els.feedbackModal.hidden = !shouldOpen;
+  document.body.classList.toggle("modal-open", shouldOpen);
+  if (!shouldOpen) {
+    if (els.feedbackForm) els.feedbackForm.classList.remove("is-submitting");
+    if (els.feedbackStatus) els.feedbackStatus.textContent = "";
+    return;
+  }
+  if (els.feedbackForm) els.feedbackForm.classList.remove("is-submitting");
+  if (els.feedbackStatus) els.feedbackStatus.textContent = "";
+  setTimeout(() => {
+    els.feedbackMessage?.focus();
+  }, 0);
+}
+
 function attachWebsiteLinkTracking() {
   document.addEventListener("click", (event) => {
     const anchor = event.target?.closest?.('a[data-track="open-link"]');
@@ -730,8 +858,10 @@ function startCountdown() {
 
 applyFeatureFlags();
 state.displayCurrency = loadDisplayCurrency();
+renderFeedbackControls();
 attachActions();
 attachCurrencyToggle();
+attachFeedbackForm();
 attachWebsiteLinkTracking();
 startCountdown();
 fetchState().catch((err) => {
