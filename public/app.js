@@ -409,6 +409,9 @@ function renderAirportTabs() {
       state.selectedOrigin = origin;
       renderAll();
       trackEvent("airport_tab_clicked", { origin });
+      if (origin === "MCT") {
+        trackEvent("mct_tab_clicked", { origin: "MCT", page: "flight_availability_board" });
+      }
     });
     fragment.appendChild(btn);
   }
