@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>UAE → Muscat: Emergency Travel Guide | March 2026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#112033" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Travelling from UAE via Muscat, Oman — Departure Guide | March 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -90,7 +93,7 @@
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 900px;
+      max-width: 1180px;
       margin: 0 auto;
       padding: 60px 40px;
       width: 100%;
@@ -199,9 +202,9 @@
       border-radius: 3px;
     }
 
-    .status-open { background: rgba(13,122,78,0.3); color: #2ab563; border: 1px solid rgba(42,181,99,0.3); }
+    .status-open { background: rgba(13,122,78,0.3); color: #2ab563; border: 1px solid rgba(90,200,120,0.3); }
     .status-limited { background: rgba(15,98,254,0.2); color: var(--accent-light); border: 1px solid rgba(15,98,254,0.3); }
-    .status-closed { background: rgba(162,53,53,0.25); color: #c45050; border: 1px solid rgba(196,80,80,0.3); }
+    .status-closed { background: rgba(162,53,53,0.25); color: #d04040; border: 1px solid rgba(220,80,80,0.3); }
 
     /* LAYOUT */
     .container {
@@ -630,6 +633,114 @@
 
     footer strong { color: var(--accent-light); }
 
+    /* ===== GOVERNMENT SOURCES ===== */
+    .gov-category {
+      margin-bottom: 36px;
+    }
+
+    .gov-cat-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 20px;
+      border-radius: 8px 8px 0 0;
+      margin-bottom: 0;
+    }
+
+    .uae-header    { background: linear-gradient(135deg, #006400 0%, #007A3D 100%); }
+    .oman-header   { background: linear-gradient(135deg, #8B0000 0%, #c0392b 100%); }
+    .foreign-header{ background: linear-gradient(135deg, #1a3a5a 0%, #2c5282 100%); }
+    .aviation-header{ background: linear-gradient(135deg, #1a2b3d 0%, #2c4a6e 100%); }
+
+    .gov-cat-flag {
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+
+    .gov-cat-title {
+      font-family: var(--sans);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .gov-cat-sub {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.65);
+      margin-top: 2px;
+    }
+
+    .gov-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 1px;
+      background: rgba(95,115,138,0.1);
+      border: 1px solid rgba(95,115,138,0.15);
+      border-top: none;
+      border-radius: 0 0 8px 8px;
+      overflow: hidden;
+    }
+
+    .gov-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      background: white;
+      padding: 16px 18px;
+      text-decoration: none;
+      gap: 10px;
+      transition: background 0.15s;
+    }
+
+    .gov-card:hover {
+      background: #f3f7fd;
+    }
+
+    .gov-card-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .gov-card-org {
+      font-family: var(--mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .gov-card-name {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .gov-card-desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 8px;
+    }
+
+    .gov-card-url {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted);
+      word-break: break-all;
+    }
+
+    .gov-card-action {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      white-space: nowrap;
+      padding-top: 2px;
+      flex-shrink: 0;
+    }
+
     /* ===== TRAVEL ESTIMATOR ===== */
     .travel-estimator {
       background: var(--text);
@@ -680,7 +791,7 @@
 
     .condition-good { color: #2ab563; }
     .condition-moderate { color: var(--accent-light); }
-    .condition-heavy { color: #c45050; }
+    .condition-heavy { color: #d04040; }
 
     .te-legs {
       display: flex;
@@ -911,16 +1022,1194 @@
       font-style: italic;
     }
 
-    /* RESPONSIVE */
+    /* ===== PAGE LAYOUT ===== */
+    .page-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      grid-template-areas: "main sidebar";
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 32px;
+      gap: 0 32px;
+      align-items: start;
+    }
+
+    .main-content {
+      grid-area: main;
+      min-width: 0;
+    }
+
+    .sidebar {
+      grid-area: sidebar;
+      position: sticky;
+      top: 20px;
+      max-height: calc(100vh - 40px);
+      overflow-y: auto;
+      padding: 28px 0 28px 0;
+      scrollbar-width: thin;
+      scrollbar-color: var(--line) transparent;
+    }
+
+    .sidebar::-webkit-scrollbar { width: 4px; }
+    .sidebar::-webkit-scrollbar-track { background: transparent; }
+    .sidebar::-webkit-scrollbar-thumb { background: var(--line); border-radius: 2px; }
+
+    /* ===== SIDEBAR COMPONENTS ===== */
+    .sb-section {
+      margin-bottom: 20px;
+    }
+
+    .sb-title {
+      font-family: var(--mono);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid rgba(15,98,254,0.25);
+    }
+
+    /* Sidebar link groups */
+    .sb-group {
+      margin-bottom: 14px;
+    }
+
+    .sb-group-label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-alt);
+      padding: 6px 10px;
+      background: var(--line);
+      border-radius: 4px 4px 0 0;
+    }
+
+    .sb-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 10px;
+      background: white;
+      border: 1px solid rgba(95,115,138,0.1);
+      border-top: none;
+      text-decoration: none;
+      gap: 8px;
+      transition: background 0.15s;
+    }
+
+    .sb-link:last-child {
+      border-radius: 0 0 4px 4px;
+    }
+
+    .sb-link:hover { background: #f3f7fd; }
+
+    .sb-link-info { flex: 1; min-width: 0; }
+
+    .sb-link-name {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .sb-link-url {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .sb-link-arrow {
+      font-size: 0.75rem;
+      color: var(--accent);
+      flex-shrink: 0;
+      font-weight: 700;
+    }
+
+    .sb-link.featured {
+      background: rgba(15,98,254,0.06);
+      border-color: rgba(15,98,254,0.25);
+    }
+
+    .sb-link.featured .sb-link-name { color: var(--bad); }
+
+    /* ===== DISCLAIMER IN SIDEBAR ===== */
+    .sb-disclaimer {
+      background: var(--text);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    .sb-disc-title {
+      font-family: var(--mono);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .sb-disc-title::before {
+      content: '⚖';
+      font-size: 11px;
+    }
+
+    .sb-disc-body {
+      font-size: 0.72rem;
+      color: rgba(243,247,253,0.55);
+      line-height: 1.6;
+    }
+
+    .sb-disc-body p { margin-bottom: 8px; }
+    .sb-disc-body p:last-child { margin-bottom: 0; }
+    .sb-disc-body strong { color: rgba(243,247,253,0.8); }
+
+    .sb-disc-expand {
+      margin-top: 10px;
+      font-size: 0.7rem;
+      color: var(--accent);
+      cursor: pointer;
+      text-decoration: underline;
+      background: none;
+      border: none;
+      padding: 0;
+      font-family: var(--sans);
+    }
+
+    .sb-disc-full {
+      display: none;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .sb-disc-full.open { display: block; }
+
+    /* SCAM WARNING in sidebar */
+    .sb-scam {
+      background: rgba(162,53,53,0.12);
+      border: 1px solid rgba(162,53,53,0.3);
+      border-left: 3px solid var(--bad);
+      border-radius: 6px;
+      padding: 10px 12px;
+      margin-bottom: 20px;
+    }
+
+    .sb-scam-title {
+      font-family: var(--mono);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--bad);
+      margin-bottom: 5px;
+    }
+
+    .sb-scam p {
+      font-size: 0.75rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* Keep old container for compatibility with full-width sections */
+    .container {
+      max-width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ============================================================
+       RESPONSIVE — COMPREHENSIVE MOBILE PASS
+    ============================================================ */
+
+    /* ── Tablet: sidebar collapses below main ── */
+    @media (max-width: 960px) {
+      .page-wrapper {
+        grid-template-columns: 1fr;
+        grid-template-areas: "main" "sidebar";
+        padding: 0 24px;
+        gap: 0;
+      }
+      .sidebar {
+        position: static;
+        max-height: none;
+        border-top: 2px solid var(--line);
+        padding: 32px 0 40px;
+      }
+      /* sidebar links go 2-col on tablet */
+      .sb-group { display: grid; grid-template-columns: 1fr 1fr; }
+      .sb-group-label { grid-column: 1 / -1; border-radius: 4px; }
+      .sb-link:last-child { border-radius: 0 0 4px 4px; }
+      .sb-link:nth-last-child(2):not(:nth-child(2)) { border-radius: 0 0 0 4px; }
+    }
+
+    /* ── Mobile ── */
     @media (max-width: 640px) {
-      .hero-content { padding: 40px 24px; }
-      .container { padding: 0 24px; }
-      .status-strip { padding: 12px 24px; gap: 16px; }
-      .route-grid { grid-template-columns: 1fr; }
+
+      /* PAGE SHELL */
+      .page-wrapper { padding: 0 16px; }
+      body { font-size: 15px; }
+
+      /* HERO */
+      .hero { min-height: auto; }
+      .hero-content { padding: 36px 20px 32px; }
+      .hero h1 { font-size: clamp(1.8rem, 8vw, 2.8rem); margin-bottom: 14px; }
+      .hero-sub { font-size: 0.95rem; margin-bottom: 22px; }
+      .hero-meta { flex-direction: column; gap: 10px; }
+      .alert-tag { font-size: 10px; padding: 5px 10px; }
+
+      /* STATUS STRIP — 3×2 grid instead of overflow-x scroll */
+      .status-strip {
+        padding: 14px 16px;
+        gap: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        overflow-x: visible;
+      }
+      .status-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        padding: 8px 6px;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        white-space: normal;
+      }
+      .status-item:nth-child(n+4) { border-bottom: none; }
+      .status-label { font-size: 9px; line-height: 1.3; }
+      .status-value { font-size: 10px; padding: 2px 6px; }
+
+      /* SECTIONS */
+      .section { padding: 36px 0 8px; }
+      h2 { font-size: 1.55rem; }
+      .section-divider { margin: 10px 0 18px; }
+
+      /* URGENCY BOX */
+      .urgency-box { padding: 16px 18px; margin: 28px 0 24px; }
+      .urgency-box p { font-size: 0.88rem; }
+
+      /* ROUTE CARDS — stack to 1 col */
+      .route-grid { grid-template-columns: 1fr; gap: 14px; margin-bottom: 28px; }
+      .route-card { padding: 18px; }
+
+      /* TIMELINE */
+      .timeline { padding-left: 20px; }
+      .timeline-item::before { left: -28px; width: 10px; height: 10px; }
+
+      /* VISA TABLE — horizontal scroll wrapper */
+      .visa-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 20px; }
+      .visa-table { min-width: 480px; font-size: 0.8rem; }
+      .visa-table th, .visa-table td { padding: 9px 10px; }
+
+      /* FAQ */
+      .faq-q { font-size: 0.9rem; padding: 14px 0; }
+      .faq-a { font-size: 0.85rem; }
+
+      /* TIPS GRID — 1 col */
+      .tips-grid { grid-template-columns: 1fr; gap: 12px; margin-bottom: 28px; }
+      .tip-card { padding: 16px; display: flex; gap: 14px; align-items: flex-start; }
+      .tip-icon { font-size: 1.4rem; margin-bottom: 0; flex-shrink: 0; }
+
+      /* LINKS GRID */
+      .links-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+
+      /* NAV BUTTONS — 1 col */
+      .nb-grid { grid-template-columns: 1fr; gap: 12px; }
+      .nb-btn { padding: 14px 10px; }  /* bigger touch target */
+
+      /* MAP */
+      .map-container iframe { height: 260px; }
+
+      /* TRAVEL ESTIMATOR */
+      .travel-estimator { padding: 20px 18px 18px; }
+      .te-header { flex-direction: column; gap: 10px; }
+      .te-clock { font-size: 1.15rem; }
+      .te-leg-from, .te-leg-to { font-size: 0.82rem; }
+      .te-total-time { font-size: 1.7rem; }
+      .te-total-sub { font-size: 0.8rem; }
+
+      /* GOVERNMENT SOURCE GRID */
+      .gov-grid { grid-template-columns: 1fr; }
+      .gov-card { flex-direction: row; justify-content: space-between; }
+
+      /* FOOTER */
+      footer { padding: 32px 20px; margin-top: 40px; font-size: 0.78rem; }
+
+      /* SIDEBAR (stacked) */
+      .sb-group { display: flex; flex-direction: column; }
+      .sb-link-name { white-space: normal; }
+      .sb-link-url { white-space: normal; }
+
+      /* DISCLAIMER MODAL */
+      .disc-overlay { align-items: flex-end; padding: 0; }
+      .disc-modal {
+        border-radius: 16px 16px 0 0;
+        max-height: 90vh;
+        overflow-y: auto;
+        max-width: 100%;
+      }
+      .disc-modal-header { padding: 20px 20px 16px; }
+      .disc-modal-body { padding: 16px 20px; }
+      .disc-modal-footer { padding: 0 20px 32px; }
+      .disc-clauses { gap: 6px; }
+      .disc-clause { padding: 8px 10px; }
+
+      /* DEPARTURE PLANNER */
+      .planner-input-row { grid-template-columns: 1fr; }
+      .planner-result-grid { grid-template-columns: 1fr; }
+      .planner-body { padding: 16px; }
+      .prc-value { font-size: 1.3rem; }
+
+      /* CHECKLIST */
+      .checklist-groups { grid-template-columns: 1fr; padding: 16px; gap: 14px; }
+      .checklist-header { padding: 14px 16px; }
+      .checklist-footer { padding: 12px 16px; }
+      .checklist-progress-bar { width: 80px; }
+      .ci-text { font-size: 0.8rem; }
+
+      /* WAIT TIME WIDGET */
+      .waittime-summary { grid-template-columns: 1fr 1fr 1fr; }
+      .wt-stat { padding: 12px; }
+      .wt-stat-value { font-size: 1.3rem; }
+      .wt-form-row { grid-template-columns: 1fr; }
+      .wt-report { grid-template-columns: auto 1fr; }
+      .wt-report-ts { display: none; } /* hide timestamp col on very small screens */
+      .waittime-body { padding: 16px; }
+    }
+
+    /* ── Very small screens ── */
+    @media (max-width: 380px) {
+      .status-strip { grid-template-columns: 1fr 1fr; }
+      .status-item:nth-child(n+5) { border-bottom: none; }
+      .status-item:nth-child(n+3):nth-child(-n+4) { border-bottom: 1px solid rgba(255,255,255,0.05); }
+      .links-grid { grid-template-columns: 1fr; }
+      .waittime-summary { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 1.65rem; }
+    }
+
+    /* ── Touch: make all interactive elements easier to tap ── */
+    @media (hover: none) {
+      .faq-q { min-height: 52px; }
+      .checklist-item { min-height: 44px; }
+      .nb-btn { min-height: 56px; }
+      .disc-accept-btn, .planner-calc-btn, .wt-submit-btn, .checklist-reset { min-height: 48px; }
+      .route-card:hover { transform: none; box-shadow: 0 2px 12px rgba(17,32,51,0.06); }
+      .nb-btn:hover { transform: none; box-shadow: none; }
+    }
+
+    /* ============================================================
+       FEATURE 1: DISCLAIMER BANNER (overlay on first load)
+    ============================================================ */
+    .disc-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(17,32,51,0.88);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      backdrop-filter: blur(4px);
+    }
+    .disc-overlay.hidden { display: none; }
+
+    .disc-modal {
+      background: var(--bg);
+      border-radius: 12px;
+      max-width: 560px;
+      width: 100%;
+      overflow: hidden;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+    }
+
+    .disc-modal-header {
+      background: var(--text);
+      padding: 24px 28px 20px;
+    }
+
+    .disc-modal-tag {
+      font-family: var(--mono);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .disc-modal-title {
+      font-family: var(--sans);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--bg);
+      line-height: 1.3;
+    }
+
+    .disc-modal-body {
+      padding: 24px 28px;
+    }
+
+    .disc-modal-body p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .disc-modal-body p:last-of-type { margin-bottom: 0; }
+
+    .disc-modal-body strong { color: var(--text-alt); }
+
+    .disc-clauses {
+      margin: 16px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .disc-clause {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      background: var(--line);
+      border-radius: 6px;
+      padding: 10px 12px;
+    }
+
+    .disc-clause-icon {
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .disc-clause-text {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .disc-clause-text strong { color: var(--text-alt); }
+
+    .disc-modal-footer {
+      padding: 0 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .disc-checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .disc-checkbox-row input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      accent-color: var(--accent);
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .disc-checkbox-label {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.5;
+      cursor: pointer;
+    }
+
+    .disc-accept-btn {
+      width: 100%;
+      padding: 14px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, opacity 0.2s;
+      letter-spacing: 0.02em;
+    }
+
+    .disc-accept-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .disc-accept-btn:not(:disabled):hover {
+      background: var(--accent-light);
+    }
+
+    /* ============================================================
+       FEATURE 2: DEPARTURE PLANNER
+    ============================================================ */
+    .planner-wrap {
+      background: var(--text);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 32px;
+    }
+
+    .planner-header {
+      padding: 20px 24px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .planner-title-group {}
+
+    .planner-tag {
+      font-family: var(--mono);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .planner-title {
+      font-family: var(--sans);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--bg);
+    }
+
+    .planner-body {
+      padding: 24px;
+    }
+
+    .planner-input-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .planner-input-row { grid-template-columns: 1fr; }
+    }
+
+    .planner-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .planner-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(15,98,254,0.8);
+    }
+
+    .planner-select, .planner-input-time {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px;
+      padding: 10px 12px;
+      color: var(--bg);
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      width: 100%;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .planner-select:focus, .planner-input-time:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .planner-select option { background: #1a2b3d; color: var(--bg); }
+
+    .planner-calc-btn {
+      width: 100%;
+      padding: 13px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-bottom: 20px;
+    }
+
+    .planner-calc-btn:hover { background: var(--accent-light); }
+
+    .planner-result {
+      display: none;
+      animation: fadeSlideIn 0.3s ease;
+    }
+
+    .planner-result.visible { display: block; }
+
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .planner-result-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .planner-result-grid { grid-template-columns: 1fr; }
+    }
+
+    .planner-result-cell {
+      background: rgba(255,255,255,0.04);
+      padding: 14px 16px;
+    }
+
+    .prc-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(15,98,254,0.6);
+      margin-bottom: 4px;
+    }
+
+    .prc-value {
+      font-family: var(--sans);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent-light);
+      line-height: 1.1;
+    }
+
+    .prc-sub {
+      font-size: 0.75rem;
+      color: rgba(243,247,253,0.4);
+      margin-top: 3px;
+    }
+
+    .planner-verdict {
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    .planner-verdict.ok    { background: rgba(13,122,78,0.3);  border: 1px solid rgba(42,181,99,0.3); color: rgba(243,247,253,0.85); }
+    .planner-verdict.warn  { background: rgba(15,98,254,0.15); border: 1px solid rgba(15,98,254,0.3); color: rgba(243,247,253,0.85); }
+    .planner-verdict.tight { background: rgba(162,53,53,0.2);  border: 1px solid rgba(162,53,53,0.4); color: rgba(243,247,253,0.85); }
+
+    .planner-verdict strong { color: white; }
+
+    /* ============================================================
+       FEATURE 3: PRE-DEPARTURE CHECKLIST
+    ============================================================ */
+    .checklist-wrap {
+      background: white;
+      border: 1px solid rgba(95,115,138,0.12);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 32px;
+    }
+
+    .checklist-header {
+      background: var(--line);
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .checklist-header-left {}
+
+    .checklist-tag {
+      font-family: var(--mono);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin-bottom: 3px;
+    }
+
+    .checklist-title {
+      font-family: var(--sans);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .checklist-progress-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .checklist-progress-bar {
+      width: 120px;
+      height: 6px;
+      background: rgba(95,115,138,0.15);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .checklist-progress-fill {
+      height: 100%;
+      background: var(--ok-light);
+      border-radius: 3px;
+      transition: width 0.3s ease;
+      width: 0%;
+    }
+
+    .checklist-progress-text {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .checklist-groups {
+      padding: 20px 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .checklist-groups { grid-template-columns: 1fr; }
+    }
+
+    .checklist-group {}
+
+    .cg-title {
+      font-family: var(--mono);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(95,115,138,0.06);
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .checklist-item:last-child { border-bottom: none; }
+
+    .checklist-item.checked { opacity: 0.45; }
+
+    .checklist-item.checked .ci-text {
+      text-decoration: line-through;
+      color: var(--muted);
+    }
+
+    .ci-box {
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(95,115,138,0.25);
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s;
+      font-size: 10px;
+      color: transparent;
+    }
+
+    .checklist-item.checked .ci-box {
+      background: var(--ok-light);
+      border-color: var(--ok-light);
+      color: white;
+    }
+
+    .ci-text {
+      font-size: 0.82rem;
+      color: var(--text-alt);
+      line-height: 1.4;
+      transition: all 0.2s;
+    }
+
+    .ci-text span {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    .checklist-footer {
+      padding: 14px 24px;
+      background: var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .checklist-reset {
+      font-size: 0.78rem;
+      color: var(--muted);
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-decoration: underline;
+      font-family: var(--sans);
+      padding: 0;
+    }
+
+    .checklist-reset:hover { color: var(--bad); }
+
+    .checklist-complete-msg {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--ok);
+      display: none;
+    }
+
+    .checklist-complete-msg.visible { display: block; }
+
+    /* ============================================================
+       FEATURE 4: CROWDSOURCED WAIT TIME WIDGET
+    ============================================================ */
+    .waittime-wrap {
+      background: var(--text);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 32px;
+    }
+
+    .waittime-header {
+      padding: 20px 24px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .waittime-tag {
+      font-family: var(--mono);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .waittime-title {
+      font-family: var(--sans);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--bg);
+    }
+
+    .waittime-sub {
+      font-size: 0.8rem;
+      color: rgba(243,247,253,0.45);
+      margin-top: 4px;
+    }
+
+    .waittime-body {
+      padding: 24px;
+    }
+
+    .waittime-summary {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .waittime-summary { grid-template-columns: 1fr; }
+    }
+
+    .wt-stat {
+      background: rgba(255,255,255,0.04);
+      padding: 14px 16px;
+    }
+
+    .wt-stat-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(15,98,254,0.6);
+      margin-bottom: 4px;
+    }
+
+    .wt-stat-value {
+      font-family: var(--sans);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--accent-light);
+      line-height: 1;
+    }
+
+    .wt-stat-sub {
+      font-size: 0.72rem;
+      color: rgba(243,247,253,0.35);
+      margin-top: 3px;
+    }
+
+    .waittime-feed {
+      margin-bottom: 20px;
+    }
+
+    .wt-feed-title {
+      font-family: var(--mono);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(243,247,253,0.4);
+      margin-bottom: 10px;
+    }
+
+    .wt-report {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      animation: fadeSlideIn 0.3s ease;
+    }
+
+    .wt-report:last-child { border-bottom: none; }
+
+    .wt-report-time-badge {
+      background: rgba(15,98,254,0.15);
+      border: 1px solid rgba(15,98,254,0.25);
+      border-radius: 6px;
+      padding: 6px 10px;
+      text-align: center;
+      min-width: 54px;
+    }
+
+    .wt-report-hours {
+      font-family: var(--sans);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent-light);
+      line-height: 1;
+    }
+
+    .wt-report-hrs-label {
+      font-family: var(--mono);
+      font-size: 8px;
+      color: rgba(15,98,254,0.5);
+      text-transform: uppercase;
+    }
+
+    .wt-report-info {}
+
+    .wt-report-direction {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: rgba(243,247,253,0.8);
+    }
+
+    .wt-report-note {
+      font-size: 0.72rem;
+      color: rgba(243,247,253,0.4);
+      margin-top: 2px;
+    }
+
+    .wt-report-ts {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: rgba(243,247,253,0.25);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .wt-empty {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.82rem;
+      color: rgba(243,247,253,0.3);
+      font-style: italic;
+    }
+
+    /* Report form */
+    .wt-form {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 18px;
+    }
+
+    .wt-form-title {
+      font-family: var(--mono);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .wt-form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 560px) {
+      .wt-form-row { grid-template-columns: 1fr; }
+    }
+
+    .wt-form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .wt-form-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(243,247,253,0.4);
+    }
+
+    .wt-form-select, .wt-form-text {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px;
+      padding: 9px 11px;
+      color: var(--bg);
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      width: 100%;
+      transition: border-color 0.2s;
+    }
+
+    .wt-form-select:focus, .wt-form-text:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .wt-form-select option { background: #1a2b3d; }
+
+    .wt-form-text::placeholder { color: rgba(243,247,253,0.2); }
+
+    .wt-submit-btn {
+      width: 100%;
+      padding: 12px;
+      margin-top: 4px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 7px;
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .wt-submit-btn:hover { background: var(--accent-light); }
+
+    .wt-success-msg {
+      display: none;
+      text-align: center;
+      padding: 14px;
+      background: rgba(13,122,78,0.25);
+      border: 1px solid rgba(42,181,99,0.3);
+      border-radius: 8px;
+      margin-top: 10px;
+      font-size: 0.85rem;
+      color: rgba(243,247,253,0.8);
+    }
+
+    .wt-success-msg.visible { display: block; }
+
+    .wt-disclaimer {
+      margin-top: 12px;
+      font-size: 0.72rem;
+      color: rgba(243,247,253,0.25);
+      font-style: italic;
+      text-align: center;
     }
   </style>
 </head>
 <body>
+
+<!-- ============================================================
+     DISCLAIMER BANNER (shown on first load)
+============================================================ -->
+<div class="disc-overlay" id="disclaimerOverlay">
+  <div class="disc-modal">
+    <div class="disc-modal-header">
+      <div class="disc-modal-tag">⚖ Before You Continue</div>
+      <div class="disc-modal-title">Please read before using this guide</div>
+    </div>
+    <div class="disc-modal-body">
+      <p>This is an independent informational resource compiled from news sources and travel operators. It is <strong>not affiliated with any government, airline, or official authority.</strong></p>
+      <div class="disc-clauses">
+        <div class="disc-clause">
+          <div class="disc-clause-icon">📋</div>
+          <div class="disc-clause-text"><strong>Informational only.</strong> Nothing here constitutes professional travel, legal, immigration, or medical advice.</div>
+        </div>
+        <div class="disc-clause">
+          <div class="disc-clause-icon">⏱</div>
+          <div class="disc-clause-text"><strong>Conditions change hourly.</strong> Always verify with official government and airline sources before acting on anything here.</div>
+        </div>
+        <div class="disc-clause">
+          <div class="disc-clause-icon">⚠️</div>
+          <div class="disc-clause-text"><strong>No liability.</strong> The publisher accepts no responsibility for any loss, injury, or damage resulting from use of this information. Travel is at your own risk.</div>
+        </div>
+        <div class="disc-clause">
+          <div class="disc-clause-icon">🔗</div>
+          <div class="disc-clause-text"><strong>Official Oman visa portal only:</strong> evisa.rop.gov.om — fraudulent sites are active. Use only official government domains.</div>
+        </div>
+      </div>
+    </div>
+    <div class="disc-modal-footer">
+      <label class="disc-checkbox-row">
+        <input type="checkbox" id="discCheckbox" onchange="document.getElementById('discBtn').disabled = !this.checked">
+        <span class="disc-checkbox-label">I understand this is an informational resource only, and I will verify all information with official sources before travelling.</span>
+      </label>
+      <button class="disc-accept-btn" id="discBtn" disabled onclick="acceptDisclaimer()">I Understand — Continue to Guide</button>
+    </div>
+  </div>
+</div>
 
 <!-- HERO -->
 <header class="hero">
@@ -930,14 +2219,14 @@
   <div class="hero-content">
     <div class="alert-tag">
       <div class="alert-dot"></div>
-      Live Crisis Guide — Updated March 6, 2026
+      Live Travel Guide — Updated March 6, 2026
     </div>
-    <h1>Getting Out of the UAE<br/>via <span>Muscat, Oman</span></h1>
-    <p class="hero-sub">Your complete, up-to-date guide on how to reach Muscat by land and fly out — covering routes, border crossings, visas, buses, costs, and survival tips for travellers stranded in the UAE.</p>
+    <h1>Travelling from the UAE<br/>via <span>Muscat, Oman</span></h1>
+    <p class="hero-sub">A practical, up-to-date guide on reaching Muscat by land and flying onward — covering routes, border crossings, visas, buses, costs, and essential travel tips for those currently in the UAE.</p>
     <div class="hero-meta">
       <div class="meta-item"><strong>Last Verified</strong>March 6, 2026</div>
       <div class="meta-item"><strong>Sources</strong>Reuters, AGBI, Gulf News, Gov.nl, ITV, FOX Business</div>
-      <div class="meta-item"><strong>Conflict</strong>Operation Epic Fury — US/Israel-Iran</div>
+      <div class="meta-item"><strong>Conflict</strong>Ongoing Gulf Regional Crisis — Feb 28, 2026</div>
     </div>
   </div>
 </header>
@@ -970,12 +2259,15 @@
   </div>
 </div>
 
-<div class="container">
+<div class="page-wrapper">
+
+<!-- ======== MAIN CONTENT ======== -->
+<main class="main-content">
 
   <!-- URGENCY BOX -->
   <div class="urgency-box">
     <div class="ub-title">⚠ Situation Summary — March 6, 2026</div>
-    <p>Since February 28, 2026, US/Israeli Operation Epic Fury has triggered retaliatory Iranian strikes across the Gulf, leading to the closure of UAE, Qatari, Kuwaiti, and Bahraini airspace. Dubai International Airport has suspended ~80% of flights. <strong>Muscat International Airport remains the primary functioning gateway out of the region.</strong> Tens of thousands of stranded travellers are now making the overland journey from Dubai or Sharjah into Oman to fly home. This guide consolidates the best available intelligence to help you do that safely.</p>
+    <p>Since February 28, 2026, an escalation of armed conflict across the Middle East has led to missile and drone strikes across the Gulf region, resulting in the closure of UAE, Qatari, Kuwaiti, and Bahraini airspace. Dubai International Airport has suspended ~80% of flights. <strong>Muscat International Airport remains the primary functioning gateway out of the region.</strong> Tens of thousands of stranded travellers are now making the overland journey from Dubai or Sharjah into Oman to fly home. This guide consolidates the best available intelligence to help you do that safely.</p>
   </div>
 
   <!-- ===== SECTION 1: ROUTES ===== -->
@@ -1008,7 +2300,7 @@
           <li>UAE cars CANNOT enter Oman unless owner is the driver</li>
           <li>Omani taxis wait on the other side of the border</li>
           <li>WhatsApp groups coordinating rideshares are active</li>
-          <li>Call 056-204-9774 (Al Khanjry) for bookings</li>
+          <li>Call <a href="tel:+971562049774" style="color:var(--accent);">056-204-9774</a> (Al Khanjry) for bookings</li>
         </ul>
         <span class="cost-tag">$500–$5,000+ per car</span>
       </div>
@@ -1112,6 +2404,7 @@
 
     <p style="margin-bottom:20px; color:var(--muted); font-size:0.92rem;">Always verify your status at <strong>evisa.rop.gov.om</strong> before travel. Requirements can change. Pre-applying online is strongly recommended to avoid long queues at the border during crisis conditions.</p>
 
+    <div class="visa-table-wrap">
     <table class="visa-table">
       <thead>
         <tr>
@@ -1166,6 +2459,7 @@
         </tr>
       </tbody>
     </table>
+    </div><!-- end visa-table-wrap -->
 
     <div class="warn-box">
       <div class="wb-title">⛔ Ramadan Rules in Oman (Active Now)</div>
@@ -1229,7 +2523,7 @@
 
       <div class="faq-item">
         <div class="faq-q">Is there a sea route from UAE to Oman or India?</div>
-        <div class="faq-a">There is no viable civilian passenger ferry option at this time. Oman's National Ferries Company only operates domestic coastal routes (Muscat–Khasab, Shinas–Khasab). Commercial shipping through the Strait of Hormuz has collapsed (~81% drop in transits) after tanker attacks. One option mentioned is a boat from Dubai to Mumbai, but this travels through the Strait of Hormuz where Iranian strikes on tankers have been reported — this is considered extremely high risk and not recommended.</div>
+        <div class="faq-a">There is no viable civilian passenger ferry option at this time. Oman's National Ferries Company only operates domestic coastal routes (Muscat–Khasab, Shinas–Khasab). Commercial shipping through the Strait of Hormuz has been severely disrupted (~81% drop in transits) following reported attacks on tankers in the area. One option mentioned is a boat from Dubai to Mumbai, but this route passes through the Strait of Hormuz where active maritime incidents have been reported — this is considered extremely high risk and is not recommended.</div>
       </div>
 
       <div class="faq-item">
@@ -1254,7 +2548,7 @@
 
       <div class="faq-item">
         <div class="faq-q">Is Oman itself safe? Have there been attacks?</div>
-        <div class="faq-a">Oman has suffered fewer attacks than neighboring countries and has maintained a position of relative neutrality in the conflict. However, there was a drone incident and a vessel explosion reported off the coast of Oman early in the conflict. Saudi Arabia was briefly considered safer but experienced intercepted strikes, making Oman the more preferred option from Monday March 2 onward. The situation is fluid — always monitor your government's travel advisory and Oman's official communications.</div>
+        <div class="faq-a">Oman has experienced fewer reported incidents than several neighbouring countries and has maintained an open airspace throughout the crisis — making it the most practical transit option currently available in the region. There was a drone incident and a vessel explosion reported off the coast of Oman early in the crisis. The situation remains fluid. Always monitor your own government's travel advisory and Oman's official communications before and during travel.</div>
       </div>
 
     </div>
@@ -1263,7 +2557,7 @@
   <!-- ===== SECTION 6: BEST PRACTICES ===== -->
   <div class="section">
     <div class="section-label">06 — Best Practices</div>
-    <h2>Survival Tips for the Journey</h2>
+    <h2>Essential Tips for the Journey</h2>
     <div class="section-divider"></div>
 
     <div class="tips-grid">
@@ -1294,7 +2588,7 @@
       <div class="tip-card">
         <div class="tip-icon">💧</div>
         <div class="tip-title">Water, Food & Medicines</div>
-        <div class="tip-body">Bring enough water, food, and any medications for 2–3 days. Supermarket shelves in the UAE have seen panic buying. Oman has supplies but availability near the border crossing is limited. Plan for long waits.</div>
+        <div class="tip-body">Bring enough water, food, and any medications for 2–3 days. Essential supplies in the UAE have been in high demand. Oman has supplies but availability near the border crossing may be limited. Plan for long waits and do not rely on being able to restock along the route.</div>
       </div>
 
       <div class="tip-card">
@@ -1306,7 +2600,7 @@
       <div class="tip-card">
         <div class="tip-icon">🚗</div>
         <div class="tip-title">Book a Licensed Transfer</div>
-        <div class="tip-body">Standard taxis and Uber cannot cross the border legally. You need a licensed tour operator vehicle. Call Al Khanjry on 056-204-9774, or contact LNK Oman on +968 7228 0555 for professional cross-border transfers.</div>
+        <div class="tip-body">Standard taxis and Uber cannot cross the border legally. You need a licensed tour operator vehicle. Call Al Khanjry on <a href="tel:+971562049774" style="color:var(--accent);font-weight:600;">056-204-9774</a>, or contact LNK Oman on <a href="tel:+96872280555" style="color:var(--accent);font-weight:600;">+968 7228 0555</a> for professional cross-border transfers.</div>
       </div>
 
       <div class="tip-card">
@@ -1573,13 +2867,729 @@
 
   </div>
 
+  <!-- ===== SECTION 9: DEPARTURE PLANNER ===== -->
+  <div class="section">
+    <div class="section-label">09 — Departure Planner</div>
+    <h2>When Do I Need to Leave?</h2>
+    <div class="section-divider"></div>
+    <p style="color:var(--muted); font-size:0.9rem; margin-bottom:20px;">Enter your flight departure time from Muscat and where you're travelling from. We'll calculate the latest safe time to leave — accounting for current border conditions.</p>
+
+    <div class="planner-wrap">
+      <div class="planner-header">
+        <div class="planner-title-group">
+          <div class="planner-tag">Reverse Journey Calculator</div>
+          <div class="planner-title">Work backwards from your flight</div>
+        </div>
+      </div>
+      <div class="planner-body">
+        <div class="planner-input-row">
+          <div class="planner-field">
+            <div class="planner-label">Your Flight Time (MCT)</div>
+            <input type="time" class="planner-input-time" id="plannerFlightTime" value="20:00">
+          </div>
+          <div class="planner-field">
+            <div class="planner-label">Departing From</div>
+            <select class="planner-select" id="plannerOrigin">
+              <option value="dubai">Dubai (central)</option>
+              <option value="sharjah">Sharjah / Al Jubail</option>
+              <option value="abudhabi">Abu Dhabi</option>
+              <option value="hatta">Already at Hatta border</option>
+            </select>
+          </div>
+          <div class="planner-field">
+            <div class="planner-label">Airport Check-in Buffer</div>
+            <select class="planner-select" id="plannerBuffer">
+              <option value="90">90 min (minimum)</option>
+              <option value="120" selected>2 hours (recommended)</option>
+              <option value="180">3 hours (safe)</option>
+            </select>
+          </div>
+        </div>
+        <button class="planner-calc-btn" onclick="calcDeparture()">Calculate My Departure Time →</button>
+
+        <div class="planner-result" id="plannerResult">
+          <div class="planner-result-grid">
+            <div class="planner-result-cell">
+              <div class="prc-label">Latest Departure</div>
+              <div class="prc-value" id="prcDepart">—</div>
+              <div class="prc-sub" id="prcDepartSub">UAE time</div>
+            </div>
+            <div class="planner-result-cell">
+              <div class="prc-label">Est. Journey Time</div>
+              <div class="prc-value" id="prcJourney">—</div>
+              <div class="prc-sub">incl. border delays</div>
+            </div>
+            <div class="planner-result-cell">
+              <div class="prc-label">MCT Arrival By</div>
+              <div class="prc-value" id="prcArrival">—</div>
+              <div class="prc-sub" id="prcArrivalSub">Oman time (same as UAE)</div>
+            </div>
+          </div>
+          <div class="planner-verdict" id="plannerVerdict"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 10: PRE-DEPARTURE CHECKLIST ===== -->
+  <div class="section">
+    <div class="section-label">10 — Checklist</div>
+    <h2>Pre-Departure Checklist</h2>
+    <div class="section-divider"></div>
+    <p style="color:var(--muted); font-size:0.9rem; margin-bottom:20px;">Tap each item to mark it done. Progress saves during your session. Do not leave without completing the Documents and Border Essentials groups.</p>
+
+    <div class="checklist-wrap">
+      <div class="checklist-header">
+        <div class="checklist-header-left">
+          <div class="checklist-tag">Pre-Departure</div>
+          <div class="checklist-title">Hatta–Al Wajajah Border Crossing</div>
+        </div>
+        <div class="checklist-progress-wrap">
+          <div class="checklist-progress-bar">
+            <div class="checklist-progress-fill" id="clProgressFill"></div>
+          </div>
+          <div class="checklist-progress-text" id="clProgressText">0 / 20</div>
+        </div>
+      </div>
+
+      <div class="checklist-groups">
+        <div class="checklist-group">
+          <div class="cg-title">📋 Documents</div>
+          <div class="checklist-item" onclick="toggleCheck(this)"><div class="ci-box">✓</div><div class="ci-text">Passport (6+ months validity)<span>Check expiry date right now</span></div></div>
+          <div class="checklist-item" onclick="toggleCheck(this)"><div class="ci-box">✓</div><div class="ci-text">UAE residence visa or entry stamp<span>Print a physical copy</span></div></div>
+          <div class="checklist-item" onclick="toggleCheck(this)"><div class="ci-box">✓</div><div class="ci-text">Oman e-visa confirmation<span>Apply at evisa.rop.gov.om first</span></div></div>
+          <div class="checklist-item" onclick="toggleCheck(this)"><div class="ci-box">✓</div><div class="ci-text">Confirmed onward flight booking<span>Printed and on phone</span></div></div>
+          <div class="checklist-item" onclick="toggleCheck(this)"><div class="ci-box">✓</div><div class="ci-text">Hotel / accommodation in Muscat<span>Confirmation printed</span></div></div>
+          <div class="checklist-item" onclick="toggleCheck(this)"><div class="ci-box">✓</div><div class="ci-text">Vehicle registration documents<span>If driving your own car</span></div></div>
+        </div>
+
+        <div class="checklist-group">
+          <div class="cg-title">🚗 Border Essentials</div>
+          <div class="checklist-item" onclick="toggleCheck(this)"><div class="ci-box">✓</div><div class="ci-text">AED 40–50 cash for UAE exit fee<span>Accepted at Hatta checkpoint</span></div></div>
+          <div class="checklist-item" onclick="toggleCheck(this)"><div class="ci-box">✓</div><div class="ci-text">Credit/debit card for Oman entry<span>For visa fee + Orange Card insurance</span></div></div>
+          <div class="checklist-item" onclick="toggleCheck(this)"><div class="ci-box">✓</div><div class="ci-text">Full fuel tank<span>Fill up in Dubai or Hatta before crossing</span></div></div>
+          <div class="checklist-item" onclick="toggleCheck(this)"><div class="ci-box">✓</div><div class="ci-text">Licensed transfer vehicle booked<span>Not standard taxi or Uber</span></div></div>
+          <div class="checklist-item" onclick="toggleCheck(this)"><div class="ci-box">✓</div><div class="ci-text">NOC letter if car is not yours<span>Required if borrowed or financed</span></div></div>
+        </div>
+
+        <div class="checklist-group">
+          <div class="cg-title">🎒 Supplies</div>
+          <div class="checklist-item" onclick="toggleCheck(this)"><div class="ci-box">✓</div><div class="ci-text">Water (2–3 litres per person)<span>For the full journey + border wait</span></div></div>
+          <div class="checklist-item" onclick="toggleCheck(this)"><div class="ci-box">✓</div><div class="ci-text">Food / snacks for 6–12 hours<span>Border waits can be very long</span></div></div>
+          <div class="checklist-item" onclick="toggleCheck(this)"><div class="ci-box">✓</div><div class="ci-text">All medications (2–3 day supply)<span>Including prescription medicines</span></div></div>
+          <div class="checklist-item" onclick="toggleCheck(this)"><div class="ci-box">✓</div><div class="ci-text">Phone fully charged + power bank<span>Mountains have unreliable signal</span></div></div>
+        </div>
+
+        <div class="checklist-group">
+          <div class="cg-title">📱 Before You Drive</div>
+          <div class="checklist-item" onclick="toggleCheck(this)"><div class="ci-box">✓</div><div class="ci-text">Downloaded offline maps<span>Google Maps → Offline → Dubai to Muscat corridor</span></div></div>
+          <div class="checklist-item" onclick="toggleCheck(this)"><div class="ci-box">✓</div><div class="ci-text">Registered with your government<span>UK FCDO / US STEP / ROCA / Smartraveller etc.</span></div></div>
+          <div class="checklist-item" onclick="toggleCheck(this)"><div class="ci-box">✓</div><div class="ci-text">Notified family / contacts of route<span>Share your travel plan with someone</span></div></div>
+          <div class="checklist-item" onclick="toggleCheck(this)"><div class="ci-box">✓</div><div class="ci-text">Checked Muscat Airport for flight status<span>muscatairport.co.om — verify before leaving</span></div></div>
+          <div class="checklist-item" onclick="toggleCheck(this)"><div class="ci-box">✓</div><div class="ci-text">Joined WhatsApp / Telegram update group<span>Search "Dubai Muscat evacuation 2026"</span></div></div>
+        </div>
+      </div>
+
+      <div class="checklist-footer">
+        <button class="checklist-reset" onclick="resetChecklist()">↺ Reset all items</button>
+        <div class="checklist-complete-msg" id="clCompleteMsg">✓ All items checked — you're ready to go</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 11: CROWDSOURCED WAIT TIMES ===== -->
+  <div class="section">
+    <div class="section-label">11 — Live Border Reports</div>
+    <h2>Crowdsourced Wait Times</h2>
+    <div class="section-divider"></div>
+    <p style="color:var(--muted); font-size:0.9rem; margin-bottom:20px;">Just crossed the Hatta–Al Wajajah border? Report your wait time to help others plan. Reports are stored locally and visible to all visitors during this session.</p>
+
+    <div class="waittime-wrap">
+      <div class="waittime-header">
+        <div class="waittime-tag">📡 Hatta–Al Wajajah Border Crossing</div>
+        <div class="waittime-title">Community Wait Time Reports</div>
+        <div class="waittime-sub">Updated in real-time by travellers who've crossed recently</div>
+      </div>
+      <div class="waittime-body">
+
+        <!-- Stats summary -->
+        <div class="waittime-summary">
+          <div class="wt-stat">
+            <div class="wt-stat-label">Latest Report</div>
+            <div class="wt-stat-value" id="wtLatest">—</div>
+            <div class="wt-stat-sub" id="wtLatestSub">No reports yet</div>
+          </div>
+          <div class="wt-stat">
+            <div class="wt-stat-label">Average (last 5)</div>
+            <div class="wt-stat-value" id="wtAverage">—</div>
+            <div class="wt-stat-sub">hrs wait time</div>
+          </div>
+          <div class="wt-stat">
+            <div class="wt-stat-label">Total Reports</div>
+            <div class="wt-stat-value" id="wtCount">0</div>
+            <div class="wt-stat-sub">since page loaded</div>
+          </div>
+        </div>
+
+        <!-- Live feed -->
+        <div class="waittime-feed">
+          <div class="wt-feed-title">Recent reports (newest first)</div>
+          <div id="wtFeed">
+            <div class="wt-empty" id="wtEmpty">No reports yet. Be the first to report your wait time.</div>
+          </div>
+        </div>
+
+        <!-- Submit form -->
+        <div class="wt-form">
+          <div class="wt-form-title">📝 Report Your Wait Time</div>
+          <div class="wt-form-row">
+            <div class="wt-form-field">
+              <div class="wt-form-label">Wait Time at Border</div>
+              <select class="wt-form-select" id="wtHours">
+                <option value="">Select hours waited...</option>
+                <option value="0.5">30 minutes</option>
+                <option value="1">1 hour</option>
+                <option value="1.5">1.5 hours</option>
+                <option value="2">2 hours</option>
+                <option value="2.5">2.5 hours</option>
+                <option value="3">3 hours</option>
+                <option value="4">4 hours</option>
+                <option value="5">5 hours</option>
+                <option value="6">6+ hours</option>
+              </select>
+            </div>
+            <div class="wt-form-field">
+              <div class="wt-form-label">Direction</div>
+              <select class="wt-form-select" id="wtDirection">
+                <option value="UAE → Oman">UAE → Oman (entering Oman)</option>
+                <option value="Oman → UAE">Oman → UAE (returning)</option>
+              </select>
+            </div>
+          </div>
+          <div class="wt-form-row">
+            <div class="wt-form-field">
+              <div class="wt-form-label">Crossed At (approx. UAE time)</div>
+              <input type="time" class="wt-form-text" id="wtCrossedAt">
+            </div>
+            <div class="wt-form-field">
+              <div class="wt-form-label">Optional Note</div>
+              <input type="text" class="wt-form-text" id="wtNote" placeholder="e.g. Moving fast, e-visa helped" maxlength="60">
+            </div>
+          </div>
+          <button class="wt-submit-btn" onclick="submitWaitTime()">Submit Report →</button>
+          <div class="wt-success-msg" id="wtSuccess">✓ Report submitted — thank you for helping fellow travellers!</div>
+        </div>
+
+        <p class="wt-disclaimer">Reports are community-submitted and unverified. Use as a guide only — actual wait times may vary. Data is stored in your browser session.</p>
+      </div>
+    </div>
+  </div>
+
+</main><!-- end main-content -->
+
+<!-- ======== SIDEBAR ======== -->
+<aside class="sidebar">
+
+  <!-- DISCLAIMER -->
+  <div class="sb-disclaimer">
+    <div class="sb-disc-title">Legal Disclaimer & Terms of Use</div>
+    <div class="sb-disc-body">
+      <p><strong>For informational purposes only.</strong> Nothing on this site constitutes professional travel, legal, immigration, or medical advice.</p>
+      <p><strong>No warranty on accuracy.</strong> This is an active armed conflict. Conditions change hour by hour. We make no representations as to the accuracy, completeness, or timeliness of any information here.</p>
+      <p><strong>No liability.</strong> To the fullest extent permitted by law, the publisher shall not be liable for any loss, injury, death, damage, or expense arising from use of or reliance on this site — including missed flights, financial loss, denial of entry, detention, or visa refusal.</p>
+      <button class="sb-disc-expand" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Show less' : '▼ Read full disclaimer'">▼ Read full disclaimer</button>
+      <div class="sb-disc-full">
+        <p><strong>Not an official source.</strong> This site has no affiliation with the Government of Oman, UAE, any airline, embassy, or official emergency authority.</p>
+        <p><strong>Consult official sources.</strong> Always verify with: (a) your government's foreign ministry; (b) evisa.rop.gov.om for Oman visa eligibility; (c) your airline directly; (d) muscatairport.co.om for MCT status.</p>
+        <p><strong>Third-party links.</strong> External links are provided for convenience only. We do not endorse or control linked sites.</p>
+        <p><strong>Travel at your own risk.</strong> Any decision to travel during an active conflict is made entirely at your own risk. The publisher expressly disclaims all responsibility for decisions made based on content here.</p>
+        <p><strong>No professional relationship.</strong> Accessing this site does not create any professional, advisory, or fiduciary relationship between you and the publisher.</p>
+        <p style="color:rgba(243,247,253,0.35); font-size:0.68rem; margin-top:8px;">Last updated: March 6, 2026</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCAM WARNING -->
+  <div class="sb-scam">
+    <div class="sb-scam-title">⛔ Scam Alert</div>
+    <p>Only use <strong>evisa.rop.gov.om</strong> for Oman visas. Fraudulent "evacuation assistance" sites are active. Use only official .gov URLs for your country's crisis registration.</p>
+  </div>
+
+  <!-- UAE OFFICIAL -->
+  <div class="sb-section">
+    <div class="sb-title">🇦🇪 UAE — Official Authorities</div>
+    <div class="sb-group">
+      <div class="sb-group-label">🚨 Crisis & Emergency</div>
+      <a class="sb-link" href="https://www.ncema.gov.ae" target="_blank" rel="noopener">
+        <div class="sb-link-info"><div class="sb-link-name">NCEMA — Crisis Authority</div><div class="sb-link-url">ncema.gov.ae</div></div>
+        <span class="sb-link-arrow">→</span>
+      </a>
+      <a class="sb-link" href="https://u.ae" target="_blank" rel="noopener">
+        <div class="sb-link-info"><div class="sb-link-name">UAE Government Portal</div><div class="sb-link-url">u.ae</div></div>
+        <span class="sb-link-arrow">→</span>
+      </a>
+    </div>
+    <div class="sb-group">
+      <div class="sb-group-label">✈️ Airports & Airspace</div>
+      <a class="sb-link" href="https://www.gcaa.gov.ae" target="_blank" rel="noopener">
+        <div class="sb-link-info"><div class="sb-link-name">GCAA — Airspace Authority</div><div class="sb-link-url">gcaa.gov.ae</div></div>
+        <span class="sb-link-arrow">→</span>
+      </a>
+      <a class="sb-link" href="https://www.dubaiairports.ae" target="_blank" rel="noopener">
+        <div class="sb-link-info"><div class="sb-link-name">Dubai Airport (DXB)</div><div class="sb-link-url">dubaiairports.ae</div></div>
+        <span class="sb-link-arrow">→</span>
+      </a>
+      <a class="sb-link" href="https://www.adac.ae" target="_blank" rel="noopener">
+        <div class="sb-link-info"><div class="sb-link-name">Abu Dhabi Airport (AUH)</div><div class="sb-link-url">adac.ae</div></div>
+        <span class="sb-link-arrow">→</span>
+      </a>
+    </div>
+    <div class="sb-group">
+      <div class="sb-group-label">🪪 Immigration</div>
+      <a class="sb-link" href="https://www.icp.gov.ae" target="_blank" rel="noopener">
+        <div class="sb-link-info"><div class="sb-link-name">ICP — Residency & Visas</div><div class="sb-link-url">icp.gov.ae</div></div>
+        <span class="sb-link-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- OMAN OFFICIAL -->
+  <div class="sb-section">
+    <div class="sb-title">🇴🇲 Oman — Official Authorities</div>
+    <div class="sb-group">
+      <div class="sb-group-label">🛂 Visas (Apply Before Border!)</div>
+      <a class="sb-link featured" href="https://evisa.rop.gov.om" target="_blank" rel="noopener">
+        <div class="sb-link-info"><div class="sb-link-name">⭐ Oman e-Visa Portal (ROP)</div><div class="sb-link-url">evisa.rop.gov.om</div></div>
+        <span class="sb-link-arrow">→</span>
+      </a>
+      <a class="sb-link" href="https://www.rop.gov.om/english" target="_blank" rel="noopener">
+        <div class="sb-link-info"><div class="sb-link-name">Royal Oman Police</div><div class="sb-link-url">rop.gov.om/english</div></div>
+        <span class="sb-link-arrow">→</span>
+      </a>
+    </div>
+    <div class="sb-group">
+      <div class="sb-group-label">✈️ Airport & Airlines</div>
+      <a class="sb-link featured" href="https://www.muscatairport.co.om" target="_blank" rel="noopener">
+        <div class="sb-link-info"><div class="sb-link-name">⭐ Muscat Airport (MCT)</div><div class="sb-link-url">muscatairport.co.om</div></div>
+        <span class="sb-link-arrow">→</span>
+      </a>
+      <a class="sb-link" href="https://www.omanair.com" target="_blank" rel="noopener">
+        <div class="sb-link-info"><div class="sb-link-name">Oman Air — Flights & Buses</div><div class="sb-link-url">omanair.com</div></div>
+        <span class="sb-link-arrow">→</span>
+      </a>
+      <a class="sb-link" href="https://www.salamair.com/en/bus-from-sharjah-to-muscat" target="_blank" rel="noopener">
+        <div class="sb-link-info"><div class="sb-link-name">SalamAir — Sharjah Bus</div><div class="sb-link-url">salamair.com/en/bus-from-sharjah-to-muscat</div></div>
+        <span class="sb-link-arrow">→</span>
+      </a>
+    </div>
+    <div class="sb-group">
+      <div class="sb-group-label">🏛 Government</div>
+      <a class="sb-link" href="https://www.oman.om" target="_blank" rel="noopener">
+        <div class="sb-link-info"><div class="sb-link-name">Oman Government Portal</div><div class="sb-link-url">oman.om</div></div>
+        <span class="sb-link-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- FOREIGN ADVISORIES -->
+  <div class="sb-section">
+    <div class="sb-title">🌍 Your Government's Advisory</div>
+    <div class="sb-group">
+      <div class="sb-group-label">Register with your government NOW</div>
+      <a class="sb-link" href="https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/united-arab-emirates-travel-advisory.html" target="_blank" rel="noopener">
+        <div class="sb-link-info"><div class="sb-link-name">🇺🇸 US State Dept — UAE</div><div class="sb-link-url">travel.state.gov · Crisis: mytravel.state.gov</div></div>
+        <span class="sb-link-arrow">→</span>
+      </a>
+      <a class="sb-link" href="https://www.gov.uk/foreign-travel-advice/united-arab-emirates" target="_blank" rel="noopener">
+        <div class="sb-link-info"><div class="sb-link-name">🇬🇧 UK FCDO — UAE Advice</div><div class="sb-link-url">gov.uk/foreign-travel-advice/uae</div></div>
+        <span class="sb-link-arrow">→</span>
+      </a>
+      <a class="sb-link" href="https://travel.gc.ca/destinations/united-arab-emirates" target="_blank" rel="noopener">
+        <div class="sb-link-info"><div class="sb-link-name">🇨🇦 Canada — UAE Advisory</div><div class="sb-link-url">travel.gc.ca/destinations/uae</div></div>
+        <span class="sb-link-arrow">→</span>
+      </a>
+      <a class="sb-link" href="https://www.smartraveller.gov.au/destinations/middle-east/united-arab-emirates" target="_blank" rel="noopener">
+        <div class="sb-link-info"><div class="sb-link-name">🇦🇺 Australia — Smartraveller</div><div class="sb-link-url">smartraveller.gov.au</div></div>
+        <span class="sb-link-arrow">→</span>
+      </a>
+      <a class="sb-link" href="https://www.government.nl/latest/weblogs/the-work-of-the-ministry-of-foreign-affairs/2026/situation-middle-east-news" target="_blank" rel="noopener">
+        <div class="sb-link-info"><div class="sb-link-name">🇳🇱 Netherlands MFA — Live</div><div class="sb-link-url">government.nl — Situation Middle East</div></div>
+        <span class="sb-link-arrow">→</span>
+      </a>
+      <a class="sb-link" href="https://www.auswaertiges-amt.de/en" target="_blank" rel="noopener">
+        <div class="sb-link-info"><div class="sb-link-name">🇩🇪 Germany — Foreign Office</div><div class="sb-link-url">auswaertiges-amt.de/en</div></div>
+        <span class="sb-link-arrow">→</span>
+      </a>
+      <a class="sb-link" href="https://www.safetravel.govt.nz/united-arab-emirates" target="_blank" rel="noopener">
+        <div class="sb-link-info"><div class="sb-link-name">🇳🇿 New Zealand — SafeTravel</div><div class="sb-link-url">safetravel.govt.nz</div></div>
+        <span class="sb-link-arrow">→</span>
+      </a>
+      <a class="sb-link" href="https://www.indembassyuae.org" target="_blank" rel="noopener">
+        <div class="sb-link-info"><div class="sb-link-name">🇮🇳 India — Embassy UAE</div><div class="sb-link-url">indembassyuae.org · +971-4-397-1222</div></div>
+        <span class="sb-link-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- LIVE TRACKING -->
+  <div class="sb-section">
+    <div class="sb-title">📡 Live Flight & Crisis Tracking</div>
+    <div class="sb-group">
+      <div class="sb-group-label">Real-time data</div>
+      <a class="sb-link" href="https://www.flightradar24.com" target="_blank" rel="noopener">
+        <div class="sb-link-info"><div class="sb-link-name">Flightradar24 — Live Flights</div><div class="sb-link-url">flightradar24.com</div></div>
+        <span class="sb-link-arrow">→</span>
+      </a>
+      <a class="sb-link" href="https://www.flightaware.com" target="_blank" rel="noopener">
+        <div class="sb-link-info"><div class="sb-link-name">FlightAware — Airport Status</div><div class="sb-link-url">flightaware.com</div></div>
+        <span class="sb-link-arrow">→</span>
+      </a>
+      <a class="sb-link" href="https://www.notaminfo.com" target="_blank" rel="noopener">
+        <div class="sb-link-info"><div class="sb-link-name">NOTAMinfo — Airspace Alerts</div><div class="sb-link-url">notaminfo.com</div></div>
+        <span class="sb-link-arrow">→</span>
+      </a>
+      <a class="sb-link" href="https://realtime-uae.replit.app" target="_blank" rel="noopener">
+        <div class="sb-link-info"><div class="sb-link-name">Realtime UAE — Crisis Dashboard</div><div class="sb-link-url">realtime-uae.replit.app</div></div>
+        <span class="sb-link-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- TRANSFER SERVICES -->
+  <div class="sb-section">
+    <div class="sb-title">🚗 Border Transfer Services</div>
+    <div class="sb-group">
+      <div class="sb-group-label">Licensed cross-border operators</div>
+      <a class="sb-link" href="https://www.lnkoman.com" target="_blank" rel="noopener">
+        <div class="sb-link-info"><div class="sb-link-name">LNK Oman Transfers</div><div class="sb-link-url">lnkoman.com · +968 7228 0555</div></div>
+        <span class="sb-link-arrow">→</span>
+      </a>
+      <a class="sb-link" href="https://www.musafir.com" target="_blank" rel="noopener">
+        <div class="sb-link-info"><div class="sb-link-name">Musafir.com — Bus Tickets</div><div class="sb-link-url">musafir.com</div></div>
+        <span class="sb-link-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+</aside><!-- end sidebar -->
+
+</div><!-- end page-wrapper -->
+
+<!-- FOOTER -->
+
+    <!-- UAE AUTHORITIES -->
+    <div class="gov-category">
+      <div class="gov-cat-header uae-header">
+        <span class="gov-cat-flag">🇦🇪</span>
+        <div>
+          <div class="gov-cat-title">UAE — Official Authorities</div>
+          <div class="gov-cat-sub">Crisis management, immigration, aviation, airports</div>
+        </div>
+      </div>
+      <div class="gov-grid">
+
+        <a class="gov-card" href="https://www.ncema.gov.ae" target="_blank" rel="noopener">
+          <div class="gov-card-body">
+            <div class="gov-card-org">NCEMA</div>
+            <div class="gov-card-name">National Emergency, Crisis & Disasters Management Authority</div>
+            <div class="gov-card-desc">UAE's lead body for national crisis coordination. Issues shelter-in-place orders, safety advisories, and emergency guidance directly to residents.</div>
+            <div class="gov-card-url">ncema.gov.ae</div>
+          </div>
+          <div class="gov-card-action">Visit →</div>
+        </a>
+
+        <a class="gov-card" href="https://u.ae" target="_blank" rel="noopener">
+          <div class="gov-card-body">
+            <div class="gov-card-org">UAE Government</div>
+            <div class="gov-card-name">The Official Portal of the UAE Government</div>
+            <div class="gov-card-desc">Central portal for all UAE government services, emergency announcements, and official statements during the crisis.</div>
+            <div class="gov-card-url">u.ae</div>
+          </div>
+          <div class="gov-card-action">Visit →</div>
+        </a>
+
+        <a class="gov-card" href="https://www.gcaa.gov.ae" target="_blank" rel="noopener">
+          <div class="gov-card-body">
+            <div class="gov-card-org">GCAA</div>
+            <div class="gov-card-name">UAE General Civil Aviation Authority</div>
+            <div class="gov-card-desc">Official source for UAE airspace status, airport operational updates, and NOTAM (Notice to Air Missions) advisories. Check here before going to any UAE airport.</div>
+            <div class="gov-card-url">gcaa.gov.ae</div>
+          </div>
+          <div class="gov-card-action">Visit →</div>
+        </a>
+
+        <a class="gov-card" href="https://www.dubaiairports.ae" target="_blank" rel="noopener">
+          <div class="gov-card-body">
+            <div class="gov-card-org">Dubai Airports</div>
+            <div class="gov-card-name">Dubai International Airport (DXB) — Official Site</div>
+            <div class="gov-card-desc">Real-time flight status, terminal updates, and operational announcements for DXB and DWC. Only go to the airport if you have a confirmed booking.</div>
+            <div class="gov-card-url">dubaiairports.ae</div>
+          </div>
+          <div class="gov-card-action">Visit →</div>
+        </a>
+
+        <a class="gov-card" href="https://www.adac.ae" target="_blank" rel="noopener">
+          <div class="gov-card-body">
+            <div class="gov-card-org">ADAC</div>
+            <div class="gov-card-name">Abu Dhabi Airports — Official Site</div>
+            <div class="gov-card-desc">Operational status for Abu Dhabi International Airport (AUH). Limited flights are operating — check before travel.</div>
+            <div class="gov-card-url">adac.ae</div>
+          </div>
+          <div class="gov-card-action">Visit →</div>
+        </a>
+
+        <a class="gov-card" href="https://www.icp.gov.ae" target="_blank" rel="noopener">
+          <div class="gov-card-body">
+            <div class="gov-card-org">ICP</div>
+            <div class="gov-card-name">UAE Federal Authority for Identity & Citizenship (ICP)</div>
+            <div class="gov-card-desc">Residence visa status, permit renewals, and immigration queries. Authorities have announced flexibility on visa renewals during the crisis — check here for official guidance.</div>
+            <div class="gov-card-url">icp.gov.ae</div>
+          </div>
+          <div class="gov-card-action">Visit →</div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- OMAN AUTHORITIES -->
+    <div class="gov-category">
+      <div class="gov-cat-header oman-header">
+        <span class="gov-cat-flag">🇴🇲</span>
+        <div>
+          <div class="gov-cat-title">Oman — Official Authorities</div>
+          <div class="gov-cat-sub">Visa, border, airport, and government portal</div>
+        </div>
+      </div>
+      <div class="gov-grid">
+
+        <a class="gov-card" href="https://evisa.rop.gov.om" target="_blank" rel="noopener">
+          <div class="gov-card-body">
+            <div class="gov-card-org">Royal Oman Police ⭐ MOST IMPORTANT</div>
+            <div class="gov-card-name">Oman e-Visa Official Portal</div>
+            <div class="gov-card-desc">The only official site for Oman visa applications. Apply here before reaching the border. Avoid all third-party "Oman visa" websites — many are scams. Accepts credit/debit card payments online.</div>
+            <div class="gov-card-url">evisa.rop.gov.om</div>
+          </div>
+          <div class="gov-card-action">Visit →</div>
+        </a>
+
+        <a class="gov-card" href="https://www.rop.gov.om/english" target="_blank" rel="noopener">
+          <div class="gov-card-body">
+            <div class="gov-card-org">Royal Oman Police (ROP)</div>
+            <div class="gov-card-name">Royal Oman Police — Main Portal</div>
+            <div class="gov-card-desc">Official immigration authority of Oman. Border crossing rules, visa eligibility, and entry requirements. Also the authority responsible for the Al Wajajah (Hatta) border crossing.</div>
+            <div class="gov-card-url">rop.gov.om/english</div>
+          </div>
+          <div class="gov-card-action">Visit →</div>
+        </a>
+
+        <a class="gov-card" href="https://www.muscatairport.co.om" target="_blank" rel="noopener">
+          <div class="gov-card-body">
+            <div class="gov-card-org">Oman Airports</div>
+            <div class="gov-card-name">Muscat International Airport (MCT) — Official Site</div>
+            <div class="gov-card-desc">Live arrivals and departures board for Muscat Airport. Currently the primary functioning international gateway in the region. Also check Salalah and Sohar airport pages here.</div>
+            <div class="gov-card-url">muscatairport.co.om</div>
+          </div>
+          <div class="gov-card-action">Visit →</div>
+        </a>
+
+        <a class="gov-card" href="https://www.omanair.com" target="_blank" rel="noopener">
+          <div class="gov-card-body">
+            <div class="gov-card-org">Oman Air</div>
+            <div class="gov-card-name">Oman Air — Flights & Bus Services</div>
+            <div class="gov-card-desc">Official page for Oman Air's bus transfer service (Sharjah → Muscat) and all flight bookings out of Muscat. Book directly here or via musafir.com and SNTTA.</div>
+            <div class="gov-card-url">omanair.com</div>
+          </div>
+          <div class="gov-card-action">Visit →</div>
+        </a>
+
+        <a class="gov-card" href="https://www.salamair.com/en/bus-from-sharjah-to-muscat" target="_blank" rel="noopener">
+          <div class="gov-card-body">
+            <div class="gov-card-org">SalamAir</div>
+            <div class="gov-card-name">SalamAir — Bus from Sharjah to Muscat</div>
+            <div class="gov-card-desc">Direct booking page for SalamAir's Sharjah–Muscat bus transfer. Service running through March 10. Tickets must be booked in advance — none sold at the station.</div>
+            <div class="gov-card-url">salamair.com/en/bus-from-sharjah-to-muscat</div>
+          </div>
+          <div class="gov-card-action">Visit →</div>
+        </a>
+
+        <a class="gov-card" href="https://www.oman.om" target="_blank" rel="noopener">
+          <div class="gov-card-body">
+            <div class="gov-card-org">Government of Oman</div>
+            <div class="gov-card-name">Sultanate of Oman — Official Government Portal</div>
+            <div class="gov-card-desc">Central portal for all Omani government services and official announcements. For emergency contacts and current Omani government statements during the crisis.</div>
+            <div class="gov-card-url">oman.om</div>
+          </div>
+          <div class="gov-card-action">Visit →</div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- FOREIGN GOVERNMENT ADVISORIES -->
+    <div class="gov-category">
+      <div class="gov-cat-header foreign-header">
+        <span class="gov-cat-flag">🌍</span>
+        <div>
+          <div class="gov-cat-title">Foreign Government Travel Advisories</div>
+          <div class="gov-cat-sub">Check your country's official advisory — each government has its own crisis registration system</div>
+        </div>
+      </div>
+      <div class="gov-grid">
+
+        <a class="gov-card" href="https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/united-arab-emirates-travel-advisory.html" target="_blank" rel="noopener">
+          <div class="gov-card-body">
+            <div class="gov-card-org">🇺🇸 United States</div>
+            <div class="gov-card-name">US State Dept — UAE Travel Advisory</div>
+            <div class="gov-card-desc">Level 3 "Reconsider Travel". Non-emergency US government staff ordered to depart March 2. Crisis Intake Form: mytravel.state.gov/s/crisis-intake · 24/7 hotline: +1-202-501-4444</div>
+            <div class="gov-card-url">travel.state.gov · ae.usembassy.gov</div>
+          </div>
+          <div class="gov-card-action">Visit →</div>
+        </a>
+
+        <a class="gov-card" href="https://www.gov.uk/foreign-travel-advice/united-arab-emirates" target="_blank" rel="noopener">
+          <div class="gov-card-body">
+            <div class="gov-card-org">🇬🇧 United Kingdom</div>
+            <div class="gov-card-name">FCDO — UAE Travel Advice</div>
+            <div class="gov-card-desc">"Advise against all travel". 130,000 Brits registered. Government evacuation flights departing from Muscat. Register at gov.uk and wait to be contacted. Do NOT go to airport without FCO instruction.</div>
+            <div class="gov-card-url">gov.uk/foreign-travel-advice/united-arab-emirates</div>
+          </div>
+          <div class="gov-card-action">Visit →</div>
+        </a>
+
+        <a class="gov-card" href="https://travel.gc.ca/destinations/united-arab-emirates" target="_blank" rel="noopener">
+          <div class="gov-card-body">
+            <div class="gov-card-org">🇨🇦 Canada</div>
+            <div class="gov-card-name">GAC — UAE Travel Advice & Advisories</div>
+            <div class="gov-card-desc">"Avoid all travel" to UAE. Register with Registration of Canadians Abroad (ROCA) service. Confirms land border crossings to Oman are available. Shelter in place until commercial flights resume.</div>
+            <div class="gov-card-url">travel.gc.ca/destinations/united-arab-emirates</div>
+          </div>
+          <div class="gov-card-action">Visit →</div>
+        </a>
+
+        <a class="gov-card" href="https://www.smartraveller.gov.au/destinations/middle-east/united-arab-emirates" target="_blank" rel="noopener">
+          <div class="gov-card-body">
+            <div class="gov-card-org">🇦🇺 Australia</div>
+            <div class="gov-card-name">Smartraveller — UAE Travel Advice</div>
+            <div class="gov-card-desc">"Do not travel" level. Register with DFAT. Consular Emergency Centre in Canberra: +61 2 6261 3305. Separate advisory page for Oman also available at smartraveller.gov.au</div>
+            <div class="gov-card-url">smartraveller.gov.au</div>
+          </div>
+          <div class="gov-card-action">Visit →</div>
+        </a>
+
+        <a class="gov-card" href="https://www.government.nl/latest/weblogs/the-work-of-the-ministry-of-foreign-affairs/2026/situation-middle-east-news" target="_blank" rel="noopener">
+          <div class="gov-card-body">
+            <div class="gov-card-org">🇳🇱 Netherlands</div>
+            <div class="gov-card-name">Ministry of Foreign Affairs — Live Middle East Updates</div>
+            <div class="gov-card-desc">One of the most detailed government crisis blogs available. Updated frequently. Dutch nationals: Crisis Contact Form open until March 6 noon. Follow @NLinOman on social media for Oman-specific updates.</div>
+            <div class="gov-card-url">government.nl — Situation Middle East</div>
+          </div>
+          <div class="gov-card-action">Visit →</div>
+        </a>
+
+        <a class="gov-card" href="https://www.auswaertiges-amt.de/en/aussenpolitik/laender/vereinigtearabischeemirate-node" target="_blank" rel="noopener">
+          <div class="gov-card-body">
+            <div class="gov-card-org">🇩🇪 Germany</div>
+            <div class="gov-card-name">German Foreign Office — UAE Travel Warning</div>
+            <div class="gov-card-desc">Germany coordinating land evacuation buses with Lufthansa and TUI from Dubai to Muscat. Two government charter flights (Riyadh & Muscat) already departed. Check for latest from the German Embassy in Abu Dhabi.</div>
+            <div class="gov-card-url">auswaertiges-amt.de</div>
+          </div>
+          <div class="gov-card-action">Visit →</div>
+        </a>
+
+        <a class="gov-card" href="https://www.india.gov.in" target="_blank" rel="noopener">
+          <div class="gov-card-body">
+            <div class="gov-card-org">🇮🇳 India</div>
+            <div class="gov-card-name">Indian Embassy UAE + MEA India</div>
+            <div class="gov-card-desc">Indian Embassy in UAE is coordinating repatriation. Air India Express operating from Muscat and Ras Al Khaimah. Indian nationals contact: Indian Embassy Abu Dhabi +971-2-449-2700 or Dubai +971-4-397-1222.</div>
+            <div class="gov-card-url">indembassyuae.org · mea.gov.in</div>
+          </div>
+          <div class="gov-card-action">Visit →</div>
+        </a>
+
+        <a class="gov-card" href="https://www.safetravel.govt.nz/united-arab-emirates" target="_blank" rel="noopener">
+          <div class="gov-card-body">
+            <div class="gov-card-org">🇳🇿 New Zealand</div>
+            <div class="gov-card-name">SafeTravel NZ — UAE Advice</div>
+            <div class="gov-card-desc">New Zealand travel advisory for UAE. Register on SafeTravel before departure. NZ consular assistance in the UAE is provided through the Australian Embassy.</div>
+            <div class="gov-card-url">safetravel.govt.nz</div>
+          </div>
+          <div class="gov-card-action">Visit →</div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- AVIATION & LIVE TRACKING -->
+    <div class="gov-category">
+      <div class="gov-cat-header aviation-header">
+        <span class="gov-cat-flag">✈️</span>
+        <div>
+          <div class="gov-cat-title">Aviation, Flight Tracking & Crisis Dashboards</div>
+          <div class="gov-cat-sub">Live flight data, NOTAM advisories, and real-time situation monitoring</div>
+        </div>
+      </div>
+      <div class="gov-grid">
+
+        <a class="gov-card" href="https://www.flightradar24.com" target="_blank" rel="noopener">
+          <div class="gov-card-body">
+            <div class="gov-card-org">Flightradar24</div>
+            <div class="gov-card-name">Live Flight Tracker — Middle East</div>
+            <div class="gov-card-desc">Real-time aircraft positions across the Gulf. Shows which corridors are active and which are empty. Used by journalists and authorities to monitor the crisis. Filter by airport or region.</div>
+            <div class="gov-card-url">flightradar24.com</div>
+          </div>
+          <div class="gov-card-action">Visit →</div>
+        </a>
+
+        <a class="gov-card" href="https://www.flightaware.com" target="_blank" rel="noopener">
+          <div class="gov-card-body">
+            <div class="gov-card-org">FlightAware</div>
+            <div class="gov-card-name">Flight Tracking & Airport Status</div>
+            <div class="gov-card-desc">Track specific flights, check airport delay status, and monitor cancellation rates at DXB, MCT, and other Gulf airports. Useful for confirming your specific flight is actually operating.</div>
+            <div class="gov-card-url">flightaware.com</div>
+          </div>
+          <div class="gov-card-action">Visit →</div>
+        </a>
+
+        <a class="gov-card" href="https://www.notaminfo.com" target="_blank" rel="noopener">
+          <div class="gov-card-body">
+            <div class="gov-card-org">NOTAMinfo</div>
+            <div class="gov-card-name">Aviation NOTAMs — Middle East Airspace</div>
+            <div class="gov-card-desc">Official Notices to Air Missions for UAE, Oman, and surrounding airspace. Tells pilots (and savvy travelers) which flight information regions are restricted or closed.</div>
+            <div class="gov-card-url">notaminfo.com</div>
+          </div>
+          <div class="gov-card-action">Visit →</div>
+        </a>
+
+        <a class="gov-card" href="https://realtime-uae.replit.app" target="_blank" rel="noopener">
+          <div class="gov-card-body">
+            <div class="gov-card-org">Crisis Dashboard</div>
+            <div class="gov-card-name">Realtime UAE — Live Crisis Information Hub</div>
+            <div class="gov-card-desc">Community-built live dashboard aggregating safety advice, flight data, border status, and travel advisories for UAE residents. Auto-updates continuously.</div>
+            <div class="gov-card-url">realtime-uae.replit.app</div>
+          </div>
+          <div class="gov-card-action">Visit →</div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- IMPORTANT WARNING -->
+    <div class="warn-box" style="margin-top:10px;">
+      <div class="wb-title">⛔ Warning: Fake Visa Sites & Scams</div>
+      <p>A high volume of fraudulent "Oman e-visa" and "UAE crisis assistance" websites have emerged since the conflict began. <strong>The only legitimate Oman visa portal is evisa.rop.gov.om</strong> (Royal Oman Police). For your own government's crisis registration, only use URLs ending in your government's official domain (gov.uk, state.gov, gc.ca, gov.au, etc.). Never pay for "emergency evacuation services" from unverified contacts on WhatsApp or social media.</p>
+    </div>
+
+  </div>
 </div>
 
 <!-- FOOTER -->
 <footer>
   <p style="margin-bottom:8px;"><strong>UAE → Muscat Emergency Travel Guide</strong></p>
   <p>Information compiled from Reuters, Gulf News, AGBI, ITV News, Euronews, FOX Business, The National, Government.nl, and travel operators as of <strong>March 6, 2026</strong>.</p>
-  <p style="margin-top:10px; font-size:0.77rem;">This is an independent informational resource. Conditions change hourly. Always verify information with your airline, the relevant government authorities, and official Oman/UAE sources before travel. Safe travels. 🙏</p>
+  <p style="margin-top:12px; font-size:0.78rem; color:rgba(243,247,253,0.4); max-width:680px; margin-left:auto; margin-right:auto; line-height:1.6;">
+    <strong style="color:rgba(243,247,253,0.6);">DISCLAIMER:</strong> This site is for informational purposes only and does not constitute professional advice of any kind. The publisher makes no warranties as to accuracy or timeliness. To the fullest extent permitted by law, the publisher accepts no liability for any loss, injury, or damage arising from reliance on this content. Travel during an active conflict is undertaken entirely at your own risk. Always verify information with official government and airline sources before acting.
+  </p>
+  <p style="margin-top:10px; font-size:0.72rem; color:rgba(243,247,253,0.25);">© 2026 · Independent informational resource · Not affiliated with any government, airline, or official body · Safe travels 🙏</p>
 </footer>
 
 <script>
@@ -1731,6 +3741,244 @@
   // Run immediately and update every minute
   updateEstimator();
   setInterval(updateEstimator, 60000);
+
+  // ============================================================
+  // FEATURE 1: DISCLAIMER BANNER
+  // ============================================================
+  function acceptDisclaimer() {
+    const overlay = document.getElementById('disclaimerOverlay');
+    overlay.style.opacity = '0';
+    overlay.style.transition = 'opacity 0.35s ease';
+    setTimeout(() => overlay.classList.add('hidden'), 350);
+    try { localStorage.setItem('disc_accepted_v1', '1'); } catch(e) {}
+  }
+
+  // Check if already accepted
+  (function() {
+    try {
+      if (localStorage.getItem('disc_accepted_v1') === '1') {
+        document.getElementById('disclaimerOverlay').classList.add('hidden');
+      }
+    } catch(e) {}
+  })();
+
+  // ============================================================
+  // FEATURE 2: DEPARTURE PLANNER
+  // ============================================================
+  function calcDeparture() {
+    const flightTimeVal = document.getElementById('plannerFlightTime').value;
+    const origin = document.getElementById('plannerOrigin').value;
+    const buffer = parseInt(document.getElementById('plannerBuffer').value);
+
+    if (!flightTimeVal) return;
+
+    const [fh, fm] = flightTimeVal.split(':').map(Number);
+    const flightMins = fh * 60 + fm;
+
+    // Origin offsets in minutes added to leg1
+    const originOffset = { dubai: 0, sharjah: 15, abudhabi: 60, hatta: -90 };
+    const extraLeg1 = originOffset[origin] || 0;
+
+    // Use current UAE hour for multipliers
+    const hour = getUAEHour();
+    const t1 = Math.round((BASE.leg1.normalMin + extraLeg1) * CRISIS_MULTIPLIERS.leg1[hour]);
+    const t2 = Math.round(BASE.leg2.normalMin * CRISIS_MULTIPLIERS.leg2[hour]);
+    const t3 = Math.round(BASE.leg3.normalMin * CRISIS_MULTIPLIERS.leg3[hour]);
+    const journeyTotal = t1 + t2 + t3;
+
+    // Latest departure = flight time - journey - buffer
+    const latestDepartureMins = flightMins - journeyTotal - buffer;
+    const arrivalAtAirportMins = flightMins - buffer;
+
+    const departH = Math.floor(((latestDepartureMins % 1440) + 1440) % 1440 / 60);
+    const departM = Math.floor(((latestDepartureMins % 1440) + 1440) % 1440 % 60);
+    const arrH = Math.floor(((arrivalAtAirportMins % 1440) + 1440) % 1440 / 60);
+    const arrM = Math.floor(((arrivalAtAirportMins % 1440) + 1440) % 1440 % 60);
+    const pad = n => n.toString().padStart(2, '0');
+
+    document.getElementById('prcDepart').textContent = `${pad(departH)}:${pad(departM)}`;
+    document.getElementById('prcJourney').textContent = formatMins(journeyTotal);
+    document.getElementById('prcArrival').textContent = `${pad(arrH)}:${pad(arrM)}`;
+
+    // Verdict
+    const uaeNow = getUAETime();
+    const nowMins = uaeNow.getHours() * 60 + uaeNow.getMinutes();
+    const minsUntilDepart = latestDepartureMins - nowMins;
+    const verdictEl = document.getElementById('plannerVerdict');
+
+    let verdictClass, verdictText;
+    if (minsUntilDepart > 120) {
+      verdictClass = 'ok';
+      verdictText = `✓ <strong>You have time.</strong> Latest departure is ${pad(departH)}:${pad(departM)} UAE time — that's ${formatMins(minsUntilDepart)} from now. Use the checklist to prepare, then depart on time. Don't delay unnecessarily.`;
+    } else if (minsUntilDepart > 0) {
+      verdictClass = 'warn';
+      verdictText = `⚠ <strong>Leave very soon.</strong> Your latest safe departure is ${pad(departH)}:${pad(departM)} — only ${formatMins(minsUntilDepart)} away. Border delays are unpredictable. Begin your journey immediately if possible.`;
+    } else {
+      verdictClass = 'tight';
+      verdictText = `⛔ <strong>Very tight or missed window.</strong> Based on current border conditions, the calculated departure time has already passed. You may not make this flight via land. Contact your airline immediately about rebooking, or check if government evacuation options are available.`;
+    }
+
+    verdictEl.className = `planner-verdict ${verdictClass}`;
+    verdictEl.innerHTML = verdictText;
+
+    document.getElementById('plannerResult').classList.add('visible');
+  }
+
+  // ============================================================
+  // FEATURE 3: CHECKLIST
+  // ============================================================
+  const CL_KEY = 'checklist_state_v1';
+
+  function toggleCheck(el) {
+    el.classList.toggle('checked');
+    saveChecklist();
+    updateChecklistProgress();
+  }
+
+  function updateChecklistProgress() {
+    const all = document.querySelectorAll('.checklist-item');
+    const done = document.querySelectorAll('.checklist-item.checked');
+    const total = all.length;
+    const count = done.length;
+    const pct = total > 0 ? (count / total) * 100 : 0;
+
+    document.getElementById('clProgressFill').style.width = pct + '%';
+    document.getElementById('clProgressText').textContent = `${count} / ${total}`;
+
+    const completeMsg = document.getElementById('clCompleteMsg');
+    if (count === total && total > 0) {
+      completeMsg.classList.add('visible');
+    } else {
+      completeMsg.classList.remove('visible');
+    }
+  }
+
+  function saveChecklist() {
+    try {
+      const states = Array.from(document.querySelectorAll('.checklist-item')).map(el => el.classList.contains('checked') ? '1' : '0');
+      localStorage.setItem(CL_KEY, states.join(','));
+    } catch(e) {}
+  }
+
+  function loadChecklist() {
+    try {
+      const saved = localStorage.getItem(CL_KEY);
+      if (!saved) return;
+      const states = saved.split(',');
+      const items = document.querySelectorAll('.checklist-item');
+      items.forEach((el, i) => {
+        if (states[i] === '1') el.classList.add('checked');
+      });
+    } catch(e) {}
+    updateChecklistProgress();
+  }
+
+  function resetChecklist() {
+    document.querySelectorAll('.checklist-item').forEach(el => el.classList.remove('checked'));
+    try { localStorage.removeItem(CL_KEY); } catch(e) {}
+    updateChecklistProgress();
+  }
+
+  loadChecklist();
+
+  // ============================================================
+  // FEATURE 4: CROWDSOURCED WAIT TIMES
+  // ============================================================
+  const WT_KEY = 'wait_time_reports_v1';
+  let wtReports = [];
+
+  function loadWaitReports() {
+    try {
+      const saved = localStorage.getItem(WT_KEY);
+      if (saved) wtReports = JSON.parse(saved);
+    } catch(e) { wtReports = []; }
+    renderWaitFeed();
+  }
+
+  function saveWaitReports() {
+    try { localStorage.setItem(WT_KEY, JSON.stringify(wtReports.slice(0, 20))); } catch(e) {}
+  }
+
+  function submitWaitTime() {
+    const hours = document.getElementById('wtHours').value;
+    const direction = document.getElementById('wtDirection').value;
+    const crossedAt = document.getElementById('wtCrossedAt').value;
+    const note = document.getElementById('wtNote').value.trim();
+
+    if (!hours) { alert('Please select a wait time.'); return; }
+
+    const uaeNow = getUAETime();
+    const report = {
+      hours: parseFloat(hours),
+      direction,
+      crossedAt: crossedAt || formatTimeHHMM(uaeNow),
+      note,
+      submittedAt: formatTimeHHMM(uaeNow),
+      submittedMs: Date.now()
+    };
+
+    wtReports.unshift(report);
+    if (wtReports.length > 20) wtReports = wtReports.slice(0, 20);
+    saveWaitReports();
+    renderWaitFeed();
+
+    // Reset form
+    document.getElementById('wtHours').value = '';
+    document.getElementById('wtNote').value = '';
+    document.getElementById('wtCrossedAt').value = '';
+    const successMsg = document.getElementById('wtSuccess');
+    successMsg.classList.add('visible');
+    setTimeout(() => successMsg.classList.remove('visible'), 4000);
+  }
+
+  function renderWaitFeed() {
+    const feed = document.getElementById('wtFeed');
+    const empty = document.getElementById('wtEmpty');
+    const last5 = wtReports.slice(0, 5);
+
+    document.getElementById('wtCount').textContent = wtReports.length;
+
+    if (wtReports.length === 0) {
+      empty.style.display = 'block';
+      document.getElementById('wtLatest').textContent = '—';
+      document.getElementById('wtLatestSub').textContent = 'No reports yet';
+      document.getElementById('wtAverage').textContent = '—';
+      return;
+    }
+
+    empty.style.display = 'none';
+
+    // Stats
+    const latest = wtReports[0];
+    document.getElementById('wtLatest').textContent = latest.hours < 1 ? `${latest.hours * 60}m` : `${latest.hours}h`;
+    document.getElementById('wtLatestSub').textContent = `reported at ${latest.submittedAt}`;
+
+    const avg = last5.reduce((s, r) => s + r.hours, 0) / last5.length;
+    document.getElementById('wtAverage').textContent = avg < 1 ? `${Math.round(avg * 60)}m` : `${avg.toFixed(1)}h`;
+
+    // Feed items
+    const existing = feed.querySelectorAll('.wt-report');
+    existing.forEach(el => el.remove());
+
+    last5.forEach(r => {
+      const div = document.createElement('div');
+      div.className = 'wt-report';
+      const displayHours = r.hours < 1 ? `${r.hours * 60}m` : `${r.hours}h`;
+      div.innerHTML = `
+        <div class="wt-report-time-badge">
+          <div class="wt-report-hours">${displayHours}</div>
+          <div class="wt-report-hrs-label">wait</div>
+        </div>
+        <div class="wt-report-info">
+          <div class="wt-report-direction">${r.direction}</div>
+          <div class="wt-report-note">Crossed ~${r.crossedAt}${r.note ? ' · ' + r.note : ''}</div>
+        </div>
+        <div class="wt-report-ts">Reported<br>${r.submittedAt}</div>`;
+      feed.appendChild(div);
+    });
+  }
+
+  loadWaitReports();
 </script>
 
 <!-- PostHog analytics -->
