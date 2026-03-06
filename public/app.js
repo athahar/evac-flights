@@ -2,7 +2,10 @@ const state = {
   schedulerRunning: false,
   nextRunAt: null,
   mostRecent: null,
-  currentRun: null
+  currentRun: null,
+  configOrigins: [],
+  selectedOrigin: "",
+  dashboardIntervalMinutes: 30
 };
 
 const analytics = {
@@ -14,23 +17,20 @@ const analytics = {
 
 const els = {
   adminControls: document.querySelector("#adminControls"),
+  airportTabs: document.querySelector("#airportTabs"),
   nextRunAt: document.querySelector("#nextRunAt"),
   countdown: document.querySelector("#countdown"),
   latestRunAt: document.querySelector("#latestRunAt"),
   latestRunStats: document.querySelector("#latestRunStats"),
-  currentRunStatus: document.querySelector("#currentRunStatus"),
-  currentRunProgress: document.querySelector("#currentRunProgress"),
   recentTableBody: document.querySelector("#recentTableBody"),
-  currentTableBody: document.querySelector("#currentTableBody"),
   runNowBtn: document.querySelector("#runNowBtn"),
   toggleSchedulerBtn: document.querySelector("#toggleSchedulerBtn"),
-  clearRunsBtn: document.querySelector("#clearRunsBtn"),
-  tabs: [...document.querySelectorAll(".tab")],
-  panels: {
-    recent: document.querySelector("#panel-recent"),
-    current: document.querySelector("#panel-current")
-  }
+  clearRunsBtn: document.querySelector("#clearRunsBtn")
 };
+
+const preferredOriginFromUrl = String(new URLSearchParams(window.location.search).get("origin") || "")
+  .trim()
+  .toUpperCase();
 
 function escapeHtmlAttr(value) {
   return String(value ?? "")
@@ -116,6 +116,14 @@ async function initAnalytics() {
     if (!res.ok) return;
 
     const cfg = await res.json();
+    state.configOrigins = Array.isArray(cfg.originAirports)
+      ? cfg.originAirports.map((x) => String(x || "").trim().toUpperCase()).filter(Boolean)
+      : [];
+    state.dashboardIntervalMinutes = Number.isInteger(cfg.dashboardIntervalMinutes)
+      ? cfg.dashboardIntervalMinutes
+      : 30;
+    renderAll();
+
     const key = String(cfg.posthogKey || "").trim();
     if (!key) return;
 
@@ -148,6 +156,25 @@ function fmtDateTime(value) {
     hour12: true,
     timeZoneName: "short"
   }).format(d);
+}
+
+function formatRelativeTime(value) {
+  if (!value) return "-";
+  const target = new Date(value);
+  if (Number.isNaN(target.getTime())) return "-";
+
+  const diffMs = target.getTime() - Date.now();
+  const future = diffMs > 0;
+  const absMs = Math.abs(diffMs);
+  const minutes = Math.floor(absMs / 60000);
+  const hours = Math.floor(minutes / 60);
+
+  if (minutes < 1) return future ? "in <1 min" : "just now";
+  if (minutes < 60) return future ? `in ${minutes} min` : `${minutes} min ago`;
+  if (hours < 48) return future ? `in ${hours} hr` : `${hours} hr ago`;
+
+  const days = Math.floor(hours / 24);
+  return future ? `in ${days} day${days === 1 ? "" : "s"}` : `${days} day${days === 1 ? "" : "s"} ago`;
 }
 
 function fmtPrice(amount, currency) {
@@ -297,6 +324,97 @@ function renderTable(target, rows) {
   target.appendChild(fragment);
 }
 
+function collectRowOrigins(rows, outSet) {
+  for (const row of rows || []) {
+    const origin = String(row?.origin || "").trim().toUpperCase();
+    if (origin) outSet.add(origin);
+  }
+}
+
+function getAvailableOrigins() {
+  const fromRows = new Set();
+  collectRowOrigins(state.mostRecent?.rows || [], fromRows);
+  collectRowOrigins(state.currentRun?.rows || [], fromRows);
+
+  const seen = new Set();
+  const ordered = [];
+
+  for (const origin of state.configOrigins || []) {
+    const normalized = String(origin || "").trim().toUpperCase();
+    if (!normalized || seen.has(normalized)) continue;
+    seen.add(normalized);
+    ordered.push(normalized);
+  }
+
+  const extras = [...fromRows].filter((origin) => !seen.has(origin)).sort((a, b) => a.localeCompare(b));
+  ordered.push(...extras);
+  return ordered;
+}
+
+function ensureSelectedOrigin(origins) {
+  if (origins.length === 0) {
+    state.selectedOrigin = "";
+    return;
+  }
+
+  const originsWithRows = new Set();
+  collectRowOrigins(state.mostRecent?.rows || [], originsWithRows);
+  collectRowOrigins(state.currentRun?.rows || [], originsWithRows);
+  const firstWithRows = origins.find((origin) => originsWithRows.has(origin));
+  const defaultOrigin = origins.includes("DXB") ? "DXB" : (firstWithRows || origins[0]);
+
+  if (!state.selectedOrigin && preferredOriginFromUrl && origins.includes(preferredOriginFromUrl)) {
+    state.selectedOrigin = preferredOriginFromUrl;
+    return;
+  }
+
+  if (!origins.includes(state.selectedOrigin)) {
+    state.selectedOrigin = defaultOrigin;
+    return;
+  }
+
+  if (!state.selectedOrigin) {
+    state.selectedOrigin = defaultOrigin;
+  }
+}
+
+function filterRowsByOrigin(rows) {
+  const selected = String(state.selectedOrigin || "").trim().toUpperCase();
+  if (!selected) return rows || [];
+  return (rows || []).filter((row) => String(row?.origin || "").trim().toUpperCase() === selected);
+}
+
+function renderAirportTabs() {
+  if (!els.airportTabs) return;
+
+  const origins = getAvailableOrigins();
+  ensureSelectedOrigin(origins);
+
+  if (origins.length <= 1) {
+    els.airportTabs.innerHTML = "";
+    els.airportTabs.hidden = true;
+    return;
+  }
+
+  els.airportTabs.hidden = false;
+  els.airportTabs.innerHTML = "";
+
+  const fragment = document.createDocumentFragment();
+  for (const origin of origins) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = `airport-tab${origin === state.selectedOrigin ? " active" : ""}`;
+    btn.textContent = origin;
+    btn.addEventListener("click", () => {
+      state.selectedOrigin = origin;
+      renderAll();
+      trackEvent("airport_tab_clicked", { origin });
+    });
+    fragment.appendChild(btn);
+  }
+  els.airportTabs.appendChild(fragment);
+}
+
 function sortRowsForRecent(rows) {
   const rank = {
     BOOKABLE_NOW: 1,
@@ -351,35 +469,45 @@ function sortRowsForCurrent(rows) {
 }
 
 function renderMeta() {
-  if (state.nextRunAt) {
-    els.nextRunAt.textContent = fmtDateTime(state.nextRunAt);
+  const mostRecentRows = filterRowsByOrigin(state.mostRecent?.rows || []);
+  const selectedOrigin = String(state.selectedOrigin || "").trim().toUpperCase();
+  const selectedLabel = selectedOrigin || "selected airport";
+  const intervalLabel = `${state.dashboardIntervalMinutes} min`;
+  const current = state.currentRun;
+
+  if (current) {
+    const total = Number.isFinite(current.totalTasks) ? current.totalTasks : 0;
+    const completed = Number.isFinite(current.completedTasks) ? current.completedTasks : 0;
+    const percent = total > 0 ? Math.round((completed / total) * 100) : 0;
+    els.nextRunAt.textContent = `Currently running (${percent}%)`;
+    els.countdown.textContent = `${completed}/${total} checks • ${selectedLabel} • scans every ${intervalLabel}`;
+  } else if (state.nextRunAt) {
+    els.nextRunAt.textContent = `Next scan ${formatRelativeTime(state.nextRunAt)}`;
+    els.countdown.textContent = `${selectedLabel} • scans every ${intervalLabel}`;
   } else if (state.schedulerRunning) {
-    els.nextRunAt.textContent = "Waiting for scheduler";
+    els.nextRunAt.textContent = "Waiting for next scan";
+    els.countdown.textContent = `${selectedLabel} • scans every ${intervalLabel}`;
   } else {
     els.nextRunAt.textContent = "Manual mode";
+    els.countdown.textContent = `${selectedLabel} • run manually`;
   }
 
   const mostRecentRun = state.mostRecent?.run || null;
-  els.latestRunAt.textContent = mostRecentRun?.completedAt ? fmtDateTime(mostRecentRun.completedAt) : "-";
-  els.latestRunStats.textContent = mostRecentRun
-    ? `${state.mostRecent.rows.length} flights`
-    : "No completed run yet";
-
-  if (state.currentRun) {
-    els.currentRunStatus.textContent = state.currentRun.status === "running" ? "Running" : state.currentRun.status;
-    els.currentRunProgress.textContent = `${state.currentRun.completedTasks}/${state.currentRun.totalTasks} checks`;
+  if (mostRecentRun?.completedAt) {
+    els.latestRunAt.textContent = formatRelativeTime(mostRecentRun.completedAt);
+    els.latestRunStats.textContent = `${fmtDateTime(mostRecentRun.completedAt)} • ${mostRecentRows.length} flights`;
   } else {
-    els.currentRunStatus.textContent = "Idle";
-    els.currentRunProgress.textContent = state.schedulerRunning ? "Waiting for next scan" : "Ready for manual Run Now";
+    els.latestRunAt.textContent = "No completed scan yet";
+    els.latestRunStats.textContent = `${selectedLabel}`;
   }
 
   els.toggleSchedulerBtn.textContent = state.schedulerRunning ? "Pause Scheduler" : "Resume Scheduler";
 }
 
 function renderAll() {
+  renderAirportTabs();
   renderMeta();
-  renderTable(els.recentTableBody, sortRowsForRecent(state.mostRecent?.rows || []));
-  renderTable(els.currentTableBody, sortRowsForCurrent(state.currentRun?.rows || []));
+  renderTable(els.recentTableBody, sortRowsForRecent(filterRowsByOrigin(state.mostRecent?.rows || [])));
 }
 
 async function fetchState() {
@@ -395,29 +523,15 @@ async function fetchState() {
   renderAll();
 }
 
-function attachTabs() {
-  for (const tab of els.tabs) {
-    tab.addEventListener("click", () => {
-      for (const t of els.tabs) t.classList.remove("active");
-      tab.classList.add("active");
-      const target = tab.getAttribute("data-tab");
-      for (const [key, panel] of Object.entries(els.panels)) {
-        panel.classList.toggle("active", key === target);
-      }
-      trackEvent("tab_clicked", {
-        tab: target === "recent" ? "last_live_scan" : "live_scan_details"
-      });
-    });
-  }
-}
-
 function attachActions() {
   if (!featureFlags.adminControls) return;
 
   els.runNowBtn.addEventListener("click", async () => {
     els.runNowBtn.disabled = true;
     try {
-      const res = await fetch("/api/dashboard/run-now", { method: "POST" });
+      const res = await fetch("/api/dashboard/run-now", {
+        method: "POST"
+      });
       const payload = await res.json().catch(() => ({}));
       if (!res.ok) {
         window.alert(payload?.error || `Run Now failed (${res.status})`);
@@ -536,25 +650,11 @@ function connectEvents() {
 
 function startCountdown() {
   setInterval(() => {
-    if (!state.nextRunAt) {
-      els.countdown.textContent = state.schedulerRunning ? "Awaiting next tick" : "Runs when you click Run Now";
-      return;
-    }
-    const diffMs = new Date(state.nextRunAt).getTime() - Date.now();
-    if (diffMs <= 0) {
-      els.countdown.textContent = "Running soon";
-      return;
-    }
-
-    const totalSec = Math.floor(diffMs / 1000);
-    const minutes = Math.floor(totalSec / 60);
-    const seconds = totalSec % 60;
-    els.countdown.textContent = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+    renderMeta();
   }, 1000);
 }
 
 applyFeatureFlags();
-attachTabs();
 attachActions();
 attachWebsiteLinkTracking();
 startCountdown();

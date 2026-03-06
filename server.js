@@ -226,14 +226,27 @@ app.get("/api/dashboard/state", async (_req, res) => {
 app.get("/api/public-config", (_req, res) => {
   res.json({
     posthogKey: config.posthogKey || "",
-    posthogHost: config.posthogHost || "https://us.i.posthog.com"
+    posthogHost: config.posthogHost || "https://us.i.posthog.com",
+    originAirports: config.originAirports || [],
+    dashboardIntervalMinutes: config.dashboardIntervalMinutes
   });
 });
 
-app.post("/api/dashboard/run-now", async (_req, res) => {
+app.post("/api/dashboard/run-now", async (req, res) => {
   try {
-    logInfo("[api] POST /api/dashboard/run-now");
-    const result = await dashboardRunner.runNow("manual");
+    const body = req.body || {};
+    const explicitOrigins = Array.isArray(body.origins)
+      ? body.origins.map((x) => String(x || "").trim().toUpperCase()).filter(Boolean)
+      : [];
+    const singleOrigin = String(body.origin || "").trim().toUpperCase();
+    const origins = explicitOrigins.length > 0
+      ? explicitOrigins
+      : (singleOrigin ? [singleOrigin] : []);
+
+    logInfo(
+      `[api] POST /api/dashboard/run-now${origins.length > 0 ? ` origins=${origins.join(",")}` : ""}`
+    );
+    const result = await dashboardRunner.runNow("manual", { origins });
     res.json(result);
   } catch (err) {
     logError("[api] /api/dashboard/run-now failed", err);

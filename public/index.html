@@ -42,21 +42,13 @@
           <p id="countdown" class="muted">-</p>
         </article>
         <article class="meta-card">
-          <p class="label">Last Live Scan</p>
+          <p class="label">Last Availability Check</p>
           <p id="latestRunAt" class="value">-</p>
           <p id="latestRunStats" class="muted">-</p>
         </article>
-        <article class="meta-card">
-          <p class="label">Live Scan Status</p>
-          <p id="currentRunStatus" class="value">Idle</p>
-          <p id="currentRunProgress" class="muted">-</p>
-        </article>
       </section>
 
-      <section class="tabs">
-        <button data-tab="recent" class="tab active">Last Live Scan</button>
-        <button data-tab="current" class="tab">Live Scan Details</button>
-      </section>
+      <section id="airportTabs" class="airport-tabs" aria-label="Airport tabs"></section>
 
       <section id="panel-recent" class="panel active">
         <div class="table-wrap">
@@ -75,27 +67,6 @@
               </tr>
             </thead>
             <tbody id="recentTableBody"></tbody>
-          </table>
-        </div>
-      </section>
-
-      <section id="panel-current" class="panel">
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Departure</th>
-                <th>Airline</th>
-                <th>Flight</th>
-                <th>From</th>
-                <th>To</th>
-                <th>Tickets Available</th>
-                <th>Price</th>
-                <th>Website</th>
-              </tr>
-            </thead>
-            <tbody id="currentTableBody"></tbody>
           </table>
         </div>
       </section>
