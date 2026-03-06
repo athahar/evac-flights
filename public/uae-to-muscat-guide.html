@@ -1733,5 +1733,51 @@
   setInterval(updateEstimator, 60000);
 </script>
 
+<!-- PostHog analytics -->
+<script>
+(async function () {
+  try {
+    const res = await fetch('/api/public-config', { cache: 'no-store' });
+    if (!res.ok) return;
+    const cfg = await res.json();
+    const key = String(cfg.posthogKey || '').trim();
+    if (!key) return;
+
+    const host = String(cfg.posthogHost || 'https://us.i.posthog.com').trim() || 'https://us.i.posthog.com';
+    const storageKey = 'evac_posthog_distinct_id';
+    let distinctId;
+    try { distinctId = window.localStorage.getItem(storageKey); } catch {}
+    if (!distinctId) {
+      distinctId = window.crypto && typeof window.crypto.randomUUID === 'function'
+        ? window.crypto.randomUUID()
+        : 'anon_' + Date.now() + '_' + Math.random().toString(36).slice(2, 12);
+      try { window.localStorage.setItem(storageKey, distinctId); } catch {}
+    }
+
+    const payload = JSON.stringify({
+      api_key: key,
+      event: 'guide_page_viewed',
+      properties: {
+        distinct_id: distinctId,
+        app: 'dxb-flight-tracker',
+        page: 'uae_to_muscat_guide',
+        path: window.location.pathname,
+        href: window.location.href,
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || 'unknown'
+      }
+    });
+
+    const endpoint = host.replace(/\/$/, '') + '/capture/';
+    try {
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon(endpoint, new Blob([payload], { type: 'application/json' }));
+        return;
+      }
+    } catch {}
+    fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: payload, keepalive: true }).catch(function () {});
+  } catch {}
+})();
+</script>
+
 </body>
 </html>
