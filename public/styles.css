@@ -290,6 +290,10 @@ h1 {
 .guide-link {
   margin: 6px 0 0;
   font-size: 15px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .guide-link a {
@@ -301,6 +305,10 @@ h1 {
 .guide-link a:hover {
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+
+.inline-divider {
+  color: var(--line);
 }
 
 .scan-status {

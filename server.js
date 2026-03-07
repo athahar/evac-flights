@@ -9,6 +9,7 @@ import { loadAirlineDirectory } from "./lib/airlineLinks.js";
 import { createStorage } from "./lib/storage/index.js";
 import { checkFr24ApiHealth } from "./lib/fr24.js";
 import { sendFeedbackEmail } from "./lib/email.js";
+import { createSearchAvailabilityService, loadSearchAirports, SearchAvailabilityError } from "./lib/search-availability.js";
 
 dotenv.config();
 
@@ -18,6 +19,9 @@ loadAirlineDirectory(config.airlinesFile);
 
 const db = createDb(config.dbPath);
 const storage = await createStorage(config, db);
+const searchAirportsByIata = config.searchEnabled
+  ? loadSearchAirports(config.searchAirportsFile).byIata
+  : new Map();
 
 const app = express();
 app.use(express.json({ limit: "1mb" }));
@@ -28,8 +32,15 @@ let scheduler = null;
 
 const dashboardRunner = createDashboardRunner({ storage, config });
 await dashboardRunner.init();
+const searchAvailabilityService = createSearchAvailabilityService({
+  config,
+  storage,
+  airportsByIata: searchAirportsByIata
+});
 
 const sseClients = new Set();
+const searchCooldownByIp = new Map();
+const liveSearchStartedAtMs = [];
 
 function ts() {
   return new Date().toISOString();
@@ -151,6 +162,53 @@ function feedbackEnabled() {
   return Boolean(config.resendApiKey && config.alertEmailFrom && config.alertEmailTo);
 }
 
+function getRequestIp(req) {
+  const forwarded = String(req.headers["x-forwarded-for"] || "")
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean)[0];
+  if (forwarded) return forwarded;
+  return String(req.ip || req.socket?.remoteAddress || "unknown");
+}
+
+function pruneLiveSearchBudget(nowMs) {
+  const cutoff = nowMs - (60 * 60 * 1000);
+  while (liveSearchStartedAtMs.length > 0 && liveSearchStartedAtMs[0] < cutoff) {
+    liveSearchStartedAtMs.shift();
+  }
+}
+
+function enforceLiveSearchLimits(req) {
+  const nowMs = Date.now();
+  const ip = getRequestIp(req);
+  const cooldownMs = Math.max(1, config.searchCooldownSeconds) * 1000;
+  const lastAtMs = searchCooldownByIp.get(ip) || 0;
+  const elapsedMs = nowMs - lastAtMs;
+
+  if (elapsedMs < cooldownMs) {
+    const retryAfterSeconds = Math.max(1, Math.ceil((cooldownMs - elapsedMs) / 1000));
+    throw new SearchAvailabilityError(
+      `Search cooldown active. Retry in ${retryAfterSeconds}s`,
+      429,
+      retryAfterSeconds
+    );
+  }
+
+  pruneLiveSearchBudget(nowMs);
+  if (liveSearchStartedAtMs.length >= Math.max(1, config.searchGlobalMaxLivePerHour)) {
+    const oldestMs = liveSearchStartedAtMs[0] || nowMs;
+    const retryAfterSeconds = Math.max(1, Math.ceil(((oldestMs + 60 * 60 * 1000) - nowMs) / 1000));
+    throw new SearchAvailabilityError(
+      "Global live search budget reached. Please try again shortly.",
+      429,
+      retryAfterSeconds
+    );
+  }
+
+  searchCooldownByIp.set(ip, nowMs);
+  liveSearchStartedAtMs.push(nowMs);
+}
+
 app.get("/health", async (_req, res) => {
   try {
     const dashState = await dashboardRunner.getState();
@@ -234,8 +292,45 @@ app.get("/api/public-config", (_req, res) => {
     posthogHost: config.posthogHost || "https://us.i.posthog.com",
     originAirports: config.originAirports || [],
     dashboardIntervalMinutes: config.dashboardIntervalMinutes,
-    feedbackEnabled: feedbackEnabled()
+    feedbackEnabled: feedbackEnabled(),
+    searchEnabled: config.searchEnabled,
+    searchMaxDestinations: config.searchMaxDestinations,
+    searchCooldownSeconds: config.searchCooldownSeconds,
+    searchCacheTtlSeconds: config.searchCacheTtlSeconds,
+    searchDateRangeDays: config.searchDateRangeDays,
+    searchAllowedOrigins: config.originAirports || []
   });
+});
+
+app.post("/api/search/availability", async (req, res) => {
+  try {
+    if (!config.searchEnabled) {
+      res.status(503).json({ ok: false, error: "Search is disabled" });
+      return;
+    }
+
+    const result = await searchAvailabilityService.searchAvailability(req.body || {}, {
+      beforeLiveCall: () => enforceLiveSearchLimits(req)
+    });
+
+    logInfo(
+      `[search] source=${result.source} origin=${result.origin} date=${result.departureDate} checked=${result.pairsChecked} offers=${result.offersFound} durationMs=${result.durationMs}`
+    );
+    res.json(result);
+  } catch (err) {
+    if (err instanceof SearchAvailabilityError) {
+      const status = err.status || 400;
+      const payload = { ok: false, error: err.message };
+      if (status === 429) {
+        payload.retryAfterSeconds = err.retryAfterSeconds || 0;
+      }
+      res.status(status).json(payload);
+      return;
+    }
+
+    logError("[api] /api/search/availability failed", err);
+    res.status(500).json({ ok: false, error: "Search request failed" });
+  }
 });
 
 app.post("/api/feedback", async (req, res) => {
@@ -363,6 +458,10 @@ app.get("/api/dashboard/events", (req, res) => {
 
 app.get("/", (_req, res) => {
   res.sendFile(path.resolve(process.cwd(), "./public/index.html"));
+});
+
+app.get("/search", (_req, res) => {
+  res.sendFile(path.resolve(process.cwd(), "./public/search.html"));
 });
 
 app.listen(config.port, () => {

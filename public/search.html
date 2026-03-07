@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Flight Search</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/search.css" />
+  </head>
+  <body>
+    <main class="search-shell">
+      <header class="search-header">
+        <p class="eyebrow">On-Demand Live Search</p>
+        <h1>Check Flights Right Now</h1>
+        <p class="subhead">Pick 1 origin, up to 3 destinations, and a departure date.</p>
+        <p class="header-links">
+          <a href="/">Back to availability board</a>
+          <span aria-hidden="true">|</span>
+          <a href="/uae-to-muscat-guide.html" target="_blank" rel="noopener noreferrer">Muscat guide</a>
+        </p>
+      </header>
+
+      <section class="search-card">
+        <form id="searchForm" class="search-form" autocomplete="off">
+          <div class="field-grid">
+            <label class="field">
+              <span>Origin</span>
+              <select id="originSelect" required></select>
+            </label>
+            <label class="field">
+              <span>Departure date</span>
+              <input id="departureDate" type="date" required />
+            </label>
+          </div>
+
+          <label class="field destination-field">
+            <span>Destinations (max 3)</span>
+            <input id="destinationInput" type="text" placeholder="Type airport code or name" />
+            <ul id="destinationSuggestions" class="suggestions" hidden></ul>
+          </label>
+
+          <div id="destinationChips" class="chips" aria-live="polite"></div>
+
+          <div class="actions">
+            <button id="searchBtn" class="btn primary" type="submit">Search live availability</button>
+            <span id="searchStatus" class="status" role="status" aria-live="polite"></span>
+          </div>
+        </form>
+      </section>
+
+      <section id="resultsSection" class="results" hidden>
+        <div id="resultSummary" class="result-summary"></div>
+        <div id="resultErrors" class="result-errors"></div>
+        <div id="resultGroups" class="result-groups"></div>
+      </section>
+    </main>
+
+    <script type="module" src="/search.js"></script>
+  </body>
+</html>

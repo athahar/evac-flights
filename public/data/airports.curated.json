@@ -1,0 +1,1406 @@
+[
+  {
+    "iata": "ACC",
+    "name": "Accra Airport",
+    "city": "Accra",
+    "country": ""
+  },
+  {
+    "iata": "ADB",
+    "name": "Izmir Airport",
+    "city": "Izmir",
+    "country": ""
+  },
+  {
+    "iata": "ADD",
+    "name": "Addis Ababa Airport",
+    "city": "Addis Ababa",
+    "country": ""
+  },
+  {
+    "iata": "ADL",
+    "name": "Adelaide Airport",
+    "city": "Adelaide",
+    "country": ""
+  },
+  {
+    "iata": "AER",
+    "name": "Sochi Airport",
+    "city": "Sochi",
+    "country": ""
+  },
+  {
+    "iata": "AHB",
+    "name": "Abha Airport",
+    "city": "Abha",
+    "country": ""
+  },
+  {
+    "iata": "AKL",
+    "name": "Auckland Airport",
+    "city": "Auckland",
+    "country": ""
+  },
+  {
+    "iata": "ALA",
+    "name": "Almaty Airport",
+    "city": "Almaty",
+    "country": ""
+  },
+  {
+    "iata": "ALG",
+    "name": "Algiers Airport",
+    "city": "Algiers",
+    "country": ""
+  },
+  {
+    "iata": "AMD",
+    "name": "Ahmedabad Airport",
+    "city": "Ahmedabad",
+    "country": ""
+  },
+  {
+    "iata": "AMM",
+    "name": "Amman Airport",
+    "city": "Amman",
+    "country": ""
+  },
+  {
+    "iata": "AMS",
+    "name": "Amsterdam Airport Schiphol",
+    "city": "Amsterdam",
+    "country": "NL"
+  },
+  {
+    "iata": "AQI",
+    "name": "Qaisumah Airport",
+    "city": "Qaisumah",
+    "country": ""
+  },
+  {
+    "iata": "ARN",
+    "name": "Stockholm Airport",
+    "city": "Stockholm",
+    "country": ""
+  },
+  {
+    "iata": "ASB",
+    "name": "Ashgabat Airport",
+    "city": "Ashgabat",
+    "country": ""
+  },
+  {
+    "iata": "ASM",
+    "name": "Asmara Airport",
+    "city": "Asmara",
+    "country": ""
+  },
+  {
+    "iata": "ATH",
+    "name": "Athens International Airport",
+    "city": "Athens",
+    "country": "GR"
+  },
+  {
+    "iata": "ATQ",
+    "name": "Amritsar Airport",
+    "city": "Amritsar",
+    "country": ""
+  },
+  {
+    "iata": "AWZ",
+    "name": "Ahvaz Airport",
+    "city": "Ahvaz",
+    "country": ""
+  },
+  {
+    "iata": "AYT",
+    "name": "Antalya Airport",
+    "city": "Antalya",
+    "country": ""
+  },
+  {
+    "iata": "BAH",
+    "name": "Bahrain Airport",
+    "city": "Bahrain",
+    "country": ""
+  },
+  {
+    "iata": "BBI",
+    "name": "Bhubaneswar Airport",
+    "city": "Bhubaneswar",
+    "country": ""
+  },
+  {
+    "iata": "BCN",
+    "name": "Barcelona Airport",
+    "city": "Barcelona",
+    "country": ""
+  },
+  {
+    "iata": "BEG",
+    "name": "Belgrade Airport",
+    "city": "Belgrade",
+    "country": ""
+  },
+  {
+    "iata": "BEN",
+    "name": "Benghazi Airport",
+    "city": "Benghazi",
+    "country": ""
+  },
+  {
+    "iata": "BER",
+    "name": "Berlin Airport",
+    "city": "Berlin",
+    "country": ""
+  },
+  {
+    "iata": "BEY",
+    "name": "Beirut Airport",
+    "city": "Beirut",
+    "country": ""
+  },
+  {
+    "iata": "BGW",
+    "name": "Baghdad Airport",
+    "city": "Baghdad",
+    "country": ""
+  },
+  {
+    "iata": "BGY",
+    "name": "Milan Airport",
+    "city": "Milan",
+    "country": ""
+  },
+  {
+    "iata": "BHX",
+    "name": "Birmingham Airport",
+    "city": "Birmingham",
+    "country": ""
+  },
+  {
+    "iata": "BKK",
+    "name": "Bangkok Airport",
+    "city": "Bangkok",
+    "country": ""
+  },
+  {
+    "iata": "BLQ",
+    "name": "Bologna Airport",
+    "city": "Bologna",
+    "country": ""
+  },
+  {
+    "iata": "BLR",
+    "name": "Bengaluru Airport",
+    "city": "Bengaluru",
+    "country": ""
+  },
+  {
+    "iata": "BND",
+    "name": "Bandar Abbas Airport",
+    "city": "Bandar Abbas",
+    "country": ""
+  },
+  {
+    "iata": "BNE",
+    "name": "Brisbane Airport",
+    "city": "Brisbane",
+    "country": ""
+  },
+  {
+    "iata": "BOM",
+    "name": "Chhatrapati Shivaji Maharaj Intl Airport",
+    "city": "Mumbai",
+    "country": "IN"
+  },
+  {
+    "iata": "BOS",
+    "name": "Boston Airport",
+    "city": "Boston",
+    "country": ""
+  },
+  {
+    "iata": "BRU",
+    "name": "Brussels Airport",
+    "city": "Brussels",
+    "country": ""
+  },
+  {
+    "iata": "BSL",
+    "name": "Basel Airport",
+    "city": "Basel",
+    "country": ""
+  },
+  {
+    "iata": "BSR",
+    "name": "Basra Airport",
+    "city": "Basra",
+    "country": ""
+  },
+  {
+    "iata": "BSZ",
+    "name": "Bishkek Airport",
+    "city": "Bishkek",
+    "country": ""
+  },
+  {
+    "iata": "BTS",
+    "name": "Bratislava Airport",
+    "city": "Bratislava",
+    "country": ""
+  },
+  {
+    "iata": "BUD",
+    "name": "Budapest Airport",
+    "city": "Budapest",
+    "country": ""
+  },
+  {
+    "iata": "CAI",
+    "name": "Cairo Airport",
+    "city": "Cairo",
+    "country": ""
+  },
+  {
+    "iata": "CAN",
+    "name": "Guangzhou Airport",
+    "city": "Guangzhou",
+    "country": ""
+  },
+  {
+    "iata": "CCJ",
+    "name": "Kozhikode Airport",
+    "city": "Kozhikode",
+    "country": ""
+  },
+  {
+    "iata": "CCU",
+    "name": "Kolkata Airport",
+    "city": "Kolkata",
+    "country": ""
+  },
+  {
+    "iata": "CDG",
+    "name": "Paris Charles de Gaulle Airport",
+    "city": "Paris",
+    "country": "FR"
+  },
+  {
+    "iata": "CEB",
+    "name": "Cebu Airport",
+    "city": "Cebu",
+    "country": ""
+  },
+  {
+    "iata": "CGK",
+    "name": "Jakarta Airport",
+    "city": "Jakarta",
+    "country": ""
+  },
+  {
+    "iata": "CGP",
+    "name": "Chittagong Airport",
+    "city": "Chittagong",
+    "country": ""
+  },
+  {
+    "iata": "CKG",
+    "name": "Chongqing Airport",
+    "city": "Chongqing",
+    "country": ""
+  },
+  {
+    "iata": "CKY",
+    "name": "Conakry Airport",
+    "city": "Conakry",
+    "country": ""
+  },
+  {
+    "iata": "CMB",
+    "name": "Colombo Airport",
+    "city": "Colombo",
+    "country": ""
+  },
+  {
+    "iata": "CMN",
+    "name": "Casablanca Airport",
+    "city": "Casablanca",
+    "country": ""
+  },
+  {
+    "iata": "CNN",
+    "name": "Kannur Airport",
+    "city": "Kannur",
+    "country": ""
+  },
+  {
+    "iata": "COK",
+    "name": "Cochin International Airport",
+    "city": "Kochi",
+    "country": "IN"
+  },
+  {
+    "iata": "CPH",
+    "name": "Copenhagen Airport",
+    "city": "Copenhagen",
+    "country": ""
+  },
+  {
+    "iata": "CPT",
+    "name": "Cape Town Airport",
+    "city": "Cape Town",
+    "country": ""
+  },
+  {
+    "iata": "CTA",
+    "name": "Catania Airport",
+    "city": "Catania",
+    "country": ""
+  },
+  {
+    "iata": "DAC",
+    "name": "Dhaka Airport",
+    "city": "Dhaka",
+    "country": ""
+  },
+  {
+    "iata": "DAM",
+    "name": "Damascus Airport",
+    "city": "Damascus",
+    "country": ""
+  },
+  {
+    "iata": "DAR",
+    "name": "Dar-es-Salaam Airport",
+    "city": "Dar-es-Salaam",
+    "country": ""
+  },
+  {
+    "iata": "DEL",
+    "name": "Indira Gandhi International Airport",
+    "city": "Delhi",
+    "country": "IN"
+  },
+  {
+    "iata": "DFW",
+    "name": "Dallas Airport",
+    "city": "Dallas",
+    "country": ""
+  },
+  {
+    "iata": "DME",
+    "name": "Moscow Airport",
+    "city": "Moscow",
+    "country": ""
+  },
+  {
+    "iata": "DMM",
+    "name": "Dammam Airport",
+    "city": "Dammam",
+    "country": ""
+  },
+  {
+    "iata": "DOH",
+    "name": "Doha Airport",
+    "city": "Doha",
+    "country": ""
+  },
+  {
+    "iata": "DPS",
+    "name": "Denpasar Airport",
+    "city": "Denpasar",
+    "country": ""
+  },
+  {
+    "iata": "DUB",
+    "name": "Dublin Airport",
+    "city": "Dublin",
+    "country": ""
+  },
+  {
+    "iata": "DUR",
+    "name": "Durban Airport",
+    "city": "Durban",
+    "country": ""
+  },
+  {
+    "iata": "DUS",
+    "name": "Dusseldorf Airport",
+    "city": "Dusseldorf",
+    "country": ""
+  },
+  {
+    "iata": "DXB",
+    "name": "Dubai International Airport",
+    "city": "Dubai",
+    "country": "AE"
+  },
+  {
+    "iata": "DYU",
+    "name": "Dushanbe Airport",
+    "city": "Dushanbe",
+    "country": ""
+  },
+  {
+    "iata": "EAM",
+    "name": "Najran Airport",
+    "city": "Najran",
+    "country": ""
+  },
+  {
+    "iata": "EBB",
+    "name": "Entebbe Airport",
+    "city": "Entebbe",
+    "country": ""
+  },
+  {
+    "iata": "EBL",
+    "name": "Erbil Airport",
+    "city": "Erbil",
+    "country": ""
+  },
+  {
+    "iata": "EDI",
+    "name": "Edinburgh Airport",
+    "city": "Edinburgh",
+    "country": ""
+  },
+  {
+    "iata": "ELQ",
+    "name": "Al-Qassim Airport",
+    "city": "Al-Qassim",
+    "country": ""
+  },
+  {
+    "iata": "ESB",
+    "name": "Ankara Airport",
+    "city": "Ankara",
+    "country": ""
+  },
+  {
+    "iata": "EVN",
+    "name": "Yerevan Airport",
+    "city": "Yerevan",
+    "country": ""
+  },
+  {
+    "iata": "EWR",
+    "name": "New York Airport",
+    "city": "New York",
+    "country": ""
+  },
+  {
+    "iata": "FCO",
+    "name": "Rome Airport",
+    "city": "Rome",
+    "country": ""
+  },
+  {
+    "iata": "FRA",
+    "name": "Frankfurt Airport",
+    "city": "Frankfurt",
+    "country": "DE"
+  },
+  {
+    "iata": "GIG",
+    "name": "Rio de Janeiro Airport",
+    "city": "Rio de Janeiro",
+    "country": ""
+  },
+  {
+    "iata": "GLA",
+    "name": "Glasgow Airport",
+    "city": "Glasgow",
+    "country": ""
+  },
+  {
+    "iata": "GOI",
+    "name": "Goa Airport",
+    "city": "Goa",
+    "country": ""
+  },
+  {
+    "iata": "GRU",
+    "name": "Sao Paulo Airport",
+    "city": "Sao Paulo",
+    "country": ""
+  },
+  {
+    "iata": "GVA",
+    "name": "Geneva Airport",
+    "city": "Geneva",
+    "country": ""
+  },
+  {
+    "iata": "GYD",
+    "name": "Baku Airport",
+    "city": "Baku",
+    "country": ""
+  },
+  {
+    "iata": "HAK",
+    "name": "Haikou Airport",
+    "city": "Haikou",
+    "country": ""
+  },
+  {
+    "iata": "HAM",
+    "name": "Hamburg Airport",
+    "city": "Hamburg",
+    "country": ""
+  },
+  {
+    "iata": "HAN",
+    "name": "Hanoi Airport",
+    "city": "Hanoi",
+    "country": ""
+  },
+  {
+    "iata": "HAS",
+    "name": "Ha'il Airport",
+    "city": "Ha'il",
+    "country": ""
+  },
+  {
+    "iata": "HBE",
+    "name": "Alexandria Airport",
+    "city": "Alexandria",
+    "country": ""
+  },
+  {
+    "iata": "HEL",
+    "name": "Helsinki Airport",
+    "city": "Helsinki",
+    "country": ""
+  },
+  {
+    "iata": "HER",
+    "name": "Heraklion Airport",
+    "city": "Heraklion",
+    "country": ""
+  },
+  {
+    "iata": "HGH",
+    "name": "Hangzhou Airport",
+    "city": "Hangzhou",
+    "country": ""
+  },
+  {
+    "iata": "HKG",
+    "name": "Hong Kong Airport",
+    "city": "Hong Kong",
+    "country": ""
+  },
+  {
+    "iata": "HKT",
+    "name": "Phuket Airport",
+    "city": "Phuket",
+    "country": ""
+  },
+  {
+    "iata": "HND",
+    "name": "Tokyo Airport",
+    "city": "Tokyo",
+    "country": ""
+  },
+  {
+    "iata": "HOF",
+    "name": "Hofuf Airport",
+    "city": "Hofuf",
+    "country": ""
+  },
+  {
+    "iata": "HYD",
+    "name": "Rajiv Gandhi International Airport",
+    "city": "Hyderabad",
+    "country": "IN"
+  },
+  {
+    "iata": "IAD",
+    "name": "Washington Airport",
+    "city": "Washington",
+    "country": ""
+  },
+  {
+    "iata": "IAH",
+    "name": "Houston Airport",
+    "city": "Houston",
+    "country": ""
+  },
+  {
+    "iata": "IAS",
+    "name": "Iasi Airport",
+    "city": "Iasi",
+    "country": ""
+  },
+  {
+    "iata": "ICN",
+    "name": "Seoul Airport",
+    "city": "Seoul",
+    "country": ""
+  },
+  {
+    "iata": "IKA",
+    "name": "Tehran Airport",
+    "city": "Tehran",
+    "country": ""
+  },
+  {
+    "iata": "ISB",
+    "name": "Islamabad International Airport",
+    "city": "Islamabad",
+    "country": "PK"
+  },
+  {
+    "iata": "IST",
+    "name": "Istanbul Airport",
+    "city": "Istanbul",
+    "country": "TR"
+  },
+  {
+    "iata": "ISU",
+    "name": "Sulaimaniyah Airport",
+    "city": "Sulaimaniyah",
+    "country": ""
+  },
+  {
+    "iata": "IXC",
+    "name": "Chandigarh Airport",
+    "city": "Chandigarh",
+    "country": ""
+  },
+  {
+    "iata": "IXE",
+    "name": "Mangaluru Airport",
+    "city": "Mangaluru",
+    "country": ""
+  },
+  {
+    "iata": "IXM",
+    "name": "Madurai Airport",
+    "city": "Madurai",
+    "country": ""
+  },
+  {
+    "iata": "JAI",
+    "name": "Jaipur Airport",
+    "city": "Jaipur",
+    "country": ""
+  },
+  {
+    "iata": "JED",
+    "name": "Jeddah Airport",
+    "city": "Jeddah",
+    "country": ""
+  },
+  {
+    "iata": "JFK",
+    "name": "John F. Kennedy International Airport",
+    "city": "New York",
+    "country": "US"
+  },
+  {
+    "iata": "JNB",
+    "name": "Johannesburg Airport",
+    "city": "Johannesburg",
+    "country": ""
+  },
+  {
+    "iata": "KBL",
+    "name": "Kabul Airport",
+    "city": "Kabul",
+    "country": ""
+  },
+  {
+    "iata": "KBV",
+    "name": "Krabi Airport",
+    "city": "Krabi",
+    "country": ""
+  },
+  {
+    "iata": "KGL",
+    "name": "Kigali Airport",
+    "city": "Kigali",
+    "country": ""
+  },
+  {
+    "iata": "KHI",
+    "name": "Jinnah International Airport",
+    "city": "Karachi",
+    "country": "PK"
+  },
+  {
+    "iata": "KIX",
+    "name": "Osaka Airport",
+    "city": "Osaka",
+    "country": ""
+  },
+  {
+    "iata": "KMG",
+    "name": "Kunming Airport",
+    "city": "Kunming",
+    "country": ""
+  },
+  {
+    "iata": "KRK",
+    "name": "Krakow Airport",
+    "city": "Krakow",
+    "country": ""
+  },
+  {
+    "iata": "KTM",
+    "name": "Kathmandu Airport",
+    "city": "Kathmandu",
+    "country": ""
+  },
+  {
+    "iata": "KUF",
+    "name": "Samara Airport",
+    "city": "Samara",
+    "country": ""
+  },
+  {
+    "iata": "KUL",
+    "name": "Kuala Lumpur Airport",
+    "city": "Kuala Lumpur",
+    "country": ""
+  },
+  {
+    "iata": "KWI",
+    "name": "Kuwait City Airport",
+    "city": "Kuwait City",
+    "country": ""
+  },
+  {
+    "iata": "KZN",
+    "name": "Kazan Airport",
+    "city": "Kazan",
+    "country": ""
+  },
+  {
+    "iata": "LAX",
+    "name": "Los Angeles Airport",
+    "city": "Los Angeles",
+    "country": ""
+  },
+  {
+    "iata": "LCA",
+    "name": "Larnaca Airport",
+    "city": "Larnaca",
+    "country": ""
+  },
+  {
+    "iata": "LED",
+    "name": "St. Petersburg Airport",
+    "city": "St. Petersburg",
+    "country": ""
+  },
+  {
+    "iata": "LGW",
+    "name": "London Airport",
+    "city": "London",
+    "country": ""
+  },
+  {
+    "iata": "LHE",
+    "name": "Allama Iqbal International Airport",
+    "city": "Lahore",
+    "country": "PK"
+  },
+  {
+    "iata": "LHR",
+    "name": "Heathrow Airport",
+    "city": "London",
+    "country": "GB"
+  },
+  {
+    "iata": "LIS",
+    "name": "Lisbon Airport",
+    "city": "Lisbon",
+    "country": ""
+  },
+  {
+    "iata": "LJU",
+    "name": "Ljubljana Airport",
+    "city": "Ljubljana",
+    "country": ""
+  },
+  {
+    "iata": "LKO",
+    "name": "Lucknow Airport",
+    "city": "Lucknow",
+    "country": ""
+  },
+  {
+    "iata": "LOS",
+    "name": "Lagos Airport",
+    "city": "Lagos",
+    "country": ""
+  },
+  {
+    "iata": "LRR",
+    "name": "Lar Airport",
+    "city": "Lar",
+    "country": ""
+  },
+  {
+    "iata": "LUN",
+    "name": "Lusaka Airport",
+    "city": "Lusaka",
+    "country": ""
+  },
+  {
+    "iata": "LYP",
+    "name": "Faisalabad Airport",
+    "city": "Faisalabad",
+    "country": ""
+  },
+  {
+    "iata": "LYS",
+    "name": "Lyon Airport",
+    "city": "Lyon",
+    "country": ""
+  },
+  {
+    "iata": "MAA",
+    "name": "Chennai Airport",
+    "city": "Chennai",
+    "country": ""
+  },
+  {
+    "iata": "MAD",
+    "name": "Madrid Airport",
+    "city": "Madrid",
+    "country": ""
+  },
+  {
+    "iata": "MAN",
+    "name": "Manchester Airport",
+    "city": "Manchester",
+    "country": ""
+  },
+  {
+    "iata": "MBA",
+    "name": "Mombasa Airport",
+    "city": "Mombasa",
+    "country": ""
+  },
+  {
+    "iata": "MCO",
+    "name": "Orlando Airport",
+    "city": "Orlando",
+    "country": ""
+  },
+  {
+    "iata": "MCT",
+    "name": "Muscat International Airport",
+    "city": "Muscat",
+    "country": "OM"
+  },
+  {
+    "iata": "MCX",
+    "name": "Makhachkala Airport",
+    "city": "Makhachkala",
+    "country": ""
+  },
+  {
+    "iata": "MED",
+    "name": "Medina Airport",
+    "city": "Medina",
+    "country": ""
+  },
+  {
+    "iata": "MEL",
+    "name": "Melbourne Airport",
+    "city": "Melbourne",
+    "country": ""
+  },
+  {
+    "iata": "MIA",
+    "name": "Miami Airport",
+    "city": "Miami",
+    "country": ""
+  },
+  {
+    "iata": "MLE",
+    "name": "Male Airport",
+    "city": "Male",
+    "country": ""
+  },
+  {
+    "iata": "MNL",
+    "name": "Manila Airport",
+    "city": "Manila",
+    "country": ""
+  },
+  {
+    "iata": "MRU",
+    "name": "Mauritius Airport",
+    "city": "Mauritius",
+    "country": ""
+  },
+  {
+    "iata": "MRV",
+    "name": "Mineralnye Vody Airport",
+    "city": "Mineralnye Vody",
+    "country": ""
+  },
+  {
+    "iata": "MSQ",
+    "name": "Minsk Airport",
+    "city": "Minsk",
+    "country": ""
+  },
+  {
+    "iata": "MUC",
+    "name": "Munich Airport",
+    "city": "Munich",
+    "country": ""
+  },
+  {
+    "iata": "MUX",
+    "name": "Multan Airport",
+    "city": "Multan",
+    "country": ""
+  },
+  {
+    "iata": "MXP",
+    "name": "Milan Airport",
+    "city": "Milan",
+    "country": ""
+  },
+  {
+    "iata": "NAP",
+    "name": "Naples Airport",
+    "city": "Naples",
+    "country": ""
+  },
+  {
+    "iata": "NBO",
+    "name": "Nairobi Airport",
+    "city": "Nairobi",
+    "country": ""
+  },
+  {
+    "iata": "NCE",
+    "name": "Nice Airport",
+    "city": "Nice",
+    "country": ""
+  },
+  {
+    "iata": "NCL",
+    "name": "Newcastle Airport",
+    "city": "Newcastle",
+    "country": ""
+  },
+  {
+    "iata": "NJF",
+    "name": "Najaf Airport",
+    "city": "Najaf",
+    "country": ""
+  },
+  {
+    "iata": "NQZ",
+    "name": "Astana Airport",
+    "city": "Astana",
+    "country": ""
+  },
+  {
+    "iata": "NRT",
+    "name": "Tokyo Airport",
+    "city": "Tokyo",
+    "country": ""
+  },
+  {
+    "iata": "NUM",
+    "name": "Neom Airport",
+    "city": "Neom",
+    "country": ""
+  },
+  {
+    "iata": "ORD",
+    "name": "Chicago Airport",
+    "city": "Chicago",
+    "country": ""
+  },
+  {
+    "iata": "OSL",
+    "name": "Oslo Airport",
+    "city": "Oslo",
+    "country": ""
+  },
+  {
+    "iata": "OTP",
+    "name": "Bucharest Airport",
+    "city": "Bucharest",
+    "country": ""
+  },
+  {
+    "iata": "OVB",
+    "name": "Novosibirsk Airport",
+    "city": "Novosibirsk",
+    "country": ""
+  },
+  {
+    "iata": "PEK",
+    "name": "Beijing Airport",
+    "city": "Beijing",
+    "country": ""
+  },
+  {
+    "iata": "PEN",
+    "name": "Penang Airport",
+    "city": "Penang",
+    "country": ""
+  },
+  {
+    "iata": "PER",
+    "name": "Perth Airport",
+    "city": "Perth",
+    "country": ""
+  },
+  {
+    "iata": "PEW",
+    "name": "Peshawar Airport",
+    "city": "Peshawar",
+    "country": ""
+  },
+  {
+    "iata": "PNQ",
+    "name": "Pune Airport",
+    "city": "Pune",
+    "country": ""
+  },
+  {
+    "iata": "POZ",
+    "name": "Poznan Airport",
+    "city": "Poznan",
+    "country": ""
+  },
+  {
+    "iata": "PRG",
+    "name": "Prague Airport",
+    "city": "Prague",
+    "country": ""
+  },
+  {
+    "iata": "PVG",
+    "name": "Shanghai Airport",
+    "city": "Shanghai",
+    "country": ""
+  },
+  {
+    "iata": "RIX",
+    "name": "Riga Airport",
+    "city": "Riga",
+    "country": ""
+  },
+  {
+    "iata": "RIY",
+    "name": "Mukalla Airport",
+    "city": "Mukalla",
+    "country": ""
+  },
+  {
+    "iata": "RMO",
+    "name": "Chisinau Airport",
+    "city": "Chisinau",
+    "country": ""
+  },
+  {
+    "iata": "RUH",
+    "name": "Riyadh Airport",
+    "city": "Riyadh",
+    "country": ""
+  },
+  {
+    "iata": "SAW",
+    "name": "Istanbul Airport",
+    "city": "Istanbul",
+    "country": ""
+  },
+  {
+    "iata": "SEA",
+    "name": "Seattle Airport",
+    "city": "Seattle",
+    "country": ""
+  },
+  {
+    "iata": "SEZ",
+    "name": "Victoria Airport",
+    "city": "Victoria",
+    "country": ""
+  },
+  {
+    "iata": "SFO",
+    "name": "San Francisco International Airport",
+    "city": "San Francisco",
+    "country": "US"
+  },
+  {
+    "iata": "SGN",
+    "name": "Ho Chi Minh City Airport",
+    "city": "Ho Chi Minh City",
+    "country": ""
+  },
+  {
+    "iata": "SIN",
+    "name": "Singapore Changi Airport",
+    "city": "Singapore",
+    "country": "SG"
+  },
+  {
+    "iata": "SJJ",
+    "name": "Sarajevo Airport",
+    "city": "Sarajevo",
+    "country": ""
+  },
+  {
+    "iata": "SKD",
+    "name": "Samarkand Airport",
+    "city": "Samarkand",
+    "country": ""
+  },
+  {
+    "iata": "SKT",
+    "name": "Sialkot Airport",
+    "city": "Sialkot",
+    "country": ""
+  },
+  {
+    "iata": "SLL",
+    "name": "Salalah Airport",
+    "city": "Salalah",
+    "country": ""
+  },
+  {
+    "iata": "SOF",
+    "name": "Sofia Airport",
+    "city": "Sofia",
+    "country": ""
+  },
+  {
+    "iata": "SPX",
+    "name": "Giza Airport",
+    "city": "Giza",
+    "country": ""
+  },
+  {
+    "iata": "STN",
+    "name": "London Airport",
+    "city": "London",
+    "country": ""
+  },
+  {
+    "iata": "STR",
+    "name": "Stuttgart Airport",
+    "city": "Stuttgart",
+    "country": ""
+  },
+  {
+    "iata": "STV",
+    "name": "Surat Airport",
+    "city": "Surat",
+    "country": ""
+  },
+  {
+    "iata": "SVO",
+    "name": "Moscow Airport",
+    "city": "Moscow",
+    "country": ""
+  },
+  {
+    "iata": "SVX",
+    "name": "Yekaterinburg Airport",
+    "city": "Yekaterinburg",
+    "country": ""
+  },
+  {
+    "iata": "SYD",
+    "name": "Sydney Airport",
+    "city": "Sydney",
+    "country": "AU"
+  },
+  {
+    "iata": "SYZ",
+    "name": "Shiraz Airport",
+    "city": "Shiraz",
+    "country": ""
+  },
+  {
+    "iata": "SZX",
+    "name": "Shenzhen Airport",
+    "city": "Shenzhen",
+    "country": ""
+  },
+  {
+    "iata": "TAO",
+    "name": "Qingdao Airport",
+    "city": "Qingdao",
+    "country": ""
+  },
+  {
+    "iata": "TAS",
+    "name": "Tashkent Airport",
+    "city": "Tashkent",
+    "country": ""
+  },
+  {
+    "iata": "TBS",
+    "name": "Tbilisi Airport",
+    "city": "Tbilisi",
+    "country": ""
+  },
+  {
+    "iata": "TFU",
+    "name": "Chengdu Airport",
+    "city": "Chengdu",
+    "country": ""
+  },
+  {
+    "iata": "TIA",
+    "name": "Tirana Airport",
+    "city": "Tirana",
+    "country": ""
+  },
+  {
+    "iata": "TIF",
+    "name": "Taif Airport",
+    "city": "Taif",
+    "country": ""
+  },
+  {
+    "iata": "TLV",
+    "name": "Tel Aviv Airport",
+    "city": "Tel Aviv",
+    "country": ""
+  },
+  {
+    "iata": "TPE",
+    "name": "Taipei Airport",
+    "city": "Taipei",
+    "country": ""
+  },
+  {
+    "iata": "TRV",
+    "name": "Thiruvananthapuram Airport",
+    "city": "Thiruvananthapuram",
+    "country": ""
+  },
+  {
+    "iata": "TRZ",
+    "name": "Tiruchirapalli Airport",
+    "city": "Tiruchirapalli",
+    "country": ""
+  },
+  {
+    "iata": "TUN",
+    "name": "Tunis Airport",
+    "city": "Tunis",
+    "country": ""
+  },
+  {
+    "iata": "TUU",
+    "name": "Tabuk Airport",
+    "city": "Tabuk",
+    "country": ""
+  },
+  {
+    "iata": "UET",
+    "name": "Quetta Airport",
+    "city": "Quetta",
+    "country": ""
+  },
+  {
+    "iata": "ULH",
+    "name": "Al Ula Airport",
+    "city": "Al Ula",
+    "country": ""
+  },
+  {
+    "iata": "VCE",
+    "name": "Venice Airport",
+    "city": "Venice",
+    "country": ""
+  },
+  {
+    "iata": "VIE",
+    "name": "Vienna Airport",
+    "city": "Vienna",
+    "country": ""
+  },
+  {
+    "iata": "VKO",
+    "name": "Moscow Airport",
+    "city": "Moscow",
+    "country": ""
+  },
+  {
+    "iata": "VNO",
+    "name": "Vilnius Airport",
+    "city": "Vilnius",
+    "country": ""
+  },
+  {
+    "iata": "WAW",
+    "name": "Warsaw Airport",
+    "city": "Warsaw",
+    "country": ""
+  },
+  {
+    "iata": "WUH",
+    "name": "Wuhan Airport",
+    "city": "Wuhan",
+    "country": ""
+  },
+  {
+    "iata": "XIY",
+    "name": "Xi'an Airport",
+    "city": "Xi'an",
+    "country": ""
+  },
+  {
+    "iata": "YNB",
+    "name": "Yanbu Airport",
+    "city": "Yanbu",
+    "country": ""
+  },
+  {
+    "iata": "YUL",
+    "name": "Montreal Airport",
+    "city": "Montreal",
+    "country": ""
+  },
+  {
+    "iata": "YYZ",
+    "name": "Toronto Pearson International Airport",
+    "city": "Toronto",
+    "country": "CA"
+  },
+  {
+    "iata": "ZAG",
+    "name": "Zagreb Airport",
+    "city": "Zagreb",
+    "country": ""
+  },
+  {
+    "iata": "ZNZ",
+    "name": "Zanzibar Airport",
+    "city": "Zanzibar",
+    "country": ""
+  },
+  {
+    "iata": "ZRH",
+    "name": "Zurich Airport",
+    "city": "Zurich",
+    "country": ""
+  },
+  {
+    "iata": "ZYL",
+    "name": "Sylhet Airport",
+    "city": "Sylhet",
+    "country": ""
+  }
+]
