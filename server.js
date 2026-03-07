@@ -298,7 +298,7 @@ app.get("/api/public-config", (_req, res) => {
     searchCooldownSeconds: config.searchCooldownSeconds,
     searchCacheTtlSeconds: config.searchCacheTtlSeconds,
     searchDateRangeDays: config.searchDateRangeDays,
-    searchAllowedOrigins: config.originAirports || []
+    searchAllowedOrigins: config.searchAllowedOrigins || config.originAirports || []
   });
 });
 

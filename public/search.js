@@ -1,14 +1,19 @@
+const USD_TO_AED = 3.6725;
+const CURRENCY_STORAGE_KEY = "evac_display_currency";
+
 const state = {
   searchEnabled: true,
   searchMaxDestinations: 3,
-  searchCooldownSeconds: 120,
+  searchCooldownSeconds: 30,
   searchCacheTtlSeconds: 300,
   searchDateRangeDays: 7,
-  searchAllowedOrigins: ["DXB", "MCT"],
+  searchAllowedOrigins: ["DXB", "MCT", "AUH", "SHJ"],
   airports: [],
   airportsByIata: new Map(),
   selectedDestinations: [],
-  isSubmitting: false
+  isSubmitting: false,
+  displayCurrency: "USD",
+  lastPayload: null
 };
 
 const analytics = {
@@ -27,10 +32,12 @@ const els = {
   destinationChips: document.querySelector("#destinationChips"),
   searchBtn: document.querySelector("#searchBtn"),
   searchStatus: document.querySelector("#searchStatus"),
+  destInputWrap: document.querySelector("#destInputWrap"),
   resultsSection: document.querySelector("#resultsSection"),
   resultSummary: document.querySelector("#resultSummary"),
   resultErrors: document.querySelector("#resultErrors"),
-  resultGroups: document.querySelector("#resultGroups")
+  resultGroups: document.querySelector("#resultGroups"),
+  currencyToggle: document.querySelector("#currencyToggle")
 };
 
 function upper(value) {
@@ -60,6 +67,24 @@ function getDubaiDateIso(date) {
 
 function addDays(date, days) {
   return new Date(date.getTime() + days * 24 * 60 * 60 * 1000);
+}
+
+function normalizeDisplayCurrency(text) {
+  return text === "AED" ? "AED" : "USD";
+}
+
+function getSavedCurrency() {
+  try {
+    return normalizeDisplayCurrency(window.localStorage.getItem(CURRENCY_STORAGE_KEY) || "USD");
+  } catch {
+    return "USD";
+  }
+}
+
+function saveCurrency(currency) {
+  try {
+    window.localStorage.setItem(CURRENCY_STORAGE_KEY, currency);
+  } catch {}
 }
 
 function setStatus(text, tone = "muted") {
@@ -145,13 +170,26 @@ async function loadAirports() {
   state.airportsByIata = new Map(state.airports.map((item) => [item.iata, item]));
 }
 
+const ORIGIN_CITY_NAMES = {
+  DXB: "Dubai",
+  AUH: "Abu Dhabi",
+  SHJ: "Sharjah",
+  MCT: "Muscat"
+};
+
+function originDisplayName(iata) {
+  const city = ORIGIN_CITY_NAMES[iata] || state.airportsByIata.get(iata)?.city;
+  if (city) return `${city} (${iata})`;
+  return iata;
+}
+
 function renderOriginOptions() {
   const origins = (Array.isArray(state.searchAllowedOrigins) && state.searchAllowedOrigins.length > 0)
     ? state.searchAllowedOrigins
     : ["DXB"];
 
   els.originSelect.innerHTML = origins
-    .map((origin) => `<option value="${escapeHtml(origin)}">${escapeHtml(origin)}</option>`)
+    .map((origin) => `<option value="${escapeHtml(origin)}">${escapeHtml(originDisplayName(origin))}</option>`)
     .join("");
 }
 
@@ -254,72 +292,179 @@ function renderSuggestions(query) {
   els.destinationSuggestions.hidden = false;
 }
 
-function fmtDateTime(value) {
-  if (!value) return "-";
+function fmtTime(value) {
+  if (!value) return "";
   const d = new Date(value);
   if (Number.isNaN(d.getTime())) return value;
   return new Intl.DateTimeFormat(undefined, {
-    month: "short",
-    day: "numeric",
     hour: "numeric",
     minute: "2-digit"
   }).format(d);
 }
 
+function fmtDateShort(value) {
+  if (!value) return "";
+  const d = new Date(value);
+  if (Number.isNaN(d.getTime())) return value;
+  return new Intl.DateTimeFormat(undefined, {
+    month: "short",
+    day: "numeric"
+  }).format(d);
+}
+
+function convertPrice(amount, sourceCurrency, targetCurrency) {
+  const parsed = Number.parseFloat(String(amount || ""));
+  if (!Number.isFinite(parsed)) return { amount: 0, currency: targetCurrency };
+
+  const src = String(sourceCurrency || "USD").trim().toUpperCase();
+  const tgt = String(targetCurrency || "USD").trim().toUpperCase();
+
+  if (src === tgt) return { amount: parsed, currency: tgt };
+  if (src === "USD" && tgt === "AED") return { amount: parsed * USD_TO_AED, currency: "AED" };
+  if (src === "AED" && tgt === "USD") return { amount: parsed / USD_TO_AED, currency: "USD" };
+  return { amount: parsed, currency: src };
+}
+
+function fmtPrice(amount, sourceCurrency) {
+  const { amount: converted, currency } = convertPrice(amount, sourceCurrency, state.displayCurrency);
+  if (converted === 0) return "-";
+  try {
+    return new Intl.NumberFormat(undefined, {
+      style: "currency",
+      currency,
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    }).format(converted);
+  } catch {
+    return `${currency} ${Math.round(converted)}`;
+  }
+}
+
+function stopsLabel(count) {
+  if (count === 0) return "Nonstop";
+  if (count === 1) return "1 stop";
+  return `${count} stops`;
+}
+
+function fmtDuration(minutes) {
+  if (!minutes || minutes <= 0) return "";
+  const h = Math.floor(minutes / 60);
+  const m = minutes % 60;
+  if (h === 0) return `${m}m`;
+  if (m === 0) return `${h}h`;
+  return `${h}h ${m}m`;
+}
+
+function fmtLayover(layovers) {
+  if (!Array.isArray(layovers) || layovers.length === 0) return "";
+  return layovers.map((l) => {
+    const dur = fmtDuration(l.durationMinutes);
+    const city = l.city || l.airport || "";
+    return dur ? `${dur} ${city}` : city;
+  }).join(", ");
+}
+
+function updateCurrencyButtons() {
+  if (!els.currencyToggle) return;
+  for (const btn of els.currencyToggle.querySelectorAll(".currency-btn")) {
+    const curr = normalizeDisplayCurrency(btn.getAttribute("data-currency"));
+    btn.classList.toggle("active", curr === state.displayCurrency);
+  }
+}
+
 function renderResults(payload) {
   els.resultsSection.hidden = false;
-  const sourceLabel = payload.source === "cache" ? "Cache" : "Live";
-  els.resultSummary.innerHTML = `
-    <strong>${sourceLabel} result</strong><br />
-    Origin ${escapeHtml(payload.origin)} · Date ${escapeHtml(payload.departureDate)} · Checked ${payload.pairsChecked} pairs · Offers ${payload.offersFound} · ${payload.durationMs} ms
-  `;
 
+  // Human-friendly summary
+  const totalFlights = (payload.flightsFound || payload.offersFound || 0);
+  const destCount = (Array.isArray(payload.results) ? payload.results : []).length;
+  const originLabel = escapeHtml(payload.origin || "");
+  const dateLabel = escapeHtml(fmtDateShort(payload.departureDate + "T12:00:00") || payload.departureDate);
+
+  if (totalFlights > 0) {
+    els.resultSummary.innerHTML = `${totalFlights} flight${totalFlights === 1 ? "" : "s"} found from <strong>${originLabel}</strong> on ${dateLabel}` +
+      (destCount > 1 ? ` across ${destCount} destinations` : "");
+  } else {
+    els.resultSummary.innerHTML = `No flights found from <strong>${originLabel}</strong> on ${dateLabel}`;
+  }
+
+  // Errors
   const errors = Array.isArray(payload.errors) ? payload.errors : [];
   if (errors.length > 0) {
     els.resultErrors.hidden = false;
     els.resultErrors.innerHTML = errors
-      .map((entry) => `• ${escapeHtml(entry.destinationIata || "-")} (${escapeHtml(entry.destinationName || "-")}): ${escapeHtml(entry.error || "search failed")}`)
+      .map((entry) => `Could not check <strong>${escapeHtml(entry.destinationIata || "")}</strong>: ${escapeHtml(entry.error || "unavailable")}`)
       .join("<br />");
   } else {
     els.resultErrors.hidden = true;
     els.resultErrors.innerHTML = "";
   }
 
+  // Flight groups
   const groups = Array.isArray(payload.results) ? payload.results : [];
-  if (groups.length === 0) {
-    els.resultGroups.innerHTML = `<section class="result-group"><p class="no-offers">No offers found for selected destinations.</p></section>`;
+  if (groups.length === 0 && errors.length === 0) {
+    els.resultGroups.innerHTML = `<section class="result-group"><p class="no-flights">No flights found for selected destinations and date.</p></section>`;
     return;
   }
 
   els.resultGroups.innerHTML = groups.map((group) => {
-    const offers = Array.isArray(group.offers) ? group.offers : [];
-    const offersHtml = offers.length === 0
-      ? `<p class="no-offers">No offers found.</p>`
-      : `<div class="offer-list">${offers.map((offer) => {
-        const airlineLabel = [offer.airline, `${offer.carrierCode || ""}${offer.flightNumber || ""}`.trim()].filter(Boolean).join(" · ");
-        const bookingHtml = offer.websiteMode === "link" && offer.bookingUrl
-          ? `<a class="offer-link" href="${escapeHtml(offer.bookingUrl)}" target="_blank" rel="noopener noreferrer">Open booking</a>`
-          : `<span class="offer-dash">-</span>`;
+    const flights = Array.isArray(group.flights) ? group.flights : (Array.isArray(group.offers) ? group.offers : []);
 
-        return `
-          <article class="offer">
-            <div class="offer-top">
-              <div class="offer-title">${escapeHtml(airlineLabel || "Offer")}</div>
-              <div class="offer-price">${escapeHtml(offer.priceCurrency || "USD")} ${escapeHtml(offer.priceAmount || "-")}</div>
+    if (flights.length === 0) {
+      return `
+        <section class="result-group">
+          <div class="group-head">
+            <h2 class="group-title">${escapeHtml(group.destinationIata)} · ${escapeHtml(group.destinationName || group.destinationIata)}</h2>
+          </div>
+          <p class="no-flights">No flights available</p>
+        </section>
+      `;
+    }
+
+    const flightsHtml = flights.map((f) => {
+      const flightCode = `${f.carrierCode || ""}${f.flightNumber || ""}`.trim();
+      const depTime = fmtTime(f.departAt);
+      const arrTime = fmtTime(f.arriveAt);
+      const depDate = fmtDateShort(f.departAt);
+      const arrDate = fmtDateShort(f.arriveAt);
+      const crossDay = depDate && arrDate && depDate !== arrDate;
+      const stops = Number(f.stops ?? 0);
+      const stopsText = stopsLabel(stops);
+      const layoverText = fmtLayover(f.layovers);
+      const stopsDisplay = layoverText ? `${stopsText} · ${layoverText}` : stopsText;
+      const stopsClass = stops === 0 ? "flight-stops nonstop" : "flight-stops";
+      const price = fmtPrice(f.priceAmount, f.priceCurrency);
+
+      const bookHtml = f.websiteMode === "link" && f.bookingUrl
+        ? `<a class="flight-book" href="${escapeHtml(f.bookingUrl)}" target="_blank" rel="noopener noreferrer">Book →</a>`
+        : "";
+
+      return `
+        <article class="flight">
+          <div class="flight-info">
+            <div class="flight-airline">${escapeHtml(f.airline || "Unknown")}${flightCode ? ` <span class="flight-code">${escapeHtml(flightCode)}</span>` : ""}</div>
+            <div class="flight-times">
+              <span>${escapeHtml(depTime || "-")}</span>
+              <span class="flight-arrow">→</span>
+              <span>${escapeHtml(arrTime || "-")}${crossDay ? `<sup>+1</sup>` : ""}</span>
+              <span class="${stopsClass}">${escapeHtml(stopsDisplay)}</span>
             </div>
-            <div class="offer-meta">${escapeHtml(fmtDateTime(offer.departAt))} → ${escapeHtml(fmtDateTime(offer.arriveAt))} · Stops ${escapeHtml(String(offer.stops ?? "-"))}</div>
-            ${bookingHtml}
-          </article>
-        `;
-      }).join("")}</div>`;
+          </div>
+          <div class="flight-right">
+            <div class="flight-price">${escapeHtml(price)}</div>
+            ${bookHtml}
+          </div>
+        </article>
+      `;
+    }).join("");
 
     return `
       <section class="result-group">
         <div class="group-head">
           <h2 class="group-title">${escapeHtml(group.destinationIata)} · ${escapeHtml(group.destinationName || group.destinationIata)}</h2>
-          <span class="group-sub">Top ${offers.length} offer${offers.length === 1 ? "" : "s"}</span>
+          <span class="group-sub">${flights.length} flight${flights.length === 1 ? "" : "s"}</span>
         </div>
-        ${offersHtml}
+        <div class="flight-list">${flightsHtml}</div>
       </section>
     `;
   }).join("");
@@ -356,6 +501,12 @@ async function handleSubmit(event) {
   setSubmitting(true);
   setStatus("Checking live availability…", "muted");
 
+  // Clear stale results immediately so the user doesn't see the old search
+  els.resultsSection.hidden = true;
+  els.resultGroups.innerHTML = "";
+  els.resultErrors.hidden = true;
+  els.resultErrors.innerHTML = "";
+
   trackEvent("search_submit", {
     origin: payload.origin,
     departure_date: payload.departureDate,
@@ -384,13 +535,14 @@ async function handleSubmit(event) {
       return;
     }
 
+    state.lastPayload = data;
     renderResults(data);
-    setStatus(data.source === "cache" ? "Loaded cached result" : "Live result loaded", "ok");
+    setStatus("");
 
     trackEvent("search_result", {
       source: data.source,
       pairs_checked: data.pairsChecked,
-      offers_found: data.offersFound,
+      flights_found: data.flightsFound || data.offersFound || 0,
       duration_ms: data.durationMs
     });
 
@@ -404,6 +556,23 @@ async function handleSubmit(event) {
     setStatus(String(err?.message || "Search failed"), "bad");
   } finally {
     setSubmitting(false);
+  }
+}
+
+function setupCurrencyToggle() {
+  if (!els.currencyToggle) return;
+  for (const btn of els.currencyToggle.querySelectorAll(".currency-btn")) {
+    btn.addEventListener("click", () => {
+      const next = normalizeDisplayCurrency(btn.getAttribute("data-currency"));
+      if (next === state.displayCurrency) return;
+      state.displayCurrency = next;
+      saveCurrency(next);
+      updateCurrencyButtons();
+      if (state.lastPayload) {
+        renderResults(state.lastPayload);
+      }
+      trackEvent("search_currency_toggled", { currency: next });
+    });
   }
 }
 
@@ -437,6 +606,17 @@ function setupEvents() {
     if (event.target === els.destinationInput || els.destinationSuggestions.contains(event.target)) return;
     hideSuggestions();
   });
+
+  // Click anywhere in the tag-input wrapper to focus the text input
+  if (els.destInputWrap) {
+    els.destInputWrap.addEventListener("click", (event) => {
+      if (event.target === els.destinationInput) return;
+      if (event.target.closest("button")) return; // don't steal chip remove clicks
+      els.destinationInput.focus();
+    });
+  }
+
+  setupCurrencyToggle();
 }
 
 async function init() {
@@ -444,12 +624,14 @@ async function init() {
     const cfg = await loadPublicConfig();
     state.searchEnabled = Boolean(cfg.searchEnabled);
     state.searchMaxDestinations = Number.isInteger(cfg.searchMaxDestinations) ? cfg.searchMaxDestinations : 3;
-    state.searchCooldownSeconds = Number.isInteger(cfg.searchCooldownSeconds) ? cfg.searchCooldownSeconds : 120;
+    state.searchCooldownSeconds = Number.isInteger(cfg.searchCooldownSeconds) ? cfg.searchCooldownSeconds : 30;
     state.searchCacheTtlSeconds = Number.isInteger(cfg.searchCacheTtlSeconds) ? cfg.searchCacheTtlSeconds : 300;
     state.searchDateRangeDays = Number.isInteger(cfg.searchDateRangeDays) ? cfg.searchDateRangeDays : 7;
     state.searchAllowedOrigins = Array.isArray(cfg.searchAllowedOrigins) && cfg.searchAllowedOrigins.length > 0
       ? cfg.searchAllowedOrigins.map((value) => upper(value)).filter(Boolean)
       : ["DXB"];
+
+    state.displayCurrency = getSavedCurrency();
 
     const key = String(cfg.posthogKey || "").trim();
     if (key) {
@@ -467,6 +649,7 @@ async function init() {
     renderOriginOptions();
     renderDateBounds();
     renderChips();
+    updateCurrencyButtons();
     setupEvents();
 
     if (!state.searchEnabled) {
@@ -475,7 +658,7 @@ async function init() {
       return;
     }
 
-    setStatus(`Live queries: max ${state.searchMaxDestinations} destinations per request`, "muted");
+    setStatus("");
   } catch (err) {
     setSubmitting(true);
     setStatus(`Failed to initialize search page: ${err.message}`, "bad");

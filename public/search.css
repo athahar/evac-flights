@@ -27,7 +27,7 @@ body {
 }
 
 .search-shell {
-  max-width: 920px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 24px 16px 40px;
 }
@@ -68,6 +68,7 @@ h1 {
   text-underline-offset: 2px;
 }
 
+/* ─── Search card ─── */
 .search-card {
   border: 1px solid var(--line);
   border-radius: 14px;
@@ -77,13 +78,14 @@ h1 {
 
 .search-form {
   display: grid;
-  gap: 10px;
+  gap: 8px;
 }
 
 .field-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 160px 1fr 150px auto;
   gap: 10px;
+  align-items: end;
 }
 
 .field {
@@ -110,7 +112,49 @@ select {
 }
 
 .destination-field {
-  margin-top: 2px;
+  /* typeahead dropdown needs position context */
+}
+
+.dest-input-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: #fff;
+  padding: 4px 6px;
+  min-height: 42px;
+  cursor: text;
+}
+
+.dest-input-wrap:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(15, 98, 254, 0.12);
+}
+
+.dest-input-wrap input {
+  flex: 1;
+  min-width: 80px;
+  border: 0;
+  background: transparent;
+  padding: 4px 6px;
+  font-size: 14px;
+  outline: none;
+}
+
+.dest-input-wrap .chips {
+  display: contents;
+}
+
+.dest-input-wrap .chip {
+  font-size: 11px;
+  padding: 3px 7px;
+  gap: 4px;
+}
+
+.dest-input-wrap .chip button {
+  font-size: 12px;
 }
 
 .suggestions {
@@ -156,7 +200,10 @@ select {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  min-height: 24px;
+}
+
+.chips:empty {
+  display: none;
 }
 
 .chip {
@@ -182,22 +229,16 @@ select {
   line-height: 1;
 }
 
-.actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
 .btn {
   border: 1px solid var(--line);
   border-radius: 10px;
   background: #fff;
   color: var(--text);
-  padding: 10px 14px;
+  padding: 10px 18px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .btn.primary {
@@ -216,122 +257,297 @@ select {
   color: var(--muted);
 }
 
-.results {
-  margin-top: 14px;
-  display: grid;
-  gap: 10px;
+.status:empty {
+  display: none;
 }
 
-.result-summary,
-.result-errors,
-.result-group {
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: var(--card);
+/* ─── Results ─── */
+.results {
+  margin-top: 16px;
+  display: grid;
+  gap: 12px;
+}
+
+.results[hidden] {
+  display: none;
+}
+
+.results-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 2px;
 }
 
 .result-summary {
-  padding: 12px;
   font-size: 14px;
+  color: var(--muted);
 }
 
 .result-errors {
-  padding: 10px 12px;
+  border: 1px solid #f0c8c8;
+  border-radius: 10px;
+  background: #fef5f5;
+  padding: 10px 14px;
   color: var(--bad);
   font-size: 13px;
 }
 
-.result-groups {
-  display: grid;
-  gap: 10px;
+.result-errors[hidden] {
+  display: none;
 }
 
+/* Currency toggle — matches home page */
+.currency-toggle {
+  display: inline-flex;
+  gap: 4px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px;
+  background: #f7faff;
+  flex-shrink: 0;
+}
+
+.currency-btn {
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.currency-btn.active {
+  color: #fff;
+  background: var(--accent);
+}
+
+.result-groups {
+  display: grid;
+  gap: 14px;
+}
+
+/* Destination group */
 .result-group {
-  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+  overflow: hidden;
 }
 
 .group-head {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px 0;
   gap: 8px;
-  align-items: baseline;
-  margin-bottom: 8px;
 }
 
 .group-title {
   margin: 0;
-  font-size: 18px;
+  font-size: 17px;
+  font-weight: 600;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .group-sub {
   color: var(--muted);
   font-size: 12px;
   font-family: var(--mono);
+  white-space: nowrap;
 }
 
-.offer-list {
+/* Flight card */
+.flight-list {
+  padding: 8px 10px 10px;
   display: grid;
-  gap: 8px;
+  gap: 0;
 }
 
-.offer {
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 10px;
+.flight {
   display: grid;
-  gap: 5px;
-}
-
-.offer-top {
-  display: flex;
-  justify-content: space-between;
+  grid-template-columns: 1fr auto;
+  align-items: center;
   gap: 12px;
+  padding: 12px 6px;
+  border-bottom: 1px solid #eef2f8;
+}
+
+.flight:last-child {
+  border-bottom: none;
+}
+
+.flight-info {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.flight-airline {
   font-size: 14px;
-}
-
-.offer-title {
   font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.offer-price {
-  font-weight: 600;
-}
-
-.offer-meta {
-  color: var(--muted);
-  font-size: 12px;
-}
-
-.offer-link {
-  width: fit-content;
-  font-size: 12px;
-  color: var(--accent);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.offer-dash {
-  color: var(--muted);
-  font-size: 12px;
-}
-
-.no-offers {
+.flight-code {
+  font-weight: 400;
   color: var(--muted);
   font-size: 13px;
 }
 
+.flight-times {
+  font-size: 13px;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.flight-arrow {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.flight-stops {
+  font-size: 11px;
+  color: var(--muted);
+  font-family: var(--mono);
+  background: #f3f7fd;
+  border-radius: 4px;
+  padding: 1px 6px;
+}
+
+.flight-stops.nonstop {
+  color: var(--ok);
+  background: #e8f6ef;
+}
+
+.flight-right {
+  text-align: right;
+  display: grid;
+  gap: 4px;
+  justify-items: end;
+}
+
+.flight-price {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.flight-currency {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.flight-book {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 4px 10px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.flight-book:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.no-flights {
+  padding: 20px 16px;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+/* ─── Mobile ─── */
 @media (max-width: 760px) {
   .field-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .field-dest {
+    grid-column: 1 / -1;
+    order: 3;
+  }
+
+  .field-action {
+    grid-column: 1 / -1;
+    order: 4;
+  }
+
+  .field-action > span {
+    display: none;
+  }
+
+  .field-action .btn {
+    width: 100%;
   }
 
   h1 {
-    font-size: 26px;
+    font-size: 24px;
+  }
+
+  .subhead {
+    font-size: 13px;
+  }
+
+  .results-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
 
   .group-head {
     flex-direction: column;
     align-items: flex-start;
     gap: 2px;
+    padding: 12px 12px 0;
+  }
+
+  .group-title {
+    font-size: 15px;
+    white-space: normal;
+  }
+
+  .flight-list {
+    padding: 6px 6px 6px;
+  }
+
+  .flight {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 10px 6px;
+  }
+
+  .flight-right {
+    text-align: left;
+    justify-items: start;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .flight-price {
+    font-size: 16px;
   }
 }

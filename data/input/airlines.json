@@ -195,6 +195,15 @@
         "notes": "Chinese SPA"
       },
       {
+        "name": "China Eastern Airlines",
+        "iata": "MU",
+        "website": "https://www.ceair.com/",
+        "booking_url": "https://www.ceair.com/",
+        "deeplink_template": null,
+        "deeplink_confidence": "none",
+        "notes": "Chinese SPA — no URL deep link"
+      },
+      {
         "name": "Condor",
         "iata": "DE",
         "website": "https://www.condor.com",

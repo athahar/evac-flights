@@ -28,34 +28,41 @@
       <section class="search-card">
         <form id="searchForm" class="search-form" autocomplete="off">
           <div class="field-grid">
-            <label class="field">
+            <label class="field field-origin">
               <span>Origin</span>
               <select id="originSelect" required></select>
             </label>
-            <label class="field">
+            <div class="field field-dest destination-field">
+              <span id="destLabel">Destinations (max 3)</span>
+              <div id="destInputWrap" class="dest-input-wrap">
+                <div id="destinationChips" class="chips" aria-live="polite"></div>
+                <input id="destinationInput" type="text" placeholder="Type airport code or name" aria-labelledby="destLabel" />
+              </div>
+              <ul id="destinationSuggestions" class="suggestions" hidden></ul>
+            </div>
+            <label class="field field-date">
               <span>Departure date</span>
               <input id="departureDate" type="date" required />
             </label>
+            <div class="field field-action">
+              <span>&nbsp;</span>
+              <button id="searchBtn" class="btn primary" type="submit">Search</button>
+            </div>
           </div>
 
-          <label class="field destination-field">
-            <span>Destinations (max 3)</span>
-            <input id="destinationInput" type="text" placeholder="Type airport code or name" />
-            <ul id="destinationSuggestions" class="suggestions" hidden></ul>
-          </label>
-
-          <div id="destinationChips" class="chips" aria-live="polite"></div>
-
-          <div class="actions">
-            <button id="searchBtn" class="btn primary" type="submit">Search live availability</button>
-            <span id="searchStatus" class="status" role="status" aria-live="polite"></span>
-          </div>
+          <span id="searchStatus" class="status" role="status" aria-live="polite"></span>
         </form>
       </section>
 
       <section id="resultsSection" class="results" hidden>
-        <div id="resultSummary" class="result-summary"></div>
-        <div id="resultErrors" class="result-errors"></div>
+        <div class="results-bar">
+          <div id="resultSummary" class="result-summary"></div>
+          <div id="currencyToggle" class="currency-toggle" role="group" aria-label="Price currency">
+            <button type="button" class="currency-btn active" data-currency="USD">USD</button>
+            <button type="button" class="currency-btn" data-currency="AED">AED</button>
+          </div>
+        </div>
+        <div id="resultErrors" class="result-errors" hidden></div>
         <div id="resultGroups" class="result-groups"></div>
       </section>
     </main>

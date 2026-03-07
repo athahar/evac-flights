@@ -167,6 +167,7 @@ async function initAnalytics() {
       ? cfg.dashboardIntervalMinutes
       : 30;
     state.feedbackEnabled = Boolean(cfg.feedbackEnabled);
+    state.searchEnabled = Boolean(cfg.searchEnabled);
     renderFeedbackControls();
     renderAll();
 
@@ -455,7 +456,8 @@ function renderAirportTabs() {
   const origins = getAvailableOrigins();
   ensureSelectedOrigin(origins);
 
-  if (origins.length <= 1) {
+  const showSearch = state.searchEnabled;
+  if (origins.length <= 1 && !showSearch) {
     els.airportTabs.innerHTML = "";
     els.airportTabs.hidden = true;
     return;
@@ -465,21 +467,35 @@ function renderAirportTabs() {
   els.airportTabs.innerHTML = "";
 
   const fragment = document.createDocumentFragment();
-  for (const origin of origins) {
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = `airport-tab${origin === state.selectedOrigin ? " active" : ""}`;
-    btn.textContent = getAirportLabel(origin);
-    btn.addEventListener("click", () => {
-      state.selectedOrigin = origin;
-      renderAll();
-      trackEvent("airport_tab_clicked", { origin });
-      if (origin === "MCT") {
-        trackEvent("mct_tab_clicked", { origin: "MCT", page: "flight_availability_board" });
-      }
-    });
-    fragment.appendChild(btn);
+
+  // Origin tabs (only show when >1 origin)
+  if (origins.length > 1) {
+    for (const origin of origins) {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = `airport-tab${origin === state.selectedOrigin ? " active" : ""}`;
+      btn.textContent = getAirportLabel(origin);
+      btn.addEventListener("click", () => {
+        state.selectedOrigin = origin;
+        renderAll();
+        trackEvent("airport_tab_clicked", { origin });
+        if (origin === "MCT") {
+          trackEvent("mct_tab_clicked", { origin: "MCT", page: "flight_availability_board" });
+        }
+      });
+      fragment.appendChild(btn);
+    }
   }
+
+  // "Live Search" navigation tab
+  if (showSearch) {
+    const link = document.createElement("a");
+    link.href = "/search";
+    link.className = "airport-tab airport-tab-link";
+    link.textContent = "Live Search";
+    fragment.appendChild(link);
+  }
+
   els.airportTabs.appendChild(fragment);
 }
 
