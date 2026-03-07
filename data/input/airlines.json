@@ -93,9 +93,9 @@
       "name": "Air India",
       "iata": "AI",
       "website": "https://www.airindia.com",
-      "booking_url": "https://www.airindia.com/in/en/book/flight-search.html",
-      "deeplink_template": "https://www.airindia.com/in/en/book/flight-search.html#/search?from={FROM}&to={TO}&departure={DATE}&adult=1&tripType=O",
-      "deeplink_confidence": "estimated"
+      "booking_url": "https://www.airindia.com/",
+      "deeplink_template": null,
+      "deeplink_confidence": "none"
     },
     {
       "name": "Air India Express",

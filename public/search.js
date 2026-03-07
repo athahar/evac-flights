@@ -364,17 +364,18 @@ function fmtLayover(layovers) {
   }).join(", ");
 }
 
-function buildBookingPillsHtml(links) {
+function buildBookingPillsHtml(links, trackAttrs) {
   const pills = [];
+  const t = trackAttrs || "";
 
   if (links.google) {
-    pills.push(`<a class="booking-pill pill-google" href="${escapeHtml(links.google)}" target="_blank" rel="noopener noreferrer" title="Google Flights">Google</a>`);
+    pills.push(`<a class="booking-pill pill-google" href="${escapeHtml(links.google)}" target="_blank" rel="noopener noreferrer" title="Google Flights" data-track="search_outbound_click" data-channel="google"${t}>Google</a>`);
   }
   if (links.skyscanner) {
-    pills.push(`<a class="booking-pill pill-skyscanner" href="${escapeHtml(links.skyscanner)}" target="_blank" rel="noopener noreferrer" title="Skyscanner">Skyscanner</a>`);
+    pills.push(`<a class="booking-pill pill-skyscanner" href="${escapeHtml(links.skyscanner)}" target="_blank" rel="noopener noreferrer" title="Skyscanner" data-track="search_outbound_click" data-channel="skyscanner"${t}>Skyscanner</a>`);
   }
   if (links.kayak) {
-    pills.push(`<a class="booking-pill pill-kayak" href="${escapeHtml(links.kayak)}" target="_blank" rel="noopener noreferrer" title="Kayak">Kayak</a>`);
+    pills.push(`<a class="booking-pill pill-kayak" href="${escapeHtml(links.kayak)}" target="_blank" rel="noopener noreferrer" title="Kayak" data-track="search_outbound_click" data-channel="kayak"${t}>Kayak</a>`);
   }
 
   if (pills.length === 0) return "";
@@ -460,7 +461,12 @@ function renderResults(payload) {
 
       // Booking links (needed for both pills and "check price" badge)
       const links = f.bookingLinks || {};
-      const pillsHtml = buildBookingPillsHtml(links);
+
+      // Shared tracking data attributes for all outbound links in this card
+      const destIata = group.destinationIata || "";
+      const trackAttrs = ` data-airline="${escapeHtml(f.airline || "")}" data-flight="${escapeHtml(flightCode)}" data-origin="${escapeHtml(group.originIata || state.lastPayload?.origin || "")}" data-destination="${escapeHtml(destIata)}" data-source="${escapeHtml(source)}"`;
+
+      const pillsHtml = buildBookingPillsHtml(links, trackAttrs);
 
       // Airline booking URL for CTA
       const airlineUrl = links.airline || f.bookingUrl || "";
@@ -469,13 +475,13 @@ function renderResults(payload) {
       const checkPriceUrl = isFr24Only ? (airlineUrl || links.google || "") : "";
       const priceHtml = isFr24Only
         ? (checkPriceUrl
-            ? `<a class="flight-badge flight-badge-schedule" href="${escapeHtml(checkPriceUrl)}" target="_blank" rel="noopener noreferrer">Check price ↗</a>`
+            ? `<a class="flight-badge flight-badge-schedule" href="${escapeHtml(checkPriceUrl)}" target="_blank" rel="noopener noreferrer" data-track="search_outbound_click" data-channel="check_price"${trackAttrs}>Check price ↗</a>`
             : `<span class="flight-badge flight-badge-schedule">Check price ↗</span>`)
         : (price ? `<div class="flight-price">${escapeHtml(price)}</div>` : "");
 
       // "Book" CTA below price (only for priced Duffel flights with an airline URL)
       const bookCta = (!isFr24Only && airlineUrl && hasPrice)
-        ? `<a class="flight-book" href="${escapeHtml(airlineUrl)}" target="_blank" rel="noopener noreferrer">Book →</a>`
+        ? `<a class="flight-book" href="${escapeHtml(airlineUrl)}" target="_blank" rel="noopener noreferrer" data-track="search_outbound_click" data-channel="book"${trackAttrs}>Book →</a>`
         : "";
 
       // FR24 verified badge
@@ -559,6 +565,7 @@ async function handleSubmit(event) {
   trackEvent("search_submit", {
     origin: payload.origin,
     departure_date: payload.departureDate,
+    destinations: payload.destinations.join(","),
     destination_count: payload.destinations.length
   });
 
@@ -666,6 +673,24 @@ function setupEvents() {
   }
 
   setupCurrencyToggle();
+
+  // Delegated tracking for all outbound link clicks (OTA pills, Book, Check price)
+  document.addEventListener("click", (event) => {
+    const tracked = event.target.closest("[data-track]");
+    if (!tracked) return;
+    const eventName = tracked.getAttribute("data-track");
+    if (!eventName) return;
+
+    trackEvent(eventName, {
+      channel: tracked.getAttribute("data-channel") || "",
+      airline: tracked.getAttribute("data-airline") || "",
+      flight: tracked.getAttribute("data-flight") || "",
+      origin: tracked.getAttribute("data-origin") || "",
+      destination: tracked.getAttribute("data-destination") || "",
+      source: tracked.getAttribute("data-source") || "",
+      url: tracked.getAttribute("href") || ""
+    });
+  });
 }
 
 async function init() {
