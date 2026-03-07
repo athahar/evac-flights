@@ -478,6 +478,106 @@ select {
   text-align: center;
 }
 
+/* ─── FR24 badges ─── */
+.flight-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 10px;
+  font-family: var(--mono);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.flight-badge-verified {
+  color: var(--ok);
+  background: #e8f6ef;
+}
+
+.flight-badge-schedule {
+  color: #3b6fb5;
+  background: #edf3fb;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 10px;
+  letter-spacing: 0;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.flight-badge-schedule:hover {
+  color: #1a4f8c;
+  background: #dce8f8;
+}
+
+/* FR24-only flight cards — slightly muted */
+.flight-schedule {
+  opacity: 0.85;
+}
+
+.flight-schedule:hover {
+  opacity: 1;
+}
+
+/* ─── Booking pills ─── */
+.booking-pills {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding-top: 4px;
+}
+
+.booking-pill {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 3px 9px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+  white-space: nowrap;
+}
+
+.booking-pill:hover {
+  color: var(--text);
+  border-color: #b0bfcf;
+  background: #f7faff;
+}
+
+/* Brand-color hovers */
+.pill-google:hover {
+  color: #1a73e8;
+  border-color: #a8c7fa;
+  background: #e8f0fe;
+}
+
+.pill-skyscanner:hover {
+  color: #0770e3;
+  border-color: #9cc5f8;
+  background: #e5f1ff;
+}
+
+.pill-kayak:hover {
+  color: #e46400;
+  border-color: #f5c89a;
+  background: #fef6ed;
+}
+
+.pill-airline:hover {
+  color: var(--accent);
+  border-color: #a8c7fa;
+  background: #eef4ff;
+}
+
 /* ─── Mobile ─── */
 @media (max-width: 760px) {
   .field-grid {
@@ -549,5 +649,25 @@ select {
 
   .flight-price {
     font-size: 16px;
+  }
+
+  .booking-pills {
+    gap: 4px;
+    padding-top: 2px;
+  }
+
+  .booking-pill {
+    font-size: 10px;
+    padding: 2px 7px;
+  }
+
+  .flight-badge {
+    font-size: 9px;
+    padding: 1px 5px;
+  }
+
+  .flight-badge-schedule {
+    font-size: 12px;
+    padding: 3px 8px;
   }
 }

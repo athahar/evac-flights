@@ -364,6 +364,23 @@ function fmtLayover(layovers) {
   }).join(", ");
 }
 
+function buildBookingPillsHtml(links) {
+  const pills = [];
+
+  if (links.google) {
+    pills.push(`<a class="booking-pill pill-google" href="${escapeHtml(links.google)}" target="_blank" rel="noopener noreferrer" title="Google Flights">Google</a>`);
+  }
+  if (links.skyscanner) {
+    pills.push(`<a class="booking-pill pill-skyscanner" href="${escapeHtml(links.skyscanner)}" target="_blank" rel="noopener noreferrer" title="Skyscanner">Skyscanner</a>`);
+  }
+  if (links.kayak) {
+    pills.push(`<a class="booking-pill pill-kayak" href="${escapeHtml(links.kayak)}" target="_blank" rel="noopener noreferrer" title="Kayak">Kayak</a>`);
+  }
+
+  if (pills.length === 0) return "";
+  return `<div class="booking-pills">${pills.join("")}</div>`;
+}
+
 function updateCurrencyButtons() {
   if (!els.currencyToggle) return;
   for (const btn of els.currencyToggle.querySelectorAll(".currency-btn")) {
@@ -429,31 +446,63 @@ function renderResults(payload) {
       const arrDate = fmtDateShort(f.arriveAt);
       const crossDay = depDate && arrDate && depDate !== arrDate;
       const stops = Number(f.stops ?? 0);
-      const stopsText = stopsLabel(stops);
-      const layoverText = fmtLayover(f.layovers);
+      const stopsUnknown = f.stops === -1 || f.stops === undefined;
+      const stopsText = stopsUnknown ? "" : stopsLabel(stops);
+      const layoverText = stopsUnknown ? "" : fmtLayover(f.layovers);
       const stopsDisplay = layoverText ? `${stopsText} · ${layoverText}` : stopsText;
-      const stopsClass = stops === 0 ? "flight-stops nonstop" : "flight-stops";
-      const price = fmtPrice(f.priceAmount, f.priceCurrency);
+      const stopsClass = stops === 0 && !stopsUnknown ? "flight-stops nonstop" : "flight-stops";
 
-      const bookHtml = f.websiteMode === "link" && f.bookingUrl
-        ? `<a class="flight-book" href="${escapeHtml(f.bookingUrl)}" target="_blank" rel="noopener noreferrer">Book →</a>`
+      const source = f.source || "duffel";
+      const isFr24Only = source === "fr24";
+      const isBoth = source === "both";
+      const hasPrice = f.priceAmount && Number.parseFloat(f.priceAmount) > 0;
+      const price = hasPrice ? fmtPrice(f.priceAmount, f.priceCurrency) : "";
+
+      // Booking links (needed for both pills and "check price" badge)
+      const links = f.bookingLinks || {};
+      const pillsHtml = buildBookingPillsHtml(links);
+
+      // Airline booking URL for CTA
+      const airlineUrl = links.airline || f.bookingUrl || "";
+
+      // Price or "check price" link for FR24-only flights
+      const checkPriceUrl = isFr24Only ? (airlineUrl || links.google || "") : "";
+      const priceHtml = isFr24Only
+        ? (checkPriceUrl
+            ? `<a class="flight-badge flight-badge-schedule" href="${escapeHtml(checkPriceUrl)}" target="_blank" rel="noopener noreferrer">Check price ↗</a>`
+            : `<span class="flight-badge flight-badge-schedule">Check price ↗</span>`)
+        : (price ? `<div class="flight-price">${escapeHtml(price)}</div>` : "");
+
+      // "Book" CTA below price (only for priced Duffel flights with an airline URL)
+      const bookCta = (!isFr24Only && airlineUrl && hasPrice)
+        ? `<a class="flight-book" href="${escapeHtml(airlineUrl)}" target="_blank" rel="noopener noreferrer">Book →</a>`
+        : "";
+
+      // FR24 verified badge
+      const verifiedBadge = isBoth
+        ? ` <span class="flight-badge flight-badge-verified" title="Confirmed in FR24 schedule">✓ FR24</span>`
+        : "";
+
+      // Arrival display — hide arrow if no arrival time (FR24-only)
+      const arrHtml = arrTime
+        ? `<span class="flight-arrow">→</span><span>${escapeHtml(arrTime)}${crossDay ? `<sup>+1</sup>` : ""}</span>`
         : "";
 
       return `
-        <article class="flight">
+        <article class="flight${isFr24Only ? " flight-schedule" : ""}">
           <div class="flight-info">
-            <div class="flight-airline">${escapeHtml(f.airline || "Unknown")}${flightCode ? ` <span class="flight-code">${escapeHtml(flightCode)}</span>` : ""}</div>
+            <div class="flight-airline">${escapeHtml(f.airline || "Unknown")}${flightCode ? ` <span class="flight-code">${escapeHtml(flightCode)}</span>` : ""}${verifiedBadge}</div>
             <div class="flight-times">
               <span>${escapeHtml(depTime || "-")}</span>
-              <span class="flight-arrow">→</span>
-              <span>${escapeHtml(arrTime || "-")}${crossDay ? `<sup>+1</sup>` : ""}</span>
-              <span class="${stopsClass}">${escapeHtml(stopsDisplay)}</span>
+              ${arrHtml}
+              ${stopsDisplay ? `<span class="${stopsClass}">${escapeHtml(stopsDisplay)}</span>` : ""}
             </div>
           </div>
           <div class="flight-right">
-            <div class="flight-price">${escapeHtml(price)}</div>
-            ${bookHtml}
+            ${priceHtml}
+            ${bookCta}
           </div>
+          ${pillsHtml}
         </article>
       `;
     }).join("");
