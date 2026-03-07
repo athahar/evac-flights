@@ -1,4 +1,73 @@
-Friday, Mar 06
+Saturday, Mar 07
+11:10 PM	UL226	
+Colombo (CMB)
+SriLankan Airlines	332	
+Canceled
+11:10 PM	AI2212	
+Chennai (MAA)
+Air India	32N	
+Canceled
+11:10 PM	FZ967	
+Moscow (VKO)
+flydubai	73H	
+Estimated dep. 11:10 PM
+11:10 PM	FZ977	
+Mineralnye Vody (MRV)
+flydubai	7M8	
+Estimated dep. 1:10 AM
+11:15 PM	MU794	
+Qingdao (TAO)
+China Eastern Airlines	332	
+Canceled
+11:20 PM	FZ757	
+Ankara (ESB)
+flydubai	73H	
+Canceled
+11:20 PM	FZ997	
+Yekaterinburg (SVX)
+flydubai	73H	
+Estimated dep. 1:10 AM
+11:25 PM	EK767	
+Johannesburg (JNB)
+Emirates	77W	
+Scheduled
+11:25 PM	AI2204	
+Hyderabad (HYD)
+Air India	32N	
+Canceled
+11:30 PM	FZ331	
+Karachi (KHI)
+flydubai	7M8	
+Canceled
+11:35 PM	CX738	
+Hong Kong (HKG)
+Cathay Pacific	77W	
+Scheduled
+11:35 PM	FZ445	
+Mumbai (BOM)
+flydubai	7M8	
+Estimated dep. 1:20 AM
+11:35 PM	GF513	
+Bahrain (BAH)
+Gulf Air	32Q	
+Canceled
+11:40 PM	AI984	
+Mumbai (BOM)
+Air India	788	
+Canceled
+11:40 PM	FZ871	
+Al-Qassim (ELQ)
+flydubai	7M8	
+Canceled
+11:40 PM	IX814	
+Mangaluru (IXE)
+Air India Express	B38M (VT-BXI)	
+Scheduled
+Sunday, Mar 08
+12:01 AM	F3514	
+Riyadh (RUH)
+flyadeal	320	
+Scheduled
 12:05 AM	AI996	
 Delhi (DEL)
 Air India	788	
@@ -6,7 +75,7 @@ Canceled
 12:05 AM	SG52	
 Pune (PNQ)
 SpiceJet	7M8	
-Canceled
+Scheduled
 12:10 AM	FZ641	
 Addis Ababa (ADD)
 flydubai	7M8	
@@ -14,10 +83,14 @@ Canceled
 12:10 AM	FZ731	
 Ashgabat (ASB)
 flydubai	7M8	
-Estimated dep. 12:10 AM
+Scheduled
+12:10 AM	SZ106	
+Dushanbe (DYU)
+Somon Air	738	
+Scheduled
 12:15 AM	EK801	
 Jeddah (JED)
-Emirates	A388 (A6-EDO)	
+Emirates	A388 (A6-EUD)	
 Estimated dep. 12:15 AM
 12:20 AM	FZ843	
 Riyadh (RUH)
@@ -30,23 +103,27 @@ Canceled
 12:25 AM	FZ983	
 Kazan (KZN)
 flydubai	73H	
-Estimated dep. 12:25 AM
-12:35 AM	AY1964	
-Helsinki (HEL)
-Finnair	359	
-Scheduled
+Estimated dep. 1:30 AM
 12:55 AM	EK717	
 Nairobi (NBO)
-Emirates	B77W (A6-ECS)	
+Emirates	B77W (A6-EBR)	
 Estimated dep. 12:55 AM
 1:00 AM	CA452	
 Chongqing (CKG)
 Air China	789	
 Canceled
-1:00 AM	FZ1451	
-Budapest (BUD)
-flydubai	B38M (A6-FMC)	
-Estimated dep. 1:10 AM
+1:00 AM	T5878	
+Ashgabat (ASB)
+Turkmenistan Airlines	IL7	
+Scheduled
+1:00 AM		
+San Francisco (SFO)
+Emirates	A388 (A6-EVQ)	
+Estimated dep. 1:20 AM
+1:05 AM		
+Zagreb (ZAG)
+flydubai	B38M (A6-FPD)	
+Estimated dep. 1:15 AM
 1:10 AM	FZ713	
 Tbilisi (TBS)
 flydubai	7M8	
@@ -58,47 +135,43 @@ Estimated dep. 1:10 AM
 1:15 AM	CA942	
 Beijing (PEK)
 Air China	359	
-Estimated dep. 12:00 PM
+Estimated dep. 10:30 AM
 1:15 AM	EK807	
 Medina (MED)
 Emirates	77W	
 Canceled
+1:15 AM		
+Ljubljana (LJU)
+flydubai	B38M (A6-MAX)	
+Estimated dep. 1:25 AM
 1:25 AM	EK815	
 Riyadh (RUH)
 Emirates	77W	
 Canceled
-1:25 AM	EK853	
-Kuwait City (KWI)
-Emirates	359	
-Canceled
-1:30 AM	AC57	
-Toronto (YYZ)
-Air Canada	B789	
-Estimated dep. 1:40 AM
-1:30 AM	LH631	
-Frankfurt (FRA)
-Lufthansa	333	
-Scheduled
 1:30 AM	AF655	
 Paris (CDG)
 Air France	77W	
-Scheduled
+Canceled
+1:30 AM	FZ429	
+Kozhikode (CCJ)
+flydubai	7M8	
+Estimated dep. 3:00 AM
 1:30 AM	FZ1207	
 Male (MLE)
 flydubai	7M8	
 Canceled
-1:30 AM	FZ1389	
-Zagreb (ZAG)
-flydubai	B38M (A6-FMO)	
-Estimated dep. 1:40 AM
 1:40 AM	FZ1463	
 Krabi (KBV)
+flydubai	7M8	
+Canceled
+1:45 AM	FZ919	
+Jeddah (JED)
 flydubai	7M8	
 Canceled
 1:50 AM	AZ857	
 Rome (FCO)
 ITA Airways	32Q	
-Scheduled
+Estimated dep. 1:50 AM
 1:50 AM	LX243	
 Zurich (ZRH)
 Swiss	333	
@@ -107,261 +180,237 @@ Scheduled
 Amsterdam (AMS)
 KLM	77W	
 Canceled
+1:55 AM	EK582	
+Dhaka (DAC)
+Emirates	B77W (A6-EPE)	
+Estimated dep. 1:55 AM
 1:55 AM	SG14	
 Mumbai (BOM)
 SpiceJet	7M8	
 Scheduled
-1:55 AM	CZ384	
-Guangzhou (CAN)
-China Southern Airlines	333	
-Scheduled
-1:55 AM	EK582	
-Dhaka (DAC)
-Emirates	B77W (A6-ECO)	
-Estimated dep. 1:55 AM
-2:00 AM	BA106	
-London (LHR)
-British Airways	A388 (G-XLEH)	
+3:00 AM	EK414	
+Sydney (SYD)
+Emirates	388	
 Canceled
-2:00 AM	EK440	
+3:00 AM	BA106	
+London (LHR)
+British Airways	A388 (G-XLEK)	
+Canceled
+3:00 AM	EK440	
 Adelaide (ADL)
 Emirates	359	
 Canceled
-2:00 AM	EK414	
-Sydney (SYD)
-Emirates	A388 (A6-EVR)	
-Estimated dep. 2:00 AM
-2:00 AM	EK570	
+3:00 AM	EK570	
 Kolkata (CCU)
-Emirates	77W	
-Canceled
-2:00 AM	FZ1025	
+Emirates	B77W (A6-EGG)	
+Estimated dep. 3:00 AM
+3:00 AM	FZ1025	
 Male (MLE)
 flydubai	7M8	
 Canceled
-2:00 AM	FZ919	
-Jeddah (JED)
-flydubai	7M8	
-Canceled
-2:00 AM	FZ1599	
-Zagreb (ZAG)
-flydubai	B39M (A6-FNC)	
-Estimated dep. 2:10 AM
-2:10 AM	EK835	
-Bahrain (BAH)
-Emirates	359	
-Canceled
-2:10 AM	BG248	
-Sylhet (ZYL)
-Biman Bangladesh Airlines	788	
-Scheduled
-2:10 AM	EK165	
+3:10 AM	EK165	
 Dublin (DUB)
 Emirates	77W	
 Canceled
-2:15 AM	FZ579	
+3:10 AM	BG348	
+Dhaka (DAC)
+Biman Bangladesh Airlines	788	
+Scheduled
+3:15 AM	EK213	
+Miami (MIA)
+Emirates	77W	
+Canceled
+3:15 AM	FZ579	
 Colombo (CMB)
 flydubai	73H	
 Canceled
-2:15 AM	EK213	
-Miami (MIA)
-Emirates	B773	
-Canceled
-2:15 AM	UA163	
+3:15 AM	UA163	
 New York (EWR)
-United Airlines	B77W (N2534U)	
+United Airlines	B77W (N2748U)	
 Canceled
-2:15 AM	FZ1317	
-Ljubljana (LJU)
-flydubai	B38M (A6-FMJ)	
-Estimated dep. 2:25 AM
-2:20 AM	EK823	
-Dammam (DMM)
-Emirates	77W	
-Canceled
-2:20 AM	WB305	
-Kigali (KGL)
-RwandAir	738	
-Scheduled
-2:20 AM	IX240	
-Goa (GOI)
-Air India Express	A320 (VT-JPR)	
-Scheduled
-2:20 AM	KQ311	
-Nairobi (NBO)
-Kenya Airways	73H	
-Scheduled
-2:25 AM	EK701	
-Mauritius (MRU)
-Emirates	388	
-Canceled
-2:25 AM	SV585	
-Riyadh (RUH)
-Saudia	320	
-Scheduled
-2:25 AM	EK231	
-Washington (IAD)
-Emirates	A388	
-Canceled
-2:30 AM	EK348	
-Singapore (SIN)
-Emirates	77W	
-Canceled
-2:30 AM	EK656	
-Male (MLE)
-Emirates	77W	
-Canceled
-2:35 AM	EK203	
-New York (JFK)
-Emirates	A388 (A6-EVC)	
-Estimated dep. 2:35 AM
-2:35 AM	EK650	
-Colombo (CMB)
-Emirates	B77W (A6-EPD)	
-Estimated dep. 2:35 AM
-2:35 AM	FZ1133	
-Kathmandu (KTM)
-flydubai	7M8	
-Canceled
-2:40 AM	EK866	
+3:15 AM	EK866	
 Muscat (MCT)
 Emirates	359	
 Canceled
-2:40 AM	EK21	
-Manchester (MAN)
-Emirates	A388 (A6-EDF)	
-Estimated dep. 1:45 AM
-2:40 AM	EK221	
+3:20 AM	IX240	
+Goa (GOI)
+Air India Express	A320 (VT-IXR)	
+Scheduled
+3:20 AM	KQ311	
+Nairobi (NBO)
+Kenya Airways	73H	
+Canceled
+3:20 AM	WB305	
+Kigali (KGL)
+RwandAir	738	
+Estimated dep. 8:30 AM
+3:25 AM	EK231	
+Washington (IAD)
+Emirates	388	
+Canceled
+3:25 AM	EK701	
+Mauritius (MRU)
+Emirates	388	
+Canceled
+3:25 AM	SV585	
+Riyadh (RUH)
+Saudia	321	
+Scheduled
+3:30 AM	EK348	
+Singapore (SIN)
+Emirates	77W	
+Canceled
+3:30 AM	EK656	
+Male (MLE)
+Emirates	77W	
+Canceled
+3:35 AM	EK203	
+New York (JFK)
+Emirates	A388 (A6-EOG)	
+Estimated dep. 1:20 AM
+3:35 AM	EK650	
+Colombo (CMB)
+Emirates	77W	
+Estimated dep. 3:35 AM
+3:35 AM	FZ1133	
+Kathmandu (KTM)
+flydubai	7M8	
+Canceled
+3:40 AM	EK221	
 Dallas (DFW)
 Emirates	B77L (A6-EWH)	
-Estimated dep. 1:25 AM
-2:40 AM	EK705	
+Estimated dep. 3:10 AM
+3:40 AM	EK705	
 Victoria (SEZ)
-Emirates	77W	
-Canceled
-2:45 AM	EK243	
+Emirates	B77W (A6-EPU)	
+Estimated dep. 3:40 AM
+3:40 AM	EK21	
+Manchester (MAN)
+Emirates	A388 (A6-EUN)	
+Estimated dep. 1:45 AM
+3:45 AM	EK243	
 Montreal (YUL)
-Emirates	A359	
+Emirates	359	
 Canceled
-2:45 AM	EK420	
+3:45 AM	EK420	
 Perth (PER)
-Emirates (Skywards 25th Anniversary Livery)	A388 (A6-EUE)	
-Estimated dep. 2:45 AM
-2:45 AM	PK180	
-Sialkot (SKT)
-Pakistan International Airlines	320	
+Emirates	388	
 Canceled
-2:45 AM	EK530	
+3:45 AM	EK530	
 Cochin (COK)
-Emirates	77W	
+Emirates	B77W (A6-EPQ)	
+Estimated dep. 3:45 AM
+3:45 AM	PC5171	
+Antalya (AYT)
+Pegasus	320	
 Canceled
-2:50 AM	EK338	
+3:50 AM	EK338	
 Cebu (CEB)
 Emirates	77W	
 Canceled
-2:50 AM	EK11	
+3:50 AM	TK761	
+Istanbul (IST)
+Turkish Airlines	32Q	
+Scheduled
+3:50 AM	EK11	
 London (LGW)
-Emirates	77L	
+Emirates	77W	
 Canceled
-2:50 AM	EK430	
+3:50 AM	EK430	
 Brisbane (BNE)
 Emirates	77W	
 Canceled
-2:50 AM	EK544	
+3:50 AM	EK544	
 Chennai (MAA)
-Emirates	B77W (A6-EGW)	
-Estimated dep. 2:50 AM
-2:50 AM	TK761	
-Istanbul (IST)
-Turkish Airlines	359	
-Scheduled
-2:55 AM	FZ849	
-Riyadh (RUH)
-flydubai	7M8	
-Canceled
-2:55 AM	EK318	
-Tokyo (NRT)
-Emirates	388	
-Canceled
-2:55 AM	EK384	
+Emirates	B77W (A6-ENM)	
+Estimated dep. 3:50 AM
+3:55 AM	EK384	
 Bangkok (BKK)
-Emirates	A388 (A6-EOK)	
-Estimated dep. 2:55 AM
+Emirates	A388 (A6-EOA)	
+Estimated dep. 3:55 AM
+3:55 AM	EK318	
+Tokyo (NRT)
+Emirates (Grand Slam Tennis Livery)	A388 (A6-EUH)	
+Estimated dep. 3:55 AM
 3:00 AM	BI97	
 London (LHR)
 Royal Brunei Airlines	788	
 Scheduled
-3:00 AM	SG56	
-Amritsar (ATQ)
-SpiceJet	73H	
+3:00 AM	FZ849	
+Riyadh (RUH)
+flydubai	7M9	
 Canceled
+3:00 AM	H9766	
+Kathmandu (KTM)
+Himalaya Airlines	32A	
+Scheduled
 3:00 AM	EK378	
 Phuket (HKT)
-Emirates	B77W (A6-EGZ)	
+Emirates	77W	
 Estimated dep. 3:00 AM
 3:00 AM	EK408	
 Melbourne (MEL)
 Emirates	388	
 Canceled
+3:00 AM	SG56	
+Amritsar (ATQ)
+SpiceJet	73H	
+Canceled
+3:05 AM	EK219	
+Orlando (MCO)
+Emirates	77W	
+Canceled
 3:05 AM	EK316	
 Osaka (KIX)
 Emirates	388	
 Canceled
-3:05 AM	EK219	
-Orlando (MCO)
-Emirates	B773	
-Canceled
-3:10 AM	EK7	
-London (LHR)
-Emirates	A388 (A6-EUI)	
-Estimated dep. 2:40 AM
-3:10 AM	EK612	
-Islamabad (ISB)
-Emirates	B77W (A6-ECV)	
-Estimated dep. 3:10 AM
 3:10 AM	EK302	
 Shanghai (PVG)
 Emirates	388	
 Canceled
-3:15 AM	EK145	
-Amsterdam (AMS)
-Emirates	B77W (A6-ENE)	
-Estimated dep. 2:35 AM
+3:10 AM	EK7	
+London (LHR)
+Emirates	A388 (A6-EEX)	
+Estimated dep. 3:35 AM
 3:15 AM	EK354	
 Singapore (SIN)
 Emirates	388	
 Canceled
+3:15 AM	EK145	
+Amsterdam (AMS)
+Emirates	77W	
+Estimated dep. 3:30 AM
 3:20 AM	EK43	
 Frankfurt (FRA)
-Emirates	B77W (A6-EPP)	
-Estimated dep. 2:55 AM
-3:20 AM	EK306	
-Beijing (PEK)
-Emirates	B77W (A6-EPM)	
-Estimated dep. 3:20 AM
+Emirates	77W	
+Estimated dep. 3:35 AM
+3:20 AM	EK71	
+Paris (CDG)
+Emirates	A388 (A6-EUZ)	
+Canceled
 3:20 AM	PC741	
 Istanbul (SAW)
 Pegasus	321	
 Canceled
-3:20 AM	EK71	
-Paris (CDG)
-Emirates	388	
-Canceled
+3:20 AM	EK306	
+Beijing (PEK)
+Emirates	B77W (A6-EPK)	
+Estimated dep. 3:20 AM
 3:20 AM	6E1474	
 Kozhikode (CCJ)
 IndiGo	32N	
 Canceled
 3:25 AM	EK368	
 Denpasar (DPS)
-Emirates	A388 (A6-EOR)	
+Emirates	388	
 Estimated dep. 3:25 AM
 3:30 AM	EK241	
 Toronto (YYZ)
-Emirates	A388 (A6-EEF)	
-Estimated dep. 3:30 AM
+Emirates	A388 (A6-EEH)	
+Estimated dep. 3:15 AM
 3:30 AM	EK322	
 Seoul (ICN)
-Emirates	A388 (A6-EDS)	
+Emirates	388	
 Estimated dep. 3:30 AM
 3:30 AM	EK382	
 Hong Kong (HKG)
@@ -373,12 +422,12 @@ Emirates	77W
 Canceled
 3:30 AM	EK526	
 Hyderabad (HYD)
-Emirates	77W	
-Canceled
+Emirates	B77W (A6-EBU)	
+Estimated dep. 3:30 AM
 3:30 AM	FZ1709	
 Bucharest (OTP)
-flydubai	B38M (A6-FME)	
-Estimated dep. 3:40 AM
+flydubai	7M8	
+Estimated dep. 3:30 AM
 3:40 AM	EK332	
 Manila (MNL)
 Emirates	77W	
@@ -389,23 +438,23 @@ Emirates	77W
 Canceled
 3:40 AM	EK366	
 Taipei (TPE)
-Emirates	388	
+Emirates	A388 (A6-EDU)	
+Estimated dep. 3:40 AM
+3:40 AM	EK394	
+Hanoi (HAN)
+Emirates	77W	
 Estimated dep. 3:40 AM
 3:40 AM	EK564	
 Bengaluru (BLR)
-Emirates	77W	
-Canceled
+Emirates	B77W (A6-ENN)	
+Estimated dep. 3:40 AM
 3:40 AM	SG58	
 Jaipur (JAI)
 SpiceJet	73H	
 Canceled
-3:40 AM	EK394	
-Hanoi (HAN)
-Emirates	B77W (A6-ECZ)	
-Estimated dep. 5:08 AM
 3:45 AM	EK255	
 Barcelona (BCN)
-Emirates	B77L (A6-EWC)	
+Emirates	77L	
 Estimated dep. 3:05 AM
 3:50 AM	XQ209	
 Antalya (AYT)
@@ -425,19 +474,19 @@ Emirates	77W
 Canceled
 3:55 AM	EK504	
 Mumbai (BOM)
-Emirates	77W	
+Emirates	B77W (A6-ENU)	
 Estimated dep. 3:55 AM
 4:00 AM	TC415	
 Zanzibar (ZNZ)
 Air Tanzania	223	
 Scheduled
-4:00 AM	H9766	
-Kathmandu (KTM)
-Himalaya Airlines	32A	
-Scheduled
+4:01 AM	EK540	
+Ahmedabad (AMD)
+Emirates	A359 (A6-EXJ)	
+Estimated dep. 4:00 AM
 4:01 AM	EK929	
 Cairo (CAI)
-Emirates	77W	
+Emirates	77L	
 Canceled
 4:01 AM	RQ902	
 Kabul (KBL)
@@ -449,24 +498,24 @@ Emirates	359
 Canceled
 4:05 AM	PK234	
 Islamabad (ISB)
-Pakistan International Airlines	A320 (AP-BOK)	
-Estimated dep. 2:15 PM
+Pakistan International Airlines	A320 (AP-BLB)	
+Scheduled
 4:05 AM	SV599	
 Jeddah (JED)
-Saudia	321	
+Saudia	320	
 Scheduled
+4:10 AM	FZ661	
+Hargeisa (HGA)
+flydubai	7M8	
+Canceled
 4:10 AM	EK761	
 Johannesburg (JNB)
 Emirates	77W	
 Scheduled
-4:10 AM	EK624	
-Lahore (LHE)
-Emirates	77W	
-Canceled
 4:10 AM	FZ831	
 Jeddah (JED)
 flydubai	7M8	
-Canceled
+Estimated dep. 4:10 AM
 4:10 AM	FZ1603	
 Penang (PEN)
 flydubai	7M8	
@@ -474,18 +523,18 @@ Canceled
 4:15 AM	EK310	
 Hangzhou (HGH)
 Emirates	359	
-Canceled
+Estimated dep. 4:15 AM
 4:20 AM	EK101	
 Milan (MXP)
-Emirates	B77W (A6-EGU)	
-Canceled
+Emirates	B77W (A6-ECG)	
+Estimated dep. 3:30 AM
 4:20 AM	EK510	
 Delhi (DEL)
-Emirates	77W	
-Canceled
+Emirates	B77W (A6-EGZ)	
+Estimated dep. 4:20 AM
 4:20 AM	EK658	
 Male (MLE)
-Emirates	B77W (A6-EPU)	
+Emirates	B77W (A6-EPF)	
 Estimated dep. 4:20 AM
 4:25 AM	EK356	
 Jakarta (CGK)
@@ -493,87 +542,75 @@ Emirates	77W
 Canceled
 4:25 AM	ET601	
 Addis Ababa (ADD)
-Ethiopian Airlines	789	
-Estimated dep. 4:35 AM
-4:30 AM	KU678	
-Kuwait City (KWI)
-Kuwait Airways	32Q	
+Ethiopian Airlines	77L	
+Estimated dep. 4:25 AM
+4:25 AM	VF144	
+Istanbul (SAW)
+AJet	7M8	
 Scheduled
 4:30 AM	FZ301	
 Kabul (KBL)
 flydubai	7M8	
 Estimated dep. 4:30 AM
-4:40 AM	VF144	
-Istanbul (SAW)
-AJet	73H	
+4:30 AM	FZ1517	
+Belgrade (BEG)
+flydubai	7M8	
+Estimated dep. 4:30 AM
+4:30 AM	KU678	
+Kuwait City (KWI)
+Kuwait Airways	32Q	
 Scheduled
-4:45 AM	EK324	
-Seoul (ICN)
-Emirates	77W	
-Canceled
 4:45 AM	FZ1835	
 Warsaw (WAW)
-flydubai	7M8	
-Canceled
-4:55 AM	FZ317	
-Multan (MUX)
 flydubai	7M8	
 Canceled
 5:00 AM	FG402	
 Kabul (KBL)
 Ariana Afghan Airlines	310	
-Scheduled
+Estimated dep. 5:00 AM
 5:00 AM	MS911	
 Cairo (CAI)
-Egyptair	32N	
-Canceled
+Egyptair	321	
+Scheduled
 5:00 AM	SG24	
 Madurai (IXM)
 SpiceJet	7M8	
 Canceled
+5:05 AM	FZ441	
+Delhi (DEL)
+flydubai	73H	
+Estimated dep. 5:05 AM
 5:10 AM	PA211	
 Islamabad (ISB)
 airblue	32Q	
-Canceled
+Scheduled
 5:15 AM	6E1478	
 Ahmedabad (AMD)
-IndiGo	A20N (VT-IXA)	
+IndiGo	32N	
 Canceled
 5:20 AM	QR1003	
 Doha (DOH)
 Qatar Airways	789	
 Canceled
-5:25 AM	FZ1327	
-Tel Aviv (TLV)
-flydubai	7M8	
+5:35 AM	IX346	
+Kozhikode (CCJ)
+Air India Express (Harmandir Sahib-Jumping Man)	B738 (VT-GHI)	
 Scheduled
 5:35 AM	FZ619	
 Entebbe (EBB)
 flydubai	73H	
 Estimated dep. 5:35 AM
-5:35 AM	IX346	
-Kozhikode (CCJ)
-Air India Express (Kathakali-Bharatanatyam Livery)	B738 (VT-GHE)	
-Scheduled
 5:40 AM	ET613	
 Addis Ababa (ADD)
-Ethiopian Airlines	789	
+Ethiopian Airlines	788	
 Scheduled
 5:45 AM	PK284	
 Peshawar (PEW)
-Pakistan International Airlines	A320 (AP-BOK)	
+Pakistan International Airlines	A320 (AP-BLS)	
 Canceled
-5:55 AM	VF550	
-Ankara (ESB)
-AJet	7M8	
-Scheduled
-6:00 AM	7C181	
-Asmara (ASM)
-Jeju Air	76F	
-Scheduled
 6:00 AM	SV591	
 Jeddah (JED)
-Saudia	320	
+Saudia	321	
 Scheduled
 6:00 AM	FZ333	
 Karachi (KHI)
@@ -585,40 +622,36 @@ Austrian Airlines	32N
 Scheduled
 6:05 AM	IX194	
 Lucknow (LKO)
-Air India Express	A20N (VT-RTF)	
+Air India Express	A320 (VT-EXE)	
 Scheduled
-6:15 AM	FZ1073	
-Tel Aviv (TLV)
-flydubai	7M8	
+6:15 AM	PA811	
+Multan (MUX)
+airblue	321	
 Scheduled
-6:20 AM	FZ53	
-Kuwait City (KWI)
-flydubai	7M8	
-Canceled
-6:30 AM	AF645	
-Paris (CDG)
-Air France	772	
-Scheduled
-6:45 AM	FZ345	
+6:30 AM	FZ345	
 Quetta (UET)
 flydubai	7M8	
+Estimated dep. 6:30 AM
+6:45 AM	FZ717	
+Yerevan (EVN)
+flydubai	73H	
 Estimated dep. 6:45 AM
 6:45 AM	RJ613	
 Amman (AMM)
 Royal Jordanian	32N	
-Canceled
-6:45 AM	XY216	
-Riyadh (RUH)
-flynas	32N	
+Estimated dep. 6:45 AM
+6:55 AM	BT1792	
+Riga (RIX)
+airBaltic	223	
 Scheduled
 6:55 AM	FZ353	
 Islamabad (ISB)
 flydubai	73H	
 Estimated dep. 6:55 AM
-6:55 AM	FZ717	
-Yerevan (EVN)
-flydubai	73H	
-Estimated dep. 6:55 AM
+6:55 AM	FZ905	
+Al Ula (ULH)
+flydubai	7M8	
+Canceled
 6:55 AM	FZ359	
 Lahore (LHE)
 flydubai	7M8	
@@ -626,19 +659,19 @@ Estimated dep. 6:55 AM
 6:55 AM	KQ305	
 Nairobi (NBO)
 Kenya Airways	73H	
-Estimated dep. 6:55 AM
+Scheduled
 7:00 AM	EK819	
 Riyadh (RUH)
 Emirates	77W	
+Canceled
+7:00 AM	FZ147	
+Amman (AMM)
+flydubai	7M8	
 Canceled
 7:05 AM	EK805	
 Jeddah (JED)
 Emirates	388	
 Estimated dep. 7:05 AM
-7:05 AM	FZ907	
-St. Petersburg (LED)
-flydubai	7M8	
-Canceled
 7:05 AM	EK161	
 Dublin (DUB)
 Emirates	77W	
@@ -647,29 +680,17 @@ Canceled
 Manchester (MAN)
 Emirates	388	
 Canceled
-7:10 AM	FZ45	
-Muscat (MCT)
-flydubai	7M8	
-Canceled
-7:15 AM	FZ1549	
-Tel Aviv (TLV)
-flydubai	7M8	
-Scheduled
-7:15 AM	FZ23	
-Bahrain (BAH)
-flydubai	7M8	
-Canceled
-7:15 AM	FZ221	
-Najaf (NJF)
-flydubai	73H	
-Scheduled
 7:20 AM	EK27	
 Glasgow (GLA)
 Emirates	388	
+Estimated dep. 6:40 AM
+7:20 AM	FZ929	
+Neom (NUM)
+flydubai	73H	
 Canceled
 7:25 AM	EK141	
 Madrid (MAD)
-Emirates	A388 (A6-EEY)	
+Emirates	388	
 Estimated dep. 6:55 AM
 7:25 AM	EK191	
 Lisbon (LIS)
@@ -682,7 +703,7 @@ Estimated dep. 7:25 AM
 7:25 AM	EK35	
 Newcastle (NCL)
 Emirates	77W	
-Canceled
+Estimated dep. 6:45 AM
 7:25 AM	EK787	
 Accra (ACC)
 Emirates	77W	
@@ -691,13 +712,9 @@ Estimated dep. 7:25 AM
 Naples (NAP)
 flydubai	7M8	
 Estimated dep. 7:25 AM
-7:30 AM	FZ147	
-Amman (AMM)
-flydubai	7M8	
-Canceled
 7:30 AM	FZ883	
 Dammam (DMM)
-flydubai	7M8	
+flydubai	73H	
 Canceled
 7:30 AM	EK600	
 Karachi (KHI)
@@ -711,14 +728,18 @@ Canceled
 Milan (BGY)
 flydubai	7M8	
 Estimated dep. 7:30 AM
+7:35 AM	FZ1501	
+Catania (CTA)
+flydubai	7M8	
+Canceled
 7:35 AM	EK109	
 Larnaca (LCA)
 Emirates	77W	
-Canceled
+Estimated dep. 6:35 AM
 7:35 AM	EK159	
 Oslo (OSL)
 Emirates	359	
-Canceled
+Estimated dep. 6:40 AM
 7:35 AM	FZ1787	
 Krakow (KRK)
 flydubai	7M8	
@@ -727,58 +748,58 @@ Estimated dep. 7:35 AM
 London (LGW)
 Emirates	388	
 Canceled
-7:40 AM	EK39	
-Birmingham (BHX)
-Emirates	388	
-Estimated dep. 7:10 AM
 7:40 AM	EK795	
 Conakry (CKY)
 Emirates	77W	
-Scheduled
+Estimated dep. 7:40 AM
 7:40 AM	EK855	
 Kuwait City (KWI)
 Emirates	77W	
-Canceled
-7:40 AM	FZ1501	
-Catania (CTA)
-flydubai	7M8	
-Canceled
+Scheduled
+7:40 AM	EK39	
+Birmingham (BHX)
+Emirates	388	
+Estimated dep. 6:40 AM
 7:45 AM	EK1	
 London (LHR)
 Emirates	388	
-Estimated dep. 7:15 AM
+Estimated dep. 7:00 AM
 7:45 AM	GF501	
 Bahrain (BAH)
-Gulf Air	32Q	
+Gulf Air	32N	
 Scheduled
 7:50 AM	EK73	
 Paris (CDG)
-Emirates	A388 (A6-EEZ)	
+Emirates	388	
 Estimated dep. 7:00 AM
+7:50 AM	FZ1425	
+Basel (BSL)
+flydubai	B38M (A6-FMH)	
+Estimated dep. 7:50 AM
+7:50 AM	EK827	
+Dammam (DMM)
+Emirates	359	
+Canceled
 7:50 AM	FZ847	
 Riyadh (RUH)
 flydubai	7M9	
 Canceled
-7:50 AM	EK827	
-Dammam (DMM)
-Emirates	359	
-Scheduled
 7:55 AM	EK945	
 Basra (BSR)
 Emirates	77W	
-Canceled
+Scheduled
 7:55 AM	EK957	
 Beirut (BEY)
 Emirates	77W	
-Canceled
+Scheduled
 7:55 AM	EK709	
 Mauritius (MRU)
 Emirates	77W	
 Canceled
-8:00 AM	FZ1425	
-Basel (BSL)
-flydubai	7M8	
-Estimated dep. 8:00 AM
+8:00 AM	EK941	
+Baghdad (BGW)
+Emirates	359	
+Scheduled
 8:00 AM	FZ325	
 Multan (MUX)
 flydubai	7M8	
@@ -795,6 +816,10 @@ Canceled
 Tbilisi (TBS)
 flydubai	7M8	
 Canceled
+8:00 AM	7C424	
+Baghdad (BGW)
+Jeju Air	77F	
+Scheduled
 8:05 AM	EK179	
 Warsaw (WAW)
 Emirates	77W	
@@ -802,7 +827,7 @@ Estimated dep. 7:15 AM
 8:05 AM	EK247	
 Rio de Janeiro (GIG)
 Emirates	77W	
-Scheduled
+Estimated dep. 8:05 AM
 8:10 AM	EK147	
 Amsterdam (AMS)
 Emirates	388	
@@ -826,7 +851,7 @@ Canceled
 8:15 AM	FZ709	
 Baku (GYD)
 flydubai	73H	
-Estimated dep. 8:15 AM
+Estimated dep. 9:00 AM
 8:20 AM	EK55	
 Dusseldorf (DUS)
 Emirates	77W	
@@ -834,11 +859,11 @@ Estimated dep. 7:30 AM
 8:20 AM	EK77	
 Nice (NCE)
 Emirates	388	
-Canceled
+Estimated dep. 7:35 AM
 8:20 AM	EK157	
 Stockholm (ARN)
 Emirates	77W	
-Canceled
+Estimated dep. 7:20 AM
 8:20 AM	EK312	
 Tokyo (HND)
 Emirates	77W	
@@ -846,10 +871,14 @@ Estimated dep. 8:20 AM
 8:20 AM	EK837	
 Bahrain (BAH)
 Emirates	359	
-Canceled
+Scheduled
 8:25 AM	EK87	
 Zurich (ZRH)
 Emirates	388	
+Canceled
+8:25 AM	FZ907	
+St. Petersburg (LED)
+flydubai	7M8	
 Canceled
 8:30 AM	EK183	
 Brussels (BRU)
@@ -859,18 +888,18 @@ Canceled
 New York (JFK)
 Emirates	A388	
 Canceled
-8:30 AM	TK763	
-Istanbul (IST)
-Turkish Airlines	359	
-Scheduled
-8:30 AM	EK151	
-Copenhagen (CPH)
-Emirates	388	
-Canceled
 8:30 AM	EK215	
 Los Angeles (LAX)
 Emirates	A388	
 Canceled
+8:30 AM	TK763	
+Istanbul (IST)
+Turkish Airlines	32Q	
+Scheduled
+8:30 AM	EK151	
+Copenhagen (CPH)
+Emirates	388	
+Estimated dep. 7:30 AM
 8:35 AM	EK81	
 Lyon (LYS)
 Emirates	359	
@@ -878,7 +907,7 @@ Canceled
 8:40 AM	EK45	
 Frankfurt (FRA)
 Emirates	77W	
-Estimated dep. 7:55 AM
+Estimated dep. 7:45 AM
 8:40 AM	EK49	
 Munich (MUC)
 Emirates	388	
@@ -887,42 +916,38 @@ Canceled
 Geneva (GVA)
 Emirates	77W	
 Canceled
-8:40 AM	EK747	
-Tunis (TUN)
-Emirates	359	
-Canceled
-8:40 AM	EK139	
-Prague (PRG)
-Emirates	388	
-Estimated dep. 7:45 AM
 8:40 AM	EK237	
 Boston (BOS)
 Emirates	B773	
 Canceled
+8:40 AM	EK747	
+Tunis (TUN)
+Emirates	359	
+Estimated dep. 8:40 AM
+8:40 AM	EK139	
+Prague (PRG)
+Emirates	388	
+Scheduled
 8:45 AM	EK386	
 Taipei (TPE)
 Emirates	77L	
 Scheduled
+8:50 AM	EK225	
+San Francisco (SFO)
+Emirates	A388	
+Estimated dep. 8:00 AM
 8:50 AM	EK59	
 Hamburg (HAM)
 Emirates	77W	
-Scheduled
+Estimated dep. 8:05 AM
 8:50 AM	FZ1	
 Doha (DOH)
 flydubai	7M8	
 Canceled
-8:50 AM	EK225	
-San Francisco (SFO)
-Emirates	A388	
-Estimated dep. 8:35 AM
-8:55 AM	EK93	
-Bologna (BLQ)
-Emirates	359	
-Canceled
 8:55 AM	EK97	
 Rome (FCO)
 Emirates	388	
-Scheduled
+Estimated dep. 7:55 AM
 8:55 AM	EK127	
 Vienna (VIE)
 Emirates	388	
@@ -931,6 +956,10 @@ Estimated dep. 8:05 AM
 Yerevan (EVN)
 flydubai	73H	
 Canceled
+8:55 AM	EK93	
+Bologna (BLQ)
+Emirates	359	
+Canceled
 8:55 AM	EK370	
 Bangkok (BKK)
 Emirates	77W	
@@ -938,15 +967,19 @@ Estimated dep. 8:55 AM
 9:00 AM	EK971	
 Tehran (IKA)
 Emirates	77W	
-Canceled
+Scheduled
 9:00 AM	FZ745	
 Tirana (TIA)
-flydubai	73H	
+flydubai	7M8	
 Estimated dep. 9:00 AM
+9:00 AM	FZ1289	
+Mombasa (MBA)
+flydubai	73H	
+Canceled
 9:05 AM	EK205	
 Milan (MXP)
 Emirates	388	
-Canceled
+Scheduled
 9:05 AM	EK261	
 Sao Paulo (GRU)
 Emirates	388	
@@ -957,7 +990,7 @@ flydubai	7M8
 Canceled
 9:10 AM	EK398	
 Denpasar (DPS)
-Emirates	77W	
+Emirates	77L	
 Canceled
 9:10 AM	EK770	
 Cape Town (CPT)
@@ -966,39 +999,35 @@ Estimated dep. 9:10 AM
 9:10 AM	EK707	
 Victoria (SEZ)
 Emirates	77W	
+Scheduled
+9:15 AM	EK713	
+Lusaka (LUN)
+Emirates	77W	
 Canceled
 9:15 AM	EK725	
 Dar-es-Salaam (DAR)
 Emirates	77W	
 Canceled
-9:15 AM	FZ751	
-Istanbul (SAW)
-flydubai	73H	
-Canceled
 9:15 AM	EK304	
 Shanghai (PVG)
 Emirates	77W	
 Estimated dep. 9:15 AM
-9:15 AM	EK713	
-Lusaka (LUN)
-Emirates	77W	
-Estimated dep. 9:15 AM
-9:20 AM	EK133	
-Moscow (DME)
-Emirates	388	
-Scheduled
-9:20 AM	FZ783	
-Iasi (IAS)
+9:15 AM	FZ751	
+Istanbul (SAW)
 flydubai	73H	
 Canceled
+9:20 AM	EK133	
+Moscow (DME)
+Emirates	A388 (A6-EDQ)	
+Estimated dep. 9:20 AM
+9:20 AM	LH639	
+Munich (MUC)
+Lufthansa	359	
+Scheduled
 9:20 AM	FZ1793	
 Zagreb (ZAG)
 flydubai	7M8	
 Estimated dep. 9:20 AM
-9:25 AM	EK723	
-Addis Ababa (ADD)
-Emirates	77L	
-Canceled
 9:25 AM	EK334	
 Manila (MNL)
 Emirates	77W	
@@ -1007,26 +1036,30 @@ Estimated dep. 9:25 AM
 Mumbai (BOM)
 Emirates	77W	
 Estimated dep. 9:25 AM
+9:25 AM	EK793	
+Luanda (NBJ)
+Emirates	77W	
+Canceled
 9:25 AM	FZ909	
 Jeddah (JED)
 flydubai	73H	
 Canceled
-9:30 AM	BT792	
-Riga (RIX)
+9:30 AM	BT998	
+Vilnius (VNO)
 airBaltic	223	
-Scheduled
-9:30 AM	TK759	
-Istanbul (IST)
-Turkish Airlines	333	
 Scheduled
 9:30 AM	EK372	
 Bangkok (BKK)
 Emirates	388	
 Canceled
-9:35 AM	FZ801	
-Hofuf (HOF)
-flydubai	73H	
-Canceled
+9:30 AM	FZ781	
+Chisinau (RMO)
+flydubai	7M8	
+Estimated dep. 9:30 AM
+9:30 AM	TK759	
+Istanbul (IST)
+Turkish Airlines	32Q	
+Scheduled
 9:35 AM	EK135	
 Venice (VCE)
 Emirates	77W	
@@ -1046,22 +1079,22 @@ Canceled
 9:40 AM	EK652	
 Male (MLE)
 Emirates	77W	
-Canceled
+Scheduled
 9:40 AM	FZ1757	
 Sofia (SOF)
 flydubai	7M8	
 Estimated dep. 9:40 AM
+9:45 AM	EK211	
+Houston (IAH)
+Emirates	A388	
+Canceled
 9:45 AM	EK235	
 Chicago (ORD)
-Emirates	B77W (A6-EQE)	
+Emirates	B77W	
 Estimated dep. 9:45 AM
 9:45 AM	EK729	
 Entebbe (EBB)
 Emirates	77W	
-Scheduled
-9:45 AM	EK211	
-Houston (IAH)
-Emirates	A388	
 Canceled
 9:45 AM	FZ1789	
 Ljubljana (LJU)
@@ -1071,54 +1104,46 @@ Estimated dep. 9:45 AM
 Algiers (ALG)
 Air Algerie	339	
 Scheduled
-9:55 AM	BA104	
-London (LHR)
-British Airways	B788 (G-ZBJB)	
-Canceled
-9:55 AM	FZ1211	
-Tel Aviv (TLV)
-flydubai	7M9	
-Scheduled
-9:55 AM	IX436	
-Cochin (COK)
-Air India Express (Garba-Bihu Dance Livery)	B738 (VT-AXU)	
-Scheduled
-9:55 AM	AI930	
-Delhi (DEL)
-Air India	B788 (VT-ANX)	
-Scheduled
 9:55 AM	EK229	
 Seattle (SEA)
 Emirates	B773	
+Canceled
+9:55 AM	AI930	
+Delhi (DEL)
+Air India	B788 (VT-ANE)	
+Canceled
+9:55 AM	BA104	
+London (LHR)
+British Airways	B78X (G-ZBLA)	
 Canceled
 9:55 AM	EK516	
 Delhi (DEL)
 Emirates	77W	
 Estimated dep. 9:55 AM
-9:55 AM	FZ3	
-Doha (DOH)
-flydubai	7M8	
-Canceled
+9:55 AM	IX436	
+Cochin (COK)
+Air India Express (Great Stupa-Charminar Livery)	B738 (VT-AXW)	
+Scheduled
 10:00 AM	EK406	
 Melbourne (MEL)
 Emirates	388	
 Estimated dep. 10:00 AM
-10:00 AM	FZ267	
-Lar (LRR)
-flydubai	73H	
-Scheduled
+10:00 AM	FZ3	
+Doha (DOH)
+flydubai	7M8	
+Canceled
+10:05 AM	EK654	
+Colombo (CMB)
+Emirates	359	
+Estimated dep. 10:05 AM
 10:05 AM	EK111	
 Budapest (BUD)
 Emirates	77W	
 Estimated dep. 9:15 AM
-10:05 AM	EK654	
-Colombo (CMB)
-Emirates	359	
-Canceled
 10:05 AM	EK448	
 Auckland (AKL)
 Emirates	388	
-Estimated dep. 10:05 AM
+Canceled
 10:10 AM	EK763	
 Johannesburg (JNB)
 Emirates	388	
@@ -1134,11 +1159,11 @@ Canceled
 10:15 AM	EK123	
 Istanbul (IST)
 Emirates	388	
-Estimated dep. 9:15 AM
+Estimated dep. 9:30 AM
 10:15 AM	EK352	
 Singapore (SIN)
 Emirates	388	
-Canceled
+Estimated dep. 10:15 AM
 10:15 AM	EK412	
 Sydney (SYD)
 Emirates	388	
@@ -1147,18 +1172,10 @@ Estimated dep. 10:15 AM
 Male (MLE)
 Emirates	77W	
 Canceled
-10:20 AM	6E1482	
-Chandigarh (IXC)
-IndiGo	32Q	
-Canceled
 10:20 AM	FZ549	
 Colombo (CMB)
 flydubai	7M8	
 Canceled
-10:20 AM	FZ761	
-Sarajevo (SJJ)
-flydubai	7M8	
-Estimated dep. 10:20 AM
 10:25 AM	EK434	
 Brisbane (BNE)
 Emirates	388	
@@ -1171,18 +1188,10 @@ Estimated dep. 10:25 AM
 Krabi (KBV)
 flydubai	7M8	
 Canceled
-10:30 AM	C6352	
-Tashkent (TAS)
-My Freighter	320	
-Estimated dep. 12:40 PM
 10:30 AM	EK719	
 Nairobi (NBO)
 Emirates	77W	
 Canceled
-10:30 AM	EK703	
-Mauritius (MRU)
-Emirates	388	
-Estimated dep. 10:30 AM
 10:30 AM	EK783	
 Lagos (LOS)
 Emirates	77W	
@@ -1190,6 +1199,14 @@ Estimated dep. 10:30 AM
 10:30 AM	EK586	
 Dhaka (DAC)
 Emirates	77W	
+Canceled
+10:30 AM	EK703	
+Mauritius (MRU)
+Emirates	388	
+Estimated dep. 10:30 AM
+10:35 AM	FZ927	
+Red Sea Project (RSI)
+flydubai	7M8	
 Canceled
 10:35 AM	EK396	
 Phuket (HKT)
@@ -1210,11 +1227,15 @@ Scheduled
 10:40 AM	SV563	
 Riyadh (RUH)
 Saudia	320	
-Canceled
+Scheduled
 10:45 AM	EK328	
 Shenzhen (SZX)
 Emirates	77W	
 Canceled
+10:50 AM	EK209	
+Athens (ATH)
+Emirates	77W	
+Estimated dep. 9:50 AM
 10:50 AM	J9122	
 Kuwait City (KWI)
 Jazeera Airways	32N	
@@ -1223,6 +1244,10 @@ Scheduled
 Guangzhou (CAN)
 Emirates	77W	
 Estimated dep. 10:50 AM
+10:55 AM	FZ617	
+Djibouti (JIB)
+flydubai	73H	
+Canceled
 10:55 AM	DE2501	
 Berlin (BER)
 Condor	32N	
@@ -1231,21 +1256,21 @@ Scheduled
 Jakarta (CGK)
 Emirates	77W	
 Estimated dep. 10:55 AM
-10:55 AM	FZ1635	
-Tel Aviv (TLV)
-flydubai	73H	
-Scheduled
-11:00 AM	PK224	
-Faisalabad (LYP)
-Pakistan International Airlines	A320 (AP-BLY)	
-Canceled
 11:00 AM	AF659	
 Paris (CDG)
 Air France	77W	
+Canceled
+11:00 AM	C6352	
+Tashkent (TAS)
+My Freighter	320	
 Scheduled
 11:00 AM	EK308	
 Beijing (PEK)
 Emirates	77W	
+Canceled
+11:00 AM	PK224	
+Faisalabad (LYP)
+Pakistan International Airlines	320	
 Canceled
 11:00 AM	FZ41	
 Muscat (MCT)
@@ -1253,16 +1278,16 @@ flydubai	7M8
 Canceled
 11:10 AM	B2718	
 Minsk (MSQ)
-Belavia	738	
-Canceled
+Belavia	332	
+Scheduled
 11:10 AM	SU525	
 Moscow (SVO)
 Aeroflot	73H	
 Scheduled
 11:10 AM	SV567	
 Jeddah (JED)
-Saudia	321	
-Canceled
+Saudia	320	
+Scheduled
 11:10 AM	SG6	
 Delhi (DEL)
 SpiceJet	73H	
@@ -1270,117 +1295,85 @@ Canceled
 11:20 AM	FZ1945	
 Tashkent (TAS)
 flydubai	73H	
-Canceled
+Scheduled
 11:20 AM	6E1462	
 Delhi (DEL)
-IndiGo	32Q	
-Canceled
-11:20 AM	VS401	
-London (LHR)
-Virgin Atlantic	351	
-Estimated dep. 11:20 AM
-11:25 AM	FZ947	
-Qaisumah (AQI)
-flydubai	7M8	
-Canceled
-11:25 AM	6E1488	
-Bhubaneswar (BBI)
+IndiGo	A21N (VT-NCJ)	
+Estimated dep. 11:40 AM
+11:25 AM	6E1468	
+Mangaluru (IXE)
 IndiGo	32N	
 Canceled
 11:30 AM	FZ873	
 Taif (TIF)
 flydubai	7M8	
+Scheduled
+11:45 AM	AI910	
+Mumbai (BOM)
+Air India	788	
 Canceled
-11:30 AM	XY202	
-Riyadh (RUH)
-flynas	32N	
-Scheduled
-11:30 AM	EK209	
-Athens (ATH)
-Emirates	77W	
-Scheduled
 11:45 AM	6E1476	
 Cochin (COK)
 IndiGo	32N	
 Canceled
 11:55 AM	QR1007	
 Doha (DOH)
-Qatar Airways	359	
-Canceled
-11:55 AM	FZ339	
-Multan (MUX)
-flydubai	7M8	
+Qatar Airways	77W	
 Canceled
 12:00 PM	EK921	
 Cairo (CAI)
-Emirates	77W	
+Emirates	77L	
 Canceled
 12:00 PM	KC900	
 Almaty (ALA)
-Air Astana	763	
+Air Astana	321	
 Scheduled
-12:00 PM	FZ307	
-Kabul (KBL)
-flydubai	7M8	
-Canceled
 12:00 PM	XY812	
 Dammam (DMM)
 flynas	32N	
 Scheduled
+12:00 PM	FZ307	
+Kabul (KBL)
+flydubai	7M8	
+Scheduled
+12:00 PM	FZ339	
+Multan (MUX)
+flydubai	7M8	
+Scheduled
 12:05 PM	IX196	
 Jaipur (JAI)
-Air India Express	A320 (VT-EXE)	
+Air India Express	A20N (VT-RTF)	
 Scheduled
 12:10 PM	EK31	
 London (LHR)
 Emirates	388	
-Scheduled
-12:10 PM	FZ1081	
-Tel Aviv (TLV)
-flydubai	73H	
-Scheduled
+Estimated dep. 11:15 AM
 12:15 PM	6E1452	
 Mumbai (BOM)
 IndiGo	32Q	
 Canceled
-12:20 PM	XY502	
-Jeddah (JED)
-flynas	32N	
-Scheduled
-12:25 PM	FZ711	
-Tbilisi (TBS)
-flydubai	73H	
-Scheduled
-12:25 PM	IR645	
-Shiraz (SYZ)
+12:25 PM	IR649	
+Ahvaz (AWZ)
 Iran Air	319	
 Scheduled
 12:25 PM	SG17	
 Cochin (COK)
 SpiceJet	73H	
 Canceled
+12:25 PM	FZ711	
+Tbilisi (TBS)
+flydubai	73H	
+Scheduled
 12:30 PM	HY334	
 Tashkent (TAS)
 Uzbekistan Airways	789	
 Scheduled
-12:30 PM	IA128	
-Basra (BSR)
-Iraqi Airways	737	
-Scheduled
-12:30 PM	IZ604	
-Tel Aviv (TLV)
-arkia	32Q	
-Scheduled
-12:30 PM	LY972	
-Tel Aviv (TLV)
-El Al	738	
+12:30 PM	FZ355	
+Faisalabad (LYP)
+flydubai	7M8	
 Scheduled
 12:30 PM	FZ337	
 Sialkot (SKT)
-flydubai	7M8	
-Scheduled
-12:30 PM	FZ355	
-Faisalabad (LYP)
 flydubai	7M8	
 Scheduled
 12:45 PM	FZ335	
@@ -1397,11 +1390,15 @@ Air Astana	32Q
 Scheduled
 12:50 PM	IX748	
 Kannur (CNN)
-Air India Express	B738 (VT-TGH)	
+Air India Express (Spices-Fishing Livery)	B738 (VT-GHK)	
 Scheduled
 12:55 PM	BS344	
 Chittagong (CGP)
 US-Bangla Airlines	738	
+Scheduled
+12:55 PM	FZ897	
+Medina (MED)
+flydubai	73H	
 Scheduled
 12:55 PM	S75786	
 Novosibirsk (OVB)
@@ -1411,49 +1408,49 @@ Scheduled
 Kozhikode (CCJ)
 SpiceJet	73H	
 Canceled
-1:00 PM	BT998	
-Vilnius (VNO)
+1:00 PM	BT794	
+Riga (RIX)
 airBaltic	223	
-Scheduled
-1:00 PM	EK943	
-Baghdad (BGW)
-Emirates	359	
-Scheduled
-1:00 PM	FZ897	
-Medina (MED)
-flydubai	73H	
 Scheduled
 1:00 PM	GF505	
 Bahrain (BAH)
-Gulf Air	320	
+Gulf Air	32Q	
 Scheduled
-1:00 PM	HU736	
-Haikou (HAK)
-Hainan Airlines	332	
+1:00 PM	IX274	
+Surat (STV)
+Air India Express	A320 (VT-EXB)	
 Scheduled
+1:00 PM	LY972	
+Tel Aviv (TLV)
+El Al	738	
+Canceled
+1:00 PM	CY1624	
+Larnaca (LCA)
+Cyprus Airways	A320 (5B-DDR)	
+Estimated dep. 1:10 PM
 1:10 PM	AI918	
 Delhi (DEL)
-Air India	A20N (VT-EXV)	
-Scheduled
+Air India	32N	
+Canceled
 1:10 PM	QR1023	
 Doha (DOH)
 Qatar Airways	359	
 Canceled
 1:10 PM	BA108	
 London (LHR)
-British Airways	B78X (G-ZBLB)	
-Canceled
-1:15 PM	EK572	
-Kolkata (CCU)
-Emirates	77W	
+British Airways	B78X (G-ZBLK)	
 Canceled
 1:15 PM	EK502	
 Mumbai (BOM)
 Emirates	359	
-Canceled
-1:25 PM	KU672	
+Scheduled
+1:15 PM	EK572	
+Kolkata (CCU)
+Emirates	77W	
+Scheduled
+1:20 PM	KU672	
 Kuwait City (KWI)
-Kuwait Airways	338	
+Kuwait Airways	32N	
 Scheduled
 1:25 PM	FZ811	
 Abha (AHB)
@@ -1462,6 +1459,10 @@ Scheduled
 1:25 PM	FZ1113	
 Damascus (DAM)
 flydubai	7M8	
+Scheduled
+1:30 PM	8M101	
+Yangon (RGN)
+Myanmar Airways International	319	
 Scheduled
 1:30 PM	ME427	
 Beirut (BEY)
@@ -1473,7 +1474,7 @@ flydubai	73H
 Scheduled
 1:30 PM	ME1429	
 Beirut (BEY)
-MEA	A332 (OD-MEC)	
+MEA	A332 (OD-MEB)	
 Estimated dep. 1:40 PM
 1:35 PM	EK566	
 Bengaluru (BLR)
@@ -1483,50 +1484,66 @@ Scheduled
 Kuwait City (KWI)
 flydubai	7M8	
 Scheduled
-1:45 PM	FZ1227	
-Basra (BSR)
-flydubai	73H	
-Scheduled
+1:40 PM	EK41	
+London (LHR)
+Emirates	77W	
+Canceled
 1:45 PM	AI2248	
 Cochin (COK)
-Air India	32N	
-Scheduled
-1:55 PM	FZ203	
-Erbil (EBL)
+Air India	A20N (VT-EXH)	
+Canceled
+1:45 PM	FZ925	
+Ha'il (HAS)
 flydubai	7M8	
+Scheduled
+1:55 PM	FZ707	
+Baku (GYD)
+flydubai	73H	
 Scheduled
 1:55 PM	FZ523	
 Dhaka (DAC)
 flydubai	7M8	
 Scheduled
+1:55 PM	PF787	
+Lahore (LHE)
+AirSial	32S	
+Scheduled
 2:00 PM	EK187	
 Barcelona (BCN)
 Emirates	77W	
 Canceled
-2:00 PM	FZ8571	
-Colombo (CMB)
-flydubai	7M8	
-Scheduled
 2:00 PM	KC898	
 Almaty (ALA)
 Air Astana	32Q	
 Scheduled
+2:00 PM	FZ8571	
+Colombo (CMB)
+flydubai	7M8	
+Scheduled
 2:05 PM	EK181	
 Brussels (BRU)
 Emirates	77W	
-Canceled
+Scheduled
+2:05 PM	FZ21	
+Bahrain (BAH)
+flydubai	73H	
+Scheduled
 2:10 PM	J212	
 Baku (GYD)
 Azerbaijan Airlines	763	
 Scheduled
+2:15 PM	FZ901	
+Jizan (GIZ)
+flydubai	7M8	
+Scheduled
 2:15 PM	SV569	
 Jeddah (JED)
 Saudia	321	
-Canceled
+Scheduled
 2:20 PM	EK121	
 Istanbul (IST)
-Emirates	77L	
-Canceled
+Emirates	77W	
+Scheduled
 2:20 PM	EK809	
 Medina (MED)
 Emirates	77W	
@@ -1538,29 +1555,25 @@ Scheduled
 2:25 PM	EK9	
 London (LGW)
 Emirates	77W	
-Canceled
+Scheduled
 2:25 PM	EK765	
 Johannesburg (JNB)
 Emirates	77W	
 Scheduled
-2:25 PM	IA124	
-Baghdad (BGW)
-Iraqi Airways	737	
-Scheduled
-2:30 PM	EK3	
-London (LHR)
-Emirates	388	
-Scheduled
 2:30 PM	EK67	
 London (STN)
 Emirates	77W	
-Canceled
+Scheduled
 2:30 PM	EK193	
 Lisbon (LIS)
 Emirates	77W	
 Scheduled
 2:30 PM	EK903	
 Amman (AMM)
+Emirates	388	
+Scheduled
+2:30 PM	EK3	
+London (LHR)
 Emirates	388	
 Scheduled
 2:30 PM	EK19	
@@ -1574,22 +1587,22 @@ Scheduled
 2:40 PM	EK57	
 Dusseldorf (DUS)
 Emirates	388	
-Canceled
+Scheduled
 2:40 PM	EK83	
 Geneva (GVA)
 Emirates	77W	
-Canceled
+Scheduled
 2:40 PM	FZ43	
 Muscat (MCT)
 flydubai	7M8	
 Scheduled
-2:45 PM	EK143	
-Madrid (MAD)
-Emirates	77W	
-Scheduled
 2:45 PM	EK857	
 Kuwait City (KWI)
 Emirates	359	
+Scheduled
+2:45 PM	EK143	
+Madrid (MAD)
+Emirates	77W	
 Scheduled
 2:45 PM	EK528	
 Hyderabad (HYD)
@@ -1598,10 +1611,14 @@ Scheduled
 2:45 PM	EK546	
 Chennai (MAA)
 Emirates	77W	
-Canceled
+Scheduled
 2:50 PM	FZ829	
 Jeddah (JED)
 flydubai	73H	
+Scheduled
+2:50 PM	EK75	
+Paris (CDG)
+Emirates	388	
 Scheduled
 2:50 PM	EK23	
 Edinburgh (EDI)
@@ -1610,43 +1627,23 @@ Scheduled
 2:50 PM	EK37	
 Birmingham (BHX)
 Emirates	77W	
-Canceled
-2:50 PM	EK75	
-Paris (CDG)
-Emirates	388	
-Canceled
-2:50 PM	FZ1125	
-Tel Aviv (TLV)
-flydubai	7M8	
-Scheduled
-2:55 PM	PF787	
-Lahore (LHE)
-AirSial	32S	
 Scheduled
 2:55 PM	PF785	
 Islamabad (ISB)
-AirSial	32S	
+AirSial	320	
 Scheduled
 3:00 PM	EK61	
 Hamburg (HAM)
 Emirates	77W	
-Canceled
+Scheduled
+3:00 PM	TK765	
+Istanbul (IST)
+Turkish Airlines	32Q	
+Scheduled
 3:00 PM	EK923	
 Cairo (CAI)
 Emirates	388	
-Canceled
-3:00 PM	TK765	
-Istanbul (IST)
-Turkish Airlines	333	
 Scheduled
-3:00 PM	W562	
-Tehran (IKA)
-Mahan Air	343	
-Scheduled
-3:00 PM	CY1109	
-Larnaca (LCA)
-Cyprus Airways	A320	
-Estimated dep. 3:10 PM
 3:05 PM	EK95	
 Rome (FCO)
 Emirates	77W	
@@ -1654,7 +1651,7 @@ Scheduled
 3:10 PM	EK514	
 Delhi (DEL)
 Emirates	77W	
-Canceled
+Scheduled
 3:10 PM	FZ881	
 Tabuk (TUU)
 flydubai	7M8	
@@ -1681,31 +1678,43 @@ Emirates	388
 Scheduled
 3:20 PM	EK721	
 Nairobi (NBO)
-Emirates	77W	
-Canceled
+Emirates	77L	
+Scheduled
+3:30 PM	PF787	
+Lahore (LHE)
+AirSial	320	
+Scheduled
 3:35 PM	FZ1839	
 Warsaw (WAW)
 flydubai	7M8	
 Scheduled
-3:40 PM	EK125	
-Vienna (VIE)
+3:40 PM	EK508	
+Mumbai (BOM)
 Emirates	77W	
 Scheduled
 3:40 PM	EK953	
 Beirut (BEY)
 Emirates	77W	
 Scheduled
-3:40 PM	EK508	
-Mumbai (BOM)
+3:40 PM	EK125	
+Vienna (VIE)
 Emirates	77W	
 Scheduled
 3:45 PM	EK803	
 Jeddah (JED)
 Emirates	388	
 Scheduled
+3:45 PM	PA411	
+Lahore (LHE)
+airblue	320	
+Scheduled
 3:50 PM	EK51	
 Munich (MUC)
 Emirates	388	
+Scheduled
+3:50 PM	PF783	
+Sialkot (SKT)
+AirSial	320	
 Scheduled
 3:55 PM	EK85	
 Zurich (ZRH)
@@ -1719,21 +1728,17 @@ Scheduled
 St. Petersburg (LED)
 Emirates	77W	
 Scheduled
+4:00 PM	SV559	
+Riyadh (RUH)
+Saudia	320	
+Scheduled
 4:00 PM	EK839	
 Bahrain (BAH)
 Emirates	359	
 Scheduled
-4:00 PM	SV559	
-Riyadh (RUH)
-Saudia	A21N (HZ-ASAA)	
-Canceled
 4:00 PM	FZ647	
 Addis Ababa (ADD)
 flydubai	7M8	
-Scheduled
-4:00 PM	FZ1289	
-Mombasa (MBA)
-flydubai	73H	
 Scheduled
 4:05 PM	EK5	
 London (LHR)
@@ -1743,25 +1748,21 @@ Scheduled
 Colombo (CMB)
 Emirates	77W	
 Scheduled
-4:10 PM	IY853	
-Mukalla (RIY)
-Yemenia	320	
-Scheduled
 4:15 PM	EK131	
 Moscow (DME)
 Emirates	388	
 Scheduled
-4:15 PM	XY206	
-Riyadh (RUH)
-flynas	32N	
+4:20 PM	MS913	
+Cairo (CAI)
+Egyptair	789	
 Scheduled
 4:20 PM	SG60	
 Mumbai (BOM)
 SpiceJet	7M8	
 Canceled
-4:30 PM	MS913	
-Cairo (CAI)
-Egyptair	359	
+4:35 PM	SU521	
+Moscow (SVO)
+Aeroflot	77W	
 Scheduled
 4:40 PM	FZ1581	
 Nairobi (NBO)
@@ -1773,15 +1774,7 @@ Emirates	77W
 Scheduled
 4:45 PM	J9124	
 Kuwait City (KWI)
-Jazeera Airways	32N	
-Scheduled
-4:55 PM	FZ1441	
-Riga (RIX)
-flydubai	7M8	
-Scheduled
-4:55 PM	FZ211	
-Baghdad (BGW)
-flydubai	73H	
+Jazeera Airways	320	
 Scheduled
 5:00 PM	IX612	
 Tiruchirapalli (TRZ)
@@ -1789,12 +1782,12 @@ Air India Express (Ragini Todi-Solah Shringar)	B738 (VT-AXI)
 Scheduled
 5:00 PM	IX832	
 Mangaluru (IXE)
-Air India Express (Himalayan Peaks-Desert Livery)	B738 (VT-AXZ)	
+Air India Express (Elephant-Camel Livery)	B738 (VT-GHA)	
 Scheduled
 5:00 PM	PA217	
 Islamabad (ISB)
 airblue	320	
-Canceled
+Scheduled
 5:05 PM	EK69	
 London (LGW)
 Emirates	359	
@@ -1803,22 +1796,18 @@ Scheduled
 Addis Ababa (ADD)
 Ethiopian Airlines	77W	
 Scheduled
-5:10 PM	FZ27	
-Bahrain (BAH)
-flydubai	7M8	
-Scheduled
 5:10 PM	FZ1781	
 Prague (PRG)
 flydubai	7M8	
 Scheduled
 5:15 PM	PA417	
 Lahore (LHE)
-airblue	321	
+airblue	320	
 Scheduled
 5:30 PM	SV589	
 Jeddah (JED)
-Saudia	A333 (HZ-AQ28)	
-Canceled
+Saudia	330	
+Scheduled
 5:40 PM	EK817	
 Riyadh (RUH)
 Emirates	77W	
@@ -1830,10 +1819,6 @@ Canceled
 5:45 PM	EK117	
 Istanbul (IST)
 Emirates	359	
-Canceled
-5:45 PM	FZ991	
-St. Petersburg (LED)
-flydubai	7M8	
 Scheduled
 5:45 PM	FZ9	
 Doha (DOH)
@@ -1843,25 +1828,17 @@ Scheduled
 Kathmandu (KTM)
 flydubai	7M8	
 Scheduled
+5:45 PM	FZ991	
+St. Petersburg (LED)
+flydubai	7M8	
+Scheduled
 5:45 PM	FZ1405	
 Budapest (BUD)
 flydubai	7M8	
 Scheduled
-5:55 PM	NB741	
-Benghazi (BEN)
-Berniq Airways	320	
-Scheduled
 5:55 PM	EK336	
 Manila (MNL)
 Emirates	77W	
-Scheduled
-6:00 PM	8D822	
-Colombo (CMB)
-FitsAir	320	
-Scheduled
-6:00 PM	CY107	
-Larnaca (LCA)
-Cyprus Airways	220	
 Scheduled
 6:00 PM	LO122	
 Warsaw (WAW)
@@ -1875,13 +1852,17 @@ Scheduled
 Milan (BGY)
 flydubai	7M8	
 Scheduled
+6:00 PM	8D822	
+Colombo (CMB)
+FitsAir	320	
+Scheduled
 6:10 PM	A3959	
 Athens (ATH)
 Aegean Airlines	32N	
 Scheduled
 6:10 PM	EK602	
 Karachi (KHI)
-Emirates	77W	
+Emirates	77L	
 Scheduled
 6:15 PM	FZ733	
 Baku (GYD)
@@ -1898,26 +1879,30 @@ Scheduled
 6:20 PM	UL232	
 Colombo (CMB)
 SriLankan Airlines	320	
-Canceled
+Scheduled
 6:20 PM	6E1454	
 Mumbai (BOM)
-IndiGo	A21N (VT-NCH)	
+IndiGo	A21N (VT-NCO)	
 Estimated dep. 7:30 PM
-6:25 PM	FZ159	
-Beirut (BEY)
-flydubai	7M8	
+6:35 PM	FYC728	
+Damascus (DAM)
+Fly Cham	320	
 Scheduled
 6:35 PM	FZ951	
 Moscow (VKO)
-flydubai	73H	
+flydubai	7M8	
 Scheduled
 6:35 PM	FZ1795	
 Bucharest (OTP)
-flydubai	7M8	
+flydubai	73H	
 Scheduled
 6:40 PM	IX344	
 Kozhikode (CCJ)
-Air India Express (Kathakali-Bharatanatyam Livery)	B738 (VT-GHE)	
+Air India Express (Patola-Shawl Livery)	B738 (VT-AYC)	
+Scheduled
+6:45 PM	5F5154	
+Chisinau (RMO)
+FlyOne	321	
 Scheduled
 6:45 PM	FZ461	
 Kolkata (CCU)
@@ -1927,12 +1912,12 @@ Scheduled
 Colombo (CMB)
 flydubai	7M8	
 Scheduled
-6:50 PM	FZ47	
-Muscat (MCT)
-flydubai	7M8	
-Scheduled
 6:50 PM	FZ867	
 Dammam (DMM)
+flydubai	73H	
+Scheduled
+6:55 PM	FZ57	
+Kuwait City (KWI)
 flydubai	7M8	
 Scheduled
 6:55 PM	KU674	
@@ -1941,51 +1926,55 @@ Kuwait Airways	32N
 Scheduled
 6:55 PM	AI2218	
 Mumbai (BOM)
-Air India	A20N (VT-EXR)	
+Air India	A20N (VT-CID)	
 Scheduled
 6:55 PM	CA762	
 Hangzhou (HGH)
 Air China	333	
 Scheduled
-7:00 PM	FZ57	
-Kuwait City (KWI)
-flydubai	73H	
+6:55 PM	FZ159	
+Beirut (BEY)
+flydubai	7M8	
+Scheduled
+7:00 PM	CY107	
+Larnaca (LCA)
+Cyprus Airways	220	
 Scheduled
 7:00 PM	KC208	
 Astana (NQZ)
 Air Astana	32Q	
 Scheduled
-7:00 PM	DE2547	
-Stuttgart (STR)
-Condor	32N	
-Scheduled
 7:00 PM	EW1153	
 Stuttgart (STR)
 Eurowings	32N	
 Scheduled
-7:05 PM	GF509	
-Bahrain (BAH)
-Gulf Air	320	
-Scheduled
 7:10 PM	FZ987	
 Moscow (VKO)
-flydubai	7M8	
+flydubai	73H	
 Scheduled
 7:10 PM	6E1464	
 Delhi (DEL)
-IndiGo	A21N (VT-NCJ)	
+IndiGo	A21N (VT-NCO)	
 Estimated dep. 7:30 PM
-7:15 PM	FZ175	
-Alexandria (HBE)
-flydubai	73H	
+7:15 PM	XY212	
+Riyadh (RUH)
+flynas	32N	
 Scheduled
 7:15 PM	AI2202	
 Mumbai (BOM)
 Air India	A20N (VT-TNJ)	
 Scheduled
+7:15 PM	FZ175	
+Alexandria (HBE)
+flydubai	73H	
+Scheduled
+7:15 PM	AI4202	
+Mumbai (BOM)
+Air India	32N	
+Scheduled
 7:20 PM	FZ855	
 Riyadh (RUH)
-flydubai	7M8	
+flydubai	7M9	
 Scheduled
 7:25 PM	FZ979	
 Yekaterinburg (SVX)
@@ -1997,47 +1986,59 @@ SpiceJet	73H
 Canceled
 7:30 PM	FZ143	
 Amman (AMM)
-flydubai	7M8	
-Scheduled
-7:30 PM	FYC728	
-Damascus (DAM)
-Fly Cham	320	
+flydubai	73H	
 Scheduled
 7:30 PM	FZ645	
 Asmara (ASM)
 flydubai	7M8	
 Scheduled
-7:30 PM	FZ1301	
-Tel Aviv (TLV)
+7:40 PM	W62498	
+Budapest (BUD)
+Wizz Air	32Q	
+Scheduled
+7:40 PM	SU527	
+Moscow (SVO)
+Aeroflot	73H	
+Scheduled
+7:45 PM	FZ329	
+Karachi (KHI)
 flydubai	7M8	
 Scheduled
 7:45 PM	FZ5	
 Doha (DOH)
 flydubai	7M8	
 Scheduled
-7:45 PM	FZ329	
-Karachi (KHI)
-flydubai	7M8	
-Scheduled
 7:45 PM	FZ807	
 Jeddah (JED)
 flydubai	7M8	
 Scheduled
+7:45 PM	XY208	
+Riyadh (RUH)
+flynas	737	
+Scheduled
+7:50 PM	SQ495	
+Singapore (SIN)
+Singapore Airlines	77W	
+Scheduled
 7:55 PM	FZ453	
 Cochin (COK)
-flydubai	73H	
+flydubai	7M8	
 Scheduled
 7:55 PM	QS1201	
-Prague (PRG)
+Hurghada (HRG)
 Smartwings	7M8	
 Scheduled
 7:55 PM	IX192	
 Amritsar (ATQ)
-Air India Express	A20N (VT-ATJ)	
+Air India Express	A20N (VT-ATG)	
 Scheduled
 8:00 PM	FZ25	
 Bahrain (BAH)
 flydubai	7M8	
+Scheduled
+8:10 PM	PR659	
+Manila (MNL)
+Philippine Airlines	333	
 Scheduled
 8:10 PM	FZ963	
 Novosibirsk (OVB)
@@ -2047,41 +2048,33 @@ Scheduled
 Cairo (CAI)
 Egyptair	738	
 Scheduled
+8:15 PM	FZ965	
+Moscow (VKO)
+flydubai	7M8	
+Scheduled
 8:20 PM	CZ8058	
 Guangzhou (CAN)
 China Southern Airlines	333	
 Scheduled
-8:25 PM	FZ1625	
-Tel Aviv (TLV)
-flydubai	7M8	
-Scheduled
-8:30 PM	FZ965	
-Moscow (VKO)
-flydubai	7M8	
-Scheduled
-8:30 PM	IA106	
-Sulaimaniyah (ISU)
-Iraqi Airways	737	
+8:30 PM	QS1501	
+Bratislava (BTS)
+Smartwings	7M8	
 Scheduled
 8:30 PM	SV561	
 Riyadh (RUH)
-Saudia	A21N (HZ-ASAJ)	
-Canceled
-8:30 PM	8D824	
-Colombo (CMB)
-FitsAir	320	
+Saudia	321	
 Scheduled
 8:40 PM	AI2206	
 Delhi (DEL)
-Air India	B788 (VT-ANX)	
+Air India	A359 (VT-JRA)	
 Scheduled
-8:40 PM	FZ435	
+8:45 PM	FZ435	
 Hyderabad (HYD)
 flydubai	7M8	
 Scheduled
-8:45 PM	EK859	
-Kuwait City (KWI)
-Emirates	77W	
+8:45 PM	LY974	
+Tel Aviv (TLV)
+El Al	738	
 Scheduled
 8:45 PM	FZ755	
 Istanbul (IST)
@@ -2089,12 +2082,8 @@ flydubai	73H
 Scheduled
 8:45 PM	PA111	
 Karachi (KHI)
-airblue	321	
-Canceled
-8:50 PM	6E1472	
-Chennai (MAA)
-IndiGo	32Q	
-Canceled
+airblue	320	
+Scheduled
 8:50 PM	FZ973	
 Kazan (KZN)
 flydubai	73H	
@@ -2103,9 +2092,9 @@ Scheduled
 Cairo (CAI)
 Emirates	388	
 Scheduled
-8:55 PM	FZ1807	
-Tel Aviv (TLV)
-flydubai	7M9	
+8:55 PM	FZ191	
+Giza (SPX)
+flydubai	73H	
 Scheduled
 9:00 PM	EK314	
 Singapore (SIN)
@@ -2115,22 +2104,26 @@ Scheduled
 Dammam (DMM)
 Emirates	359	
 Scheduled
-9:00 PM	SV551	
-Jeddah (JED)
-Saudia	A21N (HZ-ASAG)	
-Canceled
+9:00 PM	WY624	
+Muscat (MCT)
+Oman Air	738	
+Scheduled
 9:00 PM	EK542	
 Chennai (MAA)
 Emirates	77W	
 Scheduled
-9:00 PM	KE952	
-Seoul (ICN)
-Korean Air	789	
+9:00 PM	SV551	
+Jeddah (JED)
+Saudia	321	
 Scheduled
 9:05 PM	MU246	
 Shanghai (PVG)
-China Eastern Airlines	789	
-Canceled
+China Eastern Airlines	A333 (B-8862)	
+Estimated dep. 9:45 PM
+9:15 PM	EK618	
+Sialkot (SKT)
+Emirates	77W	
+Scheduled
 9:20 PM	GF511	
 Bahrain (BAH)
 Gulf Air	320	
@@ -2139,32 +2132,24 @@ Scheduled
 Doha (DOH)
 flydubai	73H	
 Scheduled
-9:25 PM	FZ191	
-Giza (SPX)
-flydubai	73H	
-Scheduled
 9:25 PM	FZ1303	
 Astana (NQZ)
 flydubai	7M8	
 Scheduled
 9:25 PM	6E1456	
 Mumbai (BOM)
-IndiGo	A21N (VT-NCN)	
-Estimated dep. 9:45 PM
-9:30 PM	EK614	
-Islamabad (ISB)
-Emirates	77W	
-Scheduled
+IndiGo	32Q	
+Canceled
 9:30 PM	EK522	
 Thiruvananthapuram (TRV)
 Emirates	77W	
 Scheduled
-9:30 PM	EK524	
-Hyderabad (HYD)
-Emirates	77W	
-Scheduled
 9:30 PM	EK512	
 Delhi (DEL)
+Emirates	77W	
+Scheduled
+9:30 PM	EK524	
+Hyderabad (HYD)
 Emirates	77W	
 Scheduled
 9:30 PM	F3512	
@@ -2199,25 +2184,29 @@ Scheduled
 Sydney (SYD)
 Emirates	388	
 Scheduled
+9:50 PM	EK622	
+Lahore (LHE)
+Emirates	77W	
+Scheduled
 9:50 PM	EK404	
 Melbourne (MEL)
 Emirates	77W	
+Scheduled
+9:55 PM	W43268	
+Bucharest (OTP)
+Wizz Air Malta	32Q	
 Scheduled
 10:00 PM	5J15	
 Manila (MNL)
 Cebu Pacific	339	
 Scheduled
-10:00 PM	EK606	
-Karachi (KHI)
-Emirates	77L	
-Scheduled
-10:05 PM	IX198	
-Lucknow (LKO)
-Air India Express	A20N (VT-ATD)	
-Scheduled
 10:05 PM	FZ975	
 Moscow (VKO)
 flydubai	73H	
+Scheduled
+10:05 PM	IX198	
+Lucknow (LKO)
+Air India Express	A320 (VT-JPR)	
 Scheduled
 10:10 PM	FZ827	
 Medina (MED)
@@ -2225,31 +2214,39 @@ flydubai	7M8
 Scheduled
 10:10 PM	FZ1941	
 Tashkent (TAS)
-flydubai	73H	
+flydubai	7M8	
 Scheduled
 10:15 PM	6E1486	
 Bengaluru (BLR)
 IndiGo	32N	
 Canceled
-10:25 PM	QR1015	
-Doha (DOH)
-Qatar Airways	77W	
-Canceled
+10:20 PM	WY612	
+Muscat (MCT)
+Oman Air	738	
+Scheduled
 10:25 PM	ME429	
 Beirut (BEY)
 MEA	332	
 Scheduled
+10:25 PM	QR1015	
+Doha (DOH)
+Qatar Airways	359	
+Canceled
 10:30 PM	3U3918	
 Chengdu (TFU)
-Sichuan Airlines	332	
+Sichuan Airlines	330	
 Scheduled
 10:35 PM	EK374	
 Bangkok (BKK)
 Emirates	388	
 Scheduled
+10:45 PM	FZ971	
+Sochi (AER)
+flydubai	73H	
+Scheduled
 10:45 PM	QR1019	
 Doha (DOH)
-Qatar Airways	77W	
+Qatar Airways	359	
 Canceled
 10:45 PM	RJ615	
 Amman (AMM)
@@ -2267,13 +2264,9 @@ Canceled
 Ahmedabad (AMD)
 Emirates	359	
 Scheduled
-10:55 PM	FZ777	
-Dushanbe (DYU)
-flydubai	73H	
-Scheduled
-10:55 PM	FZ971	
-Sochi (AER)
-flydubai	73H	
+10:55 PM	IZ606	
+Tel Aviv (TLV)
+arkia	32Q	
 Scheduled
 10:55 PM	KU676	
 Kuwait City (KWI)
@@ -2283,10 +2276,14 @@ Scheduled
 Almaty (ALA)
 flydubai	7M8	
 Scheduled
+11:00 PM	FZ777	
+Dushanbe (DYU)
+flydubai	73H	
+Scheduled
 11:00 PM	SV595	
 Jeddah (JED)
-Saudia	A21N (HZ-ASAK)	
-Canceled
+Saudia	330	
+Scheduled
 11:00 PM	FZ995	
 Samara (KUF)
 flydubai	73H	
@@ -2295,26 +2292,22 @@ Scheduled
 Delhi (DEL)
 SpiceJet	73H	
 Canceled
-11:10 PM	FZ967	
-Moscow (VKO)
-flydubai	73H	
-Scheduled
 11:10 PM	UL226	
 Colombo (CMB)
 SriLankan Airlines	332	
-Canceled
+Scheduled
 11:10 PM	AI2212	
 Chennai (MAA)
-Air India	A20N (VT-CIH)	
+Air India	A20N (VT-CIM)	
+Scheduled
+11:10 PM	FZ967	
+Moscow (VKO)
+flydubai	73H	
 Scheduled
 11:10 PM	FZ977	
 Mineralnye Vody (MRV)
 flydubai	7M8	
 Scheduled
-11:15 PM	MU706	
-Xi'an (XIY)
-China Eastern Airlines	332	
-Canceled
 11:20 PM	FZ997	
 Yekaterinburg (SVX)
 flydubai	73H	
@@ -2322,22 +2315,14 @@ Scheduled
 11:25 PM	EK767	
 Johannesburg (JNB)
 Emirates	77W	
-Scheduled
-11:25 PM	FZ769	
-Samarkand (SKD)
-flydubai	7M8	
-Scheduled
+Canceled
 11:25 PM	AI2204	
 Hyderabad (HYD)
-Air India	A20N (VT-TQD)	
+Air India (Tata Sia Airlines Retro livery)	A20N (VT-ATV)	
 Scheduled
 11:30 PM	FZ331	
 Karachi (KHI)
 flydubai	7M8	
-Scheduled
-11:35 PM	CX738	
-Hong Kong (HKG)
-Cathay Pacific	77W	
 Scheduled
 11:35 PM	FZ445	
 Mumbai (BOM)
@@ -2347,36 +2332,32 @@ Scheduled
 Bahrain (BAH)
 Gulf Air	32Q	
 Scheduled
+11:40 PM	AI984	
+Mumbai (BOM)
+Air India (Guru Nanak 550 Years Livery)	B788 (VT-ANQ)	
+Scheduled
 11:40 PM	FZ871	
 Al-Qassim (ELQ)
 flydubai	7M8	
 Scheduled
 11:40 PM	IX814	
 Mangaluru (IXE)
-Air India Express	B38M (VT-BWR)	
+Air India Express	B38M (VT-BWO)	
 Scheduled
-11:40 PM	AI984	
-Mumbai (BOM)
-Air India (Guru Nanak 550 Years Livery)	B788 (VT-ANQ)	
-Scheduled
-11:50 PM	FZ993	
-Makhachkala (MCX)
-flydubai	7M8	
-Scheduled
-Saturday, Mar 07
+Monday, Mar 09
 12:01 AM	F3514	
 Riyadh (RUH)
 flyadeal	320	
 Scheduled
 12:05 AM	AI996	
 Delhi (DEL)
-Air India	B788 (VT-ANW)	
-Scheduled
-12:05 AM	FZ747	
-Shymkent (CIT)
-flydubai	7M8	
+Air India	788	
 Scheduled
 12:05 AM	SG52	
+Pune (PNQ)
+SpiceJet	7M8	
+Scheduled
+12:05 AM	SG5652	
 Pune (PNQ)
 SpiceJet	7M8	
 Scheduled
@@ -2388,25 +2369,17 @@ Scheduled
 Ashgabat (ASB)
 flydubai	7M8	
 Scheduled
-12:10 AM	SZ106	
-Dushanbe (DYU)
-Somon Air	738	
-Scheduled
 12:15 AM	EK801	
 Jeddah (JED)
 Emirates	388	
 Scheduled
-12:15 AM	CZ8436	
-Shenzhen (SZX)
-China Southern Airlines	333	
+12:20 AM	FZ501	
+Dhaka (DAC)
+flydubai	7M8	
 Scheduled
 12:20 AM	FZ843	
 Riyadh (RUH)
 flydubai	7M9	
-Scheduled
-12:20 AM	FZ501	
-Dhaka (DAC)
-flydubai	7M8	
 Scheduled
 12:25 AM	FZ983	
 Kazan (KZN)
@@ -2416,6 +2389,10 @@ Scheduled
 Nairobi (NBO)
 Emirates	77W	
 Scheduled
+1:05 AM	FZ919	
+Jeddah (JED)
+flydubai	7M8	
+Scheduled
 1:10 AM	FZ713	
 Tbilisi (TBS)
 flydubai	7M8	
@@ -2423,6 +2400,14 @@ Scheduled
 1:10 AM	FZ969	
 Moscow (VKO)
 flydubai	73H	
+Scheduled
+1:10 AM	EK203	
+New York (JFK)
+Emirates	388	
+Scheduled
+1:10 AM	EK221	
+Dallas (DFW)
+Emirates	77W	
 Scheduled
 1:15 AM	CA942	
 Beijing (PEK)
@@ -2436,22 +2421,10 @@ Scheduled
 Riyadh (RUH)
 Emirates	77W	
 Scheduled
-1:25 AM	EK853	
-Kuwait City (KWI)
-Emirates	359	
-Scheduled
-1:30 AM	AC57	
-Toronto (YYZ)
-Air Canada	789	
-Scheduled
 1:30 AM	AF655	
 Paris (CDG)
 Air France	77W	
 Canceled
-1:30 AM	FZ429	
-Kozhikode (CCJ)
-flydubai	7M8	
-Scheduled
 1:30 AM	FZ1207	
 Male (MLE)
 flydubai	7M8	
@@ -2464,17 +2437,17 @@ Scheduled
 Krabi (KBV)
 flydubai	7M8	
 Scheduled
-1:45 AM	FZ919	
-Jeddah (JED)
-flydubai	7M8	
-Scheduled
 1:50 AM	AZ857	
 Rome (FCO)
 ITA Airways	32Q	
-Scheduled
+Estimated dep. 1:50 AM
 1:50 AM	LX243	
 Zurich (ZRH)
 Swiss	333	
+Scheduled
+1:55 AM	EK582	
+Dhaka (DAC)
+Emirates	77W	
 Scheduled
 1:55 AM	KL428	
 Amsterdam (AMS)
@@ -2484,22 +2457,14 @@ Canceled
 Mumbai (BOM)
 SpiceJet	7M8	
 Scheduled
-1:55 AM	EK582	
-Dhaka (DAC)
-Emirates	77W	
-Scheduled
-1:55 AM	FZ1773	
-Prague (PRG)
-flydubai	7M8	
-Scheduled
+2:00 AM	BA106	
+London (LHR)
+British Airways	A388 (G-XLEI)	
+Canceled
 2:00 AM	EK414	
 Sydney (SYD)
 Emirates	388	
 Scheduled
-2:00 AM	BA106	
-London (LHR)
-British Airways	A388 (G-XLEA)	
-Canceled
 2:00 AM	EK440	
 Adelaide (ADL)
 Emirates	359	
@@ -2512,21 +2477,17 @@ Scheduled
 Male (MLE)
 flydubai	7M8	
 Scheduled
-2:10 AM	EK165	
-Dublin (DUB)
-Emirates	77L	
-Scheduled
-2:10 AM	EK835	
-Bahrain (BAH)
-Emirates	359	
-Scheduled
 2:10 AM	BG148	
 Chittagong (CGP)
 Biman Bangladesh Airlines	788	
 Scheduled
-2:15 AM	FZ579	
-Colombo (CMB)
-flydubai	73H	
+2:10 AM	EK165	
+Dublin (DUB)
+Emirates	77W	
+Scheduled
+2:10 AM	BG1148	
+Chittagong (CGP)
+Biman Bangladesh Airlines	788	
 Scheduled
 2:15 AM	EK213	
 Miami (MIA)
@@ -2536,6 +2497,14 @@ Scheduled
 Muscat (MCT)
 Emirates	359	
 Scheduled
+2:15 AM	FZ579	
+Colombo (CMB)
+flydubai	73H	
+Scheduled
+2:15 AM	UA163	
+New York (EWR)
+United Airlines	77W	
+Canceled
 2:20 AM	IX240	
 Goa (GOI)
 Air India Express	A320 (VT-EXC)	
@@ -2544,6 +2513,14 @@ Scheduled
 Nairobi (NBO)
 Kenya Airways	73H	
 Scheduled
+2:20 AM	WB305	
+Kigali (KGL)
+RwandAir	738	
+Scheduled
+2:25 AM	EK231	
+Washington (IAD)
+Emirates	388	
+Scheduled
 2:25 AM	EK701	
 Mauritius (MRU)
 Emirates	388	
@@ -2551,10 +2528,6 @@ Scheduled
 2:25 AM	SV585	
 Riyadh (RUH)
 Saudia	320	
-Scheduled
-2:25 AM	EK231	
-Washington (IAD)
-Emirates	388	
 Scheduled
 2:30 AM	EK348	
 Singapore (SIN)
@@ -2574,11 +2547,11 @@ Emirates	77W
 Scheduled
 2:35 AM	FZ1133	
 Kathmandu (KTM)
-flydubai	73H	
+flydubai	7M8	
 Scheduled
-2:40 AM	EK705	
-Victoria (SEZ)
-Emirates	77W	
+2:35 AM	PK180	
+Sialkot (SKT)
+Pakistan International Airlines	A320 (AP-BLZ)	
 Scheduled
 2:40 AM	EK21	
 Manchester (MAN)
@@ -2586,6 +2559,10 @@ Emirates	388
 Scheduled
 2:40 AM	EK221	
 Dallas (DFW)
+Emirates	77W	
+Scheduled
+2:40 AM	EK705	
+Victoria (SEZ)
 Emirates	77W	
 Scheduled
 2:45 AM	EK243	
@@ -2600,13 +2577,13 @@ Scheduled
 Cochin (COK)
 Emirates	77W	
 Scheduled
+2:50 AM	EK11	
+London (LGW)
+Emirates	77W	
+Scheduled
 2:50 AM	EK338	
 Cebu (CEB)
 Emirates	77W	
-Scheduled
-2:50 AM	EK11	
-London (LGW)
-Emirates	77L	
 Scheduled
 2:50 AM	EK430	
 Brisbane (BNE)
@@ -2628,33 +2605,33 @@ Scheduled
 Bangkok (BKK)
 Emirates	388	
 Scheduled
-3:00 AM	FZ849	
-Riyadh (RUH)
-flydubai	7M9	
-Scheduled
-3:00 AM	SG56	
-Amritsar (ATQ)
-SpiceJet	73H	
-Scheduled
-3:00 AM	XY1506	
-Jeddah (JED)
-flynas	32N	
+3:00 AM	EK378	
+Phuket (HKT)
+Emirates	77W	
 Scheduled
 3:00 AM	EK408	
 Melbourne (MEL)
 Emirates	388	
 Scheduled
-3:00 AM	EK378	
-Phuket (HKT)
+3:00 AM	FZ849	
+Riyadh (RUH)
+flydubai	7M9	
+Scheduled
+3:00 AM	H9766	
+Kathmandu (KTM)
+Himalaya Airlines	32A	
+Scheduled
+3:00 AM	SG56	
+Amritsar (ATQ)
+SpiceJet	73H	
+Scheduled
+3:05 AM	EK219	
+Orlando (MCO)
 Emirates	77W	
 Scheduled
 3:05 AM	EK316	
 Osaka (KIX)
 Emirates	388	
-Scheduled
-3:05 AM	EK219	
-Orlando (MCO)
-Emirates	77W	
 Scheduled
 3:10 AM	EK7	
 London (LHR)
@@ -2668,13 +2645,17 @@ Scheduled
 Islamabad (ISB)
 Emirates	77W	
 Scheduled
-3:15 AM	EK354	
-Singapore (SIN)
-Emirates	388	
+3:10 AM	ME431	
+Beirut (BEY)
+MEA	320	
 Scheduled
 3:15 AM	EK145	
 Amsterdam (AMS)
 Emirates	77W	
+Scheduled
+3:15 AM	EK354	
+Singapore (SIN)
+Emirates	388	
 Scheduled
 3:20 AM	EK43	
 Frankfurt (FRA)
@@ -2686,10 +2667,6 @@ Emirates	388
 Scheduled
 3:20 AM	EK306	
 Beijing (PEK)
-Emirates	77W	
-Scheduled
-3:20 AM	EK636	
-Peshawar (PEW)
 Emirates	77W	
 Scheduled
 3:20 AM	PC741	
@@ -2704,6 +2681,14 @@ Canceled
 Denpasar (DPS)
 Emirates	388	
 Scheduled
+3:30 AM	EK101	
+Milan (MXP)
+Emirates	77W	
+Scheduled
+3:30 AM	EK129	
+Moscow (DME)
+Emirates	77W	
+Scheduled
 3:30 AM	EK241	
 Toronto (YYZ)
 Emirates	388	
@@ -2716,10 +2701,6 @@ Scheduled
 Hong Kong (HKG)
 Emirates	77W	
 Scheduled
-3:30 AM	EK129	
-Moscow (DME)
-Emirates	77W	
-Scheduled
 3:30 AM	EK526	
 Hyderabad (HYD)
 Emirates	77W	
@@ -2728,20 +2709,20 @@ Scheduled
 Bucharest (OTP)
 flydubai	7M8	
 Scheduled
-3:40 AM	EK332	
-Manila (MNL)
-Emirates	77W	
-Scheduled
 3:40 AM	EK366	
 Taipei (TPE)
 Emirates	388	
 Scheduled
-3:40 AM	EK346	
-Kuala Lumpur (KUL)
+3:40 AM	EK332	
+Manila (MNL)
 Emirates	77W	
 Scheduled
 3:40 AM	EK394	
 Hanoi (HAN)
+Emirates	77W	
+Scheduled
+3:40 AM	EK346	
+Kuala Lumpur (KUL)
 Emirates	77W	
 Scheduled
 3:40 AM	EK564	
@@ -2756,10 +2737,6 @@ Scheduled
 Barcelona (BCN)
 Emirates	77L	
 Scheduled
-3:50 AM	XQ209	
-Antalya (AYT)
-SunExpress	73H	
-Canceled
 3:50 AM	EK376	
 Bangkok (BKK)
 Emirates	388	
@@ -2768,21 +2745,21 @@ Scheduled
 Cape Town (CPT)
 Emirates	77W	
 Scheduled
+3:50 AM	XQ209	
+Antalya (AYT)
+SunExpress	73H	
+Canceled
 3:55 AM	EK504	
 Mumbai (BOM)
 Emirates	77W	
 Scheduled
-4:00 AM	EK540	
-Ahmedabad (AMD)
+4:00 AM	EK364	
+Ho Chi Minh City (SGN)
 Emirates	359	
 Scheduled
 4:00 AM	EK929	
 Cairo (CAI)
 Emirates	77L	
-Scheduled
-4:00 AM	KB801	
-Paro (PBH)
-Drukair	31B	
 Scheduled
 4:00 AM	OD714	
 Kuala Lumpur (KUL)
@@ -2796,49 +2773,37 @@ Scheduled
 Dar-es-Salaam (DAR)
 Air Tanzania	223	
 Scheduled
-4:00 AM	EK364	
-Ho Chi Minh City (SGN)
-Emirates	359	
-Scheduled
 4:05 AM	PK234	
 Islamabad (ISB)
-Pakistan International Airlines	A320 (AP-BLY)	
-Estimated dep. 2:15 PM
+Pakistan International Airlines	A320 (AP-BMX)	
+Scheduled
 4:05 AM	SV599	
 Jeddah (JED)
 Saudia	321	
 Scheduled
-4:10 AM	EK761	
-Johannesburg (JNB)
-Emirates	77W	
-Scheduled
-4:10 AM	RA230	
-Kathmandu (KTM)
-Nepal Airlines	332	
-Scheduled
 4:10 AM	EK624	
 Lahore (LHE)
+Emirates	77W	
+Scheduled
+4:10 AM	EK761	
+Johannesburg (JNB)
 Emirates	77W	
 Scheduled
 4:10 AM	FZ831	
 Jeddah (JED)
 flydubai	7M8	
 Scheduled
+4:10 AM	FZ1603	
+Penang (PEN)
+flydubai	7M8	
+Scheduled
+4:10 AM	RA230	
+Kathmandu (KTM)
+Nepal Airlines	332	
+Scheduled
 4:15 AM	EK310	
 Hangzhou (HGH)
 Emirates	359	
-Scheduled
-4:20 AM	EK101	
-Milan (MXP)
-Emirates	77W	
-Scheduled
-4:20 AM	EK620	
-Sialkot (SKT)
-Emirates	77W	
-Scheduled
-4:20 AM	H9766	
-Kathmandu (KTM)
-Himalaya Airlines	32A	
 Scheduled
 4:20 AM	EK510	
 Delhi (DEL)
@@ -2854,23 +2819,23 @@ Emirates	77W
 Scheduled
 4:25 AM	ET601	
 Addis Ababa (ADD)
-Ethiopian Airlines	77L	
-Scheduled
-4:30 AM	KU678	
-Kuwait City (KWI)
-Kuwait Airways	32Q	
+Ethiopian Airlines	788	
 Scheduled
 4:30 AM	FZ301	
 Kabul (KBL)
 flydubai	7M8	
 Scheduled
-4:30 AM	FZ1517	
-Belgrade (BEG)
-flydubai	7M8	
+4:30 AM	KU678	
+Kuwait City (KWI)
+Kuwait Airways	32Q	
 Scheduled
 4:35 AM	VF144	
 Istanbul (SAW)
 AJet	7M8	
+Scheduled
+4:45 AM	EK324	
+Seoul (ICN)
+Emirates	77W	
 Scheduled
 4:45 AM	FZ1835	
 Warsaw (WAW)
@@ -2878,11 +2843,15 @@ flydubai	7M8
 Scheduled
 5:00 AM	FG402	
 Kabul (KBL)
-Ariana Afghan Airlines	310	
+Ariana Afghan Airlines	737	
+Scheduled
+5:00 AM	FG404	
+Kandahar (KDH)
+Ariana Afghan Airlines	737	
 Scheduled
 5:00 AM	MS911	
 Cairo (CAI)
-Egyptair	738	
+Egyptair	321	
 Scheduled
 5:00 AM	SG24	
 Madurai (IXM)
@@ -2895,26 +2864,22 @@ Scheduled
 5:10 AM	PA211	
 Islamabad (ISB)
 airblue	32Q	
-Canceled
-5:15 AM	6E1478	
-Ahmedabad (AMD)
-IndiGo	32N	
-Canceled
+Scheduled
+5:15 AM	VF550	
+Ankara (ESB)
+AJet	73H	
+Scheduled
 5:20 AM	QR1003	
 Doha (DOH)
-Qatar Airways	77W	
-Scheduled
-5:25 AM	FZ1327	
-Tel Aviv (TLV)
-flydubai	7M8	
-Scheduled
-5:35 AM	IX346	
-Kozhikode (CCJ)
-Air India Express (Kathakali-Bharatanatyam Livery)	B738 (VT-GHE)	
-Scheduled
+Qatar Airways	789	
+Canceled
 5:35 AM	FZ619	
 Entebbe (EBB)
 flydubai	73H	
+Scheduled
+5:35 AM	IX346	
+Kozhikode (CCJ)
+Air India Express (Patola-Shawl Livery)	B738 (VT-AYC)	
 Scheduled
 5:40 AM	ET613	
 Addis Ababa (ADD)
@@ -2926,55 +2891,63 @@ Royal Brunei Airlines	788
 Scheduled
 5:45 AM	PK284	
 Peshawar (PEW)
-Pakistan International Airlines	320	
-Canceled
-5:55 AM	VF550	
-Ankara (ESB)
-AJet	73H	
-Scheduled
-6:00 AM	SV591	
-Jeddah (JED)
-Saudia	321	
+Pakistan International Airlines	A320 (AP-BOM)	
 Scheduled
 6:00 AM	FZ333	
 Karachi (KHI)
 flydubai	7M8	
 Scheduled
-6:00 AM	FZ443	
-Lucknow (LKO)
-flydubai	73H	
+6:00 AM	SV591	
+Jeddah (JED)
+Saudia	321	
+Scheduled
+6:00 AM	7C179	
+Djibouti (JIB)
+Jeju Air	76F	
 Scheduled
 6:05 AM	IX194	
 Lucknow (LKO)
-Air India Express	A320 (VT-EXB)	
+Air India Express	A20N (VT-RTF)	
 Scheduled
-6:15 AM	FZ1073	
-Tel Aviv (TLV)
-flydubai	7M8	
+6:05 AM	OS90	
+Vienna (VIE)
+Austrian Airlines	32N	
 Scheduled
 6:15 AM	PA811	
 Multan (MUX)
 airblue	321	
 Scheduled
-6:30 AM	D3185	
-Garowe (GGR)
+6:20 AM	FZ53	
+Kuwait City (KWI)
+flydubai	7M8	
+Scheduled
+6:30 AM	D3187	
+Bosaso (BSA)
 Daallo Airlines	733	
 Scheduled
-6:30 AM	D9185	
-Garowe (GGR)
+6:30 AM	D9187	
+Bosaso (BSA)
 -	733	
 Scheduled
-6:45 AM	AF661	
-Paris (CDG)
-Air France	772	
-Canceled
+6:40 AM	EK39	
+Birmingham (BHX)
+Emirates	388	
+Scheduled
+6:40 AM	FZ905	
+Al Ula (ULH)
+flydubai	7M8	
+Scheduled
+6:45 AM	FZ345	
+Quetta (UET)
+flydubai	7M8	
+Scheduled
 6:45 AM	RJ613	
 Amman (AMM)
 Royal Jordanian	32N	
 Scheduled
 6:55 AM	FZ353	
 Islamabad (ISB)
-flydubai	7M8	
+flydubai	73H	
 Scheduled
 6:55 AM	FZ359	
 Lahore (LHE)
@@ -2988,6 +2961,10 @@ Scheduled
 Nairobi (NBO)
 Kenya Airways	73H	
 Scheduled
+6:55 AM	EK133	
+Moscow (DME)
+Emirates	388	
+Scheduled
 7:00 AM	EK819	
 Riyadh (RUH)
 Emirates	77W	
@@ -2996,33 +2973,41 @@ Scheduled
 Sialkot (SKT)
 flydubai	7M8	
 Scheduled
-7:00 AM	FZ1819	
-Tehran (IKA)
-flydubai	7M8	
+7:05 AM	EK161	
+Dublin (DUB)
+Emirates	77W	
 Scheduled
 7:05 AM	EK805	
 Jeddah (JED)
 Emirates	388	
 Scheduled
-7:05 AM	EK161	
-Dublin (DUB)
-Emirates	77W	
+7:05 AM	XY216	
+Riyadh (RUH)
+flynas	32N	
 Scheduled
 7:10 AM	EK17	
 Manchester (MAN)
 Emirates	388	
 Scheduled
-7:15 AM	FZ1549	
-Tel Aviv (TLV)
+7:10 AM	FZ45	
+Muscat (MCT)
 flydubai	7M8	
 Scheduled
-7:15 AM	FZ1633	
-Minsk (MSQ)
+7:15 AM	EK179	
+Warsaw (WAW)
+Emirates	77W	
+Scheduled
+7:15 AM	FZ23	
+Bahrain (BAH)
 flydubai	7M8	
 Scheduled
 7:20 AM	EK27	
 Glasgow (GLA)
 Emirates	388	
+Scheduled
+7:25 AM	EK35	
+Newcastle (NCL)
+Emirates	77W	
 Scheduled
 7:25 AM	EK141	
 Madrid (MAD)
@@ -3036,10 +3021,6 @@ Scheduled
 Casablanca (CMN)
 Emirates	388	
 Scheduled
-7:25 AM	EK35	
-Newcastle (NCL)
-Emirates	77W	
-Scheduled
 7:25 AM	EK787	
 Accra (ACC)
 Emirates	77W	
@@ -3047,10 +3028,6 @@ Scheduled
 7:25 AM	FZ1681	
 Naples (NAP)
 flydubai	7M8	
-Scheduled
-7:30 AM	FZ883	
-Dammam (DMM)
-flydubai	7M9	
 Scheduled
 7:30 AM	EK600	
 Karachi (KHI)
@@ -3060,21 +3037,29 @@ Scheduled
 Faisalabad (LYP)
 flydubai	7M8	
 Scheduled
+7:30 AM	FZ883	
+Dammam (DMM)
+flydubai	7M9	
+Scheduled
 7:30 AM	FZ1573	
 Milan (BGY)
 flydubai	7M8	
-Scheduled
-7:35 AM	FZ1787	
-Krakow (KRK)
-flydubai	73H	
 Scheduled
 7:35 AM	EK109	
 Larnaca (LCA)
 Emirates	77W	
 Scheduled
+7:35 AM	EK139	
+Prague (PRG)
+Emirates	388	
+Scheduled
 7:35 AM	EK159	
 Oslo (OSL)
 Emirates	359	
+Scheduled
+7:35 AM	FZ1787	
+Krakow (KRK)
+flydubai	7M8	
 Scheduled
 7:40 AM	EK15	
 London (LGW)
@@ -3082,43 +3067,51 @@ Emirates	388
 Scheduled
 7:40 AM	EK855	
 Kuwait City (KWI)
-Emirates	359	
-Scheduled
-7:40 AM	EK39	
-Birmingham (BHX)
-Emirates	388	
+Emirates	77W	
 Scheduled
 7:45 AM	EK1	
 London (LHR)
 Emirates	388	
 Scheduled
+7:45 AM	EK45	
+Frankfurt (FRA)
+Emirates	77W	
+Scheduled
 7:45 AM	GF501	
 Bahrain (BAH)
-Gulf Air	320	
+Gulf Air	32Q	
 Scheduled
 7:50 AM	EK73	
 Paris (CDG)
 Emirates	388	
 Scheduled
-7:50 AM	FZ847	
-Riyadh (RUH)
-flydubai	7M9	
-Scheduled
 7:50 AM	EK827	
 Dammam (DMM)
 Emirates	359	
 Scheduled
-7:55 AM	EK957	
-Beirut (BEY)
-Emirates	77W	
+7:50 AM	FZ847	
+Riyadh (RUH)
+flydubai	7M9	
+Scheduled
+7:50 AM	FZ1425	
+Basel (BSL)
+flydubai	7M8	
 Scheduled
 7:55 AM	EK709	
 Mauritius (MRU)
 Emirates	77W	
 Scheduled
-7:55 AM	FZ1295	
-Pisa (PSA)
-flydubai	7M8	
+7:55 AM	EK945	
+Basra (BSR)
+Emirates	77W	
+Scheduled
+7:55 AM	EK957	
+Beirut (BEY)
+Emirates	77W	
+Scheduled
+8:00 AM	EK941	
+Baghdad (BGW)
+Emirates	359	
 Scheduled
 8:00 AM	FZ325	
 Multan (MUX)
@@ -3131,10 +3124,6 @@ Scheduled
 8:00 AM	FZ721	
 Tbilisi (TBS)
 flydubai	7M8	
-Scheduled
-8:05 AM	EK179	
-Warsaw (WAW)
-Emirates	77W	
 Scheduled
 8:05 AM	EK247	
 Rio de Janeiro (GIG)
@@ -3176,10 +3165,6 @@ Scheduled
 Stockholm (ARN)
 Emirates	77W	
 Scheduled
-8:20 AM	EK862	
-Muscat (MCT)
-Emirates	359	
-Scheduled
 8:20 AM	EK312	
 Tokyo (HND)
 Emirates	77W	
@@ -3188,8 +3173,16 @@ Scheduled
 Bahrain (BAH)
 Emirates	359	
 Scheduled
+8:20 AM	FZ661	
+Hargeisa (HGA)
+flydubai	7M8	
+Scheduled
 8:25 AM	EK87	
 Zurich (ZRH)
+Emirates	388	
+Scheduled
+8:30 AM	EK151	
+Copenhagen (CPH)
 Emirates	388	
 Scheduled
 8:30 AM	EK183	
@@ -3200,29 +3193,17 @@ Scheduled
 New York (JFK)
 Emirates	388	
 Scheduled
-8:30 AM	FZ1229	
-Basra (BSR)
-flydubai	73H	
+8:30 AM	EK215	
+Los Angeles (LAX)
+Emirates	388	
 Scheduled
 8:30 AM	TK763	
 Istanbul (IST)
 Turkish Airlines	32Q	
 Scheduled
-8:30 AM	EK151	
-Copenhagen (CPH)
-Emirates	388	
-Scheduled
-8:30 AM	EK215	
-Los Angeles (LAX)
-Emirates	388	
-Scheduled
 8:35 AM	EK81	
 Lyon (LYS)
 Emirates	359	
-Scheduled
-8:40 AM	EK45	
-Frankfurt (FRA)
-Emirates	77W	
 Scheduled
 8:40 AM	EK49	
 Munich (MUC)
@@ -3232,21 +3213,17 @@ Scheduled
 Geneva (GVA)
 Emirates	77W	
 Scheduled
+8:40 AM	EK237	
+Boston (BOS)
+Emirates	77W	
+Scheduled
 8:40 AM	EK747	
 Tunis (TUN)
 Emirates	359	
 Scheduled
-8:40 AM	FZ661	
-Hargeisa (HGA)
-flydubai	7M8	
-Scheduled
-8:40 AM	EK139	
-Prague (PRG)
-Emirates	388	
-Scheduled
-8:40 AM	EK237	
-Boston (BOS)
-Emirates	77W	
+8:45 AM	EK386	
+Taipei (TPE)
+Emirates	77L	
 Scheduled
 8:50 AM	EK59	
 Hamburg (HAM)
@@ -3268,10 +3245,6 @@ Scheduled
 Vienna (VIE)
 Emirates	388	
 Scheduled
-8:55 AM	FZ8123	
-Yerevan (EVN)
-flydubai	73H	
-Scheduled
 8:55 AM	EK93	
 Bologna (BLQ)
 Emirates	359	
@@ -3280,12 +3253,16 @@ Scheduled
 Bangkok (BKK)
 Emirates	77W	
 Scheduled
+8:55 AM	FZ8123	
+Yerevan (EVN)
+flydubai	73H	
+Scheduled
 9:00 AM	EK971	
 Tehran (IKA)
 Emirates	77W	
 Scheduled
-9:00 AM	FZ273	
-Isfahan (IFN)
+9:00 AM	FZ745	
+Tirana (TIA)
 flydubai	7M8	
 Scheduled
 9:05 AM	EK205	
@@ -3296,57 +3273,57 @@ Scheduled
 Sao Paulo (GRU)
 Emirates	388	
 Scheduled
-9:05 AM	FZ1449	
-Salzburg (SZG)
-flydubai	7M8	
-Scheduled
 9:05 AM	FZ1745	
 Belgrade (BEG)
 flydubai	7M8	
 Scheduled
 9:10 AM	EK398	
 Denpasar (DPS)
-Emirates	77L	
-Scheduled
-9:10 AM	EK770	
-Cape Town (CPT)
 Emirates	77W	
 Scheduled
 9:10 AM	EK707	
 Victoria (SEZ)
 Emirates	77W	
 Scheduled
-9:15 AM	EK725	
-Dar-es-Salaam (DAR)
+9:10 AM	EK770	
+Cape Town (CPT)
 Emirates	77W	
 Scheduled
-9:15 AM	FZ751	
-Istanbul (SAW)
-flydubai	73H	
+9:10 AM	FZ913	
+Sakaka (AJF)
+flydubai	7M8	
+Scheduled
+9:15 AM	EK111	
+Budapest (BUD)
+Emirates	77W	
 Scheduled
 9:15 AM	EK304	
 Shanghai (PVG)
+Emirates	77W	
+Scheduled
+9:15 AM	EK725	
+Dar-es-Salaam (DAR)
 Emirates	77W	
 Scheduled
 9:15 AM	EK713	
 Lusaka (LUN)
 Emirates	77W	
 Scheduled
+9:15 AM	FZ751	
+Istanbul (SAW)
+flydubai	73H	
+Scheduled
 9:20 AM	EK133	
 Moscow (DME)
 Emirates	388	
-Scheduled
-9:20 AM	LH639	
-Munich (MUC)
-Lufthansa	359	
 Scheduled
 9:20 AM	FZ1793	
 Zagreb (ZAG)
 flydubai	7M8	
 Scheduled
-9:25 AM	EK723	
-Addis Ababa (ADD)
-Emirates	77L	
+9:20 AM	LH639	
+Munich (MUC)
+Lufthansa	359	
 Scheduled
 9:25 AM	EK334	
 Manila (MNL)
@@ -3355,6 +3332,10 @@ Scheduled
 9:25 AM	EK506	
 Mumbai (BOM)
 Emirates	77W	
+Scheduled
+9:25 AM	EK723	
+Addis Ababa (ADD)
+Emirates	77L	
 Scheduled
 9:25 AM	EK793	
 Luanda (NBJ)
@@ -3368,13 +3349,17 @@ Scheduled
 Riga (RIX)
 airBaltic	223	
 Scheduled
-9:30 AM	EK372	
-Bangkok (BKK)
-Emirates	388	
+9:30 AM	FZ1789	
+Ljubljana (LJU)
+flydubai	7M8	
 Scheduled
 9:30 AM	TK759	
 Istanbul (IST)
 Turkish Airlines	32Q	
+Scheduled
+9:30 AM	EK372	
+Bangkok (BKK)
+Emirates	388	
 Scheduled
 9:35 AM	EK135	
 Venice (VCE)
@@ -3400,80 +3385,52 @@ Scheduled
 Sofia (SOF)
 flydubai	7M8	
 Scheduled
-9:45 AM	EK235	
-Chicago (ORD)
-Emirates	77W	
-Scheduled
 9:45 AM	EK211	
 Houston (IAH)
 Emirates	388	
 Scheduled
-9:45 AM	FZ1789	
-Ljubljana (LJU)
-flydubai	7M8	
+9:45 AM	EK235	
+Chicago (ORD)
+Emirates	77W	
 Scheduled
-9:50 AM	AH4063	
-Algiers (ALG)
-Air Algerie	339	
+9:55 AM	AI930	
+Delhi (DEL)
+Air India	788	
 Scheduled
 9:55 AM	BA104	
 London (LHR)
-British Airways	B78X (G-ZBLB)	
+British Airways	B78X (G-ZBLK)	
 Canceled
+9:55 AM	EK516	
+Delhi (DEL)
+Emirates	77W	
+Scheduled
 9:55 AM	FZ3	
 Doha (DOH)
 flydubai	7M8	
 Scheduled
-9:55 AM	FZ1211	
-Tel Aviv (TLV)
-flydubai	7M9	
-Scheduled
 9:55 AM	IX436	
 Cochin (COK)
-Air India Express (Ellora-Ajanta Caves Livery)	B738 (VT-AYA)	
-Scheduled
-9:55 AM	AI930	
-Delhi (DEL)
-Air India	B789 (VT-TSP)	
-Scheduled
-9:55 AM	EK229	
-Seattle (SEA)
-Emirates	77W	
-Scheduled
-9:55 AM	EK516	
-Delhi (DEL)
-Emirates	77W	
+Air India Express (Rangoli-Kites Livery)	B738 (VT-GHB)	
 Scheduled
 10:00 AM	EK406	
 Melbourne (MEL)
 Emirates	388	
 Scheduled
-10:00 AM	FZ267	
-Lar (LRR)
-flydubai	73H	
-Scheduled
-10:00 AM	FZ1289	
-Mombasa (MBA)
-flydubai	7M8	
+10:05 AM	EK448	
+Auckland (AKL)
+Emirates	388	
 Scheduled
 10:05 AM	EK654	
 Colombo (CMB)
 Emirates	359	
 Scheduled
-10:05 AM	EK111	
-Budapest (BUD)
-Emirates	77W	
-Scheduled
-10:05 AM	EK448	
-Auckland (AKL)
-Emirates	388	
-Scheduled
 10:10 AM	EK763	
 Johannesburg (JNB)
 Emirates	388	
 Scheduled
-10:10 AM	FZ239	
-Bushehr (BUZ)
+10:10 AM	FZ1569	
+Male (MLE)
 flydubai	7M8	
 Scheduled
 10:10 AM	FZ1687	
@@ -3504,13 +3461,9 @@ Scheduled
 Sarajevo (SJJ)
 flydubai	7M8	
 Scheduled
-10:20 AM	FZ1569	
-Male (MLE)
-flydubai	7M8	
-Scheduled
 10:20 AM	6E1482	
 Chandigarh (IXC)
-IndiGo	32Q	
+IndiGo	32N	
 Scheduled
 10:25 AM	EK434	
 Brisbane (BNE)
@@ -3520,15 +3473,7 @@ Scheduled
 Krabi (KBV)
 flydubai	7M8	
 Scheduled
-10:30 AM	EK719	
-Nairobi (NBO)
-Emirates	77W	
-Scheduled
-10:30 AM	EK783	
-Lagos (LOS)
-Emirates	77W	
-Scheduled
-10:30 AM	FZ1797	
+10:25 AM	FZ1797	
 Bucharest (OTP)
 flydubai	7M8	
 Scheduled
@@ -3540,9 +3485,21 @@ Scheduled
 Mauritius (MRU)
 Emirates	388	
 Scheduled
-10:35 AM	FZ927	
-Red Sea Project (RSI)
+10:30 AM	EK783	
+Lagos (LOS)
+Emirates	77W	
+Scheduled
+10:30 AM	FZ33	
+Salalah (SLL)
 flydubai	7M8	
+Scheduled
+10:30 AM	FZ781	
+Chisinau (RMO)
+flydubai	73H	
+Scheduled
+10:30 AM	EK719	
+Nairobi (NBO)
+Emirates	77L	
 Scheduled
 10:35 AM	EK396	
 Phuket (HKT)
@@ -3572,45 +3529,41 @@ Scheduled
 Shenzhen (SZX)
 Emirates	77W	
 Scheduled
-10:50 AM	J9122	
-Kuwait City (KWI)
-Jazeera Airways	320	
+10:50 AM	EK209	
+Athens (ATH)
+Emirates	77W	
 Scheduled
 10:50 AM	EK362	
 Guangzhou (CAN)
 Emirates	77W	
 Scheduled
-10:55 AM	DE2501	
-Berlin (BER)
-Condor	32N	
+10:50 AM	J9122	
+Kuwait City (KWI)
+Jazeera Airways	320	
 Scheduled
 10:55 AM	EK358	
 Jakarta (CGK)
 Emirates	77W	
 Scheduled
-10:55 AM	FZ1635	
-Tel Aviv (TLV)
-flydubai	73H	
-Scheduled
 11:00 AM	AF659	
 Paris (CDG)
-Air France	77W	
+Air France	772	
 Canceled
+11:00 AM	C6352	
+Tashkent (TAS)
+My Freighter	32Q	
+Scheduled
 11:00 AM	EK308	
 Beijing (PEK)
-Emirates	77W	
+Emirates	77L	
 Scheduled
-11:00 AM	FZ241	
-Shiraz (SYZ)
-flydubai	7M8	
-Scheduled
-11:00 AM	PK236	
-Lahore (LHE)
-Pakistan International Airlines	320	
-Canceled
 11:00 AM	FZ41	
 Muscat (MCT)
 flydubai	7M8	
+Scheduled
+11:00 AM	PK222	
+Multan (MUX)
+Pakistan International Airlines	A320 (AP-BMX)	
 Scheduled
 11:10 AM	B2718	
 Minsk (MSQ)
@@ -3620,80 +3573,15 @@ Scheduled
 Delhi (DEL)
 SpiceJet	73H	
 Scheduled
-11:10 AM	SU525	
-Moscow (SVO)
-Aeroflot	73H	
-Scheduled
 11:10 AM	SV567	
 Jeddah (JED)
 Saudia	321	
-Scheduled
-11:15 AM	FZ911	
-Najran (EAM)
-flydubai	7M8	
 Scheduled
 11:20 AM	FZ1945	
 Tashkent (TAS)
 flydubai	73H	
 Scheduled
-11:30 AM	FZ193	
-Giza (SPX)
-flydubai	73H	
+11:20 AM	WY604	
+Muscat (MCT)
+Oman Air	7M8	
 Scheduled
-11:30 AM	FZ873	
-Taif (TIF)
-flydubai	7M8	
-Scheduled
-11:30 AM	EK209	
-Athens (ATH)
-Emirates	77W	
-Scheduled
-11:45 AM	AI910	
-Mumbai (BOM)
-Air India (Guru Nanak 550 Years Livery)	B788 (VT-ANQ)	
-Scheduled
-11:55 AM	QR1007	
-Doha (DOH)
-Qatar Airways	359	
-Scheduled
-12:00 PM	C6358	
-Samarkand (SKD)
-My Freighter	32N	
-Scheduled
-12:00 PM	EK921	
-Cairo (CAI)
-Emirates	77W	
-Scheduled
-12:00 PM	KC900	
-Almaty (ALA)
-Air Astana	321	
-Scheduled
-12:00 PM	XY812	
-Dammam (DMM)
-flynas	32N	
-Scheduled
-12:00 PM	FZ307	
-Kabul (KBL)
-flydubai	7M8	
-Scheduled
-12:00 PM	FZ339	
-Multan (MUX)
-flydubai	7M8	
-Scheduled
-12:05 PM	IX196	
-Jaipur (JAI)
-Air India Express	A20N (VT-ATJ)	
-Scheduled
-12:10 PM	EK31	
-London (LHR)
-Emirates	388	
-Scheduled
-12:10 PM	FZ1081	
-Tel Aviv (TLV)
-flydubai	73H	
-Scheduled
-12:10 PM	FZ1937	
-Tehran (IKA)
-flydubai	7M8	
-Scheduled
-* All times are in local timezone
