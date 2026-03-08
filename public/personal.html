@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Travel Search</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/personal.css" />
+</head>
+<body>
+  <div class="shell">
+    <h1>Travel Search</h1>
+    <p class="subtitle">Personal flight &amp; hotel search</p>
+
+    <!-- Tab bar -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="flights">Flights</button>
+      <button class="tab-btn" data-tab="stays">Stays</button>
+    </div>
+
+    <!-- ═══ Flights form ═══ -->
+    <div class="form-panel active" id="panel-flights">
+      <div class="form-section">
+        <h3>From</h3>
+        <div>
+          <button class="group-toggle" data-group="from-bay">Select All Bay Area</button>
+          <button class="group-toggle" data-group="from-hawaii">Select All Hawaii</button>
+        </div>
+        <div class="airport-group" id="from-airports"></div>
+      </div>
+
+      <div class="form-section">
+        <h3>To</h3>
+        <div>
+          <button class="group-toggle" data-group="to-bay">Select All Bay Area</button>
+          <button class="group-toggle" data-group="to-hawaii">Select All Hawaii</button>
+        </div>
+        <div class="airport-group" id="to-airports"></div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-row">
+          <div class="field">
+            <label>Trip type</label>
+            <div class="trip-toggle">
+              <button class="active" data-trip="one_way">One-way</button>
+              <button data-trip="round_trip">Round-trip</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Depart</label>
+            <input type="date" id="depart-date" />
+          </div>
+
+          <div class="field" id="return-field" style="display:none">
+            <label>Return</label>
+            <input type="date" id="return-date" />
+          </div>
+
+          <div class="field">
+            <label>Adults</label>
+            <select id="adults">
+              <option value="1">1</option>
+              <option value="2" selected>2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Children</label>
+            <select id="children">
+              <option value="0" selected>0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Cabin</label>
+            <select id="cabin-class">
+              <option value="economy">Economy</option>
+              <option value="premium_economy">Premium Economy</option>
+              <option value="business">Business</option>
+              <option value="first">First</option>
+            </select>
+          </div>
+
+          <button class="search-btn" id="search-flights-btn">Search Flights</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ Stays form ═══ -->
+    <div class="form-panel" id="panel-stays">
+      <div class="form-section">
+        <div class="form-row">
+          <div class="field">
+            <label>Location</label>
+            <select id="stay-location">
+              <option value="maui">Maui</option>
+              <option value="kauai">Kauai</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Check-in</label>
+            <input type="date" id="checkin-date" />
+          </div>
+
+          <div class="field">
+            <label>Check-out</label>
+            <input type="date" id="checkout-date" />
+          </div>
+
+          <div class="field">
+            <label>Rooms</label>
+            <select id="stay-rooms">
+              <option value="1" selected>1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Adults</label>
+            <select id="stay-adults">
+              <option value="1">1</option>
+              <option value="2" selected>2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Children</label>
+            <select id="stay-children">
+              <option value="0" selected>0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+
+          <button class="search-btn" id="search-stays-btn">Search Stays</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Status bar -->
+    <div class="status-bar" id="status"></div>
+
+    <!-- Results layout -->
+    <div class="results-layout">
+      <div class="filters-panel" id="filters-panel"></div>
+      <div class="results-area" id="results-area">
+        <div class="results-count" id="results-count"></div>
+        <div id="results-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/personal.js"></script>
+</body>
+</html>

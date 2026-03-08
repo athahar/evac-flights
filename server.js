@@ -10,6 +10,7 @@ import { createStorage } from "./lib/storage/index.js";
 import { checkFr24ApiHealth } from "./lib/fr24.js";
 import { sendFeedbackEmail } from "./lib/email.js";
 import { createSearchAvailabilityService, loadSearchAirports, SearchAvailabilityError } from "./lib/search-availability.js";
+import { createPersonalSearchService } from "./lib/personal-search.js";
 
 dotenv.config();
 
@@ -37,6 +38,14 @@ const searchAvailabilityService = createSearchAvailabilityService({
   storage,
   airportsByIata: searchAirportsByIata
 });
+
+// Personal search service — uses staging Supabase for saving, no rate limits
+let personalSearchService = null;
+if (config.supabaseUrl && config.supabaseServiceRoleKey) {
+  const { getSupabaseClient } = await import("./lib/supabase-client.js");
+  const supabase = getSupabaseClient(config);
+  personalSearchService = createPersonalSearchService({ config, supabase });
+}
 
 const sseClients = new Set();
 const searchCooldownByIp = new Map();
@@ -462,6 +471,44 @@ app.get("/", (_req, res) => {
 
 app.get("/search", (_req, res) => {
   res.sendFile(path.resolve(process.cwd(), "./public/search.html"));
+});
+
+// ── Personal search routes (no rate limiting) ───────────────────────
+
+app.get("/personal", (_req, res) => {
+  res.sendFile(path.resolve(process.cwd(), "./public/personal.html"));
+});
+
+app.post("/api/personal/flights", async (req, res) => {
+  try {
+    if (!personalSearchService) {
+      res.status(503).json({ ok: false, error: "Personal search is not configured" });
+      return;
+    }
+    const body = req.body || {};
+    const result = await personalSearchService.searchFlights(body);
+    logInfo(`[personal] flights: ${result.offers.length} offers, ${result.pairsSearched} pairs, ${result.durationMs}ms`);
+    res.json({ ok: true, ...result });
+  } catch (err) {
+    logError("[personal] flights failed", err);
+    res.status(500).json({ ok: false, error: err.message });
+  }
+});
+
+app.post("/api/personal/stays", async (req, res) => {
+  try {
+    if (!personalSearchService) {
+      res.status(503).json({ ok: false, error: "Personal search is not configured" });
+      return;
+    }
+    const body = req.body || {};
+    const result = await personalSearchService.searchStaysForLocation(body);
+    logInfo(`[personal] stays: ${result.results.length} accommodations in ${result.location}, ${result.durationMs}ms`);
+    res.json({ ok: true, ...result });
+  } catch (err) {
+    logError("[personal] stays failed", err);
+    res.status(500).json({ ok: false, error: err.message });
+  }
 });
 
 app.listen(config.port, () => {
