@@ -1,0 +1,13 @@
+# DXB Flights
+
+> Flight departure tracker and live flight search for travellers leaving Dubai (DXB) and the UAE, with a practical guide for departing overland via Muscat, Oman. Built in March 2026 to help people find bookable outbound flights quickly.
+
+## Pages
+
+- [DXB Flight Tracker](https://www.dxbflights.info/): Dashboard of upcoming departures out of Dubai and nearby UAE airports.
+- [Live Flight Search](https://www.dxbflights.info/search.html): Search live bookable flights by origin, date, and destination, with direct booking links to airlines and travel agencies.
+- [UAE to Muscat Departure Guide](https://www.dxbflights.info/uae-to-muscat-guide.html): Step-by-step guide for travelling from the UAE via Muscat, Oman — visas, border crossing, Muscat airport, and onward flights (March 2026).
+
+## Legal
+
+- [Disclaimer & Terms of Use](https://www.dxbflights.info/disclaimer.html): Flight data is informational only; verify with airlines before booking.
