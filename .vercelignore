@@ -1,0 +1,15 @@
+server.js
+node_modules
+.env
+.env.*
+!.env.example
+data/output
+python-app
+scripts
+supabase
+tests
+tasks
+*.png
+*.log
+.playwright-mcp
+.claude

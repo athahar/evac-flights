@@ -1,0 +1,17 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "npm install --omit=optional --ignore-scripts",
+  "buildCommand": "mkdir -p dist && cp public/personal.html dist/index.html && cp public/personal.css public/personal.js dist/",
+  "outputDirectory": "dist",
+  "functions": {
+    "api/index.js": {
+      "includeFiles": "{config/**,data/input/airlines.json}",
+      "maxDuration": 60
+    }
+  },
+  "rewrites": [
+    { "source": "/api/personal/(.*)", "destination": "/api" },
+    { "source": "/personal", "destination": "/index.html" }
+  ]
+}
