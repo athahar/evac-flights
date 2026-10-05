@@ -1,27 +1,19 @@
-// ── Personal Travel Search V0 — Hawaii Vacation ─────────────────────
+// ── Personal Travel Search V0 — Any destination ─────────────────────
 
-const AIRPORTS = {
-  bay: [
-    { iata: "SFO", name: "San Francisco" },
-    { iata: "OAK", name: "Oakland" },
-    { iata: "SJC", name: "San Jose" }
-  ],
-  hawaii: [
-    { iata: "HNL", name: "Honolulu (Oahu)" },
-    { iata: "OGG", name: "Kahului (Maui)" },
-    { iata: "LIH", name: "Lihue (Kauai)" },
-    { iata: "KOA", name: "Kona (Big Island)" },
-    { iata: "ITO", name: "Hilo (Big Island)" }
-  ]
-};
-
-const ALL_AIRPORTS = [...AIRPORTS.bay, ...AIRPORTS.hawaii];
+// Seed origins for convenience; users can remove these or add anywhere.
+const DEFAULT_ORIGINS = [
+  { type: "airport", iata: "SFO", name: "San Francisco", city: "San Francisco", country: "US", airports: [] },
+  { type: "airport", iata: "OAK", name: "Oakland", city: "Oakland", country: "US", airports: [] },
+  { type: "airport", iata: "SJC", name: "San Jose", city: "San Jose", country: "US", airports: [] }
+];
 
 const state = {
   activeTab: "flights",
   tripType: "one_way",
   flightResults: [],
   staysResults: [],
+  // Selected places per direction: array of { type, iata, name, city, country, airports }
+  selected: { from: [], to: [] },
   flightFilters: {
     stops: "any",
     airlines: new Set(),
@@ -37,41 +29,148 @@ const state = {
 // ── Init ──────────────────────────────────────────────────────────────
 
 document.addEventListener("DOMContentLoaded", () => {
-  initAirportCheckboxes();
+  initAirportPickers();
   initDates();
   setupEvents();
 });
 
-function initAirportCheckboxes() {
-  const fromEl = document.getElementById("from-airports");
-  const toEl = document.getElementById("to-airports");
+// ── Airport typeahead (Duffel Places) ─────────────────────────────────
 
-  for (const ap of ALL_AIRPORTS) {
-    fromEl.appendChild(makeCheckbox("from", ap));
-    toEl.appendChild(makeCheckbox("to", ap));
-  }
-
-  // Default: all Bay Area as origin, all Hawaii as destination
-  for (const ap of AIRPORTS.bay) {
-    const cb = document.querySelector(`input[data-dir="from"][value="${ap.iata}"]`);
-    if (cb) cb.checked = true;
-  }
-  for (const ap of AIRPORTS.hawaii) {
-    const cb = document.querySelector(`input[data-dir="to"][value="${ap.iata}"]`);
-    if (cb) cb.checked = true;
-  }
+function initAirportPickers() {
+  state.selected.from = [...DEFAULT_ORIGINS];
+  state.selected.to = [];
+  setupPicker("from");
+  setupPicker("to");
+  renderChips("from");
+  renderChips("to");
 }
 
-function makeCheckbox(dir, ap) {
-  const label = document.createElement("label");
-  const input = document.createElement("input");
-  input.type = "checkbox";
-  input.value = ap.iata;
-  input.dataset.dir = dir;
-  input.dataset.group = AIRPORTS.bay.some((b) => b.iata === ap.iata) ? "bay" : "hawaii";
-  label.appendChild(input);
-  label.appendChild(document.createTextNode(` ${ap.iata} · ${ap.name}`));
-  return label;
+function setupPicker(dir) {
+  const input = document.getElementById(`${dir}-input`);
+  const sugEl = document.getElementById(`${dir}-suggestions`);
+  let activeIndex = -1;
+  let lastResults = [];
+  let debounceTimer = null;
+  let seq = 0; // guards against out-of-order async responses
+
+  const closeSuggestions = () => {
+    sugEl.hidden = true;
+    sugEl.innerHTML = "";
+    activeIndex = -1;
+    lastResults = [];
+  };
+
+  const choose = (place) => {
+    if (place) addPlace(dir, place);
+    input.value = "";
+    closeSuggestions();
+    input.focus();
+  };
+
+  const renderSuggestions = (places) => {
+    lastResults = places;
+    activeIndex = -1;
+    if (places.length === 0) {
+      sugEl.innerHTML = `<li class="ac-empty">No matches</li>`;
+      sugEl.hidden = false;
+      return;
+    }
+    sugEl.innerHTML = places.map((p, i) => {
+      const sub = [p.city && p.city !== p.name ? p.city : null, p.country].filter(Boolean).join(", ");
+      const tag = p.type === "city" ? `<span class="ac-tag">city · ${p.airports.length} airports</span>` : "";
+      return `<li class="ac-item" role="option" data-i="${i}">
+        <span class="ac-iata">${esc(p.iata)}</span>
+        <span class="ac-name">${esc(p.name)}${sub ? ` · ${esc(sub)}` : ""}</span>
+        ${tag}
+      </li>`;
+    }).join("");
+    sugEl.hidden = false;
+
+    sugEl.querySelectorAll(".ac-item").forEach((li) => {
+      li.addEventListener("mousedown", (e) => {
+        e.preventDefault(); // keep focus; fire before blur
+        choose(lastResults[parseInt(li.dataset.i)]);
+      });
+    });
+  };
+
+  const runSearch = async (q) => {
+    const mySeq = ++seq;
+    try {
+      const res = await fetch(`/api/personal/places?q=${encodeURIComponent(q)}`);
+      const data = await res.json();
+      if (mySeq !== seq) return; // a newer query superseded this one
+      if (!data.ok) return closeSuggestions();
+      renderSuggestions(data.places || []);
+    } catch {
+      if (mySeq === seq) closeSuggestions();
+    }
+  };
+
+  input.addEventListener("input", () => {
+    const q = input.value.trim();
+    clearTimeout(debounceTimer);
+    if (q.length < 2) return closeSuggestions();
+    debounceTimer = setTimeout(() => runSearch(q), 200);
+  });
+
+  input.addEventListener("keydown", (e) => {
+    if (sugEl.hidden || lastResults.length === 0) {
+      if (e.key === "Enter") e.preventDefault();
+      return;
+    }
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      activeIndex = Math.min(activeIndex + 1, lastResults.length - 1);
+      highlight(sugEl, activeIndex);
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      activeIndex = Math.max(activeIndex - 1, 0);
+      highlight(sugEl, activeIndex);
+    } else if (e.key === "Enter") {
+      e.preventDefault();
+      choose(lastResults[activeIndex >= 0 ? activeIndex : 0]);
+    } else if (e.key === "Escape") {
+      closeSuggestions();
+    }
+  });
+
+  input.addEventListener("blur", () => setTimeout(closeSuggestions, 120));
+}
+
+function highlight(sugEl, index) {
+  sugEl.querySelectorAll(".ac-item").forEach((li, i) => {
+    li.classList.toggle("active", i === index);
+  });
+}
+
+function addPlace(dir, place) {
+  const list = state.selected[dir];
+  if (list.some((p) => p.iata === place.iata)) return; // dedupe
+  list.push(place);
+  renderChips(dir);
+}
+
+function removePlace(dir, iata) {
+  state.selected[dir] = state.selected[dir].filter((p) => p.iata !== iata);
+  renderChips(dir);
+}
+
+function renderChips(dir) {
+  const el = document.getElementById(`${dir}-chips`);
+  const list = state.selected[dir];
+  el.innerHTML = list.map((p) => `
+    <span class="chip" data-iata="${esc(p.iata)}">
+      <span class="chip-code">${esc(p.iata)}</span>
+      <span class="chip-name">${esc(p.city || p.name)}</span>
+      <button type="button" class="chip-x" aria-label="Remove ${esc(p.iata)}">×</button>
+    </span>
+  `).join("");
+  el.querySelectorAll(".chip-x").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      removePlace(dir, btn.closest(".chip").dataset.iata);
+    });
+  });
 }
 
 function initDates() {
@@ -105,17 +204,6 @@ function setupEvents() {
     });
   });
 
-  // Group toggles
-  document.querySelectorAll(".group-toggle").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const group = btn.dataset.group; // "from-bay", "from-hawaii", "to-bay", "to-hawaii"
-      const [dir, region] = group.split("-");
-      const boxes = document.querySelectorAll(`input[data-dir="${dir}"][data-group="${region}"]`);
-      const allChecked = [...boxes].every((cb) => cb.checked);
-      boxes.forEach((cb) => { cb.checked = !allChecked; });
-    });
-  });
-
   // Search buttons
   document.getElementById("search-flights-btn").addEventListener("click", searchFlights);
   document.getElementById("search-stays-btn").addEventListener("click", searchStaysAction);
@@ -140,11 +228,11 @@ function switchTab(tab) {
 // ── Flight search ─────────────────────────────────────────────────────
 
 async function searchFlights() {
-  const origins = getChecked("from");
-  const destinations = getChecked("to");
+  const origins = getSelected("from");
+  const destinations = getSelected("to");
 
-  if (origins.length === 0) return showStatus("Select at least one origin airport", "error");
-  if (destinations.length === 0) return showStatus("Select at least one destination airport", "error");
+  if (origins.length === 0) return showStatus("Add at least one origin (type a city or airport)", "error");
+  if (destinations.length === 0) return showStatus("Add at least one destination (type a city or airport)", "error");
 
   const departureDate = document.getElementById("depart-date").value;
   if (!departureDate) return showStatus("Select a departure date", "error");
@@ -585,8 +673,10 @@ function stayCardHtml(stay) {
 
 // ── Helpers ───────────────────────────────────────────────────────────
 
-function getChecked(dir) {
-  return [...document.querySelectorAll(`input[data-dir="${dir}"]:checked`)].map((cb) => cb.value);
+function getSelected(dir) {
+  // Send the IATA code of each selected place. City codes (e.g. TYO, LON)
+  // are valid Duffel origins/destinations and cover all their airports.
+  return state.selected[dir].map((p) => p.iata);
 }
 
 function disableBtn(id, disabled) {

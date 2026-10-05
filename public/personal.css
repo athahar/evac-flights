@@ -131,6 +131,140 @@ h1 {
   padding: 2px 0;
 }
 
+/* ── Airport typeahead picker ──────────────────────────────────────── */
+.airport-picker {
+  position: relative;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.chips:empty {
+  margin-bottom: 0;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 6px 4px 10px;
+  background: #e8f0fe;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+.chip-code {
+  font-family: var(--mono);
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.chip-name {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.chip-x {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0 2px;
+  border-radius: 50%;
+}
+
+.chip-x:hover {
+  color: var(--bad);
+}
+
+.ac-input {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  padding: 9px 11px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: white;
+  color: var(--text);
+}
+
+.ac-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(15, 98, 254, 0.15);
+}
+
+.ac-suggestions {
+  position: absolute;
+  z-index: 20;
+  left: 0;
+  right: 0;
+  margin: 4px 0 0;
+  padding: 4px;
+  list-style: none;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(17, 32, 51, 0.12);
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.ac-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.ac-item:hover,
+.ac-item.active {
+  background: #e8f0fe;
+}
+
+.ac-iata {
+  font-family: var(--mono);
+  font-weight: 500;
+  color: var(--accent);
+  min-width: 38px;
+}
+
+.ac-name {
+  flex: 1;
+  font-size: 0.86rem;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ac-tag {
+  font-size: 0.72rem;
+  color: var(--muted);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 1px 6px;
+  white-space: nowrap;
+}
+
+.ac-empty {
+  padding: 10px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-align: center;
+}
+
 .form-row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, auto));

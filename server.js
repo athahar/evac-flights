@@ -11,6 +11,7 @@ import { checkFr24ApiHealth } from "./lib/fr24.js";
 import { sendFeedbackEmail } from "./lib/email.js";
 import { createSearchAvailabilityService, loadSearchAirports, SearchAvailabilityError } from "./lib/search-availability.js";
 import { createPersonalSearchService } from "./lib/personal-search.js";
+import { suggestPlaces } from "./lib/duffel.js";
 
 dotenv.config();
 
@@ -477,6 +478,21 @@ app.get("/search", (_req, res) => {
 
 app.get("/personal", (_req, res) => {
   res.sendFile(path.resolve(process.cwd(), "./public/personal.html"));
+});
+
+app.get("/api/personal/places", async (req, res) => {
+  try {
+    const q = String(req.query.q || "").trim();
+    if (q.length < 2) {
+      res.json({ ok: true, places: [] });
+      return;
+    }
+    const places = await suggestPlaces(config, q);
+    res.json({ ok: true, places });
+  } catch (err) {
+    logError("[personal] places failed", err);
+    res.status(500).json({ ok: false, error: err.message });
+  }
 });
 
 app.post("/api/personal/flights", async (req, res) => {

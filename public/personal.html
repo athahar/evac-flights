@@ -24,20 +24,22 @@
     <div class="form-panel active" id="panel-flights">
       <div class="form-section">
         <h3>From</h3>
-        <div>
-          <button class="group-toggle" data-group="from-bay">Select All Bay Area</button>
-          <button class="group-toggle" data-group="from-hawaii">Select All Hawaii</button>
+        <div class="airport-picker" data-dir="from">
+          <div class="chips" id="from-chips"></div>
+          <input type="text" class="ac-input" id="from-input" autocomplete="off"
+                 placeholder="Type a city or airport — e.g. Tokyo, SFO, London" />
+          <ul class="ac-suggestions" id="from-suggestions" role="listbox" hidden></ul>
         </div>
-        <div class="airport-group" id="from-airports"></div>
       </div>
 
       <div class="form-section">
         <h3>To</h3>
-        <div>
-          <button class="group-toggle" data-group="to-bay">Select All Bay Area</button>
-          <button class="group-toggle" data-group="to-hawaii">Select All Hawaii</button>
+        <div class="airport-picker" data-dir="to">
+          <div class="chips" id="to-chips"></div>
+          <input type="text" class="ac-input" id="to-input" autocomplete="off"
+                 placeholder="Type any destination — e.g. Bali, CDG, New York" />
+          <ul class="ac-suggestions" id="to-suggestions" role="listbox" hidden></ul>
         </div>
-        <div class="airport-group" id="to-airports"></div>
       </div>
 
       <div class="form-section">
