@@ -1,6 +1,9 @@
 # DXB Flights
 
-> Independent Dubai travel information: seasons, airports, transport, neighbourhoods and connectivity. Flight tools are a separate section.
+> Independent Dubai and UAE travel guides: itineraries, places, airports, transport and mobile data.
+
+Canonical website: https://www.dxbflights.info/
+Editorial review date: 2026-10-30. Check changing prices, access rules and schedules with the linked official sources.
 
 ## Travel guides
 
@@ -10,7 +13,7 @@
 - [A Dubai layover: should you leave the airport?](https://www.dxbflights.info/dubai-layover-guide.html): Work back from your next flight before making a sightseeing plan.
 - [Where to stay in Dubai for a first visit](https://www.dxbflights.info/where-to-stay-in-dubai.html): Pick an area for your days, not just the hotel’s photos.
 - [Three days in Dubai: a first-visit outline](https://www.dxbflights.info/dubai-first-time-itinerary.html): One part of the city each day, with room to change your mind.
-- [Mobile data in Dubai: roaming, SIM or eSIM?](https://www.dxbflights.info/dubai-sim-esim.html): Keep maps and travel messages handy without guessing what your plan covers.
+- [Dubai eSIM and tourist SIM guide](https://www.dxbflights.info/dubai-sim-esim.html): Airport SIM options, data budgeting and a practical eSIM setup checklist.
 - [DXB or DWC? Check your Dubai airport](https://www.dxbflights.info/dubai-airports-guide.html): Two Dubai airports. Check the code on every flight.
 - [Burj Khalifa: choosing a ticket and a time](https://www.dxbflights.info/burj-khalifa-visit.html): Plan a Burj Khalifa visit: observation decks, daylight or sunset, the Dubai Mall entrance and what to combine nearby.
 - [Dubai Mall: a visit that leaves time for the city](https://www.dxbflights.info/dubai-mall-guide.html): Choose what to see at Dubai Mall, combine it with Burj Khalifa and plan the walk from the Metro without overloading your day.
@@ -41,10 +44,16 @@
 
 ## Flight tools
 
-- [Flight availability](https://www.dxbflights.info/flights.html): Outbound availability board. Confirm schedules and fares with the airline.
+- [Flight availability](https://www.dxbflights.info/flights.html): Outbound availability board; confirm with the airline.
 - [Flight search](https://www.dxbflights.info/search.html): On-demand search, subject to service availability.
-- [Muscat guide archive](https://www.dxbflights.info/uae-to-muscat-guide.html): March 2026 information; verify current conditions.
+- [Muscat guide archive](https://www.dxbflights.info/uae-to-muscat-guide.html): March 2026 archive, not current operational advice.
 
-## Ownership
+## Machine-readable resources
 
-DXB Flights and OffWeGoSIM share an owner. OffWeGoSIM links in the connectivity guide are clearly labelled.
+- [Sitemap](https://www.dxbflights.info/sitemap.xml): Canonical public page URLs.
+- [Extended guide text](https://www.dxbflights.info/llms-advanced.txt): Full travel guide text and sources.
+- [Full-text alias](https://www.dxbflights.info/llms-full.txt): The same extended document.
+
+## About the information
+
+OffWeGoSIM plan prices and availability are loaded in the widget. Use the live plan page for current purchase details. These files describe public editorial content only; they contain no customer or booking records.

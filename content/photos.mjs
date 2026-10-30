@@ -28,6 +28,7 @@ export const heroPhotos={
  'dubai-5-day-itinerary':'skyline','dubai-7-day-itinerary':'mosque','uae-2-week-itinerary':'jais'
 };
 export const inlinePhotos={
+ 'dubai-sim-esim':{'data-budget':'marina'},
  'where-to-stay-in-dubai':{shortlist:'creek','match-trip':'palm'},
  'dubai-first-time-itinerary':{downtown:'skyline',waterfront:'marina'},
  'dubai-5-day-itinerary':{'day-1':'creek','day-3':'marina','day-5':'mleiha'},
