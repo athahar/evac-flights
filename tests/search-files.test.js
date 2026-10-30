@@ -15,6 +15,7 @@ test('sitemap pages exist with matching canonical URLs and unique metadata', () 
   for (const url of urls) {
     const html = read(new URL(url).pathname.slice(1) || 'index.html');
     assert.equal(canonical(html), url);
+    assert.doesNotMatch(html, /<meta[^>]+content=["'][^"']*noindex/i, `Noindex page in sitemap: ${url}`);
     const title = /<title>([^<]+)<\/title>/.exec(html)?.[1];
     assert.ok(title, url);
     assert.ok(!titles.has(title), `Duplicate title: ${title}`);

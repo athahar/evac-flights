@@ -24,7 +24,7 @@ Widget colour themes remain future work.
 Run `npm run build:guides` after editing content. Commit the generated files.
 `npm run check:guides` checks that the public files match their sources.
 
-- `sitemap.xml`: the 40 canonical public pages, including 33 travel guides.
+- `sitemap.xml`: the 39 canonical indexable pages, including 33 travel guides. The noindex disclaimer is excluded.
 - `robots.txt`: public pages allowed, API and data paths excluded from crawling.
 - `llms.txt`: a short guide index and links to the extended text.
 - `llms-advanced.txt`: all travel-guide text and source links.
