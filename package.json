@@ -12,7 +12,9 @@
     "filter:fr24:no-me": "node scripts/filter-fr24-no-me.js",
     "filter:fr24:priority": "node scripts/filter-fr24-priority.js",
     "check:duffel:priority": "node scripts/check-duffel-availability.js",
-    "check:duffel:all": "node scripts/check-duffel-availability.js --input ./data/output/fr24-march-05.no-me.scheduled-estimated.tsv --output ./data/output/fr24-march-05.no-me.all.duffel-availability.tsv"
+    "check:duffel:all": "node scripts/check-duffel-availability.js --input ./data/output/fr24-march-05.no-me.scheduled-estimated.tsv --output ./data/output/fr24-march-05.no-me.all.duffel-availability.tsv",
+    "build:guides": "node scripts/build-travel-guides.mjs",
+    "check:guides": "node scripts/build-travel-guides.mjs --check"
   },
   "engines": {
     "node": ">=20.0.0"

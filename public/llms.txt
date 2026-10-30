@@ -1,13 +1,50 @@
 # DXB Flights
 
-> Flight departure tracker and live flight search for travellers leaving Dubai (DXB) and the UAE, with a practical guide for departing overland via Muscat, Oman. Built in March 2026 to help people find bookable outbound flights quickly.
+> Independent Dubai travel information: seasons, airports, transport, neighbourhoods and connectivity. Flight tools are a separate section.
 
-## Pages
+## Travel guides
 
-- [DXB Flight Tracker](https://www.dxbflights.info/): Dashboard of upcoming departures out of Dubai and nearby UAE airports.
-- [Live Flight Search](https://www.dxbflights.info/search.html): Search live bookable flights by origin, date, and destination, with direct booking links to airlines and travel agencies.
-- [UAE to Muscat Departure Guide](https://www.dxbflights.info/uae-to-muscat-guide.html): Step-by-step guide for travelling from the UAE via Muscat, Oman — visas, border crossing, Muscat airport, and onward flights (March 2026).
+- [Places across the UAE](https://www.dxbflights.info/places-to-visit-uae.html): Guides grouped by emirate.
+- [When is the best time to visit Dubai?](https://www.dxbflights.info/best-time-to-visit-dubai.html): Start with the weather, then compare the cost of your whole trip.
+- [Dubai Airport to the city: Metro or taxi?](https://www.dxbflights.info/dubai-airport-to-city.html): Choose your transfer by terminal, arrival time and hotel location.
+- [A Dubai layover: should you leave the airport?](https://www.dxbflights.info/dubai-layover-guide.html): Work back from your next flight before making a sightseeing plan.
+- [Where to stay in Dubai for a first visit](https://www.dxbflights.info/where-to-stay-in-dubai.html): Pick an area for your days, not just the hotel’s photos.
+- [Three days in Dubai: a first-visit outline](https://www.dxbflights.info/dubai-first-time-itinerary.html): One part of the city each day, with room to change your mind.
+- [Mobile data in Dubai: roaming, SIM or eSIM?](https://www.dxbflights.info/dubai-sim-esim.html): Keep maps and travel messages handy without guessing what your plan covers.
+- [DXB or DWC? Check your Dubai airport](https://www.dxbflights.info/dubai-airports-guide.html): Two Dubai airports. Check the code on every flight.
+- [Burj Khalifa: choosing a ticket and a time](https://www.dxbflights.info/burj-khalifa-visit.html): Plan a Burj Khalifa visit: observation decks, daylight or sunset, the Dubai Mall entrance and what to combine nearby.
+- [Dubai Mall: a visit that leaves time for the city](https://www.dxbflights.info/dubai-mall-guide.html): Choose what to see at Dubai Mall, combine it with Burj Khalifa and plan the walk from the Metro without overloading your day.
+- [Dubai Marina and JBR: a waterfront afternoon](https://www.dxbflights.info/dubai-marina-jbr.html): Plan a Dubai Marina and JBR visit with a waterfront walk, beach time and advice on choosing a boat trip.
+- [Palm Jumeirah: The View, the beach or Aquaventure?](https://www.dxbflights.info/palm-jumeirah-guide.html): Choose a Palm Jumeirah outing: The View observation deck, Palm West Beach or a full waterpark day, with transport and timing advice.
+- [Dubai Frame: views of old and new Dubai](https://www.dxbflights.info/dubai-frame-guide.html): Plan Dubai Frame in Zabeel Park, choose a daylight slot and compare it with Burj Khalifa for a shorter Dubai visit.
+- [Museum of the Future: check the closure before planning](https://www.dxbflights.info/museum-of-the-future-guide.html): Museum of the Future is temporarily closed for redevelopment. Check reopening updates, understand the location and choose an alternative Dubai visit.
+- [Old Dubai: Al Fahidi, the Creek and the Gold Souk](https://www.dxbflights.info/old-dubai-souks.html): Walk Al Fahidi, cross Dubai Creek and visit the Gold and Spice Souks. A practical route with timing, shopping and quieter museum options.
+- [Dubai desert safari: choose the experience, then the package](https://www.dxbflights.info/dubai-desert-safari-guide.html): Compare dune drives, wildlife outings, desert dinners and overnight stays around Dubai, plus Mleiha and Liwa alternatives.
+- [Al Marmoom camel racing and Al Qudra](https://www.dxbflights.info/al-marmoom-camel-racing.html): How to plan a camel-racing visit at Al Marmoom, check a real fixture and combine the trip with Al Qudra without assuming a daily show.
+- [Hatta: the dam, mountain trails and Wadi Hub](https://www.dxbflights.info/hatta-day-trip.html): Plan a Hatta day trip from Dubai with kayaking, Wadi Hub activities and heritage stops. Check activity seasons and allow time for the return drive.
+- [Abu Dhabi: the mosque, museums and waterfront](https://www.dxbflights.info/abu-dhabi-city-guide.html): Plan an Abu Dhabi visit around Sheikh Zayed Grand Mosque, Louvre Abu Dhabi and Qasr Al Watan. Choose two main stops and stay overnight if you can.
+- [Yas Island: which day out fits your trip?](https://www.dxbflights.info/yas-island-guide.html): Choose a Yas Island day around Ferrari World, Warner Bros. World, Yas Waterworld or SeaWorld Abu Dhabi. Practical advice on tickets, transport and pacing.
+- [Abu Dhabi’s islands: choose the right one](https://www.dxbflights.info/abu-dhabi-islands-guide.html): Compare Saadiyat, Yas, Jubail, Hudayriyat and Sir Bani Yas for an Abu Dhabi trip. Which islands work as city outings, and which need a separate stay?
+- [Al Ain: oasis paths, forts and Jebel Hafit](https://www.dxbflights.info/al-ain-guide.html): Visit Al Ain Oasis, Al Jahili Fort, Qasr Al Muwaiji and Jebel Hafit. A practical overnight stop between Abu Dhabi and the UAE’s east coast.
+- [Liwa: make time for the desert](https://www.dxbflights.info/liwa-desert-guide.html): Plan a Liwa desert stay in Al Dhafra, beyond Abu Dhabi city. Allow an overnight stop, book guided activities and avoid treating it as a short Dubai detour.
+- [Sharjah: heritage lanes, art and the lagoon](https://www.dxbflights.info/sharjah-city-guide.html): Plan a Sharjah visit around Heart of Sharjah, Rain Room and Al Noor Island. Choose a compact city day, with Mleiha and the east coast as separate trips.
+- [Mleiha: archaeology before the dunes](https://www.dxbflights.info/mleiha-desert-guide.html): Explore Mleiha in Sharjah for archaeology, guided desert experiences and stargazing. How to choose a visit beyond a standard Dubai safari.
+- [Khorfakkan, Al Rafisah and Shees: an east-coast day](https://www.dxbflights.info/khorfakkan-shees-guide.html): Plan a Khorfakkan day with Al Rafisah Dam, Shees and the waterfront. Separate an easy park visit from a mountain walk and allow daylight for the road.
+- [Wadis in the UAE: choose a walk that fits](https://www.dxbflights.info/uae-wadis-guide.html): Compare Wadi Shawka, Shees and Hatta for a UAE mountain day. Understand access, weather and why Wadi Wurayah is not a normal walk-in visitor attraction.
+- [Ras Al Khaimah: mountain views and the old coast](https://www.dxbflights.info/ras-al-khaimah-guide.html): Plan Ras Al Khaimah around Jebel Jais, Dhayah Fort and Jazirat Al Hamra. Allow separate mountain and coastal days, with time for smaller heritage stops.
+- [Ajman: mangroves, the museum and a slower coast](https://www.dxbflights.info/ajman-guide.html): Visit Ajman for Al Zorah mangroves, Ajman Museum and the Corniche. Learn why Masfout is a separate inland trip rather than a quick city detour.
+- [Umm Al Quwain: mangroves and a quiet coastal day](https://www.dxbflights.info/umm-al-quwain-guide.html): Plan an Umm Al Quwain visit for mangroves, the old peninsula and coastal heritage. Arrange water activities and avoid assuming unrestricted island access.
+- [Fujairah: forts, the east coast and mountain roads](https://www.dxbflights.info/fujairah-guide.html): Plan a Fujairah visit around the fort, Al Bidya Mosque, the coast and Al Hail. Combine nearby stops and check access before heading into mountain valleys.
+- [5 days in Dubai: the Creek, skyline and desert](https://www.dxbflights.info/dubai-5-day-itinerary.html): A five-day Dubai itinerary with Old Dubai, Burj Khalifa, Marina, the Palm and a desert day. Practical pacing, summer alternatives and links to each place.
+- [7 days in Dubai and Abu Dhabi](https://www.dxbflights.info/dubai-7-day-itinerary.html): A seven-day Dubai and Abu Dhabi itinerary: five Dubai days, then two days for the Grand Mosque, museums or Yas Island. Includes a Dubai-only alternative.
+- [2 weeks in the UAE: a route beyond Dubai](https://www.dxbflights.info/uae-2-week-itinerary.html): A 14-day UAE road-trip itinerary through Dubai, Abu Dhabi, Al Ain, Fujairah, Khorfakkan, Ras Al Khaimah, Ajman, Umm Al Quwain and Sharjah.
 
-## Legal
+## Flight tools
 
-- [Disclaimer & Terms of Use](https://www.dxbflights.info/disclaimer.html): Flight data is informational only; verify with airlines before booking.
+- [Flight availability](https://www.dxbflights.info/flights.html): Outbound availability board. Confirm schedules and fares with the airline.
+- [Flight search](https://www.dxbflights.info/search.html): On-demand search, subject to service availability.
+- [Muscat guide archive](https://www.dxbflights.info/uae-to-muscat-guide.html): March 2026 information; verify current conditions.
+
+## Ownership
+
+DXB Flights and OffWeGoSIM share an owner. OffWeGoSIM links in the connectivity guide are clearly labelled.

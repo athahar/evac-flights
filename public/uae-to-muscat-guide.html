@@ -1055,6 +1055,7 @@
 
     .sidebar {
       grid-area: sidebar;
+      min-width: 0;
       position: sticky;
       top: 20px;
       max-height: calc(100vh - 40px);
@@ -1069,6 +1070,15 @@
     .sidebar::-webkit-scrollbar-thumb { background: var(--line); border-radius: 2px; }
 
     /* ===== SIDEBAR COMPONENTS ===== */
+    .sb-widget {
+      max-width: 440px;
+      margin-bottom: 20px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
     .sb-section {
       margin-bottom: 20px;
     }
@@ -2184,6 +2194,7 @@
   </style>
 </head>
 <body>
+  <aside style="padding:16px 24px;background:#fff4d6;color:#493916;font-size:14px;text-align:center">Archive: this guide describes March 2026 conditions. Confirm current travel requirements and services before making plans. <a href="/">Dubai travel guides</a></aside>
 
 <!-- ============================================================
      DISCLAIMER BANNER (shown on first load)
@@ -2227,7 +2238,7 @@
 
 <!-- HERO -->
 <header class="hero">
-  <div class="back-nav"><a href="/">← Flight Dashboard</a></div>
+  <div class="back-nav"><a href="/flights.html">← Flight Dashboard</a></div>
   <div class="hero-bg"></div>
   <div class="hero-pattern"></div>
   <div class="hero-content">
@@ -3103,6 +3114,11 @@
 
 <!-- ======== SIDEBAR ======== -->
 <aside class="sidebar">
+
+  <section class="sb-widget" aria-label="Travel eSIM data plans">
+    <script src="https://offwegosim.com/widget/v1/embed.js" data-load-plans="all" data-layout="vertical" data-referral-id="" data-source="dxbflights" data-campaign="muscat_guide" async></script>
+    <noscript><a href="https://offwegosim.com/country?utm_source=dxbflights&amp;utm_medium=referral&amp;utm_campaign=muscat_guide">View destinations on OffWeGoSIM</a></noscript>
+  </section>
 
   <!-- DISCLAIMER -->
   <div class="sb-disclaimer">
