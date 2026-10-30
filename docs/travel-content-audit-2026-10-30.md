@@ -61,7 +61,7 @@ The pre-existing Muscat article describes March 2026 conditions. It is labelled 
 - Run `npm run build:guides` after editing content, then `npm run check:guides`.
 - Generated HTML is committed alongside source so the existing Express static host needs no new framework or runtime build step.
 - Flight board: `/flights.html`; flight search stays `/search.html` (and existing server `/search` route). Old homepage bookmarks containing `origin` or `ff` redirect to the board and preserve their parameters.
-- Production deployment and Search Console sitemap submission remain separate from this local review.
+- DXB Flights and the shared OffWeGoSIM widget were published on 30 October 2026. Search Console sitemap submission remains separate.
 
 ### Local verification
 
@@ -87,4 +87,4 @@ Attraction opening status is not assumed. Museum of the Future's temporary exhib
 
 Nineteen licensed photographs are stored locally, with photographer/source links in visible captions and `/photo-credits.html`. Place guides include location images; longer itineraries and the stay-area guide have inline photography. Captions distinguish regional images (e.g. Mleiha dunes) from the specific activity discussed (e.g. Al Marmoom racing). No photograph is presented as our own visit.
 
-The homepage keeps a compact connectivity reference. The full eSIM chooser is on `/dubai-sim-esim.html#plans`, with a horizontal layout and six grouped data cards for the eight current UAE variants. It uses the reusable one-line embed, country locked to AE, no referral ID, and the `dxbflights` UTM source. OffWeGoSIM must publish the widget first; these changes remain local for owner review.
+The homepage pairs three stacked arrival-guide links with a vertical UAE widget. The separate promotional banner is removed. The full connectivity guide remains at `/dubai-sim-esim.html`, linked from the shared footer, with a horizontal chooser at `#plans`. Both use the published one-line OffWeGoSIM embed, country locked to AE, no referral ID and the `dxbflights` source. The homepage campaign is `home_arrival`; the guide campaign is `dubai_travel_guides`. The latest layout was checked at 1440px and 390px with no horizontal overflow; all 25 flight and analytics tests and the generated-page consistency check passed.
