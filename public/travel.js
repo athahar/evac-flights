@@ -73,7 +73,7 @@ async function initAnalytics() {
     capture = entry => {
       if (!analyticsAllowed()) return;
       const payload = JSON.stringify({api_key: config.posthogKey, event: entry.event, distinct_id: distinctId, timestamp: entry.timestamp, properties: {
-        ...entry.properties, app: 'dxb-flight-tracker', path: location.pathname, page: pageType,
+        ...(globalThis.dxbVisitContext?.() || {}), ...entry.properties, app: 'dxb-flight-tracker', path: location.pathname, page: pageType,
         $current_url: location.origin + location.pathname, $pathname: location.pathname, $host: location.hostname,
         $title: document.title, $process_person_profile: false
       }});

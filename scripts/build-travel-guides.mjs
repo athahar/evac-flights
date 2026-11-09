@@ -26,7 +26,7 @@ function page({title,description,url,body,schemas=[],image='skyline'}) {
 <meta property="og:type" content="${url==='/'?'website':'article'}"><meta property="og:title" content="${escape(title)}"><meta property="og:description" content="${escape(description)}"><meta property="og:url" content="${origin}${url}"><meta property="og:site_name" content="DXB Flights"><meta property="og:image" content="${origin}/images/${pictures[image].src}"><meta property="og:image:alt" content="${escape(pictures[image].alt)}"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/travel-mark.svg" type="image/svg+xml"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/travel.css">${schemas.map(s=>`<script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org',...s}).replace(/</g,'\\u003c')}</script>`).join('')}
-</head><body>${header}<main id="main">${body}</main>${footer}<script type="module" src="/travel.js"></script></body></html>\n`;
+</head><body>${header}<main id="main">${body}</main>${footer}<script src="/visit-context.js"></script><script type="module" src="/travel.js"></script></body></html>\n`;
 }
 
 const guide = slug => { const g=guides.find(g=>g.slug===slug); if(!g)throw Error(`Missing guide: ${slug}`);return g; };

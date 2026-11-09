@@ -121,6 +121,7 @@ function trackEvent(event, properties = {}) {
     api_key: analytics.key,
     event,
     properties: {
+      ...(window.dxbVisitContext?.() || {}),
       distinct_id: analytics.distinctId,
       app: "dxb-flight-tracker",
       page: "search",
@@ -713,6 +714,7 @@ async function init() {
       analytics.host = String(cfg.posthogHost || "https://us.i.posthog.com").trim() || "https://us.i.posthog.com";
       analytics.distinctId = getOrCreateDistinctId();
       analytics.enabled = true;
+      trackEvent("$pageview");
       trackEvent("search_page_view", {
         timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "unknown"
       });

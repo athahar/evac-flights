@@ -128,6 +128,7 @@ function trackEvent(event, properties = {}) {
     api_key: analytics.key,
     event,
     properties: {
+      ...(window.dxbVisitContext?.() || {}),
       distinct_id: analytics.distinctId,
       app: "dxb-flight-tracker",
       path: window.location.pathname,
@@ -179,6 +180,7 @@ async function initAnalytics() {
     analytics.distinctId = getOrCreateDistinctId();
     analytics.enabled = true;
 
+    trackEvent("$pageview", { page: "flight_availability_board" });
     trackEvent("page_view", {
       page: "flight_availability_board",
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "unknown",

@@ -4012,6 +4012,7 @@
 </script>
 
 <!-- PostHog analytics -->
+<script src="/visit-context.js"></script>
 <script>
 (async function () {
   try {
@@ -4032,27 +4033,29 @@
       try { window.localStorage.setItem(storageKey, distinctId); } catch {}
     }
 
-    const payload = JSON.stringify({
-      api_key: key,
-      event: 'guide_page_viewed',
-      properties: {
-        distinct_id: distinctId,
-        app: 'dxb-flight-tracker',
-        page: 'uae_to_muscat_guide',
-        path: window.location.pathname,
-        href: window.location.href,
-        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || 'unknown'
-      }
-    });
-
     const endpoint = host.replace(/\/$/, '') + '/capture/';
-    try {
-      if (navigator.sendBeacon) {
-        navigator.sendBeacon(endpoint, new Blob([payload], { type: 'application/json' }));
-        return;
-      }
-    } catch {}
-    fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: payload, keepalive: true }).catch(function () {});
+    function send(event, properties) {
+      const payload = JSON.stringify({
+        api_key: key,
+        event: event,
+        properties: Object.assign({}, window.dxbVisitContext ? window.dxbVisitContext() : {}, {
+          distinct_id: distinctId,
+          app: 'dxb-flight-tracker',
+          page: 'uae_to_muscat_guide',
+          path: window.location.pathname
+        }, properties)
+      });
+      try {
+        if (navigator.sendBeacon && navigator.sendBeacon(endpoint, new Blob([payload], { type: 'application/json' }))) return;
+      } catch {}
+      fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: payload, keepalive: true }).catch(function () {});
+    }
+
+    send('$pageview', {});
+    send('guide_page_viewed', {
+      href: window.location.href,
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || 'unknown'
+    });
   } catch {}
 })();
 </script>
