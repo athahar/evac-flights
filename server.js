@@ -8,6 +8,7 @@ import { createDashboardRunner } from "./lib/dashboard-runner.js";
 import { loadAirlineDirectory } from "./lib/airlineLinks.js";
 import { createStorage } from "./lib/storage/index.js";
 import { checkFr24ApiHealth } from "./lib/fr24.js";
+import { createCrawlerTracker } from "./lib/crawler-tracking.js";
 import { sendFeedbackEmail } from "./lib/email.js";
 import { createSearchAvailabilityService, loadSearchAirports, SearchAvailabilityError } from "./lib/search-availability.js";
 
@@ -25,6 +26,7 @@ const searchAirportsByIata = config.searchEnabled
 
 const app = express();
 app.use(express.json({ limit: "1mb" }));
+app.use(createCrawlerTracker({ posthogKey: config.posthogKey, posthogHost: config.posthogHost }));
 app.use(express.static(path.resolve(process.cwd(), "./public")));
 
 let scanInFlight = false;
